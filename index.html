@@ -14,21 +14,18 @@
   .main-header{background:linear-gradient(135deg,var(--orange),var(--red));color:var(--white);padding:28px 36px;text-align:center;border-bottom:4px solid var(--yellow);}
   .main-header h1{font-size:2em;color:var(--yellow);text-shadow:2px 2px 6px rgba(0,0,0,.6);margin-bottom:8px;}
   .main-header .subtitle{font-size:1.05em;opacity:.9;}
-  .section-label{font-size:1.1em;font-weight:bold;color:var(--dark-red);padding:14px 22px;background:linear-gradient(90deg,var(--red),var(--orange));color:var(--white);border-radius:12px 12px 0 0;display:flex;align-items:center;gap:10px;margin:28px auto 0;max-width:1100px;}
-  .session-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:0;background:var(--white);border:2px solid var(--orange);border-top:none;border-radius:0 0 12px 12px;margin-bottom:28px;}
-  .session-card{display:block;padding:20px 24px;border-bottom:1px solid #FFE4B5;text-decoration:none;color:inherit;transition:background .2s;}
-  .session-card:hover{background:#FFF3E0;}
-  .session-card:last-child{border-bottom:none;}
-  .card-date{font-size:.8em;color:#7a4a00;margin-bottom:6px;}
-  .card-title{font-size:1.08em;font-weight:bold;color:var(--dark-red);margin-bottom:6px;line-height:1.4;}
-  .card-desc{font-size:.88em;color:#3D2000;line-height:1.8;margin-bottom:10px;}
-  .card-chips{display:flex;flex-wrap:wrap;gap:6px;}
-  .chip{font-size:.76em;background:#fff3dc;border:1px solid var(--orange);color:#7a4a00;border-radius:14px;padding:2px 10px;}
-  .card-arrow{float:right;color:var(--orange);font-size:1.2em;margin-top:-2px;}
+  .section-label{font-size:1.1em;font-weight:bold;padding:14px 22px;background:linear-gradient(90deg,var(--red),var(--orange));color:var(--white);border-radius:12px 12px 0 0;display:flex;align-items:center;gap:10px;margin:28px auto 0;max-width:1100px;}
+  .topic-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));background:var(--white);border:2px solid var(--orange);border-top:none;border-radius:0 0 12px 12px;margin-bottom:28px;}
+  .topic-card{display:block;padding:22px 24px;border-bottom:1px solid #FFE4B5;text-decoration:none;color:inherit;transition:background .2s;border-right:1px solid #FFE4B5;}
+  .topic-card:hover{background:#FFF3E0;}
+  .topic-icon{font-size:1.6em;margin-bottom:8px;display:block;}
+  .topic-title{font-size:1.1em;font-weight:bold;color:var(--dark-red);margin-bottom:4px;line-height:1.35;}
+  .topic-desc{font-size:.84em;color:#7a4a00;line-height:1.7;}
+  .topic-arrow{float:right;color:var(--orange);font-size:1.2em;margin-top:2px;}
   footer{background:var(--dark-red);color:var(--white);text-align:center;padding:22px;border-top:6px solid var(--yellow);margin-top:10px;}
   footer p{color:var(--yellow);font-size:.95em;margin:5px 0;}
   footer .small{font-size:.78em;color:#FFAA00;}
-  @media(max-width:600px){.main-header h1{font-size:1.4em;}.session-grid{grid-template-columns:1fr;}}
+  @media(max-width:600px){.main-header h1{font-size:1.4em;}.topic-grid{grid-template-columns:1fr;}.topic-card{border-right:none;}}
 </style>
 </head>
 <body>
@@ -36,26 +33,54 @@
 <div class="banner-area">
   <div class="banner-placeholder">॥ श्रीकृष्णाय नमः ॥<br><span style="font-size:.45em;color:#FFCC00;">पुष्टिमार्ग स्वाध्याय पुस्तकालय</span></div>
 </div>
-
 <div class="main-header">
   <h1>॥ पुष्टिमार्ग स्वाध्याय पुस्तकालय ॥</h1>
   <div class="subtitle">श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय सत्रों का संकलन</div>
 </div>
 
-<div class="section-label">📚 हाल के सत्र</div>
-<div class="session-grid">
+<div class="section-label">📚 विषय चुनें</div>
+<div class="topic-grid">
 
-  <a class="session-card" href="shikshapatra-23.html">
-    <span class="card-arrow">→</span>
-    <div class="card-date">📅 09 July 2026</div>
-    <div class="card-title">शिक्षापत्र २३ — श्लोक १०-१४</div>
-    <div class="card-desc">बहिर्मुखता निवृत्ति के साधन, निसाधनता और शरणागति का भावन, सेवकत्व और भगवदधीनता</div>
-    <div class="card-chips">
-      <span class="chip">शरणागति</span>
-      <span class="chip">सेवकत्व</span>
-      <span class="chip">भागवत</span>
-      <span class="chip">निसाधनता</span>
-    </div>
+  <a class="topic-card" href="shikshapatra/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">📜</span>
+    <div class="topic-title">शिक्षापत्र</div>
+    <div class="topic-desc">श्री हरिरायजी कृत शिक्षापत्र के सत्र</div>
+  </a>
+
+  <a class="topic-card" href="brahmasutra/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">🕉️</span>
+    <div class="topic-title">ब्रह्मसूत्राणुभाष्य</div>
+    <div class="topic-desc">श्रीमन्महाप्रभुजी कृत ब्रह्मसूत्राणुभाष्य के सत्र</div>
+  </a>
+
+  <a class="topic-card" href="bhagavad-varta/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">🗣️</span>
+    <div class="topic-title">भगवद् वार्ता उच्चार शुद्धि</div>
+    <div class="topic-desc">भगवद् वार्ता के शुद्ध उच्चारण के सत्र</div>
+  </a>
+
+  <a class="topic-card" href="prameya-ratna/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">💎</span>
+    <div class="topic-title">प्रमेयरत्नसंग्रह</div>
+    <div class="topic-desc">श्रीमन्महाप्रभुजी कृत प्रमेयरत्नसंग्रह के सत्र</div>
+  </a>
+
+  <a class="topic-card" href="subodhini-gujarati/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">📖</span>
+    <div class="topic-title">श्रीसुबोधिनी अवगाहन — ગુજરાતી</div>
+    <div class="topic-desc">सुबोधिनी अवगाहन — गुजराती भाषा में सत्र</div>
+  </a>
+
+  <a class="topic-card" href="subodhini-hindi/">
+    <span class="topic-arrow">→</span>
+    <span class="topic-icon">📗</span>
+    <div class="topic-title">सुबोधिनी — हिंदी</div>
+    <div class="topic-desc">श्रीसुबोधिनी — हिंदी भाषा में सत्र</div>
   </a>
 
 </div>
@@ -65,6 +90,5 @@
   <p>श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</p>
   <p class="small">यह संकलन स्वाध्याय हेतु निर्मित है। सर्वाधिकार सुरक्षित।</p>
 </footer>
-
 </body>
 </html>
