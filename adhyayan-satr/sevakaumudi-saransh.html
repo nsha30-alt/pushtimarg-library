@@ -1,0 +1,1173 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>सेवाकौमुदी सारांश — श्रीवल्लभाचार्य विद्यापीठ</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap');
+
+  :root {
+    --red:       #c0141a;
+    --dark-red:  #8b0000;
+    --orange:    #e06010;
+    --gold:      #d4a017;
+    --yellow:    #f5c518;
+    --cream:     #fff9f0;
+    --white:     #ffffff;
+    --light-bg:  #fff3e0;
+    --section-bg:#fff8f0;
+    --border:    #e06010;
+    --text:      #2a0a00;
+    --muted:     #7a4000;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'Noto Serif Devanagari', 'Tiro Devanagari Hindi', serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.85;
+    font-size: 16px;
+  }
+
+  /* ── BANNER ── */
+  .banner-wrapper {
+    width: 100%;
+    background: linear-gradient(135deg, var(--dark-red) 0%, var(--red) 40%, var(--orange) 75%, var(--gold) 100%);
+    padding: 0;
+    border-bottom: 5px solid var(--yellow);
+    position: relative;
+    overflow: hidden;
+  }
+  .banner-wrapper::before {
+    content:'';
+    position:absolute; inset:0;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    pointer-events:none;
+  }
+
+  .banner-inner {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 18px 30px 22px;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .banner-institution {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 2.6rem;
+    font-weight: 700;
+    color: var(--yellow);
+    text-shadow: 0 2px 8px rgba(0,0,0,0.5);
+    letter-spacing: 0.02em;
+    line-height: 1.2;
+  }
+  .banner-address {
+    color: var(--white);
+    font-size: 0.85rem;
+    margin-top: 6px;
+    opacity: 0.92;
+  }
+  .banner-website {
+    color: var(--yellow);
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-top: 4px;
+    letter-spacing: 0.04em;
+  }
+  .banner-subtitle-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin-top: 12px;
+  }
+  .banner-box {
+    background: rgba(0,0,0,0.3);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 6px;
+    padding: 10px 14px;
+    font-size: 0.82rem;
+    color: var(--white);
+    flex: 1;
+    text-align: center;
+    line-height: 1.6;
+  }
+  .banner-box strong { color: var(--yellow); display: block; font-size: 0.88rem; margin-bottom: 3px; }
+
+  /* ── TITLE BLOCK ── */
+  .title-block {
+    background: linear-gradient(180deg, #1a0000 0%, #3d0000 100%);
+    color: var(--yellow);
+    text-align: center;
+    padding: 28px 20px 24px;
+    border-bottom: 4px double var(--gold);
+  }
+  .title-logo {
+    width: 110px;
+    height: 110px;
+    object-fit: contain;
+    border-radius: 50%;
+    border: 3px solid var(--gold);
+    box-shadow: 0 0 18px rgba(212,160,23,0.6), 0 0 0 4px rgba(255,255,255,0.15);
+    margin-bottom: 12px;
+    background: white;
+    padding: 4px;
+  }
+  .main-title {
+    font-family: 'Noto Serif Devanagari', serif;
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--yellow);
+    text-shadow: 0 2px 12px rgba(212,160,23,0.5);
+    margin-bottom: 8px;
+  }
+  .subtitle-line { color: rgba(255,255,255,0.75); font-size: 0.9rem; margin-bottom: 6px; }
+  .doc-desc {
+    font-size: 0.92rem;
+    color: rgba(255,220,100,0.9);
+    max-width: 750px;
+    margin: 10px auto 0;
+    line-height: 1.7;
+  }
+  .notice {
+    font-size: 0.82rem;
+    color: rgba(255,255,255,0.6);
+    margin-top: 8px;
+    font-style: italic;
+  }
+
+  /* ── MAIN CONTAINER ── */
+  .container { max-width: 980px; margin: 0 auto; padding: 28px 22px 60px; }
+
+  /* ── USAGE BOX ── */
+  .usage-box {
+    background: var(--white);
+    border: 2px solid var(--orange);
+    border-left: 6px solid var(--red);
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin-bottom: 30px;
+    box-shadow: 0 2px 12px rgba(192,20,26,0.08);
+  }
+  .usage-box h3 {
+    color: var(--red);
+    font-size: 1.05rem;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .usage-box ul { list-style: none; padding: 0; }
+  .usage-box ul li {
+    padding: 5px 0 5px 22px;
+    position: relative;
+    font-size: 0.92rem;
+    color: var(--text);
+    border-bottom: 1px dashed rgba(224,96,16,0.2);
+  }
+  .usage-box ul li:last-child { border-bottom: none; }
+  .usage-box ul li::before {
+    content: '▶';
+    position: absolute; left: 0;
+    color: var(--orange);
+    font-size: 0.7rem;
+    top: 8px;
+  }
+  .usage-box ul li strong { color: var(--red); }
+
+  /* ── TOC ── */
+  .toc-section {
+    background: linear-gradient(135deg, #fff3e0 0%, #fff9f0 100%);
+    border: 2px solid var(--gold);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin-bottom: 36px;
+    box-shadow: 0 4px 18px rgba(212,160,23,0.12);
+  }
+  .toc-section h2 {
+    font-size: 1.2rem;
+    color: var(--dark-red);
+    margin-bottom: 16px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--gold);
+    display: flex; align-items: center; gap: 8px;
+  }
+  .toc-list { list-style: none; padding: 0; columns: 1; }
+  .toc-list li { margin-bottom: 4px; }
+  .toc-list li a {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--dark-red);
+    text-decoration: none;
+    font-size: 0.93rem;
+    padding: 6px 10px;
+    border-radius: 5px;
+    transition: background 0.2s, color 0.2s;
+    line-height: 1.5;
+  }
+  .toc-list li a:hover {
+    background: rgba(192,20,26,0.07);
+    color: var(--red);
+  }
+  .toc-num {
+    background: var(--red);
+    color: var(--white);
+    border-radius: 4px;
+    padding: 1px 7px;
+    font-size: 0.78rem;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    min-width: 36px;
+    text-align: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* ── DIVIDER ── */
+  .divider {
+    display: flex; align-items: center; gap: 12px;
+    margin: 36px 0 24px;
+  }
+  .divider-line { flex: 1; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+  .divider-symbol { color: var(--orange); font-size: 1.1rem; }
+
+  /* ── PART SECTION ── */
+  .part-section {
+    background: var(--white);
+    border-radius: 10px;
+    border: 1px solid rgba(224,96,16,0.25);
+    margin-bottom: 32px;
+    box-shadow: 0 2px 14px rgba(192,20,26,0.06);
+    overflow: hidden;
+  }
+  .part-header {
+    background: linear-gradient(135deg, var(--dark-red) 0%, var(--red) 60%, var(--orange) 100%);
+    padding: 14px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .part-header h2 {
+    color: var(--yellow);
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-shadow: 0 1px 4px rgba(0,0,0,0.4);
+    flex: 1;
+  }
+  .full-video-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--yellow);
+    color: var(--dark-red);
+    text-decoration: none;
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 5px 12px;
+    border-radius: 20px;
+    white-space: nowrap;
+    transition: background 0.2s;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .full-video-btn:hover { background: var(--white); }
+
+  .part-body { padding: 16px 22px 20px; }
+
+  /* ── TOPIC ENTRY ── */
+  .topic {
+    border-left: 4px solid var(--orange);
+    padding: 10px 0 10px 16px;
+    margin-bottom: 16px;
+    position: relative;
+  }
+  .topic:last-child { margin-bottom: 0; }
+  .topic-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 6px;
+    flex-wrap: wrap;
+  }
+  .topic-marker {
+    background: var(--red);
+    color: var(--white);
+    border-radius: 3px;
+    font-size: 0.75rem;
+    padding: 2px 6px;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .topic h3 {
+    font-size: 0.97rem;
+    color: var(--dark-red);
+    font-weight: 700;
+    line-height: 1.5;
+    flex: 1;
+  }
+  .topic-ts {
+    background: linear-gradient(135deg, var(--orange), var(--gold));
+    color: var(--white);
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    white-space: nowrap;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .topic p {
+    font-size: 0.91rem;
+    color: #3a1000;
+    line-height: 1.85;
+    margin-bottom: 8px;
+  }
+  .jump-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--red);
+    text-decoration: none;
+    font-size: 0.82rem;
+    font-weight: 600;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+    padding: 3px 10px;
+    border: 1px solid var(--red);
+    border-radius: 14px;
+    transition: all 0.2s;
+  }
+  .jump-link:hover {
+    background: var(--red);
+    color: var(--white);
+  }
+
+  /* ── BACK TO TOP ── */
+  .back-top {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 0.8rem;
+    margin-top: 14px;
+    padding: 4px 12px;
+    border: 1px dashed var(--gold);
+    border-radius: 14px;
+    transition: all 0.2s;
+    font-family: 'Noto Sans Devanagari', sans-serif;
+  }
+  .back-top:hover { background: var(--gold); color: var(--dark-red); }
+
+  /* ── FOOTER ── */
+  .footer {
+    background: linear-gradient(135deg, var(--dark-red), #3d0000);
+    color: rgba(255,255,255,0.75);
+    text-align: center;
+    padding: 22px 20px;
+    font-size: 0.82rem;
+    line-height: 1.7;
+    border-top: 3px solid var(--gold);
+  }
+  .footer .om { font-size: 1.6rem; color: var(--gold); display: block; margin-bottom: 6px; }
+
+  /* ── PRINT / PDF STYLES ── */
+  @media print {
+    body { background: white; font-size: 12pt; }
+    .banner-wrapper { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .part-header { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .toc-section { border: 1px solid #c0141a; }
+    .part-section { page-break-inside: avoid; }
+    .back-top { display: none; }
+    a { color: var(--dark-red) !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════════════ BANNER ══════════════════ -->
+<div class="banner-wrapper">
+  <div class="banner-inner">
+    <div class="banner-institution">श्रीवल्लभाचार्य विद्यापीठ</div>
+    <div class="banner-address">
+      २६, श्रीवल्लभाचार्य नगर, रेफरल हॉस्पिटल के पीछे, हालोल, ३८९ ३५०, जिला पंचमहाल, गुजरात<br>
+      द्वारा : श्रीवल्लभाचार्य ट्रस्ट, कंसरा बाजार, मांडवी-कच्छ, गुजरात, ३७० ४६५
+    </div>
+    <div class="banner-website">www.vallabhacharyavidyapeeth.org</div>
+    <div class="banner-subtitle-row">
+      <div class="banner-box">
+        <strong>वैष्णव विद्यालय</strong>
+        पुष्टिमार्गियों के लिए संस्कृत, शास्त्र तथा सम्प्रदाय के अध्ययन का स्थायी केन्द्र
+      </div>
+      <div class="banner-box">
+        <strong>वैष्णवनिवास</strong>
+        स्वसेवक के साथ पधराकर ग्रन्थाध्ययनार्थ आने पर सेवोपयोगी सुविधापूर्ण निवास
+      </div>
+    </div>
+    <div style="margin-top:10px; font-size:0.8rem; color:rgba(255,255,255,0.65);">
+      समस्त पुष्टिमार्गियों के सहयोग से साकार हुआ : सम्प्रदाय, शास्त्र तथा संस्कृत के अध्ययन का स्थायी केन्द्र
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════ TITLE ══════════════════ -->
+<div class="title-block">
+  <img src="data:image/jpeg;base64,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" alt="श्रीवल्लभाधीशो जयति" class="title-logo" />
+  <div class="main-title">सेवाकौमुदी सारांश</div>
+  <div class="subtitle-line">श्रीवल्लभाचार्य विद्यापीठ · पूज्य गोस्वामी श्रीशरदकुमारजी</div>
+  <p class="doc-desc">यह डॉक्यूमेंट श्रीवल्लभाचार्य विद्यापीठ में पूज्य गोस्वामी श्रीशरदकुमारजी द्वारा 'सेवाकौमुदी' अध्ययन सत्र के प्रत्येक वीडियो का विस्तृत सारांश प्रदान करता है।</p>
+  <p class="notice">सूचना: यह सारांश एआई की मदद से तैयार करके संपादित किया गया है। किसी भी त्रुटि या सुधार के लिए मूल वीडियो लिंक देखें।</p>
+</div>
+
+<!-- ══════════════════ CONTAINER ══════════════════ -->
+<div class="container" id="top">
+
+  <!-- USAGE BOX -->
+  <div class="usage-box">
+    <h3>📍 अनुक्रमणिका (Table of Contents) का उपयोग कैसे करें:</h3>
+    <ul>
+      <li><strong>वीडियो शीर्षक:</strong> इसमें प्रत्येक वीडियो का शीर्षक और मुख्य भाग (Part) स्पष्ट रूप से लिखा गया है।</li>
+      <li><strong>सीधा नेविगेशन:</strong> किसी भी विशेष वीडियो या विषय के सारांश तक तुरंत पहुँचने के लिए, अपनी स्क्रीन पर उस शीर्षक पर क्लिक करें (मोबाइल या पीसी पर)। यह आपको सीधे उस अनुभाग पर ले जाएगा जहाँ सारांश लिखा है।</li>
+    </ul>
+    <h3 style="margin-top:14px;">📖 सारांश पढ़ने हेतु विशेष निर्देश:</h3>
+    <ul>
+      <li>प्रत्येक सारांश के साथ उस वीडियो के मुख्य बिंदुओं को समय-सीमा (Timestamp) के साथ दिया गया है।</li>
+      <li><strong>लिंक का उपयोग:</strong> किसी भी विषय को विस्तार से वीडियो में देखने के लिए <em>'सीधे इस समय पर जाएँ'</em> वाले लिंक पर क्लिक करें।</li>
+      <li><strong>कीबोर्ड शॉर्टकट:</strong> यदि आप किसी विशिष्ट विषय (जैसे: <em>दास्य, सख्य या आत्मनिवेदन</em>) को खोजना चाहते हैं, तो <strong>Ctrl + F</strong> (Windows) या <strong>Command + F</strong> (Mac) दबाएं।</li>
+      <li><strong>💡 नेविगेशन:</strong> आप किसी भी समय वापस अनुक्रमणिका पर आने के लिए प्रत्येक भाग के नीचे दिए गए <em>'↑ ऊपर जाएँ'</em> लिंक का उपयोग करें।</li>
+    </ul>
+  </div>
+
+  <!-- TOC -->
+  <div class="toc-section" id="toc">
+    <h2>📋 अनुक्रमणिका (Table of Contents)</h2>
+    <ul class="toc-list">
+      <li><a href="#part1"><span class="toc-num">भाग १</span>ग्रन्थ उपक्रम, वरण, पुष्टिभक्तिमार्ग और ग्रंथकार परिचय</a></li>
+      <li><a href="#part2"><span class="toc-num">भाग २</span>ग्रंथ संबंधी पूर्व विचारणीय विषय</a></li>
+      <li><a href="#part3"><span class="toc-num">भाग ३</span>सिंहावलोकन और प्रश्नोत्तरी सत्र</a></li>
+      <li><a href="#part4"><span class="toc-num">भाग ४</span>ग्रंथ प्रारंभ और श्रीमद्भागवत की मूर्धन्य प्रमाणरूपता</a></li>
+      <li><a href="#part5"><span class="toc-num">भाग ५</span>अर्पित नवधा भक्ति की मुख्यता</a></li>
+      <li><a href="#part6"><span class="toc-num">भाग ६</span>द्वितीय दिन — प्रश्नोत्तरी सत्र</a></li>
+      <li><a href="#part7"><span class="toc-num">भाग ७</span>सकाम-निष्काम भक्ति और 'भक्तिहंस' संबंधी पूर्वपक्ष</a></li>
+      <li><a href="#part8"><span class="toc-num">भाग ८</span>सकाम कामनाओं की सीमा और श्रवणादि क्रियाओं का वर्गीकरण</a></li>
+      <li><a href="#part9"><span class="toc-num">भाग ९</span>सर्वाधिकारी विषय विवेचन और भक्ति मार्ग की व्यापकता</a></li>
+      <li><a href="#part10"><span class="toc-num">भाग १०</span>पुष्टिमार्गीय मर्यादाएं एवं सेवा में भावना का आरोपण</a></li>
+      <li><a href="#part11"><span class="toc-num">भाग ११</span>दैवी-आसुरी जीव भेद एवं पुष्टिभक्तिमार्ग में अधिकार विवेचन</a></li>
+      <li><a href="#part112"><span class="toc-num">भाग ११.२</span>नवधा भक्ति के स्वरूप और श्रद्धा का शास्त्रीय निरूपण</a></li>
+      <li><a href="#part12"><span class="toc-num">भाग १२</span>नवधा भक्ति का स्वरूप, स्मरण का रहस्य एवं सख्य भक्ति का निरूपण</a></li>
+      <li><a href="#part13"><span class="toc-num">भाग १३</span>सख्य भक्ति का तात्विक स्वरूप एवं दास्य के साथ समन्वय</a></li>
+      <li><a href="#part14"><span class="toc-num">भाग १४</span>आत्मनिवेदन भक्ति एवं नवधा भक्ति का चरम प्रयोजन</a></li>
+      <li><a href="#part15"><span class="toc-num">भाग १५</span>पुष्टिमार्ग में नवधा भक्ति की अनुष्ठान रीति एवं शास्त्र-निर्णय</a></li>
+      <li><a href="#part16"><span class="toc-num">भाग १६</span>सख्य भक्ति का विशेष निरूपण एवं शास्त्र-सम्मत प्रियकरण</a></li>
+      <li><a href="#part17"><span class="toc-num">भाग १७</span>नवधा भक्ति का सिंहावलोकन, निर्गुणा भक्ति एवं अप्रेरित प्रियकरण के दृष्टांत</a></li>
+      <li><a href="#part18"><span class="toc-num">भाग १८</span>सेवा एवं भोग सामग्री में निषेध संबंधी शास्त्रीय विवेचन</a></li>
+      <li><a href="#part20"><span class="toc-num">भाग २०</span>सेवाकौमुदी ग्रंथ का उपसंहार एवं भक्ति का प्राधान्य</a></li>
+      <li><a href="#part21"><span class="toc-num">भाग २१</span>सेवाकौमुदी का मंगलाचरण, नवधा भक्ति एवं अनुष्ठान रीति</a></li>
+      <li><a href="#part22"><span class="toc-num">भाग २२</span>प्रस्तुति, प्रश्नोत्तरी एवं सेवा-रीति का व्यावहारिक समन्वय</a></li>
+    </ul>
+  </div>
+
+  <!-- ══ PART 1 ══ -->
+  <div class="part-section" id="part1">
+    <div class="part-header">
+      <h2>भाग १ : ग्रन्थ उपक्रम, वरण, पुष्टिभक्तिमार्ग और ग्रंथकार परिचय</h2>
+      <a href="https://www.youtube.com/watch?v=cuhXkr40hnc" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header">
+          <span class="topic-marker">■</span>
+          <h3>सत्र की रूपरेखा और प्राथमिक निर्देश</h3>
+          <span class="topic-ts">00:00</span>
+        </div>
+        <p>वक्ता सत्र में आयोजित होने वाली चार कक्षाओं की रूपरेखा प्रस्तुत करते हैं: बाल पुष्टि (संस्कार निर्माण), बेसिक कोर्स (सनातन धर्म के मूल तत्व, जिसे कम से कम तीन बार पढ़ना जरूरी है), षोडश ग्रंथ कक्षा, और प्रौढ़ ग्रंथ कक्षा (वर्तमान संस्कृत स्तर)। वे नए विद्यार्थियों से आग्रह करते हैं कि बिना पूर्व योग्यता के इस कठिन स्तर पर समय न गंवाएं। साथ ही, निरंतर 'नित्य अध्ययन' (Daily Online Study) के महत्व को रेखांकित करते हैं।</p>
+        <a href="https://youtu.be/cuhXkr40hnc?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <span class="topic-marker">■</span>
+          <h3>'सेवाकौमुदी' ग्रंथ का चयन और पृष्ठभूमि</h3>
+          <span class="topic-ts">14:53</span>
+        </div>
+        <p>'वेदांत चिंतामणि' को आगे बढ़ाने के स्थान पर, इस सत्र में विद्यार्थियों के बदलाव को देखते हुए सेवाकौमुदी ग्रंथ का चयन किया गया है। वक्ता स्पष्ट करते हैं कि संप्रदाय का वास्तविक नाम केवल 'पुष्टिमार्ग' नहीं बल्कि "पुष्टि-भक्तिमार्ग" है, क्योंकि प्रेमपूर्वक की जाने वाली भगवद्सेवा को छोड़कर इस मार्ग का कोई पृथक अस्तित्व नहीं है।</p>
+        <a href="https://youtu.be/cuhXkr40hnc?t=893" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <span class="topic-marker">■</span>
+          <h3>पुष्टि जीव और भगवान के 'वरण' (चयन) का सिद्धांत</h3>
+          <span class="topic-ts">26:03</span>
+        </div>
+        <p>पुष्टिमार्ग के केंद्रीय सिद्धांत 'वरण' (ईश्वरीय चयन) की विस्तृत व्याख्या की गई है। वक्ता सृष्टि के आरंभ में होने वाले 'जीव वरण' (प्रथम संकल्प) और उपयुक्त काल में देह प्राप्ति के 'जन्म वरण' (द्वितीय संकल्प) के अंतर को समझाते हैं। वे ८४ लाख योनियों में से केवल मनुष्य देह को 'कर्म योनि' और बाकी को 'भोग योनि' बताते हैं। यदि पुष्टिजीव किसी आसुरी कुल में भी जन्म ले, तो भी उसका मूल पुष्टि स्वभाव नहीं बदलता।</p>
+        <a href="https://youtu.be/cuhXkr40hnc?t=1563" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <span class="topic-marker">■</span>
+          <h3>साधन वरण और षोडश ग्रंथों में सेवा का स्वरूप</h3>
+          <span class="topic-ts">56:39</span>
+        </div>
+        <p>जीव की आत्मिक परिपक्वता के अनुसार 'साधन वरण' निर्धारित होता है। वक्ता स्पष्ट करते हैं कि पुष्टि मार्ग में भगवद्सेवा कोई लौकिक या पारलौकिक फल पाने का 'साधन' नहीं है, बल्कि वह स्वयं ही 'फल रूपा' (चरम फल) है। यदि सेवा में कोई गंभीर प्रतिबंध या पर-पीड़ा होने लगे, तो प्रभु के सुखार्थ अस्थायी रूप से सेवा का त्याग भी सेवा का उत्कृष्ट स्वरूप है (जैसे हनुमानजी की चपटी बजाने की सेवा का दृष्टांत)।</p>
+        <a href="https://youtu.be/cuhXkr40hnc?t=3399" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header">
+          <span class="topic-marker">■</span>
+          <h3>ग्रंथकार परिचय: श्रीबालकृष्ण भट्ट (लालू भट्टजी)</h3>
+          <span class="topic-ts">1:34:07</span>
+        </div>
+        <p>इस ग्रंथ के रचयिता श्रीबालकृष्ण भट्ट (लालू भट्टजी / बागरोधी भट्टजी) का प्रामाणिक परिचय — जो श्रीगुसांईजी के बेटीजी के वंशज थे। जयपुर के राजा सवाई जय सिंह द्वितीय की विद्वत् गोष्ठी में पुष्टि मार्ग के सिद्धांतों पर पूछे गए प्रश्नों के समाधान के रूप में 'प्रमेय रत्नार्णव' और 'सेवाकौमुदी' की रचना हुई। वक्ता लालू भट्टजी की सुगम, व्यवस्थित और शास्त्रीय लेखन शैली की सराहना करते हैं।</p>
+        <a href="https://youtu.be/cuhXkr40hnc?t=5647" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 2 ══ -->
+  <div class="part-section" id="part2">
+    <div class="part-header">
+      <h2>भाग २ : ग्रंथ संबंधी पूर्व विचारणीय विषय</h2>
+      <a href="https://www.youtube.com/watch?v=K-rK84cDRNY" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भक्ति और सेवा शब्दों का पारिभाषिक अंतर</h3><span class="topic-ts">00:00</span></div>
+        <p>वक्ता स्पष्ट करते हैं कि आम लोक व्यवहार में 'भक्ति' शब्द अत्यधिक प्रचलित है, जबकि पुष्टि संप्रदाय के भीतर 'सेवा' या 'कृष्ण सेवा' शब्द का अधिक आग्रह रखा जाता है। "योगाद् रूढ़िर्बलीयसी" सिद्धांत के माध्यम से समझाया गया है कि कैसे लोक-प्रसिद्धि के कारण शब्दों के मूल अर्थ बदल जाते हैं। 'भजन' वास्तव में इंद्रियों द्वारा की जाने वाली 'कायिक सेवा' (शारीरिक क्रिया) है, न कि गायन।</p>
+        <a href="https://youtu.be/K-rK84cDRNY?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>ग्रंथों की पूरकता और नवधा भक्ति का बाईपास मार्ग</h3><span class="topic-ts">08:55</span></div>
+        <p>महाप्रभु ने 'सिद्धांत रहस्य' में ब्रह्मसंबंध के माध्यम से नवधा भक्ति के पूरे क्रम को उलट दिया है। पुष्टि मार्ग पूरी लंबी साधना प्रक्रिया को अष्टाक्षर मंत्र (शरणागति) के एक संपूर्ण पैकेज में संक्षिप्त कर देता है। वक्ता सड़कों के 'बाईपास' और नारदजी के चरित्र का रोचक उदाहरण देकर समझाते हैं।</p>
+        <a href="https://youtu.be/K-rK84cDRNY?t=535" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>नवधा भक्ति का त्रिविध स्वरूप: स्वरूप-सापेक्ष और स्वरूप-निरपेक्ष</h3><span class="topic-ts">21:30</span></div>
+        <p>नवधा भक्ति को तीन श्रेणियों में विभाजित किया गया है। प्रथम श्रेणी 'स्वरूप-निरपेक्ष' (श्रवण, कीर्तन, स्मरण) — इनमें ठाकुरजी का साक्षात सन्मुख होना अनिवार्य नहीं। द्वितीय श्रेणी 'स्वरूप-सापेक्ष' (पाद-सेवन, अर्चन, वंदन) — प्रभु के बाह्य विग्रह के सन्मुख उपस्थित होने पर ही संभव। तृतीय श्रेणी (दास्य, सख्य, आत्मनिवेदन) बाह्य और आभ्यंतर दोनों रूपों में हो सकती है।</p>
+        <a href="https://youtu.be/K-rK84cDRNY?t=1290" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>शास्त्रीय निरूपण शैली, प्रमाणों का महत्व और साक्ष्य संकलन</h3><span class="topic-ts">28:01</span></div>
+        <p>शास्त्रीय पद्धति में वक्ता अपनी बात के समर्थन में प्रामाणिक वचनों को संलग्न करता जाता है — ठीक वैसे जैसे वकील अदालत में 'साइटेशन' पेश करते हैं। चित्त को भ्रम से बचाने और सिद्धांत को दृढ़ करने के लिए 'प्रमाण' का बोध होना परम आवश्यक है।</p>
+        <a href="https://youtu.be/K-rK84cDRNY?t=1681" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>शास्त्रों में प्रामाण्य का बलाबल (तारतम्य) और भागवत मूलक सेवा</h3><span class="topic-ts">41:02</span></div>
+        <p>वक्ता शास्त्रों के प्रमाणों के बीच 'बलाबल' को एक संयुक्त परिवार में चार पीढ़ियों के व्यावहारिक उदाहरण से समझाते हैं। संप्रदाय के भीतर महाप्रभु के वचन सर्वोपरि प्रमाण हैं, परंतु बाहरी विद्वानों के साथ चर्चा में वेदों और उपनिषदों का आश्रय लेना पड़ता है। लालू भट्टजी ने 'सेवाकौमुदी' में मुख्य रूप से श्रीमद्भागवत के वचनों को ही आधार बनाया है।</p>
+        <a href="https://youtu.be/K-rK84cDRNY?t=2462" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 3 ══ -->
+  <div class="part-section" id="part3">
+    <div class="part-header">
+      <h2>भाग ३ : सिंहावलोकन और प्रश्नोत्तरी सत्र</h2>
+      <a href="https://www.youtube.com/watch?v=Uo-bw6p-qZk" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>प्रथम सत्र का सिंहावलोकन: राजा, वरण और आम का दृष्टांत</h3><span class="topic-ts">00:00</span></div>
+        <p>सत्र की शुरुआत में एक छात्रा पिछले सत्रों में सीखी गई बातों का 'सिंहावलोकन' प्रस्तुत करती है। संप्रदाय के वास्तविक नाम "पुष्टि भक्ति मार्ग" की व्याख्या की जाती है — पुष्टि का अर्थ भगवद्कृपा और भक्ति का अर्थ सेवा। छात्रा वरण के प्रकारों और ८४ लाख योनियों में मनुष्य जन्म की दुर्लभता को दोहराती है।</p>
+        <a href="https://youtu.be/Uo-bw6p-qZk?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भक्ति और सेवा शब्दों की रूढ़ि तथा 'भजन' क्रिया का वास्तविक स्वरूप</h3><span class="topic-ts">05:05</span></div>
+        <p>वक्ता 'भजन' शब्द की भूल को सुधारते हुए कहते हैं कि लोक में ढोल-मंजीरा बजाकर गाने वाले को 'भजन गायक' कह दिया जाता है, जो सर्वथा अतार्किक है। भजन कोई गाने की चीज़ नहीं, बल्कि अपनी कायिक इंद्रियों द्वारा ठाकुरजी के लिए की जाने वाली प्रत्यक्ष 'क्रिया' का नाम भजन है।</p>
+        <a href="https://youtu.be/Uo-bw6p-qZk?t=305" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>नवधा भक्ति के शास्त्रीय क्रम का विपर्यय और ब्रह्मसंबंध का 'बाईपास'</h3><span class="topic-ts">20:15</span></div>
+        <p>नारदजी जैसे महान अधिकारी को भी एक जन्म में केवल एक ही भक्ति सिद्ध हो पाई थी। इसके विपरीत, पुष्टि मार्ग में ब्रह्मसंबंध के माध्यम से जीव को पहले ही दिन सीधे 'आत्मनिवेदन' पर पहुँचा दिया जाता है। वक्ता सड़कों के 'बाईपास' और सीबीएसई स्कूल का उदाहरण देकर समझाते हैं।</p>
+        <a href="https://youtu.be/Uo-bw6p-qZk?t=1215" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>स्वरूप-सापेक्ष और स्वरूप-निरपेक्ष भक्ति का सूक्ष्म विश्लेषण</h3><span class="topic-ts">42:30</span></div>
+        <p>श्रवण, कीर्तन और स्मरण स्वरूप-निरपेक्ष हैं — इनके लिए प्रभु के साक्षात विग्रह का सम्मुख होना अनिवार्य नहीं। पाद-सेवन, अर्चन और वंदन पूर्णतः स्वरूप-सापेक्ष हैं। दास्य, सख्य और आत्मनिवेदन बाह्य कर्म रूप में सापेक्ष हैं, परंतु भावात्मक रूप में हृदय के भीतर भी स्थिर रह सकते हैं।</p>
+        <a href="https://youtu.be/Uo-bw6p-qZk?t=2550" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>ईश्वरीय संकेतों की व्याख्या और पान मां का मार्मिक प्रसंग</h3><span class="topic-ts">1:05:10</span></div>
+        <p>वक्ता सौराष्ट्र के 'पान मां' का अत्यंत मार्मिक प्रसंग सुनाते हैं। दोनों पैरों में लकवा होने पर संसारी लोगों ने सोचा कि ठाकुरजी ने उन्हें गुरु-सेवा से वंचित कर दिया, परंतु पान मां का दृष्टिकोण अलग था — "ठाकुरजी ने मेरे पैर ही छीन लिए ताकि अब मैं उन्हें छोड़कर कहीं और न जा सकूं।"</p>
+        <a href="https://youtu.be/Uo-bw6p-qZk?t=3910" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 4 ══ -->
+  <div class="part-section" id="part4">
+    <div class="part-header">
+      <h2>भाग ४ : ग्रंथ प्रारंभ और श्रीमद्भागवत की मूर्धन्य प्रमाणरूपता</h2>
+      <a href="https://www.youtube.com/watch?v=K9gGwb7hDys" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'सेवाकौमुदी' शीर्षक का अर्थ और व्याकरण कौमुदी की उक्ति</h3><span class="topic-ts">00:00</span></div>
+        <p>'कौमुदी' का अर्थ चंद्रमा की शीतल चांदनी होता है, जो रात्रि के घने अंधकार को मिटाकर प्रकाश फैलाती है। उसी प्रकार यह ग्रंथ भगवद्सेवा और नवधा भक्ति के विषय में फैले अज्ञान के अंधकार को दूर कर ज्ञान का प्रकाश फैलाता है। जैसे 'सिद्धांत कौमुदी' को जान लेने के बाद अन्य व्याकरण ग्रंथों का परिश्रम व्यर्थ हो जाता है, वैसे ही इस ग्रंथ को पढ़ने से महाप्रभु के सिद्धांतों का संपूर्ण निचोड़ एक ही स्थान पर मिल जाता है।</p>
+        <a href="https://youtu.be/K9gGwb7hDys?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>ग्रंथ का मंगलाचरण: गिरधारी जी की वंदना और उपलब्धता</h3><span class="topic-ts">06:34</span></div>
+        <p>लालू भट्टजी अपने प्रत्येक ग्रंथ की शुरुआत में जयपुर में विराजमान अपने कुलदेव श्री गिरधारी जी को सादर दंडवत प्रणाम करते हैं। ग्रंथ मूल रूप से चार प्रकरणों में लिखा था — परंतु संप्रदाय के दुर्भाग्य से तीसरा प्रकरण आज भी पूरी तरह अप्राप्त है और चौथा प्रकरण खंडित अवस्था में मिलता है।</p>
+        <a href="https://youtu.be/K9gGwb7hDys?t=394" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>प्रमाण चतुष्टय (चार प्रमाण) का सिद्धांत</h3><span class="topic-ts">45:10</span></div>
+        <p>महाप्रभु द्वारा 'तत्त्वार्थ दीप निबंध' में प्रतिपादित चार मुख्य प्रमाण: १. वेद, २. श्री कृष्ण वाक्य (भगवद्गीता), ३. व्यास सूत्र (ब्रह्मसूत्र), ४. श्रीमद्भागवत। यदि वेदों के वचनों में संदेह हो तो गीता निवारण करती है; गीता में संदेह हो तो ब्रह्मसूत्र; ब्रह्मसूत्र में भी संदेह हो तो अंतिम निवारण श्रीमद्भागवत करता है।</p>
+        <a href="https://youtu.be/K9gGwb7hDys?t=2710" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भागवत सर्व संदेह वारकत्व का अंतिम निर्णय</h3><span class="topic-ts">1:02:16</span></div>
+        <p>वक्ता श्रीमद्भागवत को समस्त वैदिक वांग्मय का 'मूर्धन्य प्रमाण' (सर्वोच्च साक्ष्य) सिद्ध करते हैं। भागवत इस संसार का एकमात्र "सर्व संदेह वारक" शास्त्र है, जिसके आगे अन्य सभी आचार्यों के मत स्वतः शांत हो जाते हैं। लालू भट्टजी ने इसी सर्वोच्च अधिकार के कारण सेवाकौमुदी की पूरी व्याख्या को भागवत-मूलक रखा है।</p>
+        <a href="https://youtu.be/K9gGwb7hDys?t=3736" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 5 ══ -->
+  <div class="part-section" id="part5">
+    <div class="part-header">
+      <h2>भाग ५ : अर्पित नवधा भक्ति की मुख्यता</h2>
+      <a href="https://www.youtube.com/watch?v=ELEDiM8UIR4" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'श्रवणं कीर्तनं विष्णोः...' और 'विष्णु' पद का रहस्य</h3><span class="topic-ts">11:20</span></div>
+        <p>श्रीमद्भागवत के सातवें स्कंध के नौवें अध्याय का सुप्रसिद्ध श्लोक "श्रवणं कीर्तनं विष्णोः स्मरणं पादसेवनम्..." का गहरा शास्त्रीय विश्लेषण। वक्ता 'विष्णोः' पद पर विशेष भार देते हुए समझाते हैं कि पुष्टि मार्ग में इसका सर्वोपरि तात्पर्य साक्षात पूर्ण पुरुषोत्तम श्री कृष्ण से है, न कि व्यापक ब्रह्म या चतुर्भुज विग्रह से।</p>
+        <a href="https://youtu.be/ELEDiM8UIR4?t=680" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>नवधा भक्ति में 'अर्पण' (भगवत्यर्पण) का वास्तविक अर्थ</h3><span class="topic-ts">38:45</span></div>
+        <p>नवधा भक्ति का अनुष्ठान कर लेने मात्र से वह सच्ची भक्ति नहीं कहलाती। जब तक वह भक्ति पूर्ण रूप से 'विष्णौ अर्पित' न हो, उसका कोई पुष्टिमार्गीय मूल्य नहीं। अर्पण का अर्थ है अपनी बुद्धि, चेतना और नवधा भक्ति की समस्त क्रियाओं को भगवान के चरणों में पूरी तरह 'स्थापित' कर देना।</p>
+        <a href="https://youtu.be/ELEDiM8UIR4?t=2325" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>फलांतर विनियोग निषेध व अखंड नित्य सेवा</h3><span class="topic-ts">1:08:15</span></div>
+        <p>यदि नवधा भक्ति का उपयोग किसी 'फलांतर' (अन्य सांसारिक सुख, स्वर्ग, मोक्ष या धन) के लिए किया जाता है, तो वह भक्ति दूषित और खंडित हो जाती है। पुष्टि मार्ग में नवधा भक्ति का एकमात्र उद्देश्य केवल और केवल श्री कृष्ण की प्रसन्नता है। भक्ति अखंडित और नित्य होनी चाहिए।</p>
+        <a href="https://youtu.be/ELEDiM8UIR4?t=4095" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 6 ══ -->
+  <div class="part-section" id="part6">
+    <div class="part-header">
+      <h2>भाग ६ : द्वितीय दिन — प्रश्नोत्तरी सत्र</h2>
+      <a href="https://www.youtube.com/watch?v=APdJPI47_kk" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'विष्णु' पद की व्यापकता बनाम पूर्ण पुरुषोत्तम की अनन्यता</h3><span class="topic-ts">32:20</span></div>
+        <p>सामान्यतः लोक में विष्णु शब्द से चतुर्भुज विग्रह या व्यापक परमात्मा का बोध होता है, परंतु पुष्टि भक्ति मार्ग में महाप्रभु और लालू भट्टजी का स्पष्ट अभिप्राय केवल 'पूर्ण पुरुषोत्तम श्री कृष्ण' से है। अनन्यता का अर्थ यही है कि जीव की नवधा भक्ति का एकमात्र आश्रय ब्रजाधिपति श्री कृष्ण का दिव्य स्वरूप ही हो।</p>
+        <a href="https://youtu.be/APdJPI47_kk?t=1940" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भक्ति में 'फलांतर विनियोग' का सूक्ष्म वर्गीकरण</h3><span class="topic-ts">50:10</span></div>
+        <p>सकाम भाव से की गई भक्ति मर्यादा मार्ग में चली जाती है, जबकि शुद्ध पुष्टि मार्ग में निष्काम होकर केवल प्रभु की प्रसन्नता (भगवदर्थ) के लिए ही सेवा की जाती है।</p>
+        <a href="https://youtu.be/APdJPI47_kk?t=3010" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'नित्य-सेवा' की अखंडता और व्यावहारिक मर्यादाएं</h3><span class="topic-ts">1:08:45</span></div>
+        <p>शारीरिक सीमाओं के बावजूद हृदय का भाव निरंतर प्रभु में स्थापित रहना ही सच्ची अखंडता है।</p>
+        <a href="https://youtu.be/APdJPI47_kk?t=4125" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 7 ══ -->
+  <div class="part-section" id="part7">
+    <div class="part-header">
+      <h2>भाग ७ : सकाम-निष्काम भक्ति और 'भक्तिहंस' संबंधी पूर्वपक्ष</h2>
+      <a href="https://www.youtube.com/watch?v=we6SVJ2PB74" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'भगवदर्थ' बनाम 'स्वार्थ' का सूक्ष्म अंतर</h3><span class="topic-ts">31:15</span></div>
+        <p>वक्ता 'भगवदर्थ' (केवल भगवान की प्रसन्नता के लिए किए जाने वाले कर्म) और 'स्वार्थ' (अपनी मानसिक शांति या आध्यात्मिक अहंकार की तुष्टि) के बीच के अत्यंत बारीक और सूक्ष्म अंतर को समझाते हैं।</p>
+        <a href="https://youtu.be/we6SVJ2PB74?t=1875" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>सकाम भाव से उत्पन्न होने वाले प्रतिबंध</h3><span class="topic-ts">48:50</span></div>
+        <p>सकाम भाव पुष्टि मार्ग में सबसे बड़ा 'प्रतिबंध' (रुकावट) बनकर खड़ा होता है, जो जीव को अलौकिक फल के आस्वादन से वंचित कर देता है।</p>
+        <a href="https://youtu.be/we6SVJ2PB74?t=2930" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 8 ══ -->
+  <div class="part-section" id="part8">
+    <div class="part-header">
+      <h2>भाग ८ : सकाम कामनाओं की सीमा और श्रवणादि क्रियाओं का वर्गीकरण</h2>
+      <a href="https://www.youtube.com/watch?v=zNpwXdpArPk" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भक्ति का लौकिक विनियोग और आजीविका का साधन बनाने का निषेध</h3><span class="topic-ts">19:07</span></div>
+        <p>भगवद्सेवा, पूजा या कीर्तन को आजीविका या लौकिक प्रयोजनों का साधन बनाने का कड़ा निषेध है। "गंगाजल से मल साफ करना" जैसा मर्मस्पर्शी उदाहरण देकर समझाते हैं कि इतने पावन साधन का हीन उपयोग करने से 'देवलक दोष' लगता है।</p>
+        <a href="https://youtu.be/zNpwXdpArPk?t=1147" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'भक्ति' शब्द के गौण और मुख्य अर्थ का विवेचन</h3><span class="topic-ts">50:10</span></div>
+        <p>श्रवण, कीर्तन, अर्चन आदि वास्तव में 'भक्ति' नहीं हैं, बल्कि ये भक्ति (प्रेम) को उत्पन्न करने के साधन हैं। भक्ति का मुख्य और एकमात्र अर्थ केवल 'स्नेह' (प्रेम) है।</p>
+        <a href="https://youtu.be/zNpwXdpArPk?t=3010" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>फलश्रुति के प्रमेय बल और ऋषिकेश लक्ष्मण झूला का मार्मिक प्रसंग</h3><span class="topic-ts">1:05:10</span></div>
+        <p>वक्ता ऋषिकेश के लक्ष्मण झूला पर स्वयं द्वारा किए गए भिक्षाटन का एक अत्यंत मार्मिक संस्मरण सुनाते हैं — जहाँ एक संत ने कहा कि "भिक्षा न मिलने का कारण यह है कि तुम्हारी आवाज में वह सच्चा दर्द और पीड़ा नहीं है।" आश्रय और समर्पण की इसी आंतरिक कमी के कारण फल की प्रतीति नहीं होती।</p>
+        <a href="https://youtu.be/zNpwXdpArPk?t=3910" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 9 ══ -->
+  <div class="part-section" id="part9">
+    <div class="part-header">
+      <h2>भाग ९ : सर्वाधिकारी विषय विवेचन और भक्ति मार्ग की व्यापकता</h2>
+      <a href="https://www.youtube.com/watch?v=JPFbyXKHdfY" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भक्ति मार्ग में 'सर्वाधिकार' का सिद्धांत और वर्ण-मुक्ति</h3><span class="topic-ts">53:10</span></div>
+        <p>भक्ति मार्ग में किसी भी जाति, वर्ण, आश्रम या लिंग का बंधन बाधक नहीं है। ज्ञान या कर्म मार्ग की कठिन वर्ण-मर्यादाओं के विपरीत, भक्ति मार्ग सबके लिए खुला है।</p>
+        <a href="https://youtu.be/JPFbyXKHdfY?t=3190" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>भागवत के प्रमाण, अंत्यज उद्धार का रहस्य</h3><span class="topic-ts">1:08:20</span></div>
+        <p>शबर, हूण, खस और पुल्कस जैसी अंत्यज जातियों का केवल भगवान के शरणागत भक्तों के संसर्ग से पवित्र होने और उद्धार पाने के रहस्य की व्याख्या श्रीमद्भागवत के अकाट्य प्रमाणों के साथ।</p>
+        <a href="https://youtu.be/JPFbyXKHdfY?t=4100" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 10 ══ -->
+  <div class="part-section" id="part10">
+    <div class="part-header">
+      <h2>भाग १० : पुष्टिमार्गीय मर्यादाएं एवं सेवा में भावना का आरोपण</h2>
+      <a href="https://www.youtube.com/watch?v=mDgoA1W_arU" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'यावद् देह तावद् वर्णाश्रम धर्म...' सूत्र का सैद्धांतिक विश्लेषण</h3><span class="topic-ts">03:00</span></div>
+        <p>श्रीमहाप्रभु वल्लभाचार्यजी के प्रसिद्ध वचन का गहरा दार्शनिक विश्लेषण। जब तक देह है, तब तक वर्णाश्रम नियमों की स्थिति और इसे कर्तव्य माना जाए या मात्र देह की स्थिति का वर्णन — इस पर विशद विवेचन।</p>
+        <a href="https://youtu.be/mDgoA1W_arU?t=180" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>अचेतन वस्तुओं में सेवा भाव का आरोपण और रामसेतु का दृष्टांत</h3><span class="topic-ts">38:45</span></div>
+        <p>रामसेतु निर्माण में पत्थर, ब्रज लीला में बादल और वृक्ष द्वारा सेवा किए जाने के रहस्यों का उद्घाटन। यह जीव की स्वयं की 'भावना का आरोपण' है, जिसके माध्यम से जड़ वस्तुओं को भी चेतनवत मानकर सुखद अनुभव किया जाता है।</p>
+        <a href="https://youtu.be/mDgoA1W_arU?t=855" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 11 ══ -->
+  <div class="part-section" id="part11">
+    <div class="part-header">
+      <h2>भाग ११ : दैवी-आसुरी जीव भेद एवं पुष्टिभक्तिमार्ग में अधिकार विवेचन</h2>
+      <a href="https://www.youtube.com/watch?v=9kb9U3Nawus" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>स्वरूप योग्यता बनाम फलोन्मुख योग्यता का दार्शनिक भेद</h3><span class="topic-ts">07:00</span></div>
+        <p>'प्रमेय रत्नार्णव' के आधार पर 'स्वरूप योग्यता' (जीव का ब्रह्म का अंश होना) और 'फलोन्मुख योग्यता' (प्रभु कृपा से चरम फल पाने की पात्रता) के दार्शनिक भेद की विशद विवेचना। इसके अंतर्गत देवराज इंद्र से भी अधिक उत्कृष्ट भक्ति करने वाले वृत्रासुर जैसे विशिष्ट असुरों का शास्त्रीय दृष्टांत।</p>
+        <a href="https://youtu.be/9kb9U3Nawus?t=420" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>नवधा भक्ति का निरूपण: श्रवण भक्ति और भगवदीय वक्ता</h3><span class="topic-ts">11:50</span></div>
+        <p>सबसे पहले 'श्रवण भक्ति' की परिभाषा: भगवदीय (निस्पृह) वक्ता के मुख से भगवान के नाम, गुण और लीलाओं का श्रद्धापूर्वक सुनना। यदि चर्चा लौकिक है, तो भगवदीय होने पर भी वह श्रवण भक्ति नहीं है।</p>
+        <a href="https://youtu.be/9kb9U3Nawus?t=710" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>वंदन, दास्य और सख्य भक्ति: बिना प्रेरणा के प्रभु का प्रिय करना</h3><span class="topic-ts">1:07:26</span></div>
+        <p>वक्ता 'सख्य' भक्ति का सुंदर लौकिक उदाहरण (मित्र के लिए रुमाल बिछाना) देकर समझाते हैं कि भगवान द्वारा बिना कुछ कहे (अप्रेरित) अपनी ओर से प्रभु के सुख और प्रिय का विचार करके कार्य करना ही सख्य भाव है।</p>
+        <a href="https://youtu.be/OwZsWysulyM?t=4046" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 11.2 ══ -->
+  <div class="part-section" id="part112">
+    <div class="part-header">
+      <h2>भाग ११.२ : नवधा भक्ति के स्वरूप और श्रद्धा का शास्त्रीय निरूपण</h2>
+      <a href="https://www.youtube.com/watch?v=OwZsWysulyM" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>त्रिविध श्रद्धा का वर्णन और परीक्षित की विपरीत भावना</h3><span class="topic-ts">23:18</span></div>
+        <p>गीताजी के आधार पर श्रद्धा के तीन प्रकारों (सात्विकी, राजसी, तामसी) का विश्लेषण। राजा परीक्षित द्वारा रासलीला पर उठाई गई 'विपरीत भावना' और श्री शुकदेवजी द्वारा कथा रोक देने के प्रसंग से समझाया गया है कि भगवान की लीलाओं में लौकिक तर्क लगाना श्रद्धा का बाधक है।</p>
+        <a href="https://youtu.be/OwZsWysulyM?t=1398" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>प्रजापति का 'द' अक्षर उपदेश और विरोचन-इंद्र का दृष्टांत</h3><span class="topic-ts">37:33</span></div>
+        <p>उपनिषद के दो प्रसिद्ध दृष्टांतों से 'श्रद्धा' की व्याख्या। प्रथम: प्रजापति द्वारा देव, मानव और दानवों को 'द' अक्षर का उपदेश — जिसे सबने अपनी-अपनी प्रकृति (दमन, दान, दया) के अनुसार समझा। द्वितीय: विरोचन और इंद्र का आत्मज्ञान प्रसंग।</p>
+        <a href="https://youtu.be/OwZsWysulyM?t=2253" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>प्रश्नोत्तरी: सैद्धांतिक अध्ययन और कीर्तन भक्ति में अंतर</h3><span class="topic-ts">1:10:44</span></div>
+        <p>वक्ता स्पष्ट करते हैं कि हम यहाँ जो सेवाकौमुदी या 'षोडशग्रन्थ' पढ़-पढ़ा रहे हैं, वह श्रवण या कीर्तन 'भक्ति' नहीं है, बल्कि यह केवल भक्ति के "सिद्धांत का अध्ययन" है। भक्ति तब शुरू होती है जब हम इन सिद्धांतों को जीवन में उतारकर प्रभु से प्रेम (स्नेह) करते हैं।</p>
+        <a href="https://youtu.be/OwZsWysulyM?t=4244" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 12 ══ -->
+  <div class="part-section" id="part12">
+    <div class="part-header">
+      <h2>भाग १२ : नवधा भक्ति का स्वरूप, स्मरण का रहस्य एवं सख्य भक्ति का निरूपण</h2>
+      <a href="https://www.youtube.com/watch?v=pO8wbbmMxqA" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>अनुभूत विषय का स्मरण और स्मरण भक्ति का तात्विक रहस्य</h3><span class="topic-ts">12:44</span></div>
+        <p>स्मरण सदा 'अनुभूत' और 'अविद्यमान' (जो वर्तमान में प्रत्यक्ष न हो) विषय का ही होता है। वक्ता दाहोद के ठग व्यक्ति को पैसे देने की घटना के माध्यम से समझाते हैं। भगवद्लीला का स्मरण भी पूर्व श्रवण के अनुभव से ही पुष्ट होता है।</p>
+        <a href="https://youtu.be/pO8wbbmMxqA?t=764" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>सख्य भक्ति: बिना प्रेरणा के प्रभु का प्रिय करना</h3><span class="topic-ts">34:08</span></div>
+        <p>"अप्रेरित प्रियकरणम् सख्यम्" — बिना किसी की प्रेरणा या आज्ञा के, अपनी ओर से भगवान को क्या प्रिय लगेगा, उसका विचार करके वह कार्य करना ही सख्य है (जैसे मित्र के बैठने के लिए स्वयं रुमाल बिछा देना)।</p>
+        <a href="https://youtu.be/pO8wbbmMxqA?t=2048" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>गीताजी, दंतवक्र और उद्धवजी के दृष्टांत से सख्य भाव</h3><span class="topic-ts">48:30</span></div>
+        <p>5 वर्ष की आयु में उद्धवजी द्वारा बिना किसी की आज्ञा (अप्रेरित) के ठाकुरजी की परिचर्या करने के प्रसंग से सख्य भाव की पूर्णता को दर्शाया गया है।</p>
+        <a href="https://youtu.be/pO8wbbmMxqA?t=2910" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 13 ══ -->
+  <div class="part-section" id="part13">
+    <div class="part-header">
+      <h2>भाग १३ : सख्य भक्ति का तात्विक स्वरूप एवं दास्य के साथ समन्वय</h2>
+      <a href="https://www.youtube.com/watch?v=fuhDYkHXiuw" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>दास्य और सख्य का समन्वय: क्या दास कभी सखा बन सकता है?</h3><span class="topic-ts">48:30</span></div>
+        <p>वक्ता 'चतुःश्लोकी' के "सर्वदा सर्वभावेन" का संदर्भ देकर समझाते हैं कि पुष्टिमार्ग में निरुपाधिक प्रेम ही मुख्य है। इस प्रेम में दास सखा भी हो सकता है और सखा दास भी बन सकता है (जैसे अर्जुन का दृष्टांत)।</p>
+        <a href="https://youtu.be/fuhDYkHXiuw?t=2910" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>मंत्र-मात्र पूजा परायणता का निषेध और सेवा रीतियों का अर्थ</h3><span class="topic-ts">1:16:37</span></div>
+        <p>श्रीमहाप्रभु द्वारा "मंत्र मात्र पूजा परो न भवेत्" आदेश की व्याख्या। सेवा की परिपाटी (रीत) केवल एक मार्गदर्शन है, इसे जड़ता की तरह नहीं अपनाना चाहिए; भाव और अप्रेरित प्रियकरण ही मुख्य है।</p>
+        <a href="https://youtu.be/fuhDYkHXiuw?t=4597" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>अधिकमास के मनोरथों की वास्तविकता: लकीर के फकीर बनाम निज भाव</h3><span class="topic-ts">1:23:00</span></div>
+        <p>वक्ता द्वारकाधीश मंदिर का दृष्टांत देकर स्पष्ट करते हैं कि जहाँ न किसी का 'मन' है और न 'रथ' (इच्छा), वहाँ केवल कैलेंडर देखकर उत्सव मनाना अप्रेरित प्रियकरण (सख्य भक्ति) नहीं, बल्कि रूढ़ि है।</p>
+        <a href="https://youtu.be/fuhDYkHXiuw?t=4980" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 14 ══ -->
+  <div class="part-section" id="part14">
+    <div class="part-header">
+      <h2>भाग १४ : आत्मनिवेदन भक्ति एवं नवधा भक्ति का चरम प्रयोजन</h2>
+      <a href="https://www.youtube.com/watch?v=rSJLePWlHWs" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>आत्मनिवेदन भक्ति का स्वरूप: आत्मा और आत्मीय परिकर का समर्पण</h3><span class="topic-ts">00:00</span></div>
+        <p>आत्मनिवेदन केवल आत्मा का नहीं, बल्कि उसके समस्त परिकर (देह, पत्नी, पुत्र, धन, घर) सहित भगवान की सेवा में उपयोग करना है। इसे इंजन (आत्मा) और डिब्बों (परिकर) के सुंदर दृष्टांत से समझाया गया है।</p>
+        <a href="https://youtu.be/rSJLePWlHWs?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>आत्मनिवेदन और 'निरोध' अवस्था का तात्विक अंतर</h3><span class="topic-ts">22:25</span></div>
+        <p>आत्मनिवेदन एक साधन अवस्था है, जहाँ जीव प्रयत्नपूर्वक 'यह सब भगवान का है' ऐसा अनुसंधान करता है। जबकि 'निरोध' परिपक्व (फलावस्था) है, जहाँ प्रभु में इतनी आसक्ति हो जाती है कि जीव को प्रपञ्च का स्वतः विस्मरण हो जाता है।</p>
+        <a href="https://youtu.be/rSJLePWlHWs?t=1345" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>नवधा भक्ति का प्रयोजन: प्रेमात्मक भक्ति की सिद्धि</h3><span class="topic-ts">37:44</span></div>
+        <p>श्रवण, कीर्तन आदि साधन-रूपा भक्तियों का मुख्य उद्देश्य भगवान के प्रति 'प्रेमात्मक भक्ति' (स्नेह) को सिद्ध करना है। पुष्टिमार्ग का चरम फल साक्षात 'प्रभु का प्राकट्य' है, और उसका एकमात्र हेतु केवल 'प्रेम' है।</p>
+        <a href="https://youtu.be/rSJLePWlHWs?t=2264" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 15 ══ -->
+  <div class="part-section" id="part15">
+    <div class="part-header">
+      <h2>भाग १५ : पुष्टिमार्ग में नवधा भक्ति की अनुष्ठान रीति एवं शास्त्र-निर्णय</h2>
+      <a href="https://www.youtube.com/watch?v=CKUjNnHi3Wk" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>पुष्टिमार्ग में श्रवण, कीर्तन और स्मरण भक्ति की अनुष्ठान रीति</h3><span class="topic-ts">44:03</span></div>
+        <p>वल्लभ संप्रदाय में नवधा भक्ति कैसे अनुष्ठित होती है: श्रीमद्भागवत और सुबोधिनीजी का पठन 'श्रवण' है; भगवदीयों द्वारा रचित स्तोत्र और अष्टाक्षर मन्त्र का पाठ 'कीर्तन' है; और एकासन पर बैठकर प्रभु की रूप-लीला का ध्यान 'स्मरण' है।</p>
+        <a href="https://youtu.be/CKUjNnHi3Wk?t=2643" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>कलंज (तरबूज), बैंगन और मूली के निषेध का शास्त्रीय विश्लेषण</h3><span class="topic-ts">1:38:52</span></div>
+        <p>"न कलंजं भक्षयेत्" (तरबूज न खाएं) का नियम; बैंगन (जिसके कुछ प्रकार शास्त्र में निषिद्ध हैं) और मूली (दुर्गंध के कारण त्याज्य) का पुष्टिमार्गीय सेवा में किस प्रकार निषेध है, इसकी विस्तृत चर्चा।</p>
+        <a href="https://youtu.be/CKUjNnHi3Wk?t=5932" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 16 ══ -->
+  <div class="part-section" id="part16">
+    <div class="part-header">
+      <h2>भाग १६ : सख्य भक्ति का विशेष निरूपण एवं शास्त्र-सम्मत प्रियकरण</h2>
+      <a href="https://www.youtube.com/watch?v=YD9Zj6ZqE88" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>मेघ (बादल) का दृष्टांत: अप्रेरित प्रियकरण और पूर्ण वैराग्य का स्वरूप</h3><span class="topic-ts">52:15</span></div>
+        <p>जिस प्रकार मेघ ने पूर्ण वैराग्य प्रकट करते हुए बिना किसी आज्ञा के (अप्रेरित) भगवान को धूप से बचाने के लिए अपनी छाया (आतपत्र) की, वही सच्चा सख्य भाव और प्रियकरण है।</p>
+        <a href="https://youtu.be/YD9Zj6ZqE88?t=3135" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>शास्त्र-सम्मत प्रियकरण: क्या शास्त्र से पूछकर की गई सेवा 'अप्रेरित' है?</h3><span class="topic-ts">53:18</span></div>
+        <p>सूक्ष्म शंका का सुंदर समाधान: "इच्छा पहले हमारे भीतर जाग्रत होती है, और फिर हम शास्त्र से केवल उसकी सहमति (Consent) लेते हैं। चूँकि मूल इच्छा अपनी थी, इसलिए यह 'अप्रेरित प्रियकरण' ही है।"</p>
+        <a href="https://youtu.be/YD9Zj6ZqE88?t=3198" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 17 ══ -->
+  <div class="part-section" id="part17">
+    <div class="part-header">
+      <h2>भाग १७ : नवधा भक्ति का सिंहावलोकन, निर्गुणा भक्ति एवं अप्रेरित प्रियकरण के दृष्टांत</h2>
+      <a href="https://www.youtube.com/watch?v=BVBNX9r07gY" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>सात्विक आहार और निर्गुणा भक्ति का पुष्टिमार्ग में स्थान</h3><span class="topic-ts">30:16</span></div>
+        <p>सात्विक आहार पुष्टिमार्ग में प्रवेश की प्राथमिक योग्यता है, परंतु पुष्टिमार्ग की भक्ति 'सात्विक' नहीं बल्कि 'निर्गुणा' (गुणातीत) है। सात्विक भाव (जैसे मोक्ष या स्वर्ग की इच्छा) भी पुष्टि भक्ति में निंदनीय माना गया है।</p>
+        <a href="https://youtu.be/BVBNX9r07gY?t=1816" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>अनवतार काल में सख्य भक्ति और अप्रेरित प्रियकरण के दृष्टांत</h3><span class="topic-ts">1:10:33</span></div>
+        <p>वर्तमान समय में हम सख्य भाव कैसे प्रकट कर सकते हैं? वक्ता श्री पुरुषोत्तम दासजी (जिन्होंने खेत में बैंगन देखकर लौकिक यात्रा छोड़ दी), आगरा के वैष्णव (जिन्होंने प्रभु के सुखार्थ बाहर सोना स्वीकार किया) और श्री दामोदर दासजी की भीष्म प्रतिज्ञा के दृष्टांत देते हैं।</p>
+        <a href="https://youtu.be/BVBNX9r07gY?t=4233" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>आत्मनिवेदन और निरोध में तात्विक अंतर: इन्वेंटरी बनाम विस्मरण</h3><span class="topic-ts">1:24:19</span></div>
+        <p>आत्मनिवेदन के समय एक भी प्रापञ्चिक वस्तु का स्मरण छूटना नहीं चाहिए, सब कुछ गिन-गिन कर अर्पण करना होता है। इसके विपरीत, 'निरोध' फलावस्था है, जहाँ प्रभु में इतनी आसक्ति हो जाती है कि उन सभी अर्पण की गई वस्तुओं का 'पूर्ण विस्मरण' हो जाता है।</p>
+        <a href="https://youtu.be/BVBNX9r07gY?t=5059" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 18 ══ -->
+  <div class="part-section" id="part18">
+    <div class="part-header">
+      <h2>भाग १८ : सेवा एवं भोग सामग्री में निषेध संबंधी शास्त्रीय विवेचन</h2>
+      <a href="https://www.youtube.com/watch?v=kKB4O9spYWk" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>कलंज (तरबूज) शब्द का अर्थ-विमर्श: मीमांसा और संप्रदाय का दृष्टिकोण</h3><span class="topic-ts">00:00</span></div>
+        <p>यद्यपि कलंज का मूल अर्थ 'जहर बुझे तीर से मारा गया पशु' होता है, फिर भी पुष्टिमार्ग में तरबूज को अखाद्य मानकर प्रभु को अर्पित नहीं किया जाता।</p>
+        <a href="https://youtu.be/kKB4O9spYWk?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>वैष्णव दीक्षा के प्राथमिक नियम: प्याज-लहसुन और तामस आहार का निषेध</h3><span class="topic-ts">53:50</span></div>
+        <p>वक्ता अत्यंत दृढ़ता से बताते हैं कि जो व्यक्ति तामसिक आहार (प्याज-लहसुन) का सेवन करता है, वह वैष्णव दीक्षा (ब्रह्मसम्बन्ध) लेने या तुलसी की कंठी धारण करने का भी अधिकारी नहीं है, प्रभु सेवा तो बहुत दूर की बात है।</p>
+        <a href="https://youtu.be/kKB4O9spYWk?t=3230" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 20 ══ -->
+  <div class="part-section" id="part20">
+    <div class="part-header">
+      <h2>भाग २० : सेवाकौमुदी ग्रंथ का उपसंहार एवं भक्ति का प्राधान्य</h2>
+      <a href="https://www.youtube.com/watch?v=Z9vVXP2jipY" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>मर्यादा और पुष्टि मार्ग में सेवा और शुद्धि का तात्विक भेद</h3><span class="topic-ts">00:00</span></div>
+        <p>जहाँ मर्यादा में 'शुद्धि' के लिए पंचामृत स्नान और कड़े नियमों का पालन है, वहीं पुष्टि में 'भगवद्-दरबार' के भाव से सेवा की जाती है, जहाँ प्रजा (भक्तों) की संतुष्टि ही प्रभु का परिश्रम है।</p>
+        <a href="https://youtu.be/Z9vVXP2jipY?t=0" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'मंत्र-मात्र पूजा परायणता' का निषेध और भागवत का प्रामाणिक उपदेश</h3><span class="topic-ts">29:21</span></div>
+        <p>भक्ति केवल मंत्रों की जड़ता (पूजा-परायणता) नहीं है, बल्कि यह निरंतर प्रभु के प्रति प्रेम की भावना है।</p>
+        <a href="https://youtu.be/Z9vVXP2jipY?t=1761" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>सेवाकौमुदी ग्रंथ का उपसंहार: भक्ति और मुक्ति का तुलनात्मक विवेचन</h3><span class="topic-ts">32:38</span></div>
+        <p>भागवत के वचनों के आधार पर सिद्ध किया गया कि मुक्ति तो प्रभु सहज ही दे देते हैं, परंतु 'भक्ति' का दान वे अत्यंत दुर्लभता से करते हैं। अतः मोक्ष से भी भक्ति अधिक श्रेष्ठ है।</p>
+        <a href="https://youtu.be/Z9vVXP2jipY?t=1958" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 21 ══ -->
+  <div class="part-section" id="part21">
+    <div class="part-header">
+      <h2>भाग २१ : सेवाकौमुदी का मंगलाचरण, नवधा भक्ति एवं अनुष्ठान रीति</h2>
+      <a href="https://www.youtube.com/watch?v=SddT5wjZyUo" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'सेवा' और 'नवधा भक्ति' के बीच अंग-अंगी भाव का तात्विक रहस्य</h3><span class="topic-ts">12:08</span></div>
+        <p>महत्वपूर्ण शंका-समाधान: क्या नवधा भक्ति सेवा का अंग है? वक्ता स्पष्ट करते हैं कि अंग-अंगी का भेद केवल समझने के लिए है; वास्तव में पुष्टि मार्ग में 'सेवा' ही नवधा भक्ति के रूप में प्रकट होती है।</p>
+        <a href="https://youtu.be/SddT5wjZyUo?t=728" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'अर्पितकरण' का अर्थ: रेडीमेड सामग्री बनाम स्वयं कृत सेवा</h3><span class="topic-ts">18:48</span></div>
+        <p>रेडीमेड सामग्री (जैसे कैटरिंग या सजावट) का उपयोग करना 'अर्पितकरण' नहीं है। हर क्रिया, हर श्रृंगार, हर भोग प्रभु के प्रति स्वयं के श्रम और प्रेम से सिद्ध होना चाहिए — यही पुष्टि-सेवा का सार है।</p>
+        <a href="https://youtu.be/SddT5wjZyUo?t=1128" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>'यद्यदिष्टतमं लोके': भोग-सामग्री चयन में इष्टतम का निर्णय</h3><span class="topic-ts">1:24:19</span></div>
+        <p>भगवान ने स्वयं कहा है कि जो लोक में इष्टतम है, उसे मुझे अर्पण करो। किंतु यदि वही वस्तु 'शास्त्र' में निषिद्ध हो, तो उसका सेवन या अर्पण नहीं किया जा सकता। अतः 'लोक' और 'शास्त्र' के बीच सामंजस्य ही वैष्णव का धर्म है।</p>
+        <a href="https://youtu.be/SddT5wjZyUo?t=5059" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+  <!-- ══ PART 22 ══ -->
+  <div class="part-section" id="part22">
+    <div class="part-header">
+      <h2>भाग २२ : प्रस्तुति, प्रश्नोत्तरी एवं सेवा-रीति का व्यावहारिक समन्वय</h2>
+      <a href="https://www.youtube.com/watch?v=MATkJC4EOH4" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+    </div>
+    <div class="part-body">
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>सेवा में 'अर्पितकरण' का अर्थ: स्व-श्रम और प्रेम की अनिवार्यता</h3><span class="topic-ts">18:16</span></div>
+        <p>पुष्टि-भक्ति मार्ग में रेडीमेड सामग्री का अर्पण 'अर्पितकरण' नहीं है। प्रभु के प्रति प्रेम तब सिद्ध होता है जब सेवा में स्वयं का श्रम और निज भावना जुड़ी हो।</p>
+        <a href="https://youtu.be/MATkJC4EOH4?t=1096" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>दास्य और सख्य भक्ति का समन्वय: अनन्यगामित्व और अप्रेरित प्रियकरण</h3><span class="topic-ts">42:04</span></div>
+        <p>दास्य (अनन्यगामित्व) और सख्य (अप्रेरित प्रियकरण) का मेल। जो दास होकर भी प्रभु के सुख हेतु बिना कहे कार्य करता है, वही सच्चा प्रेमी है। वक्ता इसे पारसी मित्र और कच्छ के महारावल के दृष्टांत से समझाते हैं।</p>
+        <a href="https://youtu.be/MATkJC4EOH4?t=2524" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <div class="topic">
+        <div class="topic-header"><span class="topic-marker">■</span><h3>इष्टतम-अनिष्टतम का निर्णय: लोक, वेद और शास्त्र का फिल्टर</h3><span class="topic-ts">1:24:19</span></div>
+        <p>प्रभु को क्या अर्पण करना चाहिए? इसका निर्णय शास्त्र और सदाचार से होता है। यदि कोई वस्तु लोक में उत्तम है पर शास्त्र में निषिद्ध, तो उसे प्रभु को अर्पण नहीं किया जा सकता।</p>
+        <a href="https://youtu.be/MATkJC4EOH4?t=3871" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+      </div>
+
+      <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+    </div>
+  </div>
+
+</div><!-- /container -->
+
+<!-- ══════════════════ FOOTER ══════════════════ -->
+<div class="footer">
+  <span class="om">ॐ</span>
+  <strong style="color:var(--yellow); font-size:1.05rem;">सेवाकौमुदी सारांश · श्रीवल्लभाचार्य विद्यापीठ</strong><br>
+  पूज्य गोस्वामी श्रीशरदकुमारजी द्वारा प्रस्तुत अध्ययन सत्र<br>
+  <span style="color:rgba(255,255,255,0.5); font-size:0.78rem;">सभी लिंक YouTube पर सीधे उस समय पर जाते हैं · All links open YouTube at exact timestamps</span>
+</div>
+
+</body>
+</html>
