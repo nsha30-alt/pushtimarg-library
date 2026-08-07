@@ -1,12 +1,15 @@
-<!DOCTYPE html>
-<!-- saved from url=(0040)file:///Users/niraj/Downloads/index.html -->
-<html lang="gu"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+Here's the full, current code — this is the version with the tek shown after every verse, matching your document's format:
 
+```html
+<!DOCTYPE html>
+<html lang="gu">
+<head>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>દયારામભાઈ ધોળ-પદ, ગરબા</title>
-<link rel="preconnect" href="https://fonts.googleapis.com/">
-<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
-<link href="./દયારામભાઈ ધોળ-પદ, ગરબા_files/css2" rel="stylesheet">
+<title>શ્રી દયારામભાઇ દ્વારા રચિત ધોળ-પદ, ગરબા</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rasa:ital,wght@0,400;0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,500;1,500&display=swap" rel="stylesheet">
 <style>
   :root{
     --red-deep:#7A1220;
@@ -30,7 +33,6 @@
   }
   a{color:inherit;}
 
-  /* ---------- Header ---------- */
   header{
     position:relative;
     background:linear-gradient(160deg, var(--red-deep) 0%, var(--red) 38%, var(--orange) 72%, var(--yellow) 100%);
@@ -74,20 +76,6 @@
     letter-spacing:.02em;
     text-shadow:0 2px 10px rgba(0,0,0,.25);
   }
-  header .sub1{
-    font-family:'Cormorant Garamond',serif;
-    font-style:italic;
-    color:#FFEBD2;
-    font-size:clamp(.95rem,3vw,1.15rem);
-    letter-spacing:.04em;
-    margin:0 0 2px;
-  }
-  header .sub2{
-    color:#FFE1B8;
-    font-size:.92rem;
-    margin:0;
-    opacity:.9;
-  }
   .divider{
     width:120px;height:3px;
     margin:16px auto 0;
@@ -96,41 +84,6 @@
     border-radius:3px;
   }
 
-  /* ---------- Tabs ---------- */
-  .tabbar-wrap{
-    position:sticky; top:0; z-index:20;
-    background:var(--cream);
-    box-shadow:0 3px 10px rgba(122,18,32,.08);
-  }
-  .tabbar{
-    max-width:720px;margin:0 auto;
-    display:flex;gap:8px;
-    padding:12px 16px;
-  }
-  .tab{
-    flex:1;
-    appearance:none;border:1.5px solid var(--orange);
-    background:var(--ivory);
-    color:var(--red-deep);
-    font-family:'Rasa',serif;font-weight:600;
-    font-size:1.02rem;
-    padding:11px 10px;
-    border-radius:999px;
-    cursor:pointer;
-    transition:background .25s, color .25s, box-shadow .25s, transform .15s;
-    display:flex;align-items:center;justify-content:center;gap:6px;
-  }
-  .tab:hover{transform:translateY(-1px);}
-  .tab:focus-visible{outline:none;box-shadow:var(--ring);}
-  .tab[aria-selected="true"]{
-    background:linear-gradient(120deg,var(--red) 0%, var(--orange) 100%);
-    color:#fff;
-    border-color:transparent;
-    box-shadow:0 4px 12px rgba(193,39,45,.35);
-  }
-  .tab .ico{font-size:1.05rem;}
-
-  /* ---------- Main ---------- */
   main{max-width:720px;margin:0 auto;padding:20px 14px 60px;}
   .panel{display:none;}
   .panel.active{display:block; animation:fade .35s ease;}
@@ -142,7 +95,6 @@
     font-family:'Cormorant Garamond',serif;font-style:italic;
   }
 
-  /* ---------- Song cards ---------- */
   .song-card{
     background:var(--ivory);
     border-radius:16px;
@@ -199,17 +151,21 @@
     line-height:1.6;
   }
   .verse{
-    display:flex;gap:10px;
-    margin-bottom:12px;
-    align-items:baseline;
+    margin-bottom:14px;
   }
   .verse .vlabel{
-    flex:0 0 auto;
     font-weight:700;color:var(--orange);font-size:.92rem;
-    min-width:44px;
+    margin-right:6px;
   }
   .verse .vtext{
     font-size:1.12rem;line-height:1.85;color:var(--ink);
+  }
+  .verse .vtek{
+    display:block;
+    margin-top:2px;
+    font-size:.95rem;
+    font-style:italic;
+    color:var(--ink-soft);
   }
   .song-author{
     margin-top:6px;
@@ -230,61 +186,6 @@
     background:linear-gradient(90deg, transparent, var(--orange), transparent);
   }
 
-  /* ---------- PDF panel ---------- */
-  .pdf-card{
-    background:var(--ivory);
-    border-radius:16px;
-    box-shadow:0 3px 12px rgba(122,18,32,.08);
-    padding:20px;
-    border-top:5px solid var(--orange);
-  }
-  .pdf-meta{
-    display:flex;align-items:center;gap:12px;
-    margin-bottom:16px;
-  }
-  .pdf-icon{
-    width:46px;height:46px;border-radius:12px;
-    background:linear-gradient(140deg,var(--red),var(--orange));
-    display:flex;align-items:center;justify-content:center;
-    font-size:1.4rem;color:#fff;flex:0 0 auto;
-  }
-  .pdf-title{font-weight:700;color:var(--red-deep);font-size:1.15rem;}
-  .pdf-sub{color:var(--ink-soft);font-size:.88rem;margin-top:2px;}
-  .pdf-frame-wrap{
-    border-radius:12px;overflow:hidden;
-    border:1px solid rgba(238,116,34,.25);
-    background:#f4ede1;
-    height:70vh;min-height:420px;
-  }
-  .pdf-frame-wrap iframe{width:100%;height:100%;border:none;}
-  .pdf-actions{
-    display:flex;gap:10px;margin-top:16px;flex-wrap:wrap;
-  }
-  .btn{
-    flex:1;min-width:150px;
-    text-align:center;
-    padding:12px 14px;border-radius:12px;
-    font-weight:600;font-size:.98rem;
-    text-decoration:none;
-    display:flex;align-items:center;justify-content:center;gap:8px;
-    transition:transform .15s, box-shadow .2s;
-  }
-  .btn:focus-visible{outline:none;box-shadow:var(--ring);}
-  .btn:hover{transform:translateY(-1px);}
-  .btn-primary{
-    background:linear-gradient(120deg,var(--red),var(--orange));
-    color:#fff;box-shadow:0 4px 12px rgba(193,39,45,.3);
-  }
-  .btn-ghost{
-    background:var(--cream);color:var(--red-deep);
-    border:1.5px solid var(--orange);
-  }
-  .pdf-fallback{
-    display:none;
-    text-align:center;color:var(--ink-soft);
-    padding:30px 10px;font-size:.95rem;
-  }
-
   footer{
     text-align:center;padding:26px 14px 40px;
     color:var(--ink-soft);font-size:.85rem;
@@ -299,103 +200,24 @@
 <body>
 
 <header>
-  <div class="toran" id="toranTop"><div class="flag" style="background: var(--red); margin-top: 2px;"></div><div class="flag" style="background: var(--orange); margin-top: 3.5981px;"></div><div class="flag" style="background: var(--yellow); margin-top: 5.08205px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 6.45184px;"></div><div class="flag" style="background: var(--red); margin-top: 7.70749px;"></div><div class="flag" style="background: var(--orange); margin-top: 8.84899px;"></div><div class="flag" style="background: var(--yellow); margin-top: 9.87634px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 10.7895px;"></div><div class="flag" style="background: var(--red); margin-top: 11.5886px;"></div><div class="flag" style="background: var(--orange); margin-top: 12.2735px;"></div><div class="flag" style="background: var(--yellow); margin-top: 12.8442px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 13.3008px;"></div><div class="flag" style="background: var(--red); margin-top: 13.6433px;"></div><div class="flag" style="background: var(--orange); margin-top: 13.8716px;"></div><div class="flag" style="background: var(--yellow); margin-top: 13.9857px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 13.9857px;"></div><div class="flag" style="background: var(--red); margin-top: 13.8716px;"></div><div class="flag" style="background: var(--orange); margin-top: 13.6433px;"></div><div class="flag" style="background: var(--yellow); margin-top: 13.3008px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 12.8442px;"></div><div class="flag" style="background: var(--red); margin-top: 12.2735px;"></div><div class="flag" style="background: var(--orange); margin-top: 11.5886px;"></div><div class="flag" style="background: var(--yellow); margin-top: 10.7895px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 9.87634px;"></div><div class="flag" style="background: var(--red); margin-top: 8.84899px;"></div><div class="flag" style="background: var(--orange); margin-top: 7.70749px;"></div><div class="flag" style="background: var(--yellow); margin-top: 6.45184px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 5.08205px;"></div><div class="flag" style="background: var(--red); margin-top: 3.5981px;"></div><div class="flag" style="background: var(--orange); margin-top: 2px;"></div></div>
+  <div class="toran" id="toranTop"></div>
   <div class="crest">🪔</div>
-  <h1>દયારામભાઈ ધોળ-પદ, ગરબા</h1>
-  <p class="sub1">પુષ્ટિ અસ્મિતા રાસ-ગરબા · સહગાન ગીત સંગ્રહ</p>
-  <p class="sub2">કવિ દયારામ રચિત ભક્તિપદો</p>
+  <h1>શ્રી દયારામભાઇ દ્વારા રચિત ધોળ-પદ, ગરબા</h1>
   <div class="divider"></div>
 </header>
 
-<div class="tabbar-wrap">
-  <div class="tabbar" role="tablist" aria-label="ગીત વિભાગ">
-    <button class="tab" id="tabBtnSongs" role="tab" aria-selected="true" aria-controls="panelSongs">
-      <span class="ico">📜</span> ગીતો
-    </button>
-    <button class="tab" id="tabBtnPdf" role="tab" aria-selected="false" aria-controls="panelPdf">
-      <span class="ico">📖</span> PDF ગ્રંથ
-    </button>
-  </div>
-</div>
-
 <main>
-  <section class="panel active" id="panelSongs" role="tabpanel" aria-labelledby="tabBtnSongs">
+  <section class="panel active" id="panelSongs">
     <p class="hint">ગીત પર ટેપ કરીને આખું પદ વાંચો / ગાઓ</p>
-    <div id="songList"><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૧</span>
-    <span class="song-titles">
-      <span class="song-title">શોભા સલૂણા શ્યામની</span>
-      <span class="song-tek">તૂં જોને સખી, શોભા સલૂણા શ્યામની!</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 તૂં જોને સખી, શોભા સલૂણા શ્યામની!</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">કોટી કંદર્પ લજાવે એહેનું મૂખડું, ફીકી પડે છે કળા જામિની...</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">સદ્ગુણસાગર નટવરનાગર, બલીહારી એહેના નામની...</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">કોટી આભૂષણનું એરે ભૂષણ, સીમાં છે અભિરામની...</span></div><div class="verse"><span class="vlabel">કડી ૪</span><span class="vtext">જે એને જાણે તેને તો એ સાર સર્વનો, બીજી વસ્તુ નથી કામની...</span></div><div class="verse"><span class="vlabel">કડી ૫</span><span class="vtext">અનૂપમ એ અલબેલા રસીયા, જીવનમૂળી દયારામની...</span></div></div></div></div><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૨</span>
-    <span class="song-titles">
-      <span class="song-title">જળ જાતાં આજ ઘુંઘટડામાં</span>
-      <span class="song-tek">જળ જાતાં આજ ઘુંઘટડામાં, મોહનનું મુખ દીઠુંરે, અમૃતરસ પણ એથકી ફીકા બાઈ, એહેવું લાગ્યું છે મુને મીઠુંરે...</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 જળ જાતાં આજ ઘુંઘટડામાં, મોહનનું મુખ દીઠુંરે, અમૃતરસ પણ એથકી ફીકા બાઈ, એહેવું લાગ્યું છે મુને મીઠુંરે...</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">એહેને પણ કાંઈ નથી રે અજાણ્યું, મુને સાન કરી સમજાવીરે, ચાંપી હૃદે કરી હેત જણાવ્યું મુને, સાહામા તે નેન નચાવીરે...</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">શું કહું સુખ દુખ તેજ સમાનું, શર સ્નેહતણાં ઉર વાગ્યાંરે, મનમાં આવે તેમ મુખે ક્યમ કહેવું, પેલા દુરિજન દૈત્યસા લાગ્યાંરે...</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">રસિયો રૂપાળો ચતુર કો એવા નથી, અવર મેં નિશ્ચે ભાળ્યુંરે, ધન ભાગ્ય જેણે દયાના પ્રીતમ સંગ, મનગમતું સુખ માહાલ્યુંરે...</span></div></div></div></div><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૩</span>
-    <span class="song-titles">
-      <span class="song-title">તાદ્રશી જન તેને જાણીયે</span>
-      <span class="song-tek">તાદશી જન તેને જાણીયે, જેમાં એવા ગુણ હોય, જેમાં એવા ગુણ હોય... તાદશી!</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 તાદશી જન તેને જાણીયે, જેમાં એવા ગુણ હોય, જેમાં એવા ગુણ હોય... તાદશી!</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">નિંદા સ્તુતિ કોઈની નવ કરે, સઘળે સમદ્રષ્ટિ જોય... (તાદશી!) દર્શન કરતા માત્રમાં, ભુલાવે પ્રપંચનું ભાન, સ્મરણ કરાવે શ્રી કૃષ્ણનું નસાડે અધ અજ્ઞાન... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">સર્વ ચરાચરને વિષે, વસ્યા દેખે ભગવાન, શુભ ઈચ્છે સર્વ જગતનું, લેશ નહિં અભિમાન... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">ગુણગાતા ગોવિંદના પુલકિત તન થાય, નેત્રે પ્રવાહ વહે પ્રેમના, હરખે હ્રદય રૂંધાય... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૪</span><span class="vtext">પર દુઃખે દાઝે ઘણું, કરે ન કોઈનો દ્રોહ, ઈન્દ્રિય જીત સાચા સદા, પામે નહિ માયામાં મોહ... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૫</span><span class="vtext">અકળ લીલા નંદલાલની, તેમાં લગ્ન જેનું મન, પ્રીત બહુ પર ઉપકારમાં, સદા પ્રસન્ન વદન... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૬</span><span class="vtext">નટવર ઝળકે નેત્રમાં, કાંતિ કરુણામય હોય, શાંત સ્વભાવ સંતોષ બહુ, દોષ કોઈના ન જોય... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૭</span><span class="vtext">વ્હાલા લાગે સહેજે સર્વને, અતિ ઉદાર જેનું ચિત્ત, અનન્ય ભાવે ભજે કૃષ્ણને, જેને વહાલું નહિ વિત્ત... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૮</span><span class="vtext">હરિ ગુરુ વૈષ્ણવને વિષે, જેને સદા અતિ વહાલ, દૃઢ વિશ્વાસ અતિ દીનતા, બોલે વચન રસાલ... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૯</span><span class="vtext">સેવા સ્મરણ સત્સંગમાં, જેની આશકિત અત્ય, કપટનો લેશ નહિ હ્રદયે, હરિ ચરણે સદા મત્ય... (તાદશી!)</span></div><div class="verse"><span class="vlabel">કડી ૧૦</span><span class="vtext">વ્યસનાવસ્થા વિઠ્ઠલેશસૂં, સદા મુખે કૃષ્ણ નામ, તે ભગવદીય તણા દાસનો, સદા દાસ 'દયારામ'... (તાદશી!)</span></div></div></div></div><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૪</span>
-    <span class="song-titles">
-      <span class="song-title">રાધે તું પ્યારીને બીજું અવર ન કોઈ</span>
-      <span class="song-tek">રાધે તું પ્યારીને બીજું અવર ન કોઈ...</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 રાધે તું પ્યારીને બીજું અવર ન કોઈ...</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">જેને જગત મોહ્યું તે તો તુંને રહ્યો મોહી...</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">ગોકુળની ગોરી સહૂ એની પુઠે ભમે છે, તેરે વ્હાલાને ત્હારી ગાળો ગમે છે...</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">વ્રજવામા સહુને એ નાક ઘસાવે, તેરે વ્હાલો તાહારે ઘેર વણુતેડ્યો આવે...</span></div><div class="verse"><span class="vlabel">કડી ૪</span><span class="vtext">હું પણ જાણું એહેનું મળવું ક્યાંથી, ક્ષણું એક અળગો ન થાય તારે ત્યાંહાંથી...</span></div><div class="verse"><span class="vlabel">કડી ૫</span><span class="vtext">તેં વશ કીધો રાધે દયાનો પ્રભૂજી, હું નવ જાણું તેં તે કઈ ગોર પૂજી...</span></div></div></div></div><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૫</span>
-    <span class="song-titles">
-      <span class="song-title">વ્રજ વહાલું રે, વૈકુંઠ નહીં આવું</span>
-      <span class="song-tek">વ્રજ વહાલું રે, વ્રજ વહાલું રે વૈકુંઠ નહીં આવું, ત્યાં મારો નંદકુંવર ક્યાંથી લાવું...</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 વ્રજ વહાલું રે, વ્રજ વહાલું રે વૈકુંઠ નહીં આવું, ત્યાં મારો નંદકુંવર ક્યાંથી લાવું...</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">ત્યાં લલિત ત્રિભંગી નથી ગિરિધારી, સંગે સોહિયે રાધા પ્યારી, એમને નીરખતાં આંખ ઠરે મારી રે...</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">ત્યાં જમુના શ્રી ગિરિવર છે જ નહીં રે, મારું મન જ સત્ય ઠરે જ નહીં રે, મારા પ્રાણ પ્રસન્ન ત્યાં રહે જ નહીં રે...</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">ત્યાં શ્રી વૃન્દાવન રાસ નથી, વ્રજ વનિતાની સંગે વિલાસ નથી, ત્યાં આ લીલાનો પ્રકાશ નથી રે...</span></div><div class="verse"><span class="vlabel">કડી ૪</span><span class="vtext">ત્યાં ગોપીઓ તણા ઘી-દૂધ નથી, કોઈ માખણ ચોરનાર ધૂત નથી, ત્યાં આવા ગોકુળિયાના સુખ નથી રે...</span></div><div class="verse"><span class="vlabel">કડી ૫</span><span class="vtext">ત્યાં દાસ દયાના પ્રીતમ નથી, આવા શ્યામ સુંદર કોઈ ઉત્તમ નથી, હું તો વ્રજની રજમાં રાચી રહું રે...</span></div></div></div></div><div class="song-card"><button class="song-head" aria-expanded="false">
-    <span class="song-num">૬</span>
-    <span class="song-titles">
-      <span class="song-title">માધવપુરનો માંડવો</span>
-      <span class="song-tek">માધવપુરનો માંડવો, આવે જાદવકુળની જાન...</span>
-    </span>
-    <span class="chev">▾</span>
-  </button><div class="song-body-wrap"><div class="song-body"><div class="tek-line">🎵 માધવપુરનો માંડવો, આવે જાદવકુળની જાન...</div><div class="verse"><span class="vlabel">કડી ૧</span><span class="vtext">પરણે સુંદર વર શામળો, જેનાં વેદ પુરાણ કરે ગાન...</span></div><div class="verse"><span class="vlabel">કડી ૨</span><span class="vtext">મોરપીંછનો મુગટ શિરે, કાને કુંડળ ઝળકે સાર, કંઠે વિરાજિત વનમાળા, હૈડે રત્ન તણો હાર...</span></div><div class="verse"><span class="vlabel">કડી ૩</span><span class="vtext">પીતાંબર કટિ કસીયું, હાથે સોહે સુવર્ણ કંકણ, ચરણે નૂપુર રૂમઝૂમ વાજે, મોહિત કીધાં મુનિમન...</span></div><div class="verse"><span class="vlabel">કડી ૪</span><span class="vtext">ચોરી ચિતરાવી વિધ વિધની, બેઠા મંડપમાં જગદીશ, મુક્તાનંદના નાથને રે, સૌ નમી નમી નામે શીશ...</span></div></div></div></div></div>
-  </section>
-
-  <section class="panel" id="panelPdf" role="tabpanel" aria-labelledby="tabBtnPdf">
-    <div class="pdf-card">
-      <div class="pdf-meta">
-        <div class="pdf-icon">📕</div>
-        <div>
-          <div class="pdf-title">પુષ્ટિ અસ્મિતા</div>
-          <div class="pdf-sub">મૂળ PDF ગ્રંથ · સંપૂર્ણ પાનાં અહીં જુઓ</div>
-        </div>
-      </div>
-      <div class="pdf-frame-wrap">
-        <iframe id="pdfFrame" src="./દયારામભાઈ ધોળ-પદ, ગરબા_files/pushti-asmita.html" title="પુષ્ટિ અસ્મિતા PDF"></iframe>
-      </div>
-      <div class="pdf-fallback" id="pdfFallback">
-        તમારું બ્રાઉઝર અહીં PDF બતાવી શકતું નથી. નીચેના બટનથી ખોલો અથવા ડાઉનલોડ કરો.
-      </div>
-      <div class="pdf-actions">
-        <a class="btn btn-primary" href="file:///Users/niraj/Downloads/pushti-asmita.pdf" target="_blank" rel="noopener">નવા ટૅબમાં ખોલો</a>
-        <a class="btn btn-ghost" href="file:///Users/niraj/Downloads/pushti-asmita.pdf" download="pushti-asmita.pdf">ડાઉનલોડ કરો</a>
-      </div>
-    </div>
+    <div id="songList"></div>
   </section>
 </main>
 
 <footer>
-  <div class="toran" id="toranBottom"><div class="flag" style="background: var(--red); margin-top: 2px;"></div><div class="flag" style="background: var(--orange); margin-top: 3.5981px;"></div><div class="flag" style="background: var(--yellow); margin-top: 5.08205px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 6.45184px;"></div><div class="flag" style="background: var(--red); margin-top: 7.70749px;"></div><div class="flag" style="background: var(--orange); margin-top: 8.84899px;"></div><div class="flag" style="background: var(--yellow); margin-top: 9.87634px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 10.7895px;"></div><div class="flag" style="background: var(--red); margin-top: 11.5886px;"></div><div class="flag" style="background: var(--orange); margin-top: 12.2735px;"></div><div class="flag" style="background: var(--yellow); margin-top: 12.8442px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 13.3008px;"></div><div class="flag" style="background: var(--red); margin-top: 13.6433px;"></div><div class="flag" style="background: var(--orange); margin-top: 13.8716px;"></div><div class="flag" style="background: var(--yellow); margin-top: 13.9857px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 13.9857px;"></div><div class="flag" style="background: var(--red); margin-top: 13.8716px;"></div><div class="flag" style="background: var(--orange); margin-top: 13.6433px;"></div><div class="flag" style="background: var(--yellow); margin-top: 13.3008px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 12.8442px;"></div><div class="flag" style="background: var(--red); margin-top: 12.2735px;"></div><div class="flag" style="background: var(--orange); margin-top: 11.5886px;"></div><div class="flag" style="background: var(--yellow); margin-top: 10.7895px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 9.87634px;"></div><div class="flag" style="background: var(--red); margin-top: 8.84899px;"></div><div class="flag" style="background: var(--orange); margin-top: 7.70749px;"></div><div class="flag" style="background: var(--yellow); margin-top: 6.45184px;"></div><div class="flag" style="background: rgb(255, 253, 248); margin-top: 5.08205px;"></div><div class="flag" style="background: var(--red); margin-top: 3.5981px;"></div><div class="flag" style="background: var(--orange); margin-top: 2px;"></div></div>
-  <p>🙏 જય શ્રી કૃષ્ણ · ધોળ પદ</p>
+  <div class="toran" id="toranBottom"></div>
 </footer>
 
 <script>
-/* ---------------- Song Data ---------------- */
 const SONGS = [
   {
     num:"૧",
@@ -473,7 +295,6 @@ const SONGS = [
   },
 ];
 
-/* ---------------- Render Songs ---------------- */
 const GUJ_DIGITS = ['૦','૧','૨','૩','૪','૫','૬','૭','૮','૯'];
 function toGujNum(n){ return String(n).split('').map(d => GUJ_DIGITS[+d]).join(''); }
 
@@ -516,7 +337,7 @@ SONGS.forEach((song) => {
   song.verses.forEach((v, vi) => {
     const verse = document.createElement('div');
     verse.className = 'verse';
-    verse.innerHTML = `<span class="vlabel">કડી ${toGujNum(vi + 1)}</span><span class="vtext">${v}</span>`;
+    verse.innerHTML = `<span class="vlabel">કડી ${toGujNum(vi + 1)}:</span><span class="vtext">${v}</span><span class="vtek">→ ટેક: ${song.tek}</span>`;
     body.appendChild(verse);
   });
 
@@ -547,28 +368,6 @@ window.addEventListener('resize', () => {
   });
 });
 
-/* ---------------- Tabs ---------------- */
-const tabBtnSongs = document.getElementById('tabBtnSongs');
-const tabBtnPdf = document.getElementById('tabBtnPdf');
-const panelSongs = document.getElementById('panelSongs');
-const panelPdf = document.getElementById('panelPdf');
-
-function activate(which){
-  const songsOn = which === 'songs';
-  tabBtnSongs.setAttribute('aria-selected', songsOn ? 'true':'false');
-  tabBtnPdf.setAttribute('aria-selected', songsOn ? 'false':'true');
-  panelSongs.classList.toggle('active', songsOn);
-  panelPdf.classList.toggle('active', !songsOn);
-}
-tabBtnSongs.addEventListener('click', () => activate('songs'));
-tabBtnPdf.addEventListener('click', () => activate('pdf'));
-
-/* ---------------- PDF fallback detection ---------------- */
-const pdfFrame = document.getElementById('pdfFrame');
-const pdfFallback = document.getElementById('pdfFallback');
-pdfFrame.addEventListener('error', () => { pdfFallback.style.display = 'block'; });
-
-/* ---------------- Toran (bunting) generator ---------------- */
 function buildToran(container){
   container.innerHTML = '';
   const colors = ['var(--red)','var(--orange)','var(--yellow)','#FFFDF8'];
@@ -591,6 +390,6 @@ window.addEventListener('resize', () => {
   buildToran(document.getElementById('toranBottom'));
 });
 </script>
+</body>
+</html>
 
-
-</body></html>
