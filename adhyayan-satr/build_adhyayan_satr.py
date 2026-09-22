@@ -177,52 +177,52 @@ def _read_env_file(key):
                 return line.split("=", 1)[1].strip().strip('"')
     return None
 
+PROMPT_RULES = """
+नियम (अनिवार्य):
+1. पहला sub-heading: transcript में जो श्लोक/करिका/सूत्र संख्या मिले वह लिखो, साथ में उस श्लोक का संक्षिप्त भाव (1-2 वाक्य)।
+   यदि कोई संख्या नहीं मिली तो केवल विषय-शीर्षक लिखो (जैसे "उपक्रम:", "प्रश्नोत्तरी:", "समापन:" आदि)।
+2. मुख्य विषय: वक्ता ने जो व्याख्या दी है उसी से — अपनी ओर से कुछ न जोड़ो।
+3. विस्तृत विवेचन: transcript के आधार पर topic और sub-topic वार विस्तृत सारांश — न्यूनतम १० पंक्तियाँ।
+   उप-विषय अलग-अलग sentence से शुरू करो ताकि पढ़ने में सुलभ हो।
+4. सिद्धान्त-सार: केवल तब लिखो जब transcript में स्पष्ट निष्कर्ष या key takeaway हो।
+   यदि transcript में नहीं है तो यह paragraph पूरी तरह छोड़ दो — कुछ भी मत बनाओ।
+"""
+
+def _make_prompt(vid_title, ts, transcript, is_qa):
+    head = f"वीडियो: {vid_title} | समय: {ts}\n---\n{transcript[:4000]}\n---\n{PROMPT_RULES}"
+    if is_qa:
+        return head + """
+HTML format में paragraph लिखो (केवल <p> tags):
+
+<p><span class="sub-heading">प्रश्नोत्तरी:</span>कौन-सा प्रश्न, क्या पृष्ठभूमि — transcript से 2-3 वाक्य</p>
+<p><span class="sub-heading">मुख्य प्रश्न एवं उत्तर:</span>वक्ता का उत्तर जैसा transcript में है — 4-5 वाक्य</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>topic/sub-topic वार विस्तृत — न्यूनतम १० पंक्तियाँ</p>
+[यदि transcript में निष्कर्ष हो तभी:]
+<p><span class="sub-heading">सिद्धान्त-सार:</span>transcript का वास्तविक key takeaway — 2 वाक्य</p>"""
+    else:
+        return head + """
+HTML format में paragraph लिखो (केवल <p> tags):
+
+<p><span class="sub-heading">[श्लोक/करिका X–Y या विषय-शीर्षक]:</span>उस श्लोक/करिका का संक्षिप्त भाव transcript से — 2-3 वाक्य</p>
+<p><span class="sub-heading">मुख्य विषय:</span>वक्ता की व्याख्या से केन्द्रीय सिद्धान्त — 3-4 वाक्य</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>topic/sub-topic वार विस्तृत विवेचन transcript से — न्यूनतम १० पंक्तियाँ</p>
+[यदि transcript में स्पष्ट निष्कर्ष हो तभी:]
+<p><span class="sub-heading">सिद्धान्त-सार:</span>transcript का वास्तविक key takeaway — 2 वाक्य</p>"""
+
 def summarize_with_anthropic(key, vid_title, start_sec, transcript, is_qa):
     import anthropic
     ts = sec_to_ts(start_sec)
-    if is_qa:
-        prompt = f"""तुम पुष्टिमार्ग विद्वान हो। नीचे प्रश्नोत्तरी का ट्रांसक्रिप्ट है।
-वीडियो: {vid_title} | समय: {ts}
----
-{transcript[:3000]}
----
-इस HTML format में ४ पैराग्राफ लिखो (केवल <p> tags, कोई extra HTML नहीं):
-<p><span class="sub-heading">प्रश्नोत्तरी:</span>[संदर्भ — कौन सा प्रश्न, क्या पृष्ठभूमि — 2-3 वाक्य]</p>
-<p><span class="sub-heading">मुख्य प्रश्न एवं उत्तर:</span>[transcript से मुख्य Q&A — 4-5 वाक्य]</p>
-<p><span class="sub-heading">विस्तृत विवेचन:</span>[गहन व्याख्या, उदाहरण, शास्त्र-प्रमाण — 4-5 वाक्य]</p>
-<p><span class="sub-heading">सिद्धान्त-सार:</span>[निष्कर्ष — 2 वाक्य]</p>"""
-    else:
-        prompt = f"""तुम पुष्टिमार्ग विद्वान हो। नीचे वेदान्त-प्रवचन का ट्रांसक्रिप्ट है।
-वीडियो: {vid_title} | समय: {ts}
----
-{transcript[:3000]}
----
-इस HTML format में ४ पैराग्राफ लिखो:
-<p><span class="sub-heading">[श्लोक/करिका संख्या या उपक्रम/समापन]:</span>[संदर्भ — कौन-सा श्लोक/करिका, क्या विषय — 2-3 वाक्य]</p>
-<p><span class="sub-heading">मुख्य विषय:</span>[केन्द्रीय सिद्धान्त — 3-4 वाक्य]</p>
-<p><span class="sub-heading">विस्तृत विवेचन:</span>[उदाहरण, व्याख्या, शास्त्र-प्रमाण — 4-5 वाक्य]</p>
-<p><span class="sub-heading">सिद्धान्त-सार:</span>[निष्कर्ष और महाप्रभुजी का अभिप्राय — 2 वाक्य]</p>"""
-
+    prompt = _make_prompt(vid_title, ts, transcript, is_qa)
     client = anthropic.Anthropic(api_key=key)
     msg = client.messages.create(
-        model="claude-haiku-4-5-20251001", max_tokens=600,
+        model="claude-haiku-4-5-20251001", max_tokens=1200,
         messages=[{"role": "user", "content": prompt}])
     return msg.content[0].text.strip()
 
 def summarize_with_gemini(key, vid_title, start_sec, transcript, is_qa):
     import requests
     ts = sec_to_ts(start_sec)
-    prompt = f"""पुष्टिमार्ग विद्वान के रूप में, नीचे दिए ट्रांसक्रिप्ट का विस्तृत सारांश लिखो।
-वीडियो: {vid_title} | समय: {ts}
----
-{transcript[:3000]}
----
-HTML format में ४ <p> पैराग्राफ:
-<p><span class="sub-heading">{"प्रश्नोत्तरी" if is_qa else "[श्लोक/करिका नं. या उपक्रम]"}:</span>[2-3 वाक्य context]</p>
-<p><span class="sub-heading">{"मुख्य प्रश्न एवं उत्तर" if is_qa else "मुख्य विषय"}:</span>[3-4 वाक्य]</p>
-<p><span class="sub-heading">विस्तृत विवेचन:</span>[4-5 वाक्य]</p>
-<p><span class="sub-heading">सिद्धान्त-सार:</span>[2 वाक्य]</p>"""
-
+    prompt = _make_prompt(vid_title, ts, transcript, is_qa)
     r = requests.post(
         f"https://generativelanguage.googleapis.com/v1beta/models/gemini-flash-lite-latest:generateContent?key={key}",
         json={"contents": [{"parts": [{"text": prompt}]}]}, timeout=30)
@@ -230,25 +230,37 @@ HTML format में ४ <p> पैराग्राफ:
     return r.json()["candidates"][0]["content"]["parts"][0]["text"].strip()
 
 def summarize_no_api(vid_title, start_sec, transcript, is_qa, chunk_idx):
-    """Fallback: structure raw transcript into the 4-subheading format."""
-    ts = sec_to_ts(start_sec)
-    # Split transcript into roughly 4 equal parts
+    """Fallback: structure raw transcript into the sub-heading format."""
     words = transcript.split()
-    n = max(1, len(words) // 4)
-    parts = [
-        " ".join(words[0:n]),
-        " ".join(words[n:2*n]),
-        " ".join(words[2*n:3*n]),
-        " ".join(words[3*n:]),
-    ]
-    # Detect shlok/karika mention
-    shlok = re.search(r'(श्लोक|करिका|सूत्र)\s*[\d०-९]+(?:\s*[–-]\s*[\d०-९]+)?', transcript[:500])
-    label1 = shlok.group(0) if shlok else ("प्रश्नोत्तरी" if is_qa else "उपक्रम")
+    # First heading: detect shlok/karika number
+    shlok_m = re.search(r'(श्लोक|करिका|सूत्र)\s*[\d०-९]+(?:\s*[–\-]\s*[\d०-९]+)?', transcript[:600])
+    if shlok_m:
+        label1 = shlok_m.group(0)
+        # Brief shlok summary = next 30 words after match
+        pos = transcript.find(shlok_m.group(0))
+        shlok_ctx = " ".join(transcript[pos:pos+300].split()[:30])
+    elif is_qa:
+        label1 = "प्रश्नोत्तरी"
+        shlok_ctx = " ".join(words[:30])
+    else:
+        label1 = "उपक्रम" if chunk_idx == 0 else "विवेचन"
+        shlok_ctx = " ".join(words[:30])
+
     label2 = "मुख्य प्रश्न एवं उत्तर" if is_qa else "मुख्य विषय"
-    return f"""<p><span class="sub-heading">{label1}:</span>{parts[0][:400]}</p>
-<p><span class="sub-heading">{label2}:</span>{parts[1][:400]}</p>
-<p><span class="sub-heading">विस्तृत विवेचन:</span>{parts[2][:400]}</p>
-<p><span class="sub-heading">सिद्धान्त-सार:</span>{parts[3][:300]}</p>"""
+    # Distribute: ~10% heading ctx, ~20% main, rest for विस्तृत, last 15% for सार
+    n = len(words)
+    main_txt  = " ".join(words[max(0,n//10) : n//4])
+    vistar_txt = " ".join(words[n//4 : int(n*0.85)])
+    saar_txt   = " ".join(words[int(n*0.85):])
+
+    saar_para = ""
+    if saar_txt.strip():
+        saar_para = f'\n<p><span class="sub-heading">सिद्धान्त-सार:</span>{saar_txt[:400]}</p>'
+
+    return (f'<p><span class="sub-heading">{label1}:</span>{shlok_ctx}</p>\n'
+            f'<p><span class="sub-heading">{label2}:</span>{main_txt[:500]}</p>\n'
+            f'<p><span class="sub-heading">विस्तृत विवेचन:</span>{vistar_txt[:1200]}</p>'
+            + saar_para)
 
 def get_summary(api, api_key, cache, cache_file, vid_id, chunk_idx,
                 vid_title, start_sec, transcript, is_qa, speaker):
