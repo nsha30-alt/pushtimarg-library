@@ -37,6 +37,15 @@
   .banner-tagline{color:var(--white);font-size:1rem;margin-top:14px;opacity:.97;font-style:italic;}
   .main-header .join-line{font-size:0.95em;margin-top:10px;opacity:.95;line-height:1.6;}
   .main-header .join-line a{color:var(--yellow);text-decoration:underline;font-weight:bold;word-break:break-all;}
+  .activities-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:22px;max-width:900px;margin-left:auto;margin-right:auto;}
+  @media(max-width:720px){.activities-grid{grid-template-columns:1fr 1fr;}}
+  @media(max-width:420px){.activities-grid{grid-template-columns:1fr;}}
+  .act-card{display:block;text-decoration:none;background:rgba(0,0,0,0.28);border:1px solid rgba(255,215,80,.22);border-radius:13px;padding:15px 16px;text-align:left;transition:background .15s,transform .15s;}
+  .act-card:hover{background:rgba(0,0,0,0.42);transform:translateY(-2px);}
+  .act-icon{font-size:1.4em;margin-bottom:6px;display:block;}
+  .act-title{font-size:.88rem;font-weight:700;color:var(--yellow);line-height:1.4;margin-bottom:5px;}
+  .act-desc{font-size:.75rem;color:#fdf1e2;line-height:1.55;}
+  .act-cta{font-size:.72rem;font-weight:700;color:#ffd76a;margin-top:8px;}
 </style>
 <meta name="description" content="श्रीवल्लभाचार्य विद्यापीठ में कोन्फरेंस के माध्यम से अध्यापित ग्रन्थों का सारांश">
 <meta property="og:title" content="नित्य पुष्टिस्वाध्याय सत्रों का संकलन">
@@ -63,8 +72,32 @@
 
 <div class="main-header">
   <h1>॥ नित्य पुष्टिस्वाध्याय ॥</h1>
-  <div class="subtitle">श्रीवल्लभाचार्य विद्यापीठ में कोन्फरेंस के माध्यम से अध्यापित ग्रन्थों का सारांश</div>
-  <div class="join-line">श्रीवल्लभाचार्य विद्यापीठ, हालोल द्वारा होते पुष्टिमार्गीय ग्रन्थ अध्ययनमें नीचे दी गई लिंक द्वारा जुड़ें<br><a href="https://join.freeconferencecall.com/283648" target="_blank" rel="noopener">https://join.freeconferencecall.com/283648</a></div>
+  <div class="activities-grid">
+    <a class="act-card" href="https://join.freeconferencecall.com/283648" target="_blank" rel="noopener">
+      <span class="act-icon">📞</span>
+      <div class="act-title">ग्रंथ अध्ययन में जुड़ें</div>
+      <div class="act-desc">FCC लिंक द्वारा नित्य पुष्टिमार्गीय ग्रंथ अध्ययन में सहभागी हों</div>
+      <div class="act-cta">लिंक खोलें →</div>
+    </a>
+    <a class="act-card" href="https://m.youtube.com/@shreevallbhacharyavidhyape9199/videos" target="_blank" rel="noopener">
+      <span class="act-icon">▶</span>
+      <div class="act-title">पुष्टिस्वाध्याय रिकॉर्डिंग</div>
+      <div class="act-desc">FCC द्वारा होते पुष्टिस्वाध्याय की सभी रिकॉर्डिंग यहाँ देखें</div>
+      <div class="act-cta">रिकॉर्डिंग देखें →</div>
+    </a>
+    <a class="act-card" href="https://wa.me/c/919313436200" target="_blank" rel="noopener">
+      <span class="act-icon">📚</span>
+      <div class="act-title">प्रामाणिक साहित्य</div>
+      <div class="act-desc">WhatsApp कैटलॉग — पुष्टिमार्ग सम्बन्धित साहित्य प्राप्त करें</div>
+      <div class="act-cta">कैटलॉग देखें →</div>
+    </a>
+    <a class="act-card" href="https://youtube.com/@shreevallbhacharyavidhyape9199" target="_blank" rel="noopener">
+      <span class="act-icon">🎬</span>
+      <div class="act-title">YouTube चैनल</div>
+      <div class="act-desc">आधिकारिक YouTube चैनल — सभी वीडियो व सब्सक्रिप्शन</div>
+      <div class="act-cta">चैनल खोलें →</div>
+    </a>
+  </div>
 </div>
 
 <div class="section-label">📚 विषय चुनें</div>
