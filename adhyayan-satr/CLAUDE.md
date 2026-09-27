@@ -92,13 +92,23 @@ Script automatic करेगा:
 python3 build_adhyayan_satr.py "URL" --title "..." --captions /path/to/vtt/folder
 ```
 
-HTML बनने के बाद index.html में entry जोड़ें (नीचे `<!-- नए सत्र -->` comment से पहले):
+HTML बनने के बाद `index.html` में entry जोड़ें।
+
+⚠️ **CRITICAL — index.html को कभी rewrite न करें।**
+हमेशा `Edit` tool से केवल नई entry INSERT करें। पुरानी entries कभी delete न करें।
+`<!-- नया सत्र यहाँ जोड़ें -->` comment के ठीक बाद नई entry डालें:
+
 ```html
-<a class="satr-item" href="[filename].html">
-  <div class="satr-title">[सत्र का पूरा नाम]</div>
-  <div class="satr-meta">श्रीवल्लभाचार्य विद्यापीठ, हालोल · [तारीख] · [विवरण]</div>
+<!-- नया सत्र यहाँ जोड़ें — ऊपर वाली entries कभी न हटाएँ -->
+<a class="session-card" href="[filename].html">
+  <span class="card-arrow">→</span>
+  <div class="card-date">📅 [YYYY-MM]</div>
+  <div class="card-title">[सत्र का पूरा नाम]</div>
 </a>
 ```
+
+साथ ही `section-bar` में count +1 करें:
+`<div class="section-bar">📚 सूची (N)</div>` → N को 1 बढ़ाएँ।
 
 ## Build Pipeline (SBV से HTML) — पुरानी पद्धति
 
