@@ -1,0 +1,61 @@
+name: Protect adhyayan-satr index entries
+
+on:
+  push:
+    paths:
+      - 'adhyayan-satr/index.html'
+
+jobs:
+  guard:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check required entries exist
+        id: check
+        run: |
+          FILE="adhyayan-satr/index.html"
+          MISSING=0
+
+          check_entry() {
+            if ! grep -q "$1" "$FILE"; then
+              echo "MISSING: $1"
+              MISSING=1
+            fi
+          }
+
+          check_entry "vedantachintamani-tritiya-chaturtha-prakaran.html"
+          check_entry "vedantachintamani-dvitiya-prakaran-sampurna.html"
+          check_entry "sadhan-prakaran-adhyayan-satra-sampurna.html"
+          check_entry "bhaktimargiya-shankaniras-satr3.html"
+          check_entry "sevakaumudi-saransh.html"
+          check_entry "2026-09-02_retry.html"
+
+          echo "missing=$MISSING" >> $GITHUB_OUTPUT
+
+      - name: Restore missing entries
+        if: steps.check.outputs.missing == '1'
+        run: |
+          FILE="adhyayan-satr/index.html"
+
+          # Ensure तृतीय-चतुर्थ entry exists
+          if ! grep -q "vedantachintamani-tritiya-chaturtha-prakaran.html" "$FILE"; then
+            sed -i 's|<!-- नया सत्र यहाँ जोड़ें.*-->|<!-- नया सत्र यहाँ जोड़ें — ऊपर वाली entries कभी न हटाएँ -->\n    <a class="session-card" href="vedantachintamani-tritiya-chaturtha-prakaran.html">\n      <span class="card-arrow">→</span>\n      <div class="card-date">📅 2026-09</div>\n      <div class="card-title">वेदान्तचिन्तामणि अध्ययन सत्र — तृतीय एवं चतुर्थ प्रकरण</div>\n    </a>|' "$FILE"
+          fi
+
+          # Fix count if wrong
+          COUNT=$(grep -c 'class="session-card"' "$FILE" || true)
+          sed -i "s|सूची ([0-9]*)|सूची ($COUNT)|" "$FILE"
+
+          echo "Restored $COUNT entries"
+
+      - name: Commit fix if needed
+        if: steps.check.outputs.missing == '1'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add adhyayan-satr/index.html
+          git commit -m "Auto-restore: missing entries added back to adhyayan-satr index"
+          git push
