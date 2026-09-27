@@ -7,17 +7,17 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;600;700&display=swap">
 <style>
   :root {
-    --bg: #08020f;
-    --bg2: #100020;
-    --crimson: #3a0000;
-    --crimson2: #5c1212;
-    --gold: #9a7018;
-    --gold2: #b89030;
-    --saffron: #7a3e08;
-    --cream: #d4bfa0;
-    --muted: #7a6448;
-    --glass: rgba(160,130,60,0.07);
-    --glassborder: rgba(140,100,30,0.22);
+    --bg: #1a0000;
+    --bg2: #0e0000;
+    --crimson: #8b0000;
+    --crimson2: #c0141a;
+    --gold: #d4a017;
+    --gold2: #f5c518;
+    --saffron: #e06010;
+    --cream: #fff9f0;
+    --muted: #ffd090;
+    --glass: rgba(255,200,0,0.08);
+    --glassborder: rgba(240,180,20,0.3);
     color-scheme: dark;
   }
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -462,18 +462,18 @@
 
     // Base fill
     const pals = {
-      mandala:      ['#18012a','#0e0018','#08020f'],
-      lotus:        ['#1a0008','#0d0005','#08020f'],
-      stars:        ['#000a18','#000510','#08020f'],
-      ripple:       ['#0c1000','#060a00','#08020f'],
-      concentric:   ['#140600','#0a0300','#08020f'],
-      threecircles: ['#001018','#000810','#08020f'],
-      veil:         ['#120012','#08000d','#08020f'],
-      innerlight:   ['#140e00','#0a0700','#08020f'],
-      grid:         ['#001814','#000d0a','#08020f'],
-      timerings:    ['#080020','#040018','#08020f'],
-      dissolution:  ['#160408','#0d0205','#08020f'],
-      sunrise:      ['#160600','#0e0300','#08020f'],
+      mandala:      ['#2a0000','#1a0000','#0e0000'],
+      lotus:        ['#2a0800','#1a0400','#0e0000'],
+      stars:        ['#1a0010','#0e0008','#0e0000'],
+      ripple:       ['#1a0800','#0e0400','#0e0000'],
+      concentric:   ['#2a0a00','#1a0500','#0e0000'],
+      threecircles: ['#1a0000','#120000','#0e0000'],
+      veil:         ['#200008','#150004','#0e0000'],
+      innerlight:   ['#2a1000','#1a0800','#0e0000'],
+      grid:         ['#1a0000','#120000','#0e0000'],
+      timerings:    ['#200010','#140008','#0e0000'],
+      dissolution:  ['#250000','#180000','#0e0000'],
+      sunrise:      ['#2a0800','#1a0400','#0e0000'],
     };
     const p = pals[type]||['#0e0018','#08000d','#08020f'];
     const g=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*0.7);
@@ -486,15 +486,15 @@
       const R=Math.min(W,H)*0.38;
       for(let r=R*0.2;r<=R;r+=R*0.14) {
         ctx.beginPath(); ctx.arc(0,0,r,0,Math.PI*2);
-        ctx.strokeStyle='#9a7018'; ctx.globalAlpha=0.1*(1-r/R/1.3);
+        ctx.strokeStyle='#d4a017'; ctx.globalAlpha=0.13*(1-r/R/1.3);
         ctx.lineWidth=0.7; ctx.stroke();
       }
-      ctx.globalAlpha=0.06;
+      ctx.globalAlpha=0.08;
       for(let p=0;p<14;p++) {
         const a=(p/14)*Math.PI*2;
         ctx.beginPath(); ctx.moveTo(0,0);
         ctx.lineTo(Math.cos(a)*R,Math.sin(a)*R);
-        ctx.strokeStyle='#9a7018'; ctx.lineWidth=0.5; ctx.stroke();
+        ctx.strokeStyle='#d4a017'; ctx.lineWidth=0.5; ctx.stroke();
       }
     } else if(type==='lotus') {
       ctx.translate(W/2,H/2);
@@ -504,7 +504,7 @@
         const a=(i/8)*Math.PI*2;
         ctx.beginPath();
         ctx.ellipse(Math.cos(a)*R*0.6,Math.sin(a)*R*0.6,R*0.35,R*0.11,a,0,Math.PI*2);
-        ctx.strokeStyle='#9a7018'; ctx.lineWidth=1; ctx.stroke();
+        ctx.strokeStyle='#d4a017'; ctx.lineWidth=1; ctx.stroke();
       }
     } else if(type==='stars') {
       ctx.globalAlpha=0.4;
