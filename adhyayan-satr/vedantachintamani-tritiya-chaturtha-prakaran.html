@@ -63,17 +63,16 @@
   footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
   footer .small{font-size:.76em;color:#FFAA00;}
   @media(max-width:600px){.banner-institution{font-size:1.3em;}.main-title{font-size:1.3em;}.banner-subtitle-row{flex-direction:column;}.part-header{flex-direction:column;align-items:flex-start;}}
-  /* ── TAB BAR ── */
-  .tab-bar{display:flex;gap:0;max-width:900px;margin:18px auto 0;border-radius:10px 10px 0 0;overflow:hidden;border:2px solid var(--border);border-bottom:none;}
-  .tab-btn{flex:1;padding:13px 18px;background:var(--cream);color:var(--muted);font-family:inherit;font-size:.92em;font-weight:600;border:none;cursor:pointer;transition:background .18s,color .18s;border-right:1px solid var(--border);}
-  .tab-btn:last-child{border-right:none;}
-  .tab-btn.active{background:linear-gradient(90deg,var(--dark-red),var(--red));color:var(--yellow);}
-  .tab-btn:not(.active):hover{background:var(--light-bg);color:var(--dark-red);}
-  .tab-panel{display:none;max-width:900px;margin:0 auto;border:2px solid var(--border);border-top:none;border-radius:0 0 10px 10px;background:var(--white);margin-bottom:28px;}
-  .tab-panel.active{display:block;}
-  #panel-slides{padding:0;overflow:hidden;border-radius:0 0 10px 10px;}
-  #slides-frame{width:100%;height:520px;border:none;border-radius:0 0 10px 10px;display:block;}
-  @media(max-width:600px){#slides-frame{height:420px;}.tab-btn{font-size:.8em;padding:10px 8px;}}
+  /* ── SLIDES BUTTON ── */
+  .slides-btn-bar{max-width:900px;margin:18px auto 0;display:flex;justify-content:flex-end;padding:0 4px;}
+  .slides-launch-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--dark-red),var(--red));color:var(--yellow);border:2px solid var(--gold);border-radius:10px;padding:12px 24px;font-family:inherit;font-size:1em;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 3px 12px rgba(139,0,0,0.3);}
+  .slides-launch-btn:hover{background:linear-gradient(135deg,var(--red),var(--orange));transform:translateY(-2px);}
+  /* ── FULLSCREEN OVERLAY ── */
+  #slides-overlay{display:none;position:fixed;inset:0;z-index:9999;background:#0a0000;}
+  #slides-overlay.open{display:flex;flex-direction:column;}
+  #slides-overlay iframe{flex:1;width:100%;border:none;}
+  #overlay-close{position:absolute;top:12px;right:16px;z-index:10000;background:rgba(139,0,0,0.85);color:var(--yellow);border:2px solid var(--gold);border-radius:8px;padding:7px 18px;font-family:inherit;font-size:.92em;font-weight:700;cursor:pointer;}
+  #overlay-close:hover{background:var(--red);}
 </style>
 </head>
 <body>
@@ -90,14 +89,18 @@
   </div>
 </div>
 
-<!-- TAB BAR -->
-<div class="tab-bar">
-  <button class="tab-btn active" onclick="switchTab('saransh')">📖 विस्तृत सारांश</button>
-  <button class="tab-btn" onclick="switchTab('slides')">🎞 स्लाइड प्रस्तुति</button>
+<!-- SLIDES BUTTON -->
+<div class="slides-btn-bar">
+  <button class="slides-launch-btn" onclick="openSlides()">🎞 स्लाइड प्रस्तुति देखें</button>
 </div>
 
-<!-- PANEL: SARANSH (सारांश) -->
-<div class="tab-panel active" id="panel-saransh">
+<!-- FULLSCREEN SLIDES OVERLAY -->
+<div id="slides-overlay">
+  <button id="overlay-close" onclick="closeSlides()">✕ बंद करें</button>
+  <iframe id="slides-frame" src="" title="वेदान्तचिन्तामणि स्लाइड प्रस्तुति"></iframe>
+</div>
+
+<div id="panel-saransh">
 
 <div class="title-block">
   <div class="main-title">वेदान्तचिन्तामणि अध्ययन सत्र</div>
@@ -922,19 +925,21 @@
 </div>
 </div><!-- /panel-saransh -->
 
-<!-- PANEL: SLIDES (स्लाइड प्रस्तुति) -->
-<div class="tab-panel" id="panel-slides">
-  <iframe id="slides-frame" src="vedantachintamani-slides.html" title="वेदान्तचिन्तामणि स्लाइड प्रस्तुति"></iframe>
-</div>
-
 <script>
-function switchTab(tab) {
-  document.querySelectorAll('.tab-btn').forEach(function(b,i){
-    b.classList.toggle('active', (tab==='saransh'&&i===0)||(tab==='slides'&&i===1));
-  });
-  document.getElementById('panel-saransh').classList.toggle('active', tab==='saransh');
-  document.getElementById('panel-slides').classList.toggle('active', tab==='slides');
+function openSlides() {
+  var overlay = document.getElementById('slides-overlay');
+  var frame = document.getElementById('slides-frame');
+  if (!frame.src || frame.src === window.location.href) {
+    frame.src = 'vedantachintamani-slides.html';
+  }
+  overlay.classList.add('open');
+  document.body.style.overflow = 'hidden';
 }
+function closeSlides() {
+  document.getElementById('slides-overlay').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSlides(); });
 </script>
 
 <footer>
