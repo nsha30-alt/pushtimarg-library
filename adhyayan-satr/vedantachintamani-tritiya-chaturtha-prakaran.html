@@ -63,10 +63,13 @@
   footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
   footer .small{font-size:.76em;color:#FFAA00;}
   @media(max-width:600px){.banner-institution{font-size:1.3em;}.main-title{font-size:1.3em;}.banner-subtitle-row{flex-direction:column;}.part-header{flex-direction:column;align-items:flex-start;}}
-  /* ── SLIDES BUTTON ── */
-  .slides-btn-bar{max-width:900px;margin:18px auto 0;display:flex;justify-content:flex-end;padding:0 4px;}
-  .slides-launch-btn{display:inline-flex;align-items:center;gap:10px;background:linear-gradient(135deg,var(--dark-red),var(--red));color:var(--yellow);border:2px solid var(--gold);border-radius:10px;padding:12px 24px;font-family:inherit;font-size:1em;font-weight:700;cursor:pointer;text-decoration:none;transition:background .2s,transform .15s;box-shadow:0 3px 12px rgba(139,0,0,0.3);}
-  .slides-launch-btn:hover{background:linear-gradient(135deg,var(--red),var(--orange));transform:translateY(-2px);}
+  /* ── SLIDES TAB ── */
+  .slides-tab-bar{max-width:900px;margin:22px auto 0;display:flex;gap:0;border-radius:12px 12px 0 0;overflow:hidden;border:2px solid var(--border);border-bottom:3px solid var(--gold);}
+  .stab{flex:1;padding:16px 22px;font-family:inherit;font-size:1em;font-weight:700;border:none;cursor:pointer;transition:background .18s,color .18s;letter-spacing:.02em;}
+  .stab-summary{background:var(--cream);color:var(--muted);}
+  .stab-slides{background:linear-gradient(135deg,var(--dark-red),var(--red));color:var(--yellow);font-size:1.05em;display:flex;align-items:center;justify-content:center;gap:10px;}
+  .stab-slides:hover{background:linear-gradient(135deg,var(--red),var(--orange));}
+  .stab-slides .badge{background:var(--gold);color:var(--dark-red);font-size:.72em;border-radius:10px;padding:2px 9px;font-weight:800;}
   /* ── FULLSCREEN OVERLAY ── */
   #slides-overlay{display:none;position:fixed;inset:0;z-index:9999;background:#0a0000;}
   #slides-overlay.open{display:flex;flex-direction:column;}
@@ -89,9 +92,10 @@
   </div>
 </div>
 
-<!-- SLIDES BUTTON -->
-<div class="slides-btn-bar">
-  <button class="slides-launch-btn" onclick="openSlides()">🎞 स्लाइड प्रस्तुति देखें</button>
+<!-- SLIDES TAB -->
+<div class="slides-tab-bar">
+  <button class="stab stab-summary" disabled>📖 विस्तृत सारांश</button>
+  <button class="stab stab-slides" onclick="openSlides()">🎞 स्लाइड प्रस्तुति <span class="badge">१२ स्लाइड</span></button>
 </div>
 
 <!-- FULLSCREEN SLIDES OVERLAY -->
