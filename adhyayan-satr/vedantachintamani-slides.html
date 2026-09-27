@@ -1,0 +1,584 @@
+<title>वेदान्तचिन्तामणि</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@300;400;600;700&display=swap">
+<style>
+  :root {
+    --bg: #08020f;
+    --bg2: #100020;
+    --crimson: #3a0000;
+    --crimson2: #5c1212;
+    --gold: #9a7018;
+    --gold2: #b89030;
+    --saffron: #7a3e08;
+    --cream: #d4bfa0;
+    --muted: #7a6448;
+    --glass: rgba(160,130,60,0.07);
+    --glassborder: rgba(140,100,30,0.22);
+    color-scheme: dark;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    height: 100%;
+    background: var(--bg);
+    font-family: 'Noto Serif Devanagari', 'Mangal', serif;
+    color: var(--cream);
+    overflow: hidden;
+    user-select: none;
+  }
+
+  #deck { height: 100%; display: flex; flex-direction: column; position: relative; }
+  #slides-area { flex: 1; position: relative; overflow: hidden; }
+
+  .slide {
+    position: absolute; inset: 0;
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    padding: 32px 48px 80px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.6s ease;
+  }
+  .slide.active { opacity: 1; pointer-events: auto; }
+
+  .slide-bg { position: absolute; inset: 0; z-index: 0; }
+  .slide-content {
+    position: relative; z-index: 1;
+    width: 100%; max-width: 820px;
+    text-align: center;
+    display: flex; flex-direction: column;
+    align-items: center; gap: 18px;
+  }
+
+  .eyebrow {
+    font-size: 0.68rem; font-weight: 600;
+    letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--gold2);
+    background: rgba(155,112,24,0.14);
+    border: 1px solid var(--glassborder);
+    border-radius: 20px; padding: 4px 16px;
+  }
+
+  .slide-title {
+    font-size: clamp(1.5rem, 4vw, 2.6rem);
+    font-weight: 700; color: var(--cream);
+    line-height: 1.25; text-wrap: balance;
+  }
+  .slide-title .gold { color: var(--gold2); }
+  .slide-title .saffron { color: #c07838; }
+
+  .shloka-box {
+    background: var(--glass);
+    border: 1px solid var(--glassborder);
+    border-radius: 14px; padding: 18px 28px;
+    font-size: clamp(0.92rem, 2.2vw, 1.15rem);
+    font-weight: 400; color: var(--gold2);
+    line-height: 2; font-style: italic;
+    max-width: 680px; text-align: center;
+  }
+
+  .slide-body {
+    font-size: clamp(0.85rem, 1.8vw, 1rem);
+    color: var(--muted); line-height: 1.95;
+    max-width: 680px; text-wrap: balance;
+  }
+  .slide-body strong { color: var(--cream); font-weight: 600; }
+  .slide-body .highlight { color: var(--gold2); font-weight: 600; }
+
+  .concept-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 12px; width: 100%; max-width: 780px;
+  }
+  .concept-card {
+    background: var(--glass);
+    border: 1px solid var(--glassborder);
+    border-radius: 12px; padding: 16px 18px; text-align: left;
+  }
+  .concept-card .label {
+    font-size: 0.65rem; letter-spacing: 0.12em;
+    text-transform: uppercase; color: var(--gold);
+    margin-bottom: 6px;
+  }
+  .concept-card .val { font-size: 0.88rem; color: var(--cream); line-height: 1.7; }
+
+  .divider {
+    width: 120px; height: 1px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  }
+
+  .big-quote {
+    font-size: clamp(1rem, 2.6vw, 1.45rem);
+    font-weight: 600; color: var(--cream);
+    line-height: 1.75; max-width: 700px; text-wrap: balance;
+    position: relative; padding-left: 20px;
+  }
+  .big-quote::before {
+    content: '\201C'; font-size: 4em; color: var(--crimson2);
+    position: absolute; left: -12px; top: -10px;
+    line-height: 1; opacity: 0.7;
+  }
+
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+  .tag {
+    background: rgba(60,20,20,0.5);
+    border: 1px solid var(--crimson2);
+    border-radius: 18px; padding: 4px 13px;
+    font-size: 0.78rem; color: #b09070;
+  }
+
+  /* TITLE SLIDE */
+  .slide-1 .institution { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.06em; }
+  .slide-1 .main-title {
+    font-size: clamp(2rem, 6.5vw, 3.8rem);
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--gold2), #c07838, var(--gold));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    background-clip: text; line-height: 1.15; text-wrap: balance;
+  }
+  .slide-1 .sub-title { font-size: clamp(0.95rem, 2.2vw, 1.25rem); color: var(--muted); }
+  .slide-1 .meta-row { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 8px; }
+  .slide-1 .meta-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+  .slide-1 .meta-label { font-size: 0.62rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--gold); }
+  .slide-1 .meta-val { font-size: 0.84rem; color: var(--cream); }
+
+  /* COMPARE */
+  .compare-row { display: flex; gap: 14px; width: 100%; max-width: 740px; flex-wrap: wrap; }
+  .compare-box {
+    flex: 1; min-width: 200px;
+    background: var(--glass); border: 1px solid var(--glassborder);
+    border-radius: 12px; padding: 16px 18px; text-align: center;
+  }
+  .compare-box .box-label { font-size: 0.62rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .compare-box .box-val { font-size: 0.9rem; color: var(--cream); line-height: 1.75; }
+  .compare-box.accent { border-color: #6a3a10; background: rgba(100,60,10,0.12); }
+  .compare-arrow { display: flex; align-items: center; font-size: 1.3rem; color: var(--gold); padding: 0 4px; }
+
+  .final-glow { font-size: clamp(1.3rem, 3.5vw, 2.2rem); font-weight: 700; color: var(--gold2); line-height: 1.4; }
+
+  /* NAV */
+  #nav-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; height: 60px;
+    background: rgba(8,2,15,0.94);
+    border-top: 1px solid var(--glassborder);
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 0 24px; z-index: 100; backdrop-filter: blur(8px);
+  }
+  .nav-btn {
+    background: var(--glass); border: 1px solid var(--glassborder);
+    border-radius: 8px; color: var(--cream); font-family: inherit;
+    font-size: 0.82rem; padding: 8px 20px; cursor: pointer;
+    transition: background 0.2s, transform 0.15s;
+  }
+  .nav-btn:hover { background: rgba(155,112,24,0.18); transform: translateY(-1px); }
+  .nav-btn:disabled { opacity: 0.2; cursor: default; transform: none; }
+  #slide-counter { font-size: 0.78rem; color: var(--muted); letter-spacing: 0.1em; text-align: center; }
+  #progress-dots { display: flex; gap: 5px; margin-top: 4px; justify-content: center; }
+  .dot { width: 5px; height: 5px; border-radius: 50%; background: var(--muted); opacity: 0.35; transition: opacity 0.3s, background 0.3s; }
+  .dot.active { background: var(--gold2); opacity: 1; }
+
+  @media (max-width: 500px) {
+    .slide { padding: 18px 16px 80px; }
+    .concept-grid { grid-template-columns: 1fr; }
+    .compare-row { flex-direction: column; }
+    .compare-arrow { display: none; }
+    #nav-bar { padding: 0 10px; }
+    .nav-btn { padding: 7px 12px; font-size: 0.76rem; }
+  }
+</style>
+
+<div id="deck">
+  <div id="slides-area">
+
+    <!-- 1 TITLE -->
+    <div class="slide slide-1 active" data-index="0">
+      <canvas class="slide-bg" data-type="mandala"></canvas>
+      <div class="slide-content" style="gap:22px">
+        <div class="institution">श्रीवल्लभाचार्य विद्यापीठ, हालोल · भाद्रपद २०८३</div>
+        <div class="main-title">वेदान्तचिन्तामणि</div>
+        <div class="sub-title">तृतीय एवं चतुर्थ प्रकरण</div>
+        <div class="divider"></div>
+        <div class="slide-body" style="font-size:.82rem">श्री गट्टू लाला जी कृत · पूज्य गोस्वामी श्रीशरदकुमारजी द्वारा व्याख्यात</div>
+        <div class="slide-1 meta-row">
+          <div class="meta-item"><span class="meta-label">सत्र</span><span class="meta-val">३ दिन</span></div>
+          <div class="meta-item" style="color:rgba(100,80,40,0.5)">|</div>
+          <div class="meta-item"><span class="meta-label">वीडियो</span><span class="meta-val">१० भाग</span></div>
+          <div class="meta-item" style="color:rgba(100,80,40,0.5)">|</div>
+          <div class="meta-item"><span class="meta-label">विषय</span><span class="meta-val">वल्लभ-वेदान्त</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 GRANTH PARICHAY -->
+    <div class="slide" data-index="1">
+      <canvas class="slide-bg" data-type="lotus"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">ग्रन्थ परिचय</div>
+        <div class="slide-title">वेदान्तचिन्तामणि —<br><span class="gold">वल्लभ-वेदान्त का स्तम्भ</span></div>
+        <div class="shloka-box">चिन्तामणिर्जयति नित्यफलप्रदाता<br>वेदान्तसारमखिलं यदिहाभिलिख्यते</div>
+        <div class="slide-body">
+          <strong>वेदान्तचिन्तामणि</strong> पुष्टिमार्ग में वेदान्त-सिद्धान्त के मूलाधार ग्रन्थों में से एक है। इसके <span class="highlight">चार प्रकरण</span> क्रमशः जगत की उत्पत्ति, प्रमाण, कारण-कार्य-तत्त्व एवं जगत की सत्यता का निरूपण करते हैं। तृतीय में <strong>संक्षिप्त-कार्य-निरूपण</strong> और चतुर्थ में <strong>प्रपञ्च-सत्यत्व-निरूपण</strong> है।
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 KRISHNA AS BRAHMAN -->
+    <div class="slide" data-index="2">
+      <canvas class="slide-bg" data-type="stars"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">केन्द्रीय सिद्धान्त</div>
+        <div class="slide-title"><span class="gold">परब्रह्म श्रीकृष्ण</span> ही<br>वेदान्त का ब्रह्म हैं</div>
+        <div class="compare-row">
+          <div class="compare-box">
+            <div class="box-label">वेदान्त में</div>
+            <div class="box-val">उपनिषद्-प्रतिपादित ब्रह्म — सच्चिदानन्द-स्वरूप</div>
+          </div>
+          <div class="compare-arrow">=</div>
+          <div class="compare-box accent">
+            <div class="box-label">पुष्टिमार्ग में</div>
+            <div class="box-val">परब्रह्म श्रीकृष्ण — सर्वकारण, सर्वाधार</div>
+          </div>
+        </div>
+        <div class="slide-body">वेदान्त-दर्शन का <span class="highlight">ब्रह्म</span> तथा मीमांसा का <span class="highlight">यज्ञनारायण</span> — दोनों एक ही श्रीकृष्ण के भिन्न नाम हैं। जीव की मुक्ति का एकमात्र मार्ग उन्हीं की भक्ति है।</div>
+      </div>
+    </div>
+
+    <!-- 4 SRISHTI = LEELA -->
+    <div class="slide" data-index="3">
+      <canvas class="slide-bg" data-type="ripple"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">तृतीय प्रकरण · मंगलाचरण</div>
+        <div class="slide-title">सृष्टि = ईश्वर की <span class="saffron">लीला</span></div>
+        <div class="shloka-box">शुद्धरूपाय नमः</div>
+        <div class="slide-body">तार्किक मानते हैं कि जगत <strong>जीव के कर्म</strong> से उत्पन्न होता है। किन्तु वेदान्तचिन्तामणि इसका खण्डन करता है। <span class="highlight">ईश्वर ही जगत के उपादान-कारण भी हैं और निमित्त-कारण भी।</span> सृष्टि उनकी इच्छा-मात्र है — वे शुद्धरूप हैं, जगत बनाते हुए भी विकृत नहीं होते।</div>
+        <div class="tags"><span class="tag">उपादान-कारण</span><span class="tag">निमित्त-कारण</span><span class="tag">ईश्वर-कर्तृत्व</span></div>
+      </div>
+    </div>
+
+    <!-- 5 AVIKRIT PARINAM -->
+    <div class="slide" data-index="4">
+      <canvas class="slide-bg" data-type="concentric"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">मुख्य तत्त्व</div>
+        <div class="slide-title"><span class="gold">अविकृत-परिणामवाद</span></div>
+        <div class="compare-row">
+          <div class="compare-box">
+            <div class="box-label">सांख्य-परिणामवाद</div>
+            <div class="box-val">प्रकृति कार्य बनती है और <strong>विकृत</strong> हो जाती है</div>
+          </div>
+          <div class="compare-arrow">≠</div>
+          <div class="compare-box accent">
+            <div class="box-label">वल्लभ-वेदान्त</div>
+            <div class="box-val">ब्रह्म जगत-रूप परिणत होते हैं, फिर भी <strong>अविकृत</strong> रहते हैं</div>
+          </div>
+        </div>
+        <div class="shloka-box" style="font-size:.9rem">वाचारम्भणं विकारो नामधेयम् — मृत्तिका सत्यम्<br><span style="color:var(--muted);font-size:.82rem">घट मिट्टी का विकार-नाम है; मिट्टी ही सत्य है</span></div>
+        <div class="slide-body">जैसे मिट्टी घट बनती है पर मिट्टी-स्वरूप नहीं खोती, वैसे ही ब्रह्म जगत बनते हैं पर <span class="highlight">शुद्धरूप</span> नहीं खोते।</div>
+      </div>
+    </div>
+
+    <!-- 6 SAT CHIT ANAND -->
+    <div class="slide" data-index="5">
+      <canvas class="slide-bg" data-type="threecircles"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">ब्रह्म के तीन स्वरूप</div>
+        <div class="slide-title">सत् · चित् · आनन्द<br><span class="gold">— तीन प्रकार के परिणाम</span></div>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="label">जड़ पदार्थ</div>
+            <div class="val">केवल <strong>सत्तामात्र</strong> — चित् और आनन्द का तिरोधान</div>
+          </div>
+          <div class="concept-card">
+            <div class="label">जीव</div>
+            <div class="val"><strong>सत् + चित्</strong> — आनन्द का तिरोधान; ज्ञान है पर पूर्ण आनन्द नहीं</div>
+          </div>
+          <div class="concept-card">
+            <div class="label">अन्तर्यामी</div>
+            <div class="val"><strong>सत् + चित् + आनन्द</strong> — ब्रह्म का आनन्दांश प्रत्येक जीव में</div>
+          </div>
+        </div>
+        <div class="slide-body">ब्रह्म ने जीव के <span class="highlight">चिदानन्द धर्मों को तिरोहित</span> किया — यही जीव की संसार-गति का मूल कारण है।</div>
+      </div>
+    </div>
+
+    <!-- 7 MAYA -->
+    <div class="slide" data-index="6">
+      <canvas class="slide-bg" data-type="veil"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">माया-निरूपण</div>
+        <div class="slide-title">माया — <span class="gold">ब्रह्म की ही शक्ति</span></div>
+        <div class="shloka-box">माया ब्रह्म से अभिन्न है, उनसे पृथक् नहीं।<br>वह ब्रह्म की <span style="color:#c07838">स्वाभाविक शक्ति</span> है।</div>
+        <div class="slide-body">माया न तो <strong>स्वतन्त्र सत्ता</strong> है और न <strong>मिथ्या</strong>। वह ब्रह्म की शक्ति है जो जीव को <span class="highlight">बद्ध</span> करती है। तिरोधान के कारण जीव अपनी ब्रह्म-रूपता को भूल जाता है। मायावाद का खण्डन: माया कोई स्वतन्त्र शक्ति नहीं।</div>
+        <div class="tags"><span class="tag">ब्रह्म-शक्ति</span><span class="tag">तिरोधान</span><span class="tag">मायावाद-खण्डन</span></div>
+      </div>
+    </div>
+
+    <!-- 8 ANTARYAMI -->
+    <div class="slide" data-index="7">
+      <canvas class="slide-bg" data-type="innerlight"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">आत्मा का रहस्य</div>
+        <div class="slide-title"><span class="gold">अन्तर्यामी</span> —<br>प्रत्येक जीव में ब्रह्म का वास</div>
+        <div class="big-quote">प्रत्येक जीव में ईश्वर का आनन्दांश — अन्तर्यामी — सदा विद्यमान है।</div>
+        <div class="slide-body">जीव और अन्तर्यामी — दोनों ब्रह्म के अंश हैं, किन्तु <span class="highlight">स्वरूप में भिन्न</span>। जीव में चिदानन्द तिरोहित है, अन्तर्यामी में नहीं। इसीलिए भगवत्-भक्ति से जीव पुनः अपने <strong>मूल ब्रह्मांश-स्वरूप</strong> को प्राप्त कर सकता है।</div>
+      </div>
+    </div>
+
+    <!-- 9 VAISHAMYA -->
+    <div class="slide" data-index="8">
+      <canvas class="slide-bg" data-type="grid"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">दोष-खण्डन</div>
+        <div class="slide-title">वैषम्य-नैर्घृण्य दोष का <span class="saffron">खण्डन</span></div>
+        <div class="compare-row">
+          <div class="compare-box">
+            <div class="box-label">तार्किक आक्षेप</div>
+            <div class="box-val">ईश्वर ने किसी को सुखी, किसी को दुखी क्यों बनाया? — <strong>वैषम्य</strong> और <strong>नैर्घृण्य</strong></div>
+          </div>
+          <div class="compare-arrow">→</div>
+          <div class="compare-box accent">
+            <div class="box-label">वेदान्त-उत्तर</div>
+            <div class="box-val">ईश्वर जीव के पूर्व-कर्मों व स्वभाव का आश्रय लेकर सृष्टि करते हैं — अतः दोष नहीं</div>
+          </div>
+        </div>
+        <div class="slide-body">वर्षा सबपर समान होती है, किन्तु खेत की क्षमता भिन्न होती है। वैसे ही ईश्वर की कृपा समान है; जीव का <span class="highlight">भिन्न-भिन्न अनुभव</span> उनके स्वभाव और कर्म का फल है।</div>
+      </div>
+    </div>
+
+    <!-- 10 TRIKAL -->
+    <div class="slide" data-index="9">
+      <canvas class="slide-bg" data-type="timerings"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">जगत का स्वरूप</div>
+        <div class="slide-title">जगत <span class="gold">त्रिकाल</span> ब्रह्म-रूप है</div>
+        <div class="shloka-box">घट पूर्व भी मिट्टी था, अभी भी मिट्टी है,<br>और नाश होने पर भी मिट्टी ही रहेगा।</div>
+        <div class="slide-body"><strong>घट-मृत्तिका न्याय</strong> से सिद्ध होता है कि जगत का अस्तित्व तीनों कालों में <span class="highlight">ब्रह्म-रूप</span> है। जगत ब्रह्म से उत्पन्न, ब्रह्म में स्थित और ब्रह्म में लीन। यह न्याय चतुर्थ प्रकरण के <strong>प्रपञ्च-सत्यत्व</strong> का आधार है।</div>
+        <div class="tags"><span class="tag">त्रिकाल-सत्यता</span><span class="tag">घट-मृत्तिका न्याय</span><span class="tag">जगत = ब्रह्म-कार्य</span></div>
+      </div>
+    </div>
+
+    <!-- 11 CHATURTHA -->
+    <div class="slide" data-index="10">
+      <canvas class="slide-bg" data-type="dissolution"></canvas>
+      <div class="slide-content">
+        <div class="eyebrow">चतुर्थ प्रकरण</div>
+        <div class="slide-title"><span class="gold">प्रपञ्च-सत्यत्व-निरूपणम्</span></div>
+        <div class="slide-body" style="font-size:.95rem;color:var(--cream);line-height:2">चतुर्थ प्रकरण में सिद्ध होता है कि <span class="highlight">जगत-प्रपञ्च सत्य है</span> — मायावादियों का मिथ्या नहीं।</div>
+        <div class="concept-grid">
+          <div class="concept-card">
+            <div class="label">मायावाद का मत</div>
+            <div class="val">जगत मिथ्या — केवल ब्रह्म सत्य (अद्वैत-वेदान्त)</div>
+          </div>
+          <div class="concept-card">
+            <div class="label">वल्लभ-वेदान्त</div>
+            <div class="val">जगत ब्रह्म का <strong>वास्तविक परिणाम</strong> — अतः सत्य</div>
+          </div>
+          <div class="concept-card">
+            <div class="label">आधार</div>
+            <div class="val">शुद्धाद्वैत — ब्रह्म और जगत में <strong>अभेद</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 12 FINAL -->
+    <div class="slide" data-index="11">
+      <canvas class="slide-bg" data-type="sunrise"></canvas>
+      <div class="slide-content" style="gap:22px">
+        <div class="eyebrow">उपसंहार · तृतीय प्रकरण</div>
+        <div class="slide-title">ज्ञान का फल —<br><span class="gold">भगवत्-भक्ति</span></div>
+        <div class="shloka-box" style="font-size:1.05rem">सर्वं ब्रह्ममयं जानन् भजते परमेश्वरम्</div>
+        <div class="slide-body">जब जीव जान लेता है कि <span class="highlight">सम्पूर्ण जगत ब्रह्म-रूप है</span>, तब वह सर्वत्र ईश्वर को देखता है। यही ज्ञान उसे भक्ति की ओर ले जाता है। <strong>दार्शनिक ज्ञान भक्ति को पुष्ट करता है, प्रतिस्थापित नहीं।</strong></div>
+        <div class="final-glow">॥ श्रीकृष्णाय नमः ॥</div>
+        <div class="slide-body" style="font-size:.76rem;color:var(--muted)">श्रीवल्लभाचार्य विद्यापीठ, हालोल · पूज्य गोस्वामी श्रीशरदकुमारजी</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div id="nav-bar">
+    <button class="nav-btn" id="btn-prev" disabled>← पूर्व</button>
+    <div id="slide-counter">
+      <div id="counter-text">१ / १२</div>
+      <div id="progress-dots"></div>
+    </div>
+    <button class="nav-btn" id="btn-next">अगला →</button>
+  </div>
+</div>
+
+<script>
+  const slides = document.querySelectorAll('.slide');
+  const btnPrev = document.getElementById('btn-prev');
+  const btnNext = document.getElementById('btn-next');
+  const counterText = document.getElementById('counter-text');
+  const dotsContainer = document.getElementById('progress-dots');
+  let current = 0;
+  const total = slides.length;
+  const dNum = ['१','२','३','४','५','६','७','८','९','१०','११','१२'];
+
+  for (let i = 0; i < total; i++) {
+    const d = document.createElement('div');
+    d.className = 'dot' + (i===0?' active':'');
+    dotsContainer.appendChild(d);
+  }
+
+  function goTo(n) {
+    slides[current].classList.remove('active');
+    dotsContainer.children[current].classList.remove('active');
+    current = n;
+    slides[current].classList.add('active');
+    dotsContainer.children[current].classList.add('active');
+    counterText.textContent = dNum[current] + ' / ' + dNum[total-1];
+    btnPrev.disabled = current === 0;
+    btnNext.disabled = current === total-1;
+    drawBg(slides[current]);
+  }
+
+  btnPrev.addEventListener('click', ()=>{ if(current>0) goTo(current-1); });
+  btnNext.addEventListener('click', ()=>{ if(current<total-1) goTo(current+1); });
+  document.addEventListener('keydown', e=>{
+    if(e.key==='ArrowRight'||e.key==='ArrowDown'){ if(current<total-1) goTo(current+1); }
+    if(e.key==='ArrowLeft'||e.key==='ArrowUp'){ if(current>0) goTo(current-1); }
+  });
+  let tx=0;
+  document.addEventListener('touchstart', e=>{ tx=e.touches[0].clientX; });
+  document.addEventListener('touchend', e=>{
+    const dx=e.changedTouches[0].clientX-tx;
+    if(dx<-50&&current<total-1) goTo(current+1);
+    if(dx>50&&current>0) goTo(current-1);
+  });
+
+  function drawBg(slide) {
+    const canvas = slide.querySelector('.slide-bg');
+    if(!canvas) return;
+    const W=canvas.offsetWidth, H=canvas.offsetHeight;
+    canvas.width=W; canvas.height=H;
+    const ctx=canvas.getContext('2d');
+    const type=canvas.dataset.type;
+
+    // Base fill
+    const pals = {
+      mandala:      ['#18012a','#0e0018','#08020f'],
+      lotus:        ['#1a0008','#0d0005','#08020f'],
+      stars:        ['#000a18','#000510','#08020f'],
+      ripple:       ['#0c1000','#060a00','#08020f'],
+      concentric:   ['#140600','#0a0300','#08020f'],
+      threecircles: ['#001018','#000810','#08020f'],
+      veil:         ['#120012','#08000d','#08020f'],
+      innerlight:   ['#140e00','#0a0700','#08020f'],
+      grid:         ['#001814','#000d0a','#08020f'],
+      timerings:    ['#080020','#040018','#08020f'],
+      dissolution:  ['#160408','#0d0205','#08020f'],
+      sunrise:      ['#160600','#0e0300','#08020f'],
+    };
+    const p = pals[type]||['#0e0018','#08000d','#08020f'];
+    const g=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*0.7);
+    g.addColorStop(0,p[0]); g.addColorStop(0.5,p[1]); g.addColorStop(1,p[2]);
+    ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+
+    ctx.save();
+    if(type==='mandala') {
+      ctx.translate(W/2,H/2);
+      const R=Math.min(W,H)*0.38;
+      for(let r=R*0.2;r<=R;r+=R*0.14) {
+        ctx.beginPath(); ctx.arc(0,0,r,0,Math.PI*2);
+        ctx.strokeStyle='#9a7018'; ctx.globalAlpha=0.1*(1-r/R/1.3);
+        ctx.lineWidth=0.7; ctx.stroke();
+      }
+      ctx.globalAlpha=0.06;
+      for(let p=0;p<14;p++) {
+        const a=(p/14)*Math.PI*2;
+        ctx.beginPath(); ctx.moveTo(0,0);
+        ctx.lineTo(Math.cos(a)*R,Math.sin(a)*R);
+        ctx.strokeStyle='#9a7018'; ctx.lineWidth=0.5; ctx.stroke();
+      }
+    } else if(type==='lotus') {
+      ctx.translate(W/2,H/2);
+      const R=Math.min(W,H)*0.3;
+      ctx.globalAlpha=0.1;
+      for(let i=0;i<8;i++) {
+        const a=(i/8)*Math.PI*2;
+        ctx.beginPath();
+        ctx.ellipse(Math.cos(a)*R*0.6,Math.sin(a)*R*0.6,R*0.35,R*0.11,a,0,Math.PI*2);
+        ctx.strokeStyle='#9a7018'; ctx.lineWidth=1; ctx.stroke();
+      }
+    } else if(type==='stars') {
+      ctx.globalAlpha=0.4;
+      for(let i=0;i<100;i++) {
+        ctx.beginPath();
+        ctx.arc(Math.random()*W,Math.random()*H,Math.random()*1.1+0.2,0,Math.PI*2);
+        ctx.fillStyle=`rgba(${150+Math.random()*60},${120+Math.random()*60},${70+Math.random()*50},1)`;
+        ctx.fill();
+      }
+    } else if(type==='ripple') {
+      ctx.translate(W/2,H*0.55);
+      for(let r=30;r<Math.max(W,H);r+=42) {
+        ctx.beginPath();
+        ctx.ellipse(0,0,r,r*0.28,0,0,Math.PI*2);
+        ctx.strokeStyle='#4a2800';
+        ctx.globalAlpha=0.09*(1-r/(Math.max(W,H)*1.2));
+        ctx.lineWidth=0.7; ctx.stroke();
+      }
+    } else if(type==='concentric') {
+      ctx.globalAlpha=0.08;
+      [[W*0.2,H*0.7],[W*0.8,H*0.3]].forEach(([cx,cy])=>{
+        for(let r=20;r<300;r+=28) {
+          ctx.beginPath(); ctx.arc(cx,cy,r,0,Math.PI*2);
+          ctx.strokeStyle='#6a3008'; ctx.lineWidth=0.6; ctx.stroke();
+        }
+      });
+    } else if(type==='threecircles') {
+      ctx.globalAlpha=0.08;
+      [[W*0.3,H*0.5,'#605000'],[W*0.5,H*0.4,'#004040'],[W*0.7,H*0.5,'#500040']].forEach(([cx,cy,col])=>{
+        ctx.beginPath(); ctx.arc(cx,cy,Math.min(W,H)*0.24,0,Math.PI*2);
+        ctx.strokeStyle=col; ctx.lineWidth=0.8; ctx.stroke();
+      });
+    } else if(type==='veil') {
+      for(let i=0;i<5;i++) {
+        const x=Math.random()*W, y=Math.random()*H;
+        const vg=ctx.createRadialGradient(x,y,0,x,y,140);
+        vg.addColorStop(0,'rgba(90,0,90,0.07)');
+        vg.addColorStop(1,'rgba(0,0,0,0)');
+        ctx.fillStyle=vg; ctx.fillRect(0,0,W,H);
+      }
+    } else if(type==='innerlight') {
+      const ig=ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.min(W,H)*0.38);
+      ig.addColorStop(0,'rgba(180,140,30,0.12)');
+      ig.addColorStop(0.5,'rgba(140,90,10,0.05)');
+      ig.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=ig; ctx.fillRect(0,0,W,H);
+    } else if(type==='grid') {
+      ctx.globalAlpha=0.06;
+      for(let y=0;y<H;y+=38) {
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y);
+        ctx.strokeStyle='#006040'; ctx.lineWidth=0.5; ctx.stroke();
+      }
+    } else if(type==='timerings') {
+      ctx.translate(W/2,H/2);
+      for(let r=40;r<Math.min(W,H)*0.6;r+=50) {
+        ctx.beginPath(); ctx.arc(0,0,r,0,Math.PI*2);
+        ctx.strokeStyle='#303080';
+        ctx.globalAlpha=0.09*(1-r/(Math.min(W,H)*0.6));
+        ctx.lineWidth=0.7; ctx.stroke();
+      }
+    } else if(type==='dissolution') {
+      for(let i=0;i<30;i++) {
+        ctx.globalAlpha=Math.random()*0.05;
+        ctx.beginPath();
+        ctx.arc(Math.random()*W,Math.random()*H,Math.random()*28+4,0,Math.PI*2);
+        ctx.fillStyle='#800030'; ctx.fill();
+      }
+    } else if(type==='sunrise') {
+      const sg=ctx.createLinearGradient(0,H*0.45,0,H);
+      sg.addColorStop(0,'rgba(120,45,0,0.16)');
+      sg.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=sg; ctx.fillRect(0,H*0.45,W,H*0.55);
+      const hg=ctx.createRadialGradient(W/2,H*0.55,0,W/2,H*0.55,W*0.42);
+      hg.addColorStop(0,'rgba(160,80,0,0.18)');
+      hg.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.fillStyle=hg; ctx.fillRect(0,0,W,H);
+    }
+    ctx.restore();
+    ctx.globalAlpha=1;
+  }
+
+  drawBg(slides[0]);
+  window.addEventListener('resize', ()=>{ drawBg(slides[current]); });
+</script>
