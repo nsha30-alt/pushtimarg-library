@@ -2,8 +2,8 @@ name: Protect adhyayan-satr index entries
 
 on:
   push:
-    paths:
-      - 'adhyayan-satr/index.html'
+    branches:
+      - main
 
 jobs:
   guard:
