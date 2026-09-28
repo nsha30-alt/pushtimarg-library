@@ -26,6 +26,7 @@ jobs:
             fi
           }
 
+          check_entry "avatarvadavali-bhagvatpratikruti-pujanvad.html"
           check_entry "vedantachintamani-tritiya-chaturtha-prakaran.html"
           check_entry "vedantachintamani-dvitiya-prakaran-sampurna.html"
           check_entry "sadhan-prakaran-adhyayan-satra-sampurna.html"

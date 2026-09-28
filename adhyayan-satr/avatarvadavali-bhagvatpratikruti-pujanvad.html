@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>भगवत्प्रतिकृतिपूजनवाद: — अवतारवादावली अध्ययन सत्र</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap');
+  :root {
+    --red:#c0141a;--dark-red:#8b0000;--orange:#e06010;--gold:#d4a017;
+    --yellow:#f5c518;--cream:#fff9f0;--white:#ffffff;--light-bg:#fff3e0;
+    --section-bg:#fff8f0;--border:#e06010;--text:#2a0a00;--muted:#7a4000;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:'Noto Serif Devanagari','Tiro Devanagari Hindi',serif;background:var(--cream);color:var(--text);line-height:1.85;font-size:16px;}
+  .banner-wrapper{width:100%;background:linear-gradient(135deg,var(--dark-red) 0%,var(--red) 40%,var(--orange) 75%,var(--gold) 100%);padding:0;border-bottom:5px solid var(--yellow);position:relative;overflow:hidden;}
+  .banner-img{width:100%;max-height:420px;object-fit:cover;display:block;}
+  .banner-inner{max-width:1000px;margin:0 auto;padding:20px 30px 26px;text-align:center;position:relative;z-index:1;}
+  .banner-institution{font-family:'Noto Serif Devanagari',serif;font-size:2.1rem;font-weight:700;color:var(--yellow);text-shadow:0 2px 8px rgba(0,0,0,.55);line-height:1.2;}
+  .banner-address{color:var(--white);font-size:.84rem;margin-top:6px;opacity:.92;}
+  .banner-subtitle-row{display:flex;justify-content:center;gap:16px;margin-top:14px;flex-wrap:wrap;}
+  .banner-box{background:rgba(0,0,0,0.32);border:1px solid rgba(255,255,255,0.25);border-radius:6px;padding:10px 16px;font-size:.82rem;color:var(--white);flex:1;min-width:180px;max-width:340px;text-align:center;line-height:1.65;}
+  .banner-box strong{color:var(--yellow);display:block;font-size:.88rem;margin-bottom:3px;}
+  /* ── TABS ── */
+  .tab-bar{max-width:960px;margin:20px auto 0;display:flex;gap:0;border-radius:12px 12px 0 0;overflow:hidden;border:2px solid var(--border);border-bottom:3px solid var(--gold);}
+  .stab{flex:1;padding:14px 18px;font-family:inherit;font-size:.97em;font-weight:700;border:none;cursor:pointer;transition:background .18s,color .18s;letter-spacing:.02em;}
+  .stab-summary{background:linear-gradient(135deg,var(--dark-red),var(--red));color:var(--yellow);}
+  .stab-summary:hover{background:linear-gradient(135deg,var(--red),var(--orange));}
+  .stab-slides{background:var(--cream);color:var(--muted);display:flex;align-items:center;justify-content:center;gap:8px;}
+  .stab-slides:hover{background:var(--light-bg);}
+  .stab-slides .badge{background:var(--muted);color:var(--white);font-size:.7em;border-radius:10px;padding:2px 8px;font-weight:800;}
+  /* ── SLIDE OVERLAY ── */
+  #slides-overlay{display:none;position:fixed;inset:0;z-index:9999;background:#0a0000;}
+  #slides-overlay.open{display:flex;flex-direction:column;}
+  #slides-overlay iframe{flex:1;width:100%;border:none;}
+  #overlay-close{position:absolute;top:12px;right:16px;z-index:10000;background:rgba(139,0,0,.85);color:var(--yellow);border:2px solid var(--gold);border-radius:8px;padding:7px 18px;font-family:inherit;font-size:.92em;font-weight:700;cursor:pointer;}
+  #overlay-close:hover{background:var(--red);}
+  /* ── TITLE ── */
+  .title-block{background:linear-gradient(180deg,#1a0000 0%,#3d0000 100%);color:var(--yellow);text-align:center;padding:26px 20px 22px;border-bottom:4px double var(--gold);max-width:960px;margin:0 auto;}
+  .main-title{font-family:'Noto Serif Devanagari',serif;font-size:1.8rem;font-weight:700;color:var(--yellow);text-shadow:0 2px 10px rgba(212,160,23,.5);margin-bottom:8px;}
+  .subtitle-line{color:rgba(255,255,255,.78);font-size:.9rem;margin-bottom:6px;}
+  .doc-desc{font-size:.92rem;color:rgba(255,220,100,.9);max-width:780px;margin:10px auto 0;line-height:1.75;}
+  .notice{font-size:.82rem;color:rgba(255,255,255,.6);margin-top:8px;font-style:italic;}
+  /* ── SHLOKA BOX ── */
+  .shloka-box{background:rgba(255,255,255,.09);border:1px solid rgba(255,220,80,.4);border-radius:8px;padding:14px 20px;margin:14px auto;max-width:680px;font-size:1rem;line-height:1.9;color:var(--yellow);text-align:center;font-style:italic;}
+  .shloka-src{font-size:.76rem;color:#ffcc60;font-style:normal;margin-top:6px;display:block;}
+  /* ── CONTAINER ── */
+  .container{max-width:960px;margin:0 auto;padding:24px 22px 60px;}
+  /* ── USAGE ── */
+  .usage-box{background:var(--white);border:2px solid var(--orange);border-left:6px solid var(--red);border-radius:8px;padding:18px 24px;margin-bottom:28px;box-shadow:0 2px 10px rgba(192,20,26,.07);}
+  .usage-box h3{color:var(--red);font-size:1rem;margin-bottom:10px;}
+  .usage-box ul{list-style:none;padding:0;}
+  .usage-box ul li{padding:4px 0 4px 22px;position:relative;font-size:.91rem;color:var(--text);border-bottom:1px dashed rgba(224,96,16,.2);}
+  .usage-box ul li:last-child{border-bottom:none;}
+  .usage-box ul li::before{content:'▶';position:absolute;left:0;color:var(--orange);font-size:.7rem;top:8px;}
+  .usage-box ul li strong{color:var(--red);}
+  /* ── TOC ── */
+  .toc-section{background:linear-gradient(135deg,#fff3e0 0%,#fff9f0 100%);border:2px solid var(--gold);border-radius:10px;padding:20px 26px;margin-bottom:34px;box-shadow:0 4px 16px rgba(212,160,23,.1);}
+  .toc-section h2{font-size:1.15rem;color:var(--dark-red);margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid var(--gold);}
+  .toc-list{list-style:none;padding:0;}
+  .toc-list li{margin-bottom:3px;}
+  .toc-list li a{display:flex;align-items:flex-start;gap:10px;color:var(--dark-red);text-decoration:none;font-size:.92rem;padding:6px 10px;border-radius:5px;transition:background .18s;line-height:1.5;}
+  .toc-list li a:hover{background:rgba(192,20,26,.07);color:var(--red);}
+  .toc-num{background:var(--red);color:var(--white);border-radius:4px;padding:2px 7px;font-size:.77rem;font-family:'Noto Sans Devanagari',sans-serif;min-width:90px;text-align:center;flex-shrink:0;margin-top:2px;}
+  /* ── PART ── */
+  .part-section{background:var(--white);border-radius:10px;border:1px solid rgba(224,96,16,.25);margin-bottom:30px;box-shadow:0 2px 12px rgba(192,20,26,.05);overflow:hidden;}
+  .part-header{background:linear-gradient(135deg,var(--dark-red) 0%,var(--red) 60%,var(--orange) 100%);padding:14px 22px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;}
+  .part-header h2{color:var(--yellow);font-size:1rem;font-weight:700;text-shadow:0 1px 4px rgba(0,0,0,.4);flex:1;}
+  .full-video-btn{display:inline-flex;align-items:center;gap:6px;background:var(--yellow);color:var(--dark-red);text-decoration:none;font-size:.78rem;font-weight:700;padding:5px 12px;border-radius:20px;white-space:nowrap;transition:background .2s;font-family:'Noto Sans Devanagari',sans-serif;}
+  .full-video-btn:hover{background:var(--white);}
+  .part-body{padding:16px 22px 20px;}
+  .yt-desc{background:#fff8f0;border:1px dashed var(--gold);border-radius:6px;padding:12px 16px;margin-bottom:16px;font-size:.84rem;color:var(--muted);line-height:1.75;}
+  .yt-desc strong{color:var(--dark-red);display:block;margin-bottom:4px;}
+  /* ── TOPIC ── */
+  .topic{border-left:4px solid var(--orange);padding:10px 0 10px 16px;margin-bottom:16px;}
+  .topic-header{display:flex;align-items:flex-start;gap:10px;margin-bottom:6px;flex-wrap:wrap;}
+  .topic-marker{background:var(--red);color:var(--white);border-radius:3px;font-size:.74rem;padding:2px 7px;font-family:'Noto Sans Devanagari',sans-serif;flex-shrink:0;margin-top:3px;}
+  .topic h3{font-size:.96rem;color:var(--dark-red);font-weight:700;line-height:1.5;flex:1;}
+  .topic-ts{background:linear-gradient(135deg,var(--orange),var(--gold));color:var(--white);font-size:.74rem;padding:2px 9px;border-radius:12px;font-family:'Noto Sans Devanagari',sans-serif;white-space:nowrap;flex-shrink:0;margin-top:3px;}
+  .topic p{font-size:.9rem;color:#3a1000;line-height:1.9;margin-bottom:8px;}
+  .qa-block{background:#fff3e0;border-left:3px solid var(--gold);padding:8px 14px;margin:6px 0 8px;font-size:.88rem;border-radius:0 6px 6px 0;}
+  .qa-block .q{color:var(--dark-red);font-weight:700;}
+  .qa-block .a{color:#3a1000;}
+  .jump-link{display:inline-flex;align-items:center;gap:5px;color:var(--red);text-decoration:none;font-size:.81rem;font-weight:600;font-family:'Noto Sans Devanagari',sans-serif;padding:3px 10px;border:1px solid var(--red);border-radius:14px;transition:all .2s;}
+  .jump-link:hover{background:var(--red);color:var(--white);}
+  .back-top{display:inline-flex;align-items:center;gap:5px;color:var(--muted);text-decoration:none;font-size:.79rem;margin-top:14px;padding:4px 12px;border:1px dashed var(--gold);border-radius:14px;transition:all .2s;font-family:'Noto Sans Devanagari',sans-serif;}
+  .back-top:hover{background:var(--gold);color:var(--dark-red);}
+  .footer{background:linear-gradient(135deg,var(--dark-red),#3d0000);color:rgba(255,255,255,.75);text-align:center;padding:22px 20px;font-size:.82rem;line-height:1.7;border-top:3px solid var(--gold);}
+  .footer .om{font-size:1.5rem;color:var(--gold);display:block;margin-bottom:6px;}
+  @media(max-width:600px){.main-title{font-size:1.35rem;}.banner-institution{font-size:1.5rem;}.banner-subtitle-row{flex-direction:column;}.tab-bar{flex-direction:column;}.stab{border-radius:0;}}
+</style>
+</head>
+<body>
+
+<!-- BANNER -->
+<div class="banner-wrapper">
+  <img src="avatarvadavali-banner.webp" alt="अवतारवादावली अध्ययनसत्र बैनर" class="banner-img">
+  <div class="banner-inner">
+    <div class="banner-institution">श्रीवल्लभाचार्य विद्यापीठ</div>
+    <div class="banner-address">हालोल, जिला पंचमहाल, गुजरात · भाद्रपद कृष्ण द्वितीया–चतुर्थी, सप्टेम्बर २०२६</div>
+    <div class="banner-subtitle-row">
+      <div class="banner-box"><strong>ग्रंथ</strong>अवतारवादावली (खंड ३) — आचार्य श्रीपुरुषोत्तमजी कृत</div>
+      <div class="banner-box"><strong>विषय</strong>भगवत्प्रतिकृतिपूजनवाद: (पञ्चदश वाद)</div>
+      <div class="banner-box"><strong>समय</strong>२८–३० सप्टेम्बर २०२६ · प्रातः १० से भगविदिच्छा पर्यत</div>
+    </div>
+  </div>
+</div>
+
+<!-- SLIDE TAB BAR -->
+<div class="tab-bar">
+  <button class="stab stab-summary" disabled>📖 विस्तृत सारांश</button>
+  <button class="stab stab-slides" onclick="openSlides()">🎞 स्लाइड प्रस्तुति <span class="badge">शीघ्र</span></button>
+</div>
+
+<!-- SLIDES OVERLAY (placeholder — slides to be added) -->
+<div id="slides-overlay">
+  <button id="overlay-close" onclick="closeSlides()">✕ बंद करें</button>
+  <iframe id="slides-frame" src="" title="भगवत्प्रतिकृतिपूजनवाद स्लाइड प्रस्तुति"></iframe>
+</div>
+
+<!-- TITLE BLOCK -->
+<div class="title-block">
+  <div class="main-title">॥ भगवत्प्रतिकृतिपूजनवाद: ॥</div>
+  <div class="main-title" style="font-size:1.3em;margin-top:4px;">अवतारवादावली अध्ययन सत्र</div>
+  <div class="subtitle-line">पूज्य गोस्वामी श्रीशरदकुमारजी · श्रीवल्लभाचार्य विद्यापीठ, हालोल · भाद्रपद २०८३ / सितंबर २०२६</div>
+  <div class="shloka-box">
+    सर्वः सर्वान्तरो देवो यो गुरुः प्रतिमादिषु ।<br>
+    भक्त्या भक्तैर्विशेषेण पूज्यस्तं कृष्णमाश्रये ।।१।।
+    <span class="shloka-src">— भगवत्प्रतिकृतिपूजनवाद:, मंगलाचरण</span>
+  </div>
+  <p class="doc-desc">आचार्य श्रीपुरुषोत्तमजी विरचित अवतारवादावली के खंड ३ के अन्तर्गत पञ्चदश वाद — भगवत्प्रतिकृतिपूजनवाद: पर तीन दिवसीय अध्ययन सत्र का विस्तृत सारांश। इस वाद में भगवान के प्रतिकृतिरूप (मूर्ति) की पूजा का सिद्धान्त, पूर्वपक्ष के आक्षेप तथा वल्लभ-वेदान्त के आधार पर उत्तरपक्ष का सप्रमाण निरूपण किया गया है।</p>
+  <p class="notice">सूचना: यह सारांश वीडियो के स्वतः-उत्पन्न ट्रांसक्रिप्ट के आधार पर तैयार किया गया है। किसी भी त्रुटि के लिए मूल वीडियो देखें।</p>
+</div>
+
+<div class="container">
+
+<!-- USAGE -->
+<div class="usage-box">
+  <h3>📍 दस्तावेज़ का उपयोग:</h3>
+  <ul>
+    <li><strong>▶ सीधे इस समय पर जाएँ</strong> — YouTube वीडियो उस स्थान से चालू होगा।</li>
+    <li><strong>↑ अनुक्रमणिका पर जाएँ</strong> — प्रत्येक भाग के अन्त में वापस जाएँ।</li>
+    <li>प्रत्येक खण्ड लगभग <strong>१५ मिनट</strong> के प्रवचन का सारांश है।</li>
+  </ul>
+</div>
+
+<!-- TOC -->
+<div class="toc-section" id="toc">
+  <h2>📋 अनुक्रमणिका — भगवत्प्रतिकृतिपूजनवाद:</h2>
+  <ul class="toc-list">
+    <li><a href="#d1s1"><span class="toc-num">दिन १ · सत्र १</span>उपक्रम एवं ग्रंथ-परिचय; अवतार vs प्रतिकृति भेद</a></li>
+    <li><a href="#d1s2"><span class="toc-num">दिन १ · सत्र २</span>पूर्वपक्ष-चर्चा एवं उत्तरपक्ष; प्रतिमा-पूजन का सिद्धान्त</a></li>
+  </ul>
+</div>
+
+<!-- ══════════ VIDEO 1 ══════════ -->
+<div class="part-section" id="d1s1">
+  <div class="part-header">
+    <h2>📹 दिन १ · सत्र १ — उपक्रम एवं ग्रंथ-परिचय (भगवत्प्रतिकृतिपूजनवाद:)</h2>
+    <a class="full-video-btn" href="https://youtu.be/VnHc-j9osOA" target="_blank">📹 पूरा वीडियो</a>
+  </div>
+  <div class="part-body">
+    <div class="yt-desc">
+      <strong>वीडियो विवरण:</strong>
+      अवतारवादावली खंड ३ के पञ्चदश वाद — भगवत्प्रतिकृतिपूजनवाद: पर प्रथम सत्र। मंगलाचरण श्लोक से प्रारंभ कर पूर्वपक्ष के प्रमुख आक्षेपों का विस्तारपूर्वक विवेचन। गुरु की प्रतिमा, भगवत्प्रतिकृति और अवतार के परस्पर सम्बन्ध पर विशद विवेचन।
+    </div>
+
+    <!-- खण्ड 1: 0:00 -->
+    <div class="topic" id="t-00-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १</span>
+        <h3>उपक्रम — ऑनलाइन श्रोताओं का परिचय एवं ग्रंथ-पृष्ठभूमि</h3>
+        <span class="topic-ts">00:00</span>
+      </div>
+      <p>सत्र का शुभारम्भ। वक्ता ऑनलाइन एवं प्रत्यक्ष उपस्थित श्रोताओं का परिचय कराते हैं। स्पीकर की व्यवस्था एवं तकनीकी सेट-अप की जाँच। अवतारवादावली के पूर्व के वादों की संक्षिप्त पुनरावृत्ति — इस क्रम में ब्रह्म-विचार से आरम्भ कर जीव-विचार, अवतार-विचार तक की यात्रा। पुष्टिमार्ग में स्वाध्याय की परम्परा एवं इस सत्र की प्रासंगिकता बताई गई।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=0" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 2: 15:00 -->
+    <div class="topic" id="t-15-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड २</span>
+        <h3>अवतार और प्रतिकृति का भेद — वामन एवं नरसिंह का प्रसंग</h3>
+        <span class="topic-ts">15:00</span>
+      </div>
+      <p>भगवत्प्रतिकृतिपूजनवाद: का केन्द्रीय प्रश्न — क्या भगवान की मूर्ति (प्रतिकृति) और साक्षात् अवतार में भेद है? वक्ता स्पष्ट करते हैं: महाप्रभुजी ने वामन और नरसिंह अवतार को पुष्टिक कार्य की दृष्टि से समन्वित किया, किन्तु पुष्टिमार्गीय सेवा में वामन या नरसिंह अवतार का प्रत्यक्ष भाव उचित नहीं — क्योंकि हमारी सेवा में कृष्ण-स्वरूप की प्रधानता है। प्रतिकृति वह है जो भगवान की आकृति को धारण करती है — अवतार नहीं बल्कि आकृतिमात्र। इसी भेद से इस वाद का प्रतिपाद्य विषय आरम्भ होता है।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=900" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 3: 30:00 -->
+    <div class="topic" id="t-30-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ३</span>
+        <h3>जीवात्मा की उत्पत्ति एवं लय का क्रम — माया से प्रकट और माया में विलीन</h3>
+        <span class="topic-ts">30:00</span>
+      </div>
+      <p>जीवात्माएँ जिस क्रम से उत्पन्न होती हैं, उसके विपरीत क्रम में उनका लय होता है। यह सिद्धान्त अवतारवादावली के पूर्व के वादों में स्थापित हो चुका है। दूर स्थित आत्माओं की चिंता की आवश्यकता नहीं — क्योंकि अभाव नहीं होता, अभिभाव होता है। जो सत्य है उसकी चिंता करें। माया से प्रकट होना और माया में लय — दोनों प्रक्रियाएँ भगवान की प्रेरणा से होती हैं। इस संदर्भ में प्रतिकृति-पूजन का महत्व स्पष्ट होता है।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=1800" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 4: 45:00 -->
+    <div class="topic" id="t-45-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ४</span>
+        <h3>प्रेतात्माओं का प्रसंग एवं सत्य-असत्य का विचार</h3>
+        <span class="topic-ts">45:00</span>
+      </div>
+      <p>भूत-प्रेत आत्माएँ सर्वत्र हैं — पर हमें जिसकी चिंता करनी है वह सत्य है। माया से प्रकट जगत का स्वरूप और उसमें भगवत्-बुद्धि का उपाय। पूर्वपक्षी का आक्षेप: जब जड़-जगत सत्य नहीं तो प्रतिमा जो जड़ से बनी है, उसकी पूजा क्यों? वक्ता इस आक्षेप को ग्रंथ के आधार पर प्रस्तुत करते हैं। शास्त्रीय प्रमाण — "स्थानतौल्यात् स्थितेः साम्याद् अवज्ञादिषु दोषतः" — इस पूर्वपक्ष कारिका की भूमिका तैयार होती है।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=2700" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 5: 60:00 -->
+    <div class="topic" id="t-60-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ५</span>
+        <h3>शंख-चक्र अंकन का प्रश्न एवं पुरुषोत्तमजी का खंडन</h3>
+        <span class="topic-ts">60:00</span>
+      </div>
+      <p>पुरुषोत्तमजी ने वल्लभ संप्रदाय की विशेष पद्धति में एक दोष बताया: जब हम कोई सर्वथा लौकिक क्रिया करते हैं तब भी हमारे शरीर पर शंख-चक्रादि अंकित रहते हैं। यह भगवत्-रूप और भगवत्-आकृति है — इस वजह से यह करना उचित नहीं। रामानुज और माधव सम्प्रदाय की पद्धति से तुलना। पुष्टिमार्ग में शंख-चक्र-अंकन की भावना — भगवान की छाप सदा रहे — इस भाव की व्याख्या। प्रतिकृति में भगवत्-स्वरूप की स्थिति और उसके फलस्वरूप पूजा की विशेष पात्रता का निरूपण।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=3600" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 6: 75:00 -->
+    <div class="topic" id="t-75-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ६</span>
+        <h3>अन्य दर्शनों में प्रतिमा-पूजा एवं ग्रंथ-प्रामाण्य का विचार</h3>
+        <span class="topic-ts">75:00</span>
+      </div>
+      <p>विभिन्न मतों में प्रतिमा की स्वीकृति — शंकर, रामानुज, माधव — और वल्लभ-मत में उनसे भेद। ग्रंथ-आधार: किस मत में प्रतिमा की कितनी वैधता है? "प्रस्थान" अर्थात् दर्शन-शास्त्र के मानक ग्रंथों की दृष्टि से प्रतिकृति-पूजन का विचार। पुरुषोत्तमजी का तर्क: विभिन्न मतों में भगवान के स्वरूप-विचार भिन्न हैं — उन भेदों के कारण प्रतिकृति-पूजन की विशेष सार्थकता वल्लभ-वेदान्त में ही है। प्रमाण: भागवत-पुराण के विभिन्न वचन।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=4500" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 7: 90:00 -->
+    <div class="topic" id="t-90-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ७</span>
+        <h3>जीव में भगवत्-बुद्धि — साम्य और विशेषता का विचार</h3>
+        <span class="topic-ts">90:00</span>
+      </div>
+      <p>शास्त्र का सिद्धान्त: जीव मात्र में भगवत्-बुद्धि करनी चाहिए। किन्तु यदि जीव-मात्र में नहीं कर सकते तो कम से कम जीवों में — विशेषतः मनुष्यों में, उनमें भी ब्राह्मणों में, ब्राह्मणों में भी साधुओं में — यह क्रमशः अधिकार-बोध है। इसी अधिकार-भेद से प्रतिमा-पूजन का स्थान निर्धारित होता है। "एकद्विचतुष्पदः बहुपादाः तथा अपदो बहव्यः सन्ति पुरः" — इस वचन से सर्वभूत-साम्य का निरूपण।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=5400" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 8: 105:00 -->
+    <div class="topic" id="t-105-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ८</span>
+        <h3>आचार्य की विशिष्टता — आचार्य में भगवान का साक्षात् वास</h3>
+        <span class="topic-ts">1:45:00</span>
+      </div>
+      <p>आचार्य रूप से वस्तुतः भगवान ही जीवों को अपनी ओर गति करवाते हैं — यही आचार्य की विशिष्टता है। भागवत एकादश स्कंध का वाक्य: "ज्ञानी प्रियतमो अतो मे ज्ञानेन असौ बिभर्ति माम्" — ज्ञानी मुझे सबसे प्रिय है क्योंकि वह ज्ञान से मुझे धारण करता है। आचार्य में भगवत्-बुद्धि अतिशय इसीलिए अपेक्षित है। गुरु की प्रतिकृति का भी इसी दृष्टि से सम्मान — गुरु में भगवान का अंश है।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=6300" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 9: 120:00 -->
+    <div class="topic" id="t-120-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ९</span>
+        <h3>गुरु में भगवत्-बुद्धि का स्वीकार — अतिशय भाव और उसकी सीमा</h3>
+        <span class="topic-ts">2:00:00</span>
+      </div>
+      <p>गुरु में ऐसे अतिशय भगवत्-बुद्धि का स्वीकार करना कठिन है — यह प्रश्न उठाया जाता है। पुरुषोत्तमजी के प्रस्ताव का संदर्भ: "आप ही आचार्य का वपु धारण करके इधर पधारते हो" — इस भाव से भगवान को ही आचार्य कह रहे हैं। प्रतिकृति और साक्षात् मूर्ति में यही भाव-सम्बन्ध है। गुरु की मूर्ति की पूजा में भगवत्-भाव का समावेश — इस वाद का केन्द्रीय अभिप्राय।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=7200" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 10: 135:00 -->
+    <div class="topic" id="t-135-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १०</span>
+        <h3>चारों वर्ण में स्वाध्याय का अधिकार — ब्राह्मण की आजीविका और धर्म</h3>
+        <span class="topic-ts">2:15:00</span>
+      </div>
+      <p>चारों वर्णों के लोग शास्त्र पढ़ सकते हैं — यह वक्ता स्पष्ट करते हैं। ब्राह्मण का अध्यापन करना उसका धर्म और आजीविका दोनों है। उत्तम ब्राह्मण से पढ़कर स्वयं भी पढ़ाना — यह परम्परा। इस संदर्भ में प्रतिकृति-पूजन में भी अधिकार-भेद: कोई मूल-विग्रह की सेवा कर सकता है, कोई प्रतिकृति से। भागवत के वचन: "न ब्राह्मणाद् मे दयितं रूपमेतत् चतुर्भुजं" — ब्राह्मण से भगवान को अधिक प्रेम है।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=8100" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 11: 150:00 -->
+    <div class="topic" id="t-150-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ११</span>
+        <h3>निर्गुण vs सगुण ब्रह्म — प्रतिमा-पूजन की शास्त्रीय नींव</h3>
+        <span class="topic-ts">2:30:00</span>
+      </div>
+      <p>निर्गुण ब्रह्म के यज्ञ-प्रयोग आदि नहीं होते — यज्ञों में "हरि" — यह सगुण ब्रह्म का ही विषय है। वैष्णव मत में यह स्वीकृत है; मीमांसा और ज्ञानमार्ग में इसे मानने में कठिनाई है। विभिन्न मत जब अपने स्वयं के आधार से तर्क करते हैं — तो प्रतिमा-पूजन में सबकी स्थिति भिन्न होती है। पाँच साकार स्वरूप सगुण ब्रह्म के हैं — यह पुरुषोत्तमजी का सिद्धान्त। एक नहीं, अनेक साकार स्वरूप — इसलिए अपनी श्रद्धा और अधिकार के अनुसार उपासना।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=9000" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 12: 165:00 -->
+    <div class="topic" id="t-165-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १२</span>
+        <h3>व्याख्या-भेद और अर्थ का अनुकल्प — शास्त्र की बहुमुखी व्याख्या</h3>
+        <span class="topic-ts">2:45:00</span>
+      </div>
+      <p>शास्त्र के एक वाक्य के दस अर्थ हो सकते हैं — इंटरप्रिटेशनल डिफरेंसेस होते हैं। कोई एक अर्थ लेता है, दूसरा दूसरा। प्रत्युक्त अधिकारस अनुकल्प — जो अधिकारी को उचित हो वह अर्थ ग्राह्य। व्याख्याकार जब एक व्याख्या करता है तो वह अन्य व्याख्याओं को अमान्य नहीं करता — वह अनुशासन के साथ उन्हें उद्धृत करता है। पुरुषोत्तमजी की अवतारवादावली भी इसी पद्धति पर है — पूर्वपक्ष को पूर्ण सम्मान देकर उत्तरपक्ष स्थापित करते हैं।</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=9900" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 13: 180:00 -->
+    <div class="topic" id="t-180-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १३</span>
+        <h3>पाँच साकार स्वरूप और विशेष श्रद्धा — प्रतिकृति-पूजन का उपसंहार</h3>
+        <span class="topic-ts">3:00:00</span>
+      </div>
+      <p>सगुण ब्रह्म का साकार स्वरूप पाँच प्रकार का है — एक नहीं। जिसे जिसमें अतिशय श्रद्धा हो वह उस स्वरूप को ध्यान में रखकर प्रतिकृति के माध्यम से सेवा कर सकता है। यही पुरुषोत्तमजी की उदारता है। प्रतिकृतिपूजनवाद: का सार: भगवत्-प्रतिकृति में भगवान की आकृति है — इसलिए उसकी पूजा भगवान की ही पूजा है। उत्तरपक्ष कारिका: "स्थानस्थित्योः समत्वेऽपि तद्भ्रमिदेः विचारतः। गुरौ मूर्तौ विशेषोक्तेः पूजासाम्यं न युज्यते।।३।।"</p>
+      <a class="jump-link" href="https://youtu.be/VnHc-j9osOA?t=10800" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <a class="back-top" href="#toc">↑ अनुक्रमणिका पर जाएँ</a>
+  </div>
+</div>
+
+<!-- ══════════ VIDEO 2 ══════════ -->
+<div class="part-section" id="d1s2">
+  <div class="part-header">
+    <h2>📹 दिन १ · सत्र २ — पूर्वपक्ष-चर्चा एवं उत्तरपक्ष-निरूपण</h2>
+    <a class="full-video-btn" href="https://youtu.be/lLCI0j5Gvbc" target="_blank">📹 पूरा वीडियो</a>
+  </div>
+  <div class="part-body">
+    <div class="yt-desc">
+      <strong>वीडियो विवरण:</strong>
+      प्रश्नोत्तर के रूप में पूर्वपक्ष का सारांश एवं उत्तरपक्ष का विस्तार। "जब सब कुछ ब्रह्म है तो प्रतिकृति में विशेषता क्यों?" — इस मुख्य आक्षेप का सप्रमाण समाधान। प्रतिकृति के दो धर्म, पुरुष-सूत्र से विग्रह-प्रतिष्ठा, तथा वाद का उपसंहार।
+    </div>
+
+    <!-- खण्ड 1: 0:00 -->
+    <div class="topic" id="t2-00-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १</span>
+        <h3>प्रश्नोत्तर — पूर्वपक्ष का सारांश: "जब सब कुछ ब्रह्म है तो...?"</h3>
+        <span class="topic-ts">00:00</span>
+      </div>
+      <p>सत्र की शुरुआत प्रश्नोत्तर से। एक श्रोता प्रथम सत्र का सारांश प्रश्न के रूप में प्रस्तुत करते हैं: "पूर्वपक्ष का मेन आर्गुमेंट है कि जब सब कुछ ब्रह्म है तो प्रतिकृति में विशेषता क्यों?" वक्ता इस प्रश्न को "जहाँ कोई गलती हो वहाँ बताएँ" — इस भाव से प्रोत्साहित करते हैं। यही पूर्वपक्ष कारिका का सार है: "स्थानतौल्यात् स्थितेः साम्यात् अवज्ञादिषु दोषतः। निन्दनाच्चान्यथाभक्तेः तुल्यं सर्वत्र पूजनम्।।२।।"</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=0" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 2: 15:00 -->
+    <div class="topic" id="t2-15-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड २</span>
+        <h3>अक्रूर-प्रसंग — साधु-दर्शन vs मूर्ति-पूजन में अधिकार-भेद</h3>
+        <span class="topic-ts">15:00</span>
+      </div>
+      <p>भागवत में अक्रूर जी को कहा गया: जो साधु आदि के दर्शन से शीघ्र प्राप्ति होती है या तीर्थ या मूर्ति से बहुत लंबे समय के बाद प्राप्ति होती है। यह अधिकारी-भेद से है। श्रुतदेव (यादव) के लिए कहा गया वचन और सर्वसाधारण के लिए कहा गया वचन — दोनों का अर्थ-अनुकल्प अलग है। गुरु की प्रतिमा में शीघ्र प्राप्ति क्यों? — क्योंकि गुरु में भगवान का प्रत्यक्ष आवेश है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=900" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 3: 30:00 -->
+    <div class="topic" id="t2-30-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ३</span>
+        <h3>स्थान-साम्य का विचार — "आयुष्मान" शब्द एवं पूर्वपक्ष का पूर्ण प्रस्तुतीकरण</h3>
+        <span class="topic-ts">30:00</span>
+      </div>
+      <p>पूर्वपक्षी का तर्क: "यदा आयुष्मता स्थान-साम्यं मुक्तम्" — स्थान-साम्य (समान स्थान) मानकर सब जगह समान पूजा हो सकती है। "आयुष्मान" शब्द परम्परागत रूप से छोटों के लिए प्रयुक्त होता है। इस वाक्य का शाब्दिक अर्थ और उसके विस्तार पर विचार। पूर्वपक्षी ने ग्रंथ के आधार पर, उपनिषद और सूत्र दोनों से, स्थान-साम्य की स्थापना की है — इसका खंडन कैसे?</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=1800" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 4: 45:00 -->
+    <div class="topic" id="t2-45-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ४</span>
+        <h3>ग्रंथों की टीका-परम्परा — गोकुलनाथजी, द्वारकेशजी की व्याख्याएँ</h3>
+        <span class="topic-ts">45:00</span>
+      </div>
+      <p>अवतारवादावली की टीकाएँ और उनकी पद्धति। सभी आचार्यों ने — गोकुलनाथजी ने, द्वारकेशजी ने — यह बात कही है: लेखन की प्रक्रिया पहले होती है, बाद में पढ़ाना होता है। अपने ग्रंथों की टीका जितनी भी देखते हैं — सभी में आचार्य-परम्परा का अनुसरण है। छोटे होते हैं इसलिए इस तरह लिखना पड़ता है — यह विनम्रता की परम्परा। इस परम्परा में प्रतिकृति-पूजन की स्थिति: मूल-विग्रह की सेवा आचार्य-अनुज्ञा से।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=2700" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 5: 60:00 -->
+    <div class="topic" id="t2-60-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ५</span>
+        <h3>व्याख्याकार की भूमिका — अन्य व्याख्याओं को मान्यता देने की पद्धति</h3>
+        <span class="topic-ts">1:00:00</span>
+      </div>
+      <p>व्याख्याकार जब एक व्याख्या करता है तो उसका सीधा मतलब यह होता है कि वह अन्य व्याख्याओं को मान्य नहीं करता। यदि वह अन्य व्याख्याओं को मान्य करता है तो अनुशासन के साथ उसे उद्धृत करता है। पुरुषोत्तमजी की शैली: पूर्वपक्ष के सभी तर्कों को पूर्ण सम्मान देकर, ग्रंथ-प्रमाण के साथ, उत्तरपक्ष स्थापित करना। यही अवतारवादावली की पद्धति-विशेष है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=3600" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 6: 75:00 -->
+    <div class="topic" id="t2-75-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ६</span>
+        <h3>खंडन का आरंभ — ब्रह्मात्मकता और प्रपंच की सत्यता</h3>
+        <span class="topic-ts">1:15:00</span>
+      </div>
+      <p>यहाँ पे जो खंडन का आरंभ किया: एक तो सर्वस्य ब्रह्मात्मकता बताई। उसके बाद फिर प्रपंच की सत्यता का निरूपण किया। फिर उपादान कारण का अंगीकार न करने वाले मतों के विरुद्ध तर्क। पूर्वपक्षी का ब्रह्मात्मकत्व स्वीकार है — पर उसी से प्रतिकृति-विशेष-पूजन की सिद्धि होती है। "अन्तर्यामि-ब्राह्मण" — ईश्वर सर्वत्र है — इसी से प्रतिकृति में विशेष आवेश सिद्ध होता है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=4500" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 7: 90:00 -->
+    <div class="topic" id="t2-90-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ७</span>
+        <h3>आत्मा के गुण — पाप-मृत्यु विहीन, सबका ईश और अधिपति</h3>
+        <span class="topic-ts">1:30:00</span>
+      </div>
+      <p>छान्दोग्योपनिषद का वाक्य: "एष आत्मा अपहतपाप्मा विजरो विमृत्युः... विजिघत्सो अतिपासः... सत्यसंकल्पः" — यह आत्मा पाप, मृत्यु, इच्छा, जरा सबसे विहीन है; और अन्त में "यह सबका ईश है, अधिपति है"। इस वाक्य से सगुण ब्रह्म के गुण सिद्ध होते हैं — निर्गुण नहीं। इसी सगुण ब्रह्म की प्रतिकृति में पूजा — यह शास्त्र-सम्मत है। निर्गुण ब्रह्म की प्रतिकृति नहीं बनती — साकार प्रतिकृति सगुण ब्रह्म की ही हो सकती है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=5400" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 8: 105:00 -->
+    <div class="topic" id="t2-105-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ८</span>
+        <h3>प्रतिकृति के दो धर्म — प्राकृत-निषेध और अप्राकृत-युक्तत्व</h3>
+        <span class="topic-ts">1:45:00</span>
+      </div>
+      <p>वक्ता प्रतिकृति के दो विशेषण बताते हैं (पुरुषोत्तमजी के ग्रंथ से): (१) प्राकृत धर्मों का अनाश्रय — प्रतिकृति में प्राकृत (जड़-स्वाभाविक) दोष नहीं हैं, और (२) सभी अप्राकृत धर्मों से युक्त होना — दिव्य गुणों से सम्पन्न। ये दो विशेषण मूर्ति की साकृति के एडजेक्टिव हैं — एक निषेध-वृत्ति (न यह), एक विधि-वृत्ति (यह है)। इन्हीं से भगवत्-प्रतिकृति साधारण मूर्ति से भिन्न है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=6300" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 9: 120:00 -->
+    <div class="topic" id="t2-120-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ९</span>
+        <h3>पुरुष-सूत्र से विग्रह-प्रतिष्ठा — विश्वरूप और सहस्रशीर्ष-वर्णन</h3>
+        <span class="topic-ts">2:00:00</span>
+      </div>
+      <p>हर विग्रह पुरुष-सूत्र से ही प्रतिष्ठित होता है। ऋग्वेद का पुरुष-सूक्त: "सहस्रशीर्षा पुरुषः सहस्राक्षः सहस्रपात्" — हजारों मस्तक, हजारों नेत्र, हजारों पाद वाला। यही तो भगवान ने अर्जुन को विश्वरूप में दिखाया था। प्रतिकृति इसी पुरुष-स्वरूप की अभिव्यक्ति है। यही सिद्धान्त सभी विग्रहों की प्रतिष्ठा में मूलभूत है — चाहे शालग्राम हो, मूर्ति हो, चित्र हो।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=7200" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 10: 135:00 -->
+    <div class="topic" id="t2-135-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड १०</span>
+        <h3>पूर्ण प्रकरण का विहंगावलोकन — पूर्वपक्षी के वचन और उत्तर</h3>
+        <span class="topic-ts">2:15:00</span>
+      </div>
+      <p>पूरे प्रकरण को देखना चाहिए। पूर्वपक्षी के दृष्टिकोण से वचन काफी दिए हैं — सभी का आज लाइन-बाय-लाइन विवेचन। उन वचनों में भी वापस कहीं उपनिषद से, कहीं सूत्र से प्रमाण। उत्तरपक्ष में भी उन्हीं प्रमाणों का अर्थ-भेद से नया अर्थ। "इत्येकादशसिद्धा गूढा या सर्वनिर्णये सौक्ष्म्यातः। स्वाचार्यचरणकृपया रीतिर्विंशतिकृताऽस्माभिः।।४।।" — यह अन्तिम कारिका इस वाद की सम्पूर्णता का संकेत है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=8100" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <!-- खण्ड 11: 150:00 -->
+    <div class="topic" id="t2-150-00">
+      <div class="topic-header">
+        <span class="topic-marker">खण्ड ११</span>
+        <h3>वाक्य में कोई समस्या नहीं — अर्थ-भेद ही पेच है; उपसंहार</h3>
+        <span class="topic-ts">2:30:00</span>
+      </div>
+      <p>वाक्य में तो कोई समस्या ही नहीं है — वो भी पुराण की बात करें, हम भी पुराण से कहें। बस यही पेच है: अर्थ का भेद। पूर्वपक्षी जो वचन लेता है, उत्तरपक्षी वही वचन लेकर अलग अर्थ करता है। "सर्वं खलु इदं ब्रह्म" — यह वाक्य पूर्वपक्षी के पास भी है, उत्तरपक्षी के पास भी — पर दोनों के अर्थ भिन्न। भगवत्प्रतिकृतिपूजनवाद: का निष्कर्ष: गुर्वाज्ञानुसारेण सैव करणीया फलतीति पूर्वोक्तम् — गुरु की आज्ञा के अनुसार जो प्रतिकृति-पूजा है वही फलदायी है।</p>
+      <a class="jump-link" href="https://youtu.be/lLCI0j5Gvbc?t=9000" target="_blank">▶ सीधे इस समय पर जाएँ</a>
+    </div>
+
+    <a class="back-top" href="#toc">↑ अनुक्रमणिका पर जाएँ</a>
+  </div>
+</div>
+
+</div><!-- .container -->
+
+<div class="footer">
+  <span class="om">॥ श्रीकृष्णाय नमः ॥</span>
+  भगवत्प्रतिकृतिपूजनवाद: — अवतारवादावली खंड ३ · आचार्य श्रीपुरुषोत्तमजी<br>
+  पूज्य गोस्वामी श्रीशरदकुमारजी · श्रीवल्लभाचार्य विद्यापीठ, हालोल · सप्टेम्बर २०२६<br>
+  <span style="font-size:.78rem;color:#FFAA00;">यह संकलन स्वाध्याय हेतु निर्मित है। सर्वाधिकार सुरक्षित।</span>
+</div>
+
+<script>
+function openSlides() {
+  // Slides not yet available — show message
+  var src = document.getElementById('slides-frame').getAttribute('data-src');
+  if (!src) {
+    alert('स्लाइड प्रस्तुति शीघ्र उपलब्ध होगी।\nSlide deck coming soon!');
+    return;
+  }
+  document.getElementById('slides-frame').src = src;
+  document.getElementById('slides-overlay').classList.add('open');
+}
+function closeSlides() {
+  document.getElementById('slides-overlay').classList.remove('open');
+  document.getElementById('slides-frame').src = '';
+}
+document.addEventListener('keydown', function(e){ if(e.key==='Escape') closeSlides(); });
+</script>
+</body>
+</html>
