@@ -41,13 +41,18 @@ jobs:
         run: |
           FILE="adhyayan-satr/index.html"
 
-          # Ensure तृतीय-चतुर्थ entry exists
-          if ! grep -q "vedantachintamani-tritiya-chaturtha-prakaran.html" "$FILE"; then
-            sed -i 's|<!-- नया सत्र यहाँ जोड़ें.*-->|<!-- नया सत्र यहाँ जोड़ें — ऊपर वाली entries कभी न हटाएँ -->\n    <a class="session-card" href="vedantachintamani-tritiya-chaturtha-prakaran.html">\n      <span class="card-arrow">→</span>\n      <div class="card-date">📅 2026-09</div>\n      <div class="card-title">वेदान्तचिन्तामणि अध्ययन सत्र — तृतीय एवं चतुर्थ प्रकरण</div>\n    </a>|' "$FILE"
+          # Restore avatarvadavali entry if missing
+          if ! grep -q "avatarvadavali-bhagvatpratikruti-pujanvad.html" "$FILE"; then
+            sed -i 's|<!-- नया सत्र यहाँ जोड़ें.*-->|<!-- नया सत्र यहाँ जोड़ें — ऊपर वाली entries कभी न हटाएँ -->\n    <a class="session-card" href="avatarvadavali-bhagvatpratikruti-pujanvad.html">\n      <span class="card-arrow">→<\/span>\n      <div class="card-date">📅 2026-09 (दिन १–२ प्रकाशित)<\/div>\n      <div class="card-title">अवतारवादावली — भगवत्प्रतिकृतिपूजनवाद: (खंड ३, पञ्चदश वाद)<\/div>\n    <\/a>|' "$FILE"
           fi
 
-          # Fix count if wrong
-          COUNT=$(grep -c 'class="session-card"' "$FILE" || true)
+          # Ensure तृतीय-चतुर्थ entry exists
+          if ! grep -q "vedantachintamani-tritiya-chaturtha-prakaran.html" "$FILE"; then
+            sed -i 's|avatarvadavali-bhagvatpratikruti-pujanvad.html">\(.*\n\)*.*card-title.*\n.*<\/a>|&\n    <a class="session-card" href="vedantachintamani-tritiya-chaturtha-prakaran.html">\n      <span class="card-arrow">→<\/span>\n      <div class="card-date">📅 2026-09<\/div>\n      <div class="card-title">वेदान्तचिन्तामणि अध्ययन सत्र — तृतीय एवं चतुर्थ प्रकरण<\/div>\n    <\/a>|' "$FILE"
+          fi
+
+          # Count only <a class="session-card" href= lines (not CSS selectors)
+          COUNT=$(grep -c '<a class="session-card"' "$FILE" || true)
           sed -i "s|सूची ([0-9]*)|सूची ($COUNT)|" "$FILE"
 
           echo "Restored $COUNT entries"
