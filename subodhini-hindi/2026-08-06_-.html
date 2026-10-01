@@ -54,26 +54,34 @@
   footer p{color:var(--yellow);font-size:.95em;margin:5px 0;}
   footer .small{font-size:.78em;color:#FFAA00;}
   @media(max-width:600px){.main-header h1{font-size:1.4em;}.chapter-desc{padding-left:0;margin-top:10px;}.video-title-bar{font-size:1em;}}
-
-  /* Way back to the collection home — added to every page so a reader deep in a
-     summary is never stranded. Sticky, because a phone shows no back button. */
-  .ghhome{position:sticky;top:0;z-index:950;display:flex;align-items:center;
-    justify-content:center;gap:10px;min-height:54px;padding:12px 16px;
+/* nav:css:start */
+  .ghnav{position:sticky;top:0;z-index:950;display:flex;align-items:center;
+    justify-content:center;gap:10px;flex-wrap:wrap;padding:9px 14px;
     background:linear-gradient(180deg,#FFD75E,#F0C832 55%,#D9A91C);
     border-bottom:2px solid #8E1A12;box-shadow:0 3px 12px rgba(0,0,0,.3);
-    color:#3D0D00;text-decoration:none;
-    font-family:'Noto Serif Devanagari',Georgia,serif;
-    font-size:1.1rem;font-weight:700;letter-spacing:.01em}
-  .ghhome:hover{filter:brightness(1.07)}
-  .ghhome:focus-visible{outline:3px solid #3D0D00;outline-offset:-4px}
-  .ghhome-ico{font-size:1.25rem;line-height:1}
-  .ghhome-txt{text-decoration:underline;text-underline-offset:3px;
-    text-decoration-thickness:1.5px;text-decoration-color:rgba(61,13,0,.45)}
-  @media(max-width:520px){.ghhome{font-size:1rem;min-height:50px;padding:10px 12px}}
+    font-family:'Noto Serif Devanagari',Georgia,serif}
+  .ghnav a{display:inline-flex;align-items:center;gap:7px;min-height:40px;
+    padding:7px 16px;border-radius:999px;text-decoration:none;
+    font-size:1rem;font-weight:700;line-height:1.2;transition:filter .15s}
+  .ghnav a:hover{filter:brightness(1.08)}
+  .ghnav a:focus-visible{outline:3px solid #3D0D00;outline-offset:2px}
+  .ghnav .nav-back{background:#8E1A12;color:#FFD75E;
+    box-shadow:0 1px 4px rgba(0,0,0,.3)}
+  .ghnav .nav-home{background:rgba(255,255,255,.75);color:#3D0D00;
+    border:1.5px solid rgba(61,13,0,.3)}
+  @media(max-width:520px){
+    .ghnav{gap:7px;padding:8px 10px}
+    .ghnav a{font-size:.92rem;padding:7px 13px;min-height:38px}
+  }
+  @media(prefers-reduced-motion:reduce){.ghnav a{transition:none}}
+/* nav:css:end */
 </style>
 </head>
 <body>
-<a class="ghhome" href="../index.html"><span class="ghhome-ico" aria-hidden="true">🏠</span><span class="ghhome-txt">मुख्य पृष्ठ</span></a>
+<!-- nav:start --><nav class="ghnav"><a class="nav-back" href="index.html"><span aria-hidden="true">←</span>सुबोधिनी — हिंदी</a><a class="nav-home" href="../index.html"><span aria-hidden="true">🏠</span>मुख्य पृष्ठ</a></nav><!-- nav:end -->
+
+
+
 
 <div class="banner-area">
   <div class="banner-placeholder"><span style="font-size:.45em;color:#FFCC00;">सुबोधिनी_हिंदी_२/९/१४-१५</span></div>
