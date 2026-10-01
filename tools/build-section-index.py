@@ -33,9 +33,6 @@ import pathlib
 import re
 import sys
 
-DEV = '०१२३४५६७८९'
-
-
 def dev_to_int(s: str) -> int | None:
     t = ''.join(str(DEV.index(c)) if c in DEV else c for c in s)
     return int(t) if t.isdigit() else None
@@ -56,25 +53,104 @@ def parse_cards(body: str) -> list[dict]:
     return out
 
 
-def group_of(title: str, folder: str) -> tuple[int | None, str, str]:
+DEV = '०१२३४५६७८९'
+GUJ = '૦૧૨૩૪૫૬૭૮૯'
+
+
+def num(s: str) -> int | None:
+    """Read a number written in Devanagari, Gujarati or Latin digits.
+
+    The Subodhini sessions mix scripts freely — ३/३२/१६-२२ and ૩/૩૨/૧૬-૨૨ are the same
+    reference — so the digits have to be normalised before anything can be grouped.
+    """
+    out = ''
+    for c in s:
+        if c in DEV: out += str(DEV.index(c))
+        elif c in GUJ: out += str(GUJ.index(c))
+        elif c.isdigit(): out += c
+        else: return None
+    return int(out) if out else None
+
+
+def _digits(s: str) -> str:
+    return ''.join(str(DEV.index(c)) if c in DEV else str(GUJ.index(c)) if c in GUJ else c for c in s)
+
+
+def dv(n) -> str:
+    """Write a number in Devanagari digits, since the headings are read in Hindi."""
+    return ''.join(DEV[int(c)] if c.isdigit() else c for c in str(n))
+
+
+MONTHS = ['जनवरी','फ़रवरी','मार्च','अप्रैल','मई','जून','जुलाई','अगस्त',
+          'सितम्बर','अक्टूबर','नवम्बर','दिसम्बर']
+
+
+def group_of(title: str, folder: str, date: str = '') -> tuple:
     """Return (sort key, group heading, the part of the title that varies).
 
-    Falls back to a single 'all' group when a section has no internal reference,
-    which is the case for प्रमेयरत्नसंग्रह and भगवद् वार्ता.
+    Each section numbers its sessions its own way, so each gets its own reading.
     """
-    m = re.search(r'शिक्षापत्र\s*([०-९\d]+)', title)
-    if m:
-        n = dev_to_int(m.group(1))
-        rest = title.split('_', 1)[1].strip() if '_' in title else 'सम्पूर्ण'
-        return n, f'शिक्षापत्र {m.group(1)}', rest
-    m = re.search(r'([०-९\d]+)\s*/\s*([०-९\d]+)', title)       # सुबोधिनी ३/३२/…
-    if m:
-        skandh, adhyay = dev_to_int(m.group(1)), dev_to_int(m.group(2))
-        key = (skandh or 0) * 1000 + (adhyay or 0)
-        rest = title.split('/', 2)[2] if title.count('/') >= 2 else title
-        return key, f'स्कन्ध {m.group(1)} · अध्याय {m.group(2)}', f'श्लोक {rest}'
-    return None, 'अन्य सत्र', title
+    t = _digits(title)
 
+    # शिक्षापत्र २९_श्लोक ३-६   ->  grouped by patra
+    m = re.search(r'शिक्षापत्र\s*(\d+)', t)
+    if m:
+        rest = title.split('_', 1)[1].strip() if '_' in title else 'सम्पूर्ण'
+        return int(m.group(1)), f'शिक्षापत्र {dv(m.group(1))}', rest
+
+    # सुबोधिनी_हिंदी_३/३२/१६-२२   ->  स्कन्ध ३ · अध्याय ३२
+    if folder.startswith('subodhini'):
+        m = re.search(r'(\d+)\s*/\s*(\d+)(?:\s*/\s*([\d\-–]+))?', t)
+        if m:
+            sk, ad, sl = int(m.group(1)), int(m.group(2)), m.group(3)
+            return (sk * 1000 + ad, f'स्कन्ध {dv(sk)} · अध्याय {dv(ad)}',
+                    f'श्लोक {dv(sl)}' if sl else 'सम्पूर्ण अध्याय')
+        tail = title.split('_')[-1].strip()
+        return None, 'अन्य सत्र', tail if tail and not tail.startswith('सुबोधिनी') else 'सम्पूर्ण'
+
+    # ब्रह्मसूत्राणुभाष्य-३/२/१०-१५  ->  अध्याय ३, with पाद/अधिकरण and सूत्र alongside.
+    # A handful of titles spell the reference out in words instead
+    # ("द्वितीय अध्याय, प्रथम पाद — सूत्र १३ से १५ तक"), so those are read separately —
+    # a bare \d+ search picked up the सूत्र number and invented an अध्याय १३.
+    if folder == 'brahmasutra':
+        m = re.search(r'भाष्य\s*[-–—]\s*(\d+)(?:\s*/\s*([^/]+?))?(?:\s*/\s*([\d\-–/]+))?(\s+.*)?$', t.strip())
+        if m:
+            ad, mid, su = int(m.group(1)), (m.group(2) or '').strip(), (m.group(3) or '').strip()
+            bits = []
+            if mid: bits.append(f'अधिकरण {dv(mid)}' if mid.isdigit() else dv(mid))
+            if su: bits.append(f'सूत्र {dv(su)}')
+            if (m.group(4) or '').strip(): bits.append(m.group(4).strip())
+            return ad, f'अध्याय {dv(ad)}', ' · '.join(bits) or 'सम्पूर्ण'
+        ORD = {'प्रथम': 1, 'द्वितीय': 2, 'तृतीय': 3, 'चतुर्थ': 4}
+        m = re.search(r'(' + '|'.join(ORD) + r')\s*अध्याय', title)
+        if m:
+            ad = ORD[m.group(1)]
+            rest = re.split(r'अध्याय\s*,?\s*', title, maxsplit=1)[-1].strip()
+            return ad, f'अध्याय {dv(ad)}', rest or 'सम्पूर्ण'
+        return None, 'अध्याय क्रम रहित', re.split(r'\s*:\s*', title, maxsplit=1)[-1].strip() or title
+
+    # षोडशग्रन्थ_बालबोध_श्लोक_८-११   ->  grouped by granth
+    if folder == 'shodash-granth':
+        parts = title.split('_')
+        if len(parts) >= 2 and parts[1].strip():
+            name = parts[1].strip()
+            rest = dv(_digits(' '.join(parts[2:]))).replace('श्लोक', 'श्लोक ').strip()
+            rest = re.sub(r'\s+', ' ', rest) or 'सम्पूर्ण'
+            return None, name, rest
+        return None, 'अन्य सत्र', title
+
+    # Sections whose every session carries the same title (प्रमेयरत्नसंग्रह, भगवद् वार्ता)
+    # have no internal reference to group by, so the month is the only real axis.
+    if folder in ('prameya-ratna', 'bhagavad-varta'):
+        m = re.match(r'(\d{4})-(\d{2})', date or '')
+        if m:
+            y, mo = int(m.group(1)), int(m.group(2))
+            return y * 100 + mo, f'{MONTHS[mo-1]} {dv(y)}', title
+        return None, 'दिनांक रहित', title
+
+    # Descriptive titles: the work named before the dash is the group
+    head = re.split(r'\s*[—–-]\s*', title)[0].strip()
+    return None, head[:34] if head else 'अन्य सत्र', title
 
 CSS = """
 /* section-index:css:start */
@@ -101,7 +177,7 @@ CSS = """
 .slx-sort button[aria-pressed="true"]{background:var(--dark-red,#8B0000);color:#FFD700}
 .slx-count{font-size:.85rem;color:#7a5c38;margin:12px 2px 6px}
 .slx-group{margin-top:18px}
-.slx-ghead{position:sticky;top:116px;z-index:30;
+.slx-ghead{position:sticky;top:var(--slx-ghead-top,116px);z-index:30;
   background:linear-gradient(180deg,#FFD75E,#F0C832);
   border:1.5px solid rgba(139,0,0,.3);border-radius:8px;
   padding:8px 14px;font:700 1.02rem/1.3 inherit;color:#3D0D00;
@@ -118,7 +194,7 @@ CSS = """
   white-space:nowrap}
 .slx-empty{text-align:center;color:#8B0000;padding:34px 10px;font-size:1rem}
 @media(max-width:560px){
-  .slx-tools{top:52px}.slx-ghead{top:112px;font-size:.96rem}
+  .slx-tools{top:52px}.slx-ghead{font-size:.96rem}
   .slx-item{padding:9px 11px;gap:8px}.slx-ref{font-size:.92rem}
   .slx-date{font-size:.76rem}.slx-sort{margin-left:0;width:100%}
   .slx-sort button{flex:1}
@@ -201,15 +277,34 @@ JS = """
     var el = document.getElementById('g' + b.dataset.k);
     if(!el) return;
     // Not scrollIntoView: that puts the heading flush with the top of the window,
-    // where the sticky search bar covers it. Offset by the bar's own height.
-    var tools = document.querySelector('.slx-tools');
-    var pad = (tools ? tools.offsetHeight : 0) + 66;
+    // where the sticky search bar covers it.
+    // The heading's own CSS 'top' is exactly where it comes to rest when stuck —
+    // just below the toolbar — so landing it there needs no guessed padding.
+    // A fixed guess was one group out on sections whose header is a different height.
+    // stickyTop() is where this heading comes to rest, just under the toolbar,
+    // so landing it there needs no guessed padding.
+    var pad = stickyTop();
     // offsetTop, not getBoundingClientRect: the headings are sticky, so once one is
     // stuck its viewport rect reports the stuck position rather than where it lives.
     var y = 0, n = el;
     while(n){ y += n.offsetTop; n = n.offsetParent; }
     window.scrollTo(0, Math.max(0, y - pad));
   });
+  // The toolbar wraps onto two rows of jump chips on a phone, so its height is not
+  // something CSS can hard-code: measure it and let the group headings stick below it.
+  // With a fixed value the headings parked behind the toolbar and every jump chip
+  // appeared to land one group early.
+  function stickyTop(){
+    var tools = document.querySelector('.slx-tools');
+    if(!tools) return 116;
+    var own = parseFloat(getComputedStyle(tools).top);
+    return (isFinite(own) ? own : 0) + tools.offsetHeight;
+  }
+  function syncStickyTop(){
+    document.documentElement.style.setProperty('--slx-ghead-top', stickyTop() + 'px');
+  }
+  window.addEventListener('resize', syncStickyTop);
+
   function syncSort(){
     document.querySelectorAll('.slx-sort button').forEach(function(b){
       b.setAttribute('aria-pressed', String(b.dataset.o === order));
@@ -219,7 +314,7 @@ JS = """
   document.querySelectorAll('.slx-sort button').forEach(function(b){
     b.addEventListener('click', function(){ order = b.dataset.o; syncSort(); render(); });
   });
-  syncSort(); render();
+  syncSort(); render(); syncStickyTop();
 })();
 </script>
 """
@@ -237,7 +332,7 @@ def build(folder: str, preview: bool = False) -> None:
 
     data, keys = [], {}
     for c in cards:
-        k, gname, rest = group_of(c['title'], folder)
+        k, gname, rest = group_of(c['title'], folder, c['date'])
         keys.setdefault(gname, k)
         data.append({'h': c['href'], 'd': c['date'], 't': c['title'],
                      'g': gname, 'k': k, 'r': rest or 'सम्पूर्ण'})
@@ -250,7 +345,7 @@ def build(folder: str, preview: bool = False) -> None:
   <div class="slx-tools">
     <div class="slx-search">
       <span aria-hidden="true">🔍</span>
-      <input id="slx-q" type="search" placeholder="खोजें — शिक्षापत्र क्रमांक, श्लोक अथवा दिनांक"
+      <input id="slx-q" type="search" placeholder="खोजें — प्रकरण, श्लोक अथवा दिनांक"
              aria-label="सत्र खोजें">
       <button id="slx-clear" class="slx-clear" type="button" aria-label="खोज हटाएँ">✕</button>
     </div>
