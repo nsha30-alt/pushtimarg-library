@@ -46,6 +46,25 @@
   .act-title{font-size:.88rem;font-weight:700;color:var(--yellow);line-height:1.4;margin-bottom:5px;}
   .act-desc{font-size:.75rem;color:#fdf1e2;line-height:1.55;}
   .act-cta{font-size:.72rem;font-weight:700;color:#ffd76a;margin-top:8px;}
+  /* Way back to pushtimarg.net — matches the bar in the Granth search app, so the
+     route home looks the same wherever a reader is. Sticky, because on a phone there
+     is no browser back button on screen. */
+  .backsite{position:sticky;top:0;z-index:900;display:flex;align-items:center;
+    justify-content:center;gap:11px;min-height:52px;padding:11px 16px;
+    background:linear-gradient(180deg,#FFD75E,#F0C832 55%,#D9A91C);
+    border-bottom:2px solid #8E1A12;box-shadow:0 3px 12px rgba(0,0,0,.35);
+    color:#3D0D00;text-decoration:none;font-family:'Noto Serif Devanagari',serif;
+    font-size:1.02rem;font-weight:700;transition:filter .15s}
+  .backsite:hover{filter:brightness(1.07)}
+  .backsite:focus-visible{outline:3px solid #3D0D00;outline-offset:-4px}
+  .backsite-arrow{display:inline-flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border-radius:50%;background:#8E1A12;color:#FFD75E;
+    font-size:1rem;line-height:1;flex:0 0 auto;box-shadow:0 1px 3px rgba(0,0,0,.3)}
+  .backsite-text{text-decoration:underline;text-underline-offset:3px;
+    text-decoration-thickness:1.5px;text-decoration-color:rgba(61,13,0,.4)}
+  @media(max-width:520px){.backsite{font-size:.95rem;min-height:50px;gap:9px;padding:10px 12px}
+    .backsite-arrow{width:24px;height:24px}}
+  @media(prefers-reduced-motion:reduce){.backsite{transition:none}}
 </style>
 <meta name="description" content="श्रीवल्लभाचार्य विद्यापीठ में कोन्फरेंस के माध्यम से अध्यापित ग्रन्थों का सारांश">
 <meta property="og:title" content="नित्य पुष्टिस्वाध्याय सत्रों का संकलन">
@@ -54,6 +73,11 @@
 <meta property="og:url" content="https://nsha30-alt.github.io/pushtimarg-library/">
 </head>
 <body>
+<a class="backsite" href="https://pushtimarg.net/">
+  <span class="backsite-arrow" aria-hidden="true">&#8592;</span>
+  <span class="backsite-text">pushtimarg.net पर वापस जाएँ</span>
+</a>
+
 
 <div class="banner-wrapper">
   <div class="banner-inner">
