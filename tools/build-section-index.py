@@ -48,8 +48,36 @@ def parse_cards(body: str) -> list[dict]:
         href, date, title = m.groups()
         clean = lambda x: re.sub(r'\s+', ' ', html.unescape(re.sub(r'<[^>]+>', '', x))).strip()
         out.append({'href': href,
-                    'date': clean(date).replace('📅', '').strip(),
+                    'date': clean(date).replace('\U0001F4C5', '').strip(),
                     'title': clean(title)})
+    return out
+
+
+def parse_generated(s: str) -> list[dict]:
+    """Read the session list back out of a page this script generated.
+
+    A generated page carries its sessions as a JSON block rather than as card
+    markup, so without this a second run found no cards and refused to rebuild —
+    meaning the grouping could never be changed again once applied.
+    """
+    m = re.search(r'var DATA = (\[.*?\]);', s, re.S)
+    if not m:
+        return []
+    return [{'href': x['h'], 'date': x['d'], 'title': x['t']} for x in json.loads(m.group(1))]
+
+
+def read_sessions(s: str, body: str) -> list[dict]:
+    """Every session on the page, whichever form it is stored in.
+
+    Both forms are read and merged on href, so a newly added session card can be
+    pasted into an already-generated page and picked up by the next rebuild.
+    """
+    seen, out = set(), []
+    for c in parse_generated(s) + parse_cards(body):
+        if c['href'] in seen:
+            continue
+        seen.add(c['href'])
+        out.append(c)
     return out
 
 
@@ -320,12 +348,16 @@ JS = """
 """
 
 
+MARK_START = '<!-- section-index:start -->'
+MARK_END = '<!-- section-index:end -->'
+
+
 def build(folder: str, preview: bool = False) -> None:
     d = pathlib.Path(folder)
     page = d / 'index.html'
     s = page.read_text(encoding='utf-8')
     body = s[s.index('<body'):]
-    cards = parse_cards(body)
+    cards = read_sessions(s, body)
     if not cards:
         print(f'  {folder}: no session cards found — left unchanged')
         return
@@ -341,7 +373,7 @@ def build(folder: str, preview: bool = False) -> None:
         f'<button class="slx-chip" data-k="{"x" if k is None else k}">{html.escape(n)}</button>'
         for n, k in sorted(keys.items(), key=lambda kv: (kv[1] is None, kv[1] or 0)))
 
-    ui = f'''<div class="slx">
+    ui = f'''{MARK_START}<div class="slx">
   <div class="slx-tools">
     <div class="slx-search">
       <span aria-hidden="true">🔍</span>
@@ -360,17 +392,33 @@ def build(folder: str, preview: bool = False) -> None:
   <div id="slx-count" class="slx-count"></div>
   <div id="slx-list"></div>
 </div>
+{MARK_END}
 '''
-    # replace everything from the section bar to the end of the old list
-    start = s.index('<div class="section-bar">')
-    end = s.index('</div>', s.index('<div class="session-list">'))
-    end = s.index('</div>', body.index('</a>', body.rindex('<a class="session-card"')) + len(s) - len(body)) + len('</div>')
+    # On a page this script has already written, replace its own block; on an
+    # untouched one, replace everything from the section bar to the end of the
+    # old card list. Without the markers a second run had nothing it recognised
+    # and stopped, so the grouping could not be revised after being applied.
+    if MARK_START in s and MARK_END in s:
+        start = s.index(MARK_START)
+        end = s.index(MARK_END) + len(MARK_END)
+    elif '<div class="slx">' in s:
+        # An early generated page, written before the markers existed.
+        m = re.search(r'<div class="slx">.*?<div id="slx-list"></div>\s*</div>\n?', s, re.S)
+        start, end = m.start(), m.end()
+    else:
+        start = s.index('<div class="section-bar">')
+        end = s.index('</div>', body.index('</a>', body.rindex('<a class="session-card"'))
+                      + len(s) - len(body)) + len('</div>')
     s = s[:start] + ui + s[end:]
 
     s = re.sub(r'/\* section-index:css:start \*/.*?/\* section-index:css:end \*/', '', s, flags=re.S)
     s = s[:s.index('</style>')] + CSS + s[s.index('</style>'):]
     s = re.sub(r'<script>\n\(function\(\)\{\n  var DATA.*?</script>', '', s, flags=re.S)
     s = s.replace('</body>', JS.replace('__DATA__', json.dumps(data, ensure_ascii=False)) + '\n</body>')
+
+    # Each run strips a block and splices a new one, which otherwise leaves a few
+    # blank lines behind that pile up with every rebuild.
+    s = re.sub(r'\n{3,}', '\n\n', s)
 
     out = d / ('index.preview.html' if preview else 'index.html')
     out.write_text(s, encoding='utf-8')
