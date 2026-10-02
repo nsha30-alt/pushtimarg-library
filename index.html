@@ -73,10 +73,41 @@
 <meta property="og:url" content="https://nsha30-alt.github.io/pushtimarg-library/">
 </head>
 <body>
-<a class="backsite" href="https://pushtimarg.net/">
+<a class="backsite" id="backsite" href="https://pushtimarg.net/">
   <span class="backsite-arrow" aria-hidden="true">&#8592;</span>
-  <span class="backsite-text">pushtimarg.net पर वापस जाएँ</span>
+  <span class="backsite-text" id="backsite-text">pushtimarg.net पर वापस जाएँ</span>
 </a>
+<script>
+/* This collection is linked from two sites, so "back" cannot mean the same thing for
+   everyone: a reader who came from the Vidyapeeth banner was being sent to pushtimarg.net,
+   a site they had never visited. The banners mark their links with ?src=, and the referrer
+   is used when that is absent — it goes missing often enough (privacy settings, a link
+   opened from WhatsApp) not to be relied on by itself. The answer is kept for the rest of
+   the visit, since the reader moves on to pages carrying neither signal. */
+(function(){
+  var SITES = {
+    vidyapeeth: { href: 'https://vallabhacharyavidyapeeth.org/hindi/',
+                  label: 'श्रीवल्लभाचार्य विद्यापीठ पर वापस जाएँ' },
+    pushtimarg: { href: 'https://pushtimarg.net/',
+                  label: 'pushtimarg.net पर वापस जाएँ' }
+  };
+  var KEY = 'pushti:origin';
+  function pick(){
+    var p = new URLSearchParams(location.search).get('src');
+    if (p === 'vp' || p === 'vidyapeeth') return 'vidyapeeth';
+    if (p === 'pm' || p === 'pushtimarg') return 'pushtimarg';
+    var r = document.referrer || '';
+    if (r.indexOf('vallabhacharyavidyapeeth.org') > -1) return 'vidyapeeth';
+    if (r.indexOf('pushtimarg.net') > -1) return 'pushtimarg';
+    try { var k = sessionStorage.getItem(KEY); if (SITES[k]) return k; } catch(e){}
+    return 'pushtimarg';
+  }
+  var which = pick(), s = SITES[which];
+  try { sessionStorage.setItem(KEY, which); } catch(e){}
+  document.getElementById('backsite').href = s.href;
+  document.getElementById('backsite-text').textContent = s.label;
+})();
+</script>
 
 
 <div class="banner-wrapper">
