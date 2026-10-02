@@ -1,0 +1,52 @@
+# Keeps the grouped section listings in place.
+#
+# The tool that uploads new summaries rewrites a section's index.html from scratch as a
+# flat list of session cards, which silently undoes the grouping by शिक्षापत्र / स्कन्ध /
+# अध्याय. That is what happened on 1 Oct 2026: eight "Update index ..." commits landed and
+# every section went back to the old layout.
+#
+# build-section-index.py reads both forms — the uploaded cards and its own output — so
+# running it again after such a push restores the grouping and keeps whatever sessions the
+# upload added. It makes no change when the page is already grouped, so a run that follows
+# its own commit stops there rather than looping.
+name: Group section listings
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '*/index.html'
+      - 'tools/build-section-index.py'
+  workflow_dispatch:
+
+jobs:
+  group:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Re-apply grouping
+        run: |
+          for f in shikshapatra subodhini-gujarati subodhini-hindi brahmasutra \
+                   shodash-granth prameya-ratna bhagavad-varta adhyayan-satr; do
+            [ -f "$f/index.html" ] || continue
+            python3 tools/build-section-index.py "$f"
+          done
+
+      - name: Commit if anything changed
+        run: |
+          if [ -z "$(git status --porcelain -- '*/index.html')" ]; then
+            echo "Already grouped — nothing to do."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -- '*/index.html'
+          git commit -m "Re-apply section grouping after an index upload"
+          git push
