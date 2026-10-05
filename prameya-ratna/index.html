@@ -24,57 +24,7 @@
   .card-title{font-size:1.05em;font-weight:bold;color:var(--dark-red);line-height:1.4;}
   .card-arrow{float:right;color:var(--orange);font-size:1.2em;}
   footer{background:var(--dark-red);color:var(--white);text-align:center;padding:20px;border-top:6px solid var(--yellow);margin-top:10px;}
-  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
-
-/* section-index:css:start */
-.slx{max-width:860px;margin:0 auto;padding:0 14px 40px}
-.slx-tools{position:sticky;top:56px;z-index:40;background:var(--cream,#FFF8E7);
-  padding:12px 0 10px;border-bottom:1px solid rgba(139,0,0,.15)}
-.slx-search{display:flex;align-items:center;gap:9px;background:#fff;
-  border:2px solid var(--dark-red,#8B0000);border-radius:999px;padding:7px 16px}
-.slx-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;
-  font-family:inherit;font-size:1rem;color:#2C1A00;padding:5px 0}
-.slx-search input::placeholder{color:#a08a6a}
-.slx-clear{border:0;background:none;cursor:pointer;font-size:1.1rem;color:#8B0000;
-  padding:0 4px;visibility:hidden}
-.slx-clear.on{visibility:visible}
-.slx-row2{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.slx-chip{border:1.5px solid rgba(139,0,0,.35);background:#fff;color:#8B0000;
-  border-radius:999px;padding:4px 12px;font:600 .85rem/1.3 inherit;cursor:pointer;
-  font-variant-numeric:tabular-nums}
-.slx-chip:hover{background:#FFF0D0}
-.slx-sort{margin-left:auto;display:flex;gap:0;border:1.5px solid rgba(139,0,0,.35);
-  border-radius:999px;overflow:hidden}
-.slx-sort button{border:0;background:#fff;color:#8B0000;cursor:pointer;
-  font:600 .85rem/1 inherit;padding:7px 14px}
-.slx-sort button[aria-pressed="true"]{background:var(--dark-red,#8B0000);color:#FFD700}
-.slx-count{font-size:.85rem;color:#7a5c38;margin:12px 2px 6px}
-.slx-group{margin-top:18px}
-.slx-ghead{position:sticky;top:var(--slx-ghead-top,116px);z-index:30;
-  background:linear-gradient(180deg,#FFD75E,#F0C832);
-  border:1.5px solid rgba(139,0,0,.3);border-radius:8px;
-  padding:8px 14px;font:700 1.02rem/1.3 inherit;color:#3D0D00;
-  display:flex;align-items:center;gap:10px}
-.slx-ghead .n{margin-left:auto;font-size:.78rem;font-weight:600;color:#7a2a12;
-  background:rgba(255,255,255,.6);border-radius:999px;padding:2px 10px}
-.slx-item{display:flex;align-items:center;gap:12px;background:#fff;
-  border:1px solid rgba(139,0,0,.16);border-left:4px solid var(--orange,#FF6600);
-  border-radius:7px;padding:10px 14px;margin-top:7px;text-decoration:none;
-  color:#2C1A00;transition:transform .12s,box-shadow .12s}
-.slx-item:hover{transform:translateX(3px);box-shadow:0 3px 10px rgba(139,0,0,.16)}
-.slx-ref{flex:1;min-width:0;font-weight:600;font-size:.98rem}
-.slx-date{flex:0 0 auto;font-size:.82rem;color:#7a5c38;font-variant-numeric:tabular-nums;
-  white-space:nowrap}
-.slx-empty{text-align:center;color:#8B0000;padding:34px 10px;font-size:1rem}
-@media(max-width:560px){
-  .slx-tools{top:52px}.slx-ghead{font-size:.96rem}
-  .slx-item{padding:9px 11px;gap:8px}.slx-ref{font-size:.92rem}
-  .slx-date{font-size:.76rem}.slx-sort{margin-left:0;width:100%}
-  .slx-sort button{flex:1}
-}
-@media(prefers-reduced-motion:reduce){.slx-item{transition:none}}
-/* section-index:css:end */
-</style>
+  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}</style>
 </head>
 <body>
 <div class="banner-area">
@@ -85,145 +35,272 @@
   <div class="subtitle">प्रमेयरत्नसंग्रह — नित्य पुष्टिस्वाध्याय</div>
 </div>
 <a class="back-link" href="../index.html">🏠 मुख्य पृष्ठ</a>
-<!-- section-index:start --><div class="slx">
-  <div class="slx-tools">
-    <div class="slx-search">
-      <span aria-hidden="true">🔍</span>
-      <input id="slx-q" type="search" placeholder="खोजें — प्रकरण, श्लोक अथवा दिनांक"
-             aria-label="सत्र खोजें">
-      <button id="slx-clear" class="slx-clear" type="button" aria-label="खोज हटाएँ">✕</button>
-    </div>
-    <div class="slx-row2">
-      <div id="slx-chips"><button class="slx-chip" data-k="202606">जून २०२६</button><button class="slx-chip" data-k="202607">जुलाई २०२६</button><button class="slx-chip" data-k="202608">अगस्त २०२६</button><button class="slx-chip" data-k="202609">सितम्बर २०२६</button><button class="slx-chip" data-k="x">दिनांक रहित</button></div>
-      <div class="slx-sort">
-        <button data-o="granth" aria-pressed="true">ग्रन्थ-क्रम</button>
-        <button data-o="date" aria-pressed="false">नवीनतम</button>
-      </div>
-    </div>
-  </div>
-  <div id="slx-count" class="slx-count"></div>
-  <div id="slx-list"></div>
+<div class="section-bar">📚 सूची (52)</div>
+<div class="session-list">
+    <a class="session-card" href="2026-10-01_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-30</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-09-28_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-28</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-09-02_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-02</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-19_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-19</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-20_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-19</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-18_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-18</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-17_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-17</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-16_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-14</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-17_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-14</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-13_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-13</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-14_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-13</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-15_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-13</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-11_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-11</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-11_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-10</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-12_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-10</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-08-08_session_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-08</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : નિરોધ લક્ષણ</div>
+    </a>
+    <a class="session-card" href="2026-08-07_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-07</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१-२२</div>
+    </a>
+    <a class="session-card" href="2026-08-07_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-07</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : निरोध लक्षण — स्वरूप एवं फल</div>
+    </a>
+    <a class="session-card" href="2026-08-08_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-07</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : निरोध लक्षण</div>
+    </a>
+    <a class="session-card" href="2026-08-06_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-06</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : निरोधનું સ્વરૂપ અને સાધન નિરોધ</div>
+    </a>
+    <a class="session-card" href="2026-08-06_session_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-06</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१</div>
+    </a>
+    <a class="session-card" href="2026-08-06_session_2.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-06</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : निरोध का स्वरूप और साधन निरोध</div>
+    </a>
+    <a class="session-card" href="2026-08-01_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-01</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक १७-३४</div>
+    </a>
+    <a class="session-card" href="2026-07-27_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-25</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : पुष्टिमार्ग में सेवा, त्याग और प्रेम का महत्व</div>
+    </a>
+    <a class="session-card" href="2026-07-27_session_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-25</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह : પુષ્ટિમાર્ગમાં સેવા, ત્યાગ અને પ્રેમનું મહત્વ — સન્યાસનિર્ણય શ્લોક ૧૫-૩૯</div>
+    </a>
+    <a class="session-card" href="2026-07-27_session_2.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-25</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય — સેવા, ત્યાગ અને પ્રેમ</div>
+    </a>
+    <a class="session-card" href="2026-07-28_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-25</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય</div>
+    </a>
+    <a class="session-card" href="2026-07-24_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-23</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ભગવદ્‌વાર્તા, શબ્દાર્થ તથા શ્લોક ૧૨</div>
+    </a>
+    <a class="session-card" href="2026-07-16_retry_-_vs.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-16</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : માનસી અને વ્યસન - સેવ્યનું વ્યસન vs સેવાનું વ્યસન</div>
+    </a>
+    <a class="session-card" href="2026-07-10_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-10</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ</div>
+    </a>
+    <a class="session-card" href="2026-07-10_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-10</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ</div>
+    </a>
+    <a class="session-card" href="2026-07-09_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-09</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા</div>
+    </a>
+    <a class="session-card" href="2026-07-07_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫</div>
+    </a>
+    <a class="session-card" href="2026-07-07_session_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા</div>
+    </a>
+    <a class="session-card" href="2026-07-07_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫</div>
+    </a>
+    <a class="session-card" href="2026-07-25_retry_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા</div>
+    </a>
+    <a class="session-card" href="2026-07-27_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા</div>
+    </a>
+    <a class="session-card" href="2026-07-06_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-06</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫</div>
+    </a>
+    <a class="session-card" href="2026-07-06_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-06</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫</div>
+    </a>
+    <a class="session-card" href="2026-07-25_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-06</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫</div>
+    </a>
+    <a class="session-card" href="2026-07-02_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-02</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક - રૂચિ, જ્ઞાન અને પ્રયત્નનું મહત્વ</div>
+    </a>
+    <a class="session-card" href="2026-07-01_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-01</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક</div>
+    </a>
+    <a class="session-card" href="2026-06-30_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-30</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક</div>
+    </a>
+    <a class="session-card" href="2026-06-29_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-29</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક</div>
+    </a>
+    <a class="session-card" href="2026-06-29_retry_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-29</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : રુકમણીજી પ્રસંગ, જલભેદ અને પંચપદ્યાની શ્લોક ૧</div>
+    </a>
+    <a class="session-card" href="2026-06-28_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-28</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : વર્ણ અને પુષ્ટિનું સ્વરૂપ</div>
+    </a>
+    <a class="session-card" href="2026-06-25_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-25</div>
+      <div class="card-title">प्रमेयरत्नसंग्रह</div>
+    </a>
+    <a class="session-card" href="2026-06-22_session_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-23</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ</div>
+    </a>
+    <a class="session-card" href="2026-06-22_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-22</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ</div>
+    </a>
+    <a class="session-card" href="2026-06-18_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-20</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ વિવેક</div>
+    </a>
+    <a class="session-card" href="2026-06-19_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-19</div>
+      <div class="card-title">પ્રમેયરત્નસંગ્રહ : પુષ્ટિ અનુગ્રહના પ્રકારો</div>
+    </a>
+    <a class="session-card" href="TEST_3.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">પ્રમેય રત્નસંગ્રહ : તત્વ દ્રષ્ટિ અને લીલા દ્રષ્ટિનો સમન્વય</div>
+    </a>
 </div>
-<!-- section-index:end -->
-
 <footer>
   <p>॥ श्रीकृष्णाय नमः ॥</p>
   <p>श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</p>
 </footer>
-
-<script>
-(function(){
-  var DATA = [{"h": "2026-10-01_session.html", "d": "2026-09-30", "t": "प्रमेयरत्नसंग्रह", "g": "सितम्बर २०२६", "k": 202609, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-09-28_session.html", "d": "2026-09-28", "t": "प्रमेयरत्नसंग्रह", "g": "सितम्बर २०२६", "k": 202609, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-09-02_session.html", "d": "2026-09-02", "t": "प्रमेयरत्नसंग्रह", "g": "सितम्बर २०२६", "k": 202609, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-19_session.html", "d": "2026-08-19", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-20_session.html", "d": "2026-08-19", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-18_session.html", "d": "2026-08-18", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-17_session.html", "d": "2026-08-17", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-16_session.html", "d": "2026-08-14", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-17_retry.html", "d": "2026-08-14", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-13_session.html", "d": "2026-08-13", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-14_session.html", "d": "2026-08-13", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-15_session.html", "d": "2026-08-13", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-11_retry.html", "d": "2026-08-11", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-11_session.html", "d": "2026-08-10", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-12_session.html", "d": "2026-08-10", "t": "प्रमेयरत्नसंग्रह", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-08-08_session_1.html", "d": "2026-08-08", "t": "પ્રમેયરત્નસંગ્રહ : નિરોધ લક્ષણ", "g": "अगस्त २०२६", "k": 202608, "r": "પ્રમેયરત્નસંગ્રહ : નિરોધ લક્ષણ"}, {"h": "2026-08-07_-.html", "d": "2026-08-07", "t": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१-२२", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१-२२"}, {"h": "2026-08-07_session.html", "d": "2026-08-07", "t": "प्रमेयरत्नसंग्रह : निरोध लक्षण — स्वरूप एवं फल", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : निरोध लक्षण — स्वरूप एवं फल"}, {"h": "2026-08-08_session.html", "d": "2026-08-07", "t": "प्रमेयरत्नसंग्रह : निरोध लक्षण", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : निरोध लक्षण"}, {"h": "2026-08-06_session.html", "d": "2026-08-06", "t": "प्रमेयरत्नसंग्रह : निरोधનું સ્વરૂપ અને સાધન નિરોધ", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : निरोधનું સ્વરૂપ અને સાધન નિરોધ"}, {"h": "2026-08-06_session_1.html", "d": "2026-08-06", "t": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक २१"}, {"h": "2026-08-06_session_2.html", "d": "2026-08-06", "t": "प्रमेयरत्नसंग्रह : निरोध का स्वरूप और साधन निरोध", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : निरोध का स्वरूप और साधन निरोध"}, {"h": "2026-08-01_-.html", "d": "2026-08-01", "t": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक १७-३४", "g": "अगस्त २०२६", "k": 202608, "r": "प्रमेयरत्नसंग्रह : सन्यास निर्णय — श्लोक १७-३४"}, {"h": "2026-07-27_session.html", "d": "2026-07-25", "t": "प्रमेयरत्नसंग्रह : पुष्टिमार्ग में सेवा, त्याग और प्रेम का महत्व", "g": "जुलाई २०२६", "k": 202607, "r": "प्रमेयरत्नसंग्रह : पुष्टिमार्ग में सेवा, त्याग और प्रेम का महत्व"}, {"h": "2026-07-27_session_1.html", "d": "2026-07-25", "t": "प्रमेयरत्नसंग्रह : પુષ્ટિમાર્ગમાં સેવા, ત્યાગ અને પ્રેમનું મહત્વ — સન્યાસનિર્ણય શ્લોક ૧૫-૩૯", "g": "जुलाई २०२६", "k": 202607, "r": "प्रमेयरत्नसंग्रह : પુષ્ટિમાર્ગમાં સેવા, ત્યાગ અને પ્રેમનું મહત્વ — સન્યાસનિર્ણય શ્લોક ૧૫-૩૯"}, {"h": "2026-07-27_session_2.html", "d": "2026-07-25", "t": "પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય — સેવા, ત્યાગ અને પ્રેમ", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય — સેવા, ત્યાગ અને પ્રેમ"}, {"h": "2026-07-28_retry.html", "d": "2026-07-25", "t": "પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : સન્યાસ નિર્ણય"}, {"h": "2026-07-24_session.html", "d": "2026-07-23", "t": "પ્રમેયરત્નસંગ્રહ : ભગવદ્‌વાર્તા, શબ્દાર્થ તથા શ્લોક ૧૨", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ભગવદ્‌વાર્તા, શબ્દાર્થ તથા શ્લોક ૧૨"}, {"h": "2026-07-16_retry_-_vs.html", "d": "2026-07-16", "t": "પ્રમેયરત્નસંગ્રહ : માનસી અને વ્યસન - સેવ્યનું વ્યસન vs સેવાનું વ્યસન", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : માનસી અને વ્યસન - સેવ્યનું વ્યસન vs સેવાનું વ્યસન"}, {"h": "2026-07-10_session.html", "d": "2026-07-10", "t": "પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ"}, {"h": "2026-07-10_retry.html", "d": "2026-07-10", "t": "પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : પ્રેમ, આસક્તિ, વ્યસન, માનસી, નિરોધ અને કૃપાનું મહત્ત્વ"}, {"h": "2026-07-09_session.html", "d": "2026-07-09", "t": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા"}, {"h": "2026-07-07_session.html", "d": "2026-07-07", "t": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫"}, {"h": "2026-07-07_session_1.html", "d": "2026-07-07", "t": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા"}, {"h": "2026-07-07_retry.html", "d": "2026-07-07", "t": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫"}, {"h": "2026-07-25_retry_1.html", "d": "2026-07-07", "t": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા"}, {"h": "2026-07-27_retry.html", "d": "2026-07-07", "t": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : માર્ગરુચિની વિશુદ્ધતા"}, {"h": "2026-07-06_session.html", "d": "2026-07-06", "t": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫"}, {"h": "2026-07-06_retry.html", "d": "2026-07-06", "t": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫"}, {"h": "2026-07-25_retry.html", "d": "2026-07-06", "t": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : ધર્મ પ્રચારનો વાસ્તવિક ઉદ્દેશ્ય — કારિકા ૯૫"}, {"h": "2026-07-02_-.html", "d": "2026-07-02", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક - રૂચિ, જ્ઞાન અને પ્રયત્નનું મહત્વ", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક - રૂચિ, જ્ઞાન અને પ્રયત્નનું મહત્વ"}, {"h": "2026-07-01_session.html", "d": "2026-07-01", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક", "g": "जुलाई २०२६", "k": 202607, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક"}, {"h": "2026-06-30_session.html", "d": "2026-06-30", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક"}, {"h": "2026-06-29_retry.html", "d": "2026-06-29", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ ભક્તિ અધિકાર વિવેક"}, {"h": "2026-06-29_retry_1.html", "d": "2026-06-29", "t": "પ્રમેયરત્નસંગ્રહ : રુકમણીજી પ્રસંગ, જલભેદ અને પંચપદ્યાની શ્લોક ૧", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : રુકમણીજી પ્રસંગ, જલભેદ અને પંચપદ્યાની શ્લોક ૧"}, {"h": "2026-06-28_session.html", "d": "2026-06-28", "t": "પ્રમેયરત્નસંગ્રહ : વર્ણ અને પુષ્ટિનું સ્વરૂપ", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : વર્ણ અને પુષ્ટિનું સ્વરૂપ"}, {"h": "2026-06-25_session.html", "d": "2026-06-25", "t": "प्रमेयरत्नसंग्रह", "g": "जून २०२६", "k": 202606, "r": "प्रमेयरत्नसंग्रह"}, {"h": "2026-06-22_session_1.html", "d": "2026-06-23", "t": "પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ"}, {"h": "2026-06-22_session.html", "d": "2026-06-22", "t": "પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : અનુગ્રહના પ્રકારો — કાલ, કર્મ અને સ્વભાવ બાધક અનુગ્રહ"}, {"h": "2026-06-18_session.html", "d": "2026-06-20", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ વિવેક", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ વિવેક"}, {"h": "2026-06-19_session.html", "d": "2026-06-19", "t": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ અનુગ્રહના પ્રકારો", "g": "जून २०२६", "k": 202606, "r": "પ્રમેયરત્નસંગ્રહ : પુષ્ટિ અનુગ્રહના પ્રકારો"}, {"h": "TEST_3.html", "d": "", "t": "પ્રમેય રત્નસંગ્રહ : તત્વ દ્રષ્ટિ અને લીલા દ્રષ્ટિનો સમન્વય", "g": "दिनांक रहित", "k": null, "r": "પ્રમેય રત્નસંગ્રહ : તત્વ દ્રષ્ટિ અને લીલા દ્રષ્ટિનો સમન્વય"}];
-  var list = document.getElementById('slx-list');
-  var countEl = document.getElementById('slx-count');
-  var chipWrap = document.getElementById('slx-chips');
-  var input = document.getElementById('slx-q');
-  var clear = document.getElementById('slx-clear');
-  var order = 'granth';
-
-  function groups(items){
-    var by = {}, seq = [];
-    items.forEach(function(it){
-      if(!by[it.g]){ by[it.g] = {name: it.g, key: it.k, rows: []}; seq.push(by[it.g]); }
-      by[it.g].rows.push(it);
-    });
-    return seq;
-  }
-
-  function render(){
-    var q = input.value.trim().toLowerCase();
-    var items = DATA.filter(function(it){
-      return !q || (it.t + ' ' + it.d + ' ' + it.g).toLowerCase().indexOf(q) !== -1;
-    });
-    countEl.textContent = items.length + ' / ' + DATA.length + ' सत्र';
-    clear.className = 'slx-clear' + (q ? ' on' : '');
-    list.innerHTML = '';
-
-    if(!items.length){
-      list.innerHTML = '<div class="slx-empty">कोई सत्र नहीं मिला</div>';
-      return;
-    }
-
-    if(order === 'date'){
-      items = items.slice().sort(function(a,b){ return a.d < b.d ? 1 : a.d > b.d ? -1 : 0; });
-      items.forEach(function(it){ list.appendChild(row(it, true)); });
-      return;
-    }
-
-    var seq = groups(items.slice().sort(function(a,b){
-      if(a.k !== b.k) return (a.k === null) - (b.k === null) || a.k - b.k;
-      return a.d < b.d ? -1 : 1;
-    }));
-    seq.forEach(function(g){
-      var box = document.createElement('div');
-      box.className = 'slx-group';
-      var h = document.createElement('div');
-      h.className = 'slx-ghead';
-      h.id = 'g' + (g.key === null ? 'x' : g.key);
-      h.innerHTML = '<span>' + g.name + '</span><span class="n">' + g.rows.length + ' सत्र</span>';
-      box.appendChild(h);
-      g.rows.forEach(function(it){ box.appendChild(row(it, false)); });
-      list.appendChild(box);
-    });
-  }
-
-  function row(it, showGroup){
-    var a = document.createElement('a');
-    a.className = 'slx-item';
-    a.href = it.h;
-    a.innerHTML = '<span class="slx-ref">' + (showGroup ? it.g + ' · ' : '') + it.r +
-                  '</span><span class="slx-date">' + it.d + '</span>';
-    return a;
-  }
-
-  input.addEventListener('input', render);
-  clear.addEventListener('click', function(){ input.value = ''; input.focus(); render(); });
-  chipWrap.addEventListener('click', function(e){
-    var b = e.target.closest('.slx-chip'); if(!b) return;
-    if(order !== 'granth'){ order = 'granth'; syncSort(); render(); }
-    var el = document.getElementById('g' + b.dataset.k);
-    if(!el) return;
-    // Not scrollIntoView: that puts the heading flush with the top of the window,
-    // where the sticky search bar covers it.
-    // The heading's own CSS 'top' is exactly where it comes to rest when stuck —
-    // just below the toolbar — so landing it there needs no guessed padding.
-    // A fixed guess was one group out on sections whose header is a different height.
-    // stickyTop() is where this heading comes to rest, just under the toolbar,
-    // so landing it there needs no guessed padding.
-    var pad = stickyTop();
-    // offsetTop, not getBoundingClientRect: the headings are sticky, so once one is
-    // stuck its viewport rect reports the stuck position rather than where it lives.
-    var y = 0, n = el;
-    while(n){ y += n.offsetTop; n = n.offsetParent; }
-    window.scrollTo(0, Math.max(0, y - pad));
-  });
-  // The toolbar wraps onto two rows of jump chips on a phone, so its height is not
-  // something CSS can hard-code: measure it and let the group headings stick below it.
-  // With a fixed value the headings parked behind the toolbar and every jump chip
-  // appeared to land one group early.
-  function stickyTop(){
-    var tools = document.querySelector('.slx-tools');
-    if(!tools) return 116;
-    var own = parseFloat(getComputedStyle(tools).top);
-    return (isFinite(own) ? own : 0) + tools.offsetHeight;
-  }
-  function syncStickyTop(){
-    document.documentElement.style.setProperty('--slx-ghead-top', stickyTop() + 'px');
-  }
-  window.addEventListener('resize', syncStickyTop);
-
-  function syncSort(){
-    document.querySelectorAll('.slx-sort button').forEach(function(b){
-      b.setAttribute('aria-pressed', String(b.dataset.o === order));
-    });
-    chipWrap.style.display = order === 'granth' ? '' : 'none';
-  }
-  document.querySelectorAll('.slx-sort button').forEach(function(b){
-    b.addEventListener('click', function(){ order = b.dataset.o; syncSort(); render(); });
-  });
-  syncSort(); render(); syncStickyTop();
-})();
-</script>
-
 </body>
 </html>
