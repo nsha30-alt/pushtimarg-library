@@ -131,8 +131,9 @@ body{margin:0;padding:0;background:var(--bg);color:var(--fg);
 .pltxt{flex:1;min-width:0}
 .pltitle{font-size:12.5px;font-weight:600;color:var(--red);line-height:1.35}
 .pltype{font-family:'Noto Sans Devanagari',sans-serif;font-size:10px;color:var(--muted)}
-.pl-del{background:none;border:none;cursor:pointer;color:var(--danger);
-  font-size:15px;flex-shrink:0;padding:0;line-height:1}
+.pl-del{background:var(--danger);border:none;cursor:pointer;color:#fff;
+  font-size:11px;font-family:'Noto Sans Devanagari',sans-serif;font-weight:600;
+  flex-shrink:0;padding:4px 8px;border-radius:5px;line-height:1;white-space:nowrap}
 
 /* ADD GRANTH / PLAYLIST ROW */
 .add-row{display:flex;align-items:flex-start;gap:6px;flex-wrap:wrap;
@@ -376,8 +377,8 @@ function renderCat(vi,c,ci){
       <span class="catname">${c.name}</span>
       <span class="catcnt">${c.granths.length} ग्रन्थ · ${total} प्लेलिस्ट</span>
       <span class="catact">
-        <button class="icon-btn" onclick="event.stopPropagation();openEditCat(${vi},${ci})" title="बदलें">✏</button>
-        <button class="icon-btn" onclick="event.stopPropagation();delCat(${vi},${ci})" title="हटाएँ">🗑</button>
+        <button class="icon-btn" onclick="event.stopPropagation();openEditCat(${vi},${ci})" title="बदलें" style="width:auto;padding:0 7px;font-size:11px">✏ बदलें</button>
+        <button class="icon-btn" onclick="event.stopPropagation();delCat(${vi},${ci})" style="width:auto;padding:0 7px;font-size:11px;background:rgba(220,0,0,.5)">🗑 हटाएँ</button>
       </span>
       <span class="catarrow">${col?'▶':'▼'}</span>
     </div>
@@ -421,7 +422,7 @@ function renderPl(vi,ci,gi,p,pi){
       <div class="pltitle">${p.title}</div>
       <div class="pltype">${p.type==='video'?'▶ वीडियो':'▶ प्लेलिस्ट'}</div>
     </div>
-    <button class="pl-del" onclick="event.preventDefault();delPl(${vi},${ci},${gi},${pi})" title="हटाएँ">✕</button>
+    <button class="pl-del" onclick="event.preventDefault();delPl(${vi},${ci},${gi},${pi})">🗑 हटाएँ</button>
   </a>`;
 }
 
