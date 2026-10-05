@@ -162,6 +162,11 @@ def group_of(title: str, folder: str, date: str = '') -> tuple:
         parts = title.split('_')
         if len(parts) >= 2 and parts[1].strip():
             name = parts[1].strip()
+            # One tab per granth: the same name arrives spelled several ways
+            # (सिद्धांत मुक्तावली / सिद्धांतमुक्तावली / सिद्धान्तमुक्तावली), so drop
+            # spaces and write a nasal before त/थ/द/ध/न as न् before grouping.
+            name = re.sub(r'\s+', '', name)
+            name = re.sub(r'ं(?=[तथदधन])', 'न्', name)
             rest = dv(_digits(' '.join(parts[2:]))).replace('श्लोक', 'श्लोक ').strip()
             rest = re.sub(r'\s+', ' ', rest) or 'सम्पूर्ण'
             return None, name, rest
