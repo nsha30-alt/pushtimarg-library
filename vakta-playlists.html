@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>विद्यापीठ — वक्ता-अनुसार प्लेलिस्ट</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&display=swap">
+<style>
+/* ── TOKENS ── */
+:root {
+  --bg:       #FFF8E7;
+  --card:     #ffffff;
+  --fg:       #2C1A00;
+  --muted:    #7a5c30;
+  --border:   #f0d9a0;
+  --red:      #8B0000;
+  --red-mid:  #CC0000;
+  --orange:   #e06010;
+  --gold:     #FFD700;
+  --gold-soft:#FFE9B0;
+  --green:    #1a6600;
+  --admin-bg: #fff3e0;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg:#1a0f00; --card:#2a1a08; --fg:#f5deb3; --muted:#c9a060;
+    --border:#5a3a10; --red:#ff7070; --red-mid:#ff5555;
+    --gold:#FFD700; --gold-soft:#3a2200; --admin-bg:#2a1800;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg:#1a0f00; --card:#2a1a08; --fg:#f5deb3; --muted:#c9a060;
+  --border:#5a3a10; --red:#ff7070; --red-mid:#ff5555;
+  --gold:#FFD700; --gold-soft:#3a2200; --admin-bg:#2a1800;
+  color-scheme: dark;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;padding:0;background:var(--bg);color:var(--fg);
+  font-family:'Noto Serif Devanagari',Georgia,serif;line-height:1.7}
+
+/* ── HEADER ── */
+.vp-header{
+  background:linear-gradient(160deg,#5a0000 0%,#8B0000 40%,#CC0000 75%,#e06010 100%);
+  padding:20px 24px 16px;border-bottom:5px solid var(--gold);color:#fff
+}
+.vp-top{display:flex;align-items:flex-start;gap:16px;flex-wrap:wrap}
+.vp-seal{
+  flex-shrink:0;width:62px;height:62px;border-radius:50%;
+  background:radial-gradient(circle,#FFD700 0%,#c07800 100%);
+  border:3px solid #fff;display:flex;align-items:center;justify-content:center;
+  font-size:26px;box-shadow:0 2px 8px rgba(0,0,0,.4)
+}
+.vp-text{flex:1;min-width:0}
+.vp-eyebrow{font-family:'Noto Sans Devanagari',sans-serif;font-size:10px;
+  font-weight:600;letter-spacing:.12em;color:var(--gold);margin-bottom:3px}
+.vp-title{font-size:clamp(1.1rem,4vw,1.6rem);font-weight:700;margin:0 0 2px;
+  color:#fff;text-wrap:balance}
+.vp-sub{font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;
+  color:var(--gold-soft);line-height:1.5}
+.vp-tagline{
+  margin-top:12px;padding:10px 14px;
+  background:rgba(255,255,255,.1);border-left:4px solid var(--gold);
+  border-radius:0 6px 6px 0;
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;
+  color:var(--gold-soft);line-height:1.6
+}
+.vp-tagline strong{color:var(--gold);display:block;font-size:12px;margin-bottom:2px}
+
+/* ── ADMIN BAR ── */
+.admin-bar{
+  background:var(--admin-bg);border-bottom:2px solid var(--gold);
+  padding:8px 20px;display:flex;align-items:center;gap:10px;flex-wrap:wrap
+}
+.admin-bar label{font-family:'Noto Sans Devanagari',sans-serif;font-size:12px;
+  font-weight:600;color:var(--muted);display:flex;align-items:center;gap:6px;cursor:pointer}
+.admin-bar input[type=checkbox]{accent-color:var(--red-mid);width:16px;height:16px}
+.admin-hint{font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;color:var(--muted)}
+.btn-export{margin-left:auto;background:var(--red);color:var(--gold);border:none;
+  border-radius:6px;padding:6px 14px;font-family:'Noto Sans Devanagari',sans-serif;
+  font-size:12px;font-weight:600;cursor:pointer}
+.btn-export:hover{background:var(--red-mid)}
+
+/* ── TABS ── */
+.tab-bar{
+  display:flex;gap:0;border-bottom:3px solid var(--border);
+  background:var(--card);overflow-x:auto;padding:0 16px
+}
+.tab-btn{
+  padding:12px 18px;font-family:'Noto Serif Devanagari',serif;font-size:13px;
+  font-weight:600;color:var(--muted);border:none;background:none;cursor:pointer;
+  border-bottom:3px solid transparent;margin-bottom:-3px;white-space:nowrap;
+  transition:color .15s,border-color .15s
+}
+.tab-btn.active{color:var(--red);border-bottom-color:var(--red)}
+.tab-btn:hover:not(.active){color:var(--fg)}
+.tab-add{padding:10px 14px;font-size:18px;color:var(--green);background:none;
+  border:none;cursor:pointer;margin-left:4px}
+
+/* ── TAB PANELS ── */
+.tab-panel{display:none;padding:16px 20px 32px}
+.tab-panel.active{display:block}
+
+/* ── VAKTA INFO ── */
+.vakta-info{
+  background:var(--card);border:1.5px solid var(--border);border-radius:10px;
+  padding:14px 18px;margin-bottom:18px;display:flex;align-items:flex-start;gap:14px
+}
+.vakta-avatar{
+  flex-shrink:0;width:46px;height:46px;border-radius:50%;
+  background:linear-gradient(135deg,var(--red),var(--orange));
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;border:2px solid var(--gold)
+}
+.vakta-name{font-size:16px;font-weight:700;color:var(--red);margin:0 0 2px}
+.vakta-desc{font-family:'Noto Sans Devanagari',sans-serif;font-size:12px;
+  color:var(--muted);line-height:1.5}
+.vakta-edit-btn{margin-left:auto;background:none;border:1px solid var(--border);
+  border-radius:5px;padding:4px 10px;font-size:11px;cursor:pointer;color:var(--muted)}
+
+/* ── CATEGORY ── */
+.cat-section{margin-bottom:20px}
+.cat-head{
+  display:flex;align-items:center;gap:8px;
+  background:linear-gradient(90deg,var(--red) 0%,var(--orange) 100%);
+  color:#fff;padding:10px 16px;border-radius:8px 8px 0 0;
+  font-size:14px;font-weight:700;cursor:pointer;user-select:none
+}
+.cat-icon{font-size:16px}
+.cat-name-text{flex:1;min-width:0}
+.cat-count{font-family:'Noto Sans Devanagari',sans-serif;font-size:10px;
+  opacity:.8;white-space:nowrap}
+.cat-toggle{font-size:12px;opacity:.7}
+.cat-body{
+  border:1.5px solid var(--border);border-top:none;border-radius:0 0 8px 8px;
+  background:var(--card);padding:12px
+}
+
+/* ── GRANTH ── */
+.granth-block{margin-bottom:14px}
+.granth-head{
+  display:flex;align-items:center;gap:8px;
+  font-size:13px;font-weight:700;color:var(--red);
+  border-bottom:1.5px solid var(--border);padding-bottom:6px;margin-bottom:8px;
+  flex-wrap:wrap
+}
+.granth-name-text{flex:1;min-width:0}
+.granth-pill{
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:10px;
+  background:var(--gold-soft);color:var(--muted);border-radius:999px;
+  padding:2px 8px;white-space:nowrap
+}
+
+/* ── PLAYLIST GRID ── */
+.pl-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+@media(max-width:500px){.pl-grid{grid-template-columns:1fr}}
+.pl-card{
+  display:flex;align-items:center;gap:9px;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:8px;padding:9px 12px;text-decoration:none;color:var(--fg);
+  transition:border-color .15s,box-shadow .15s,transform .15s
+}
+.pl-card:hover{border-color:var(--red-mid);
+  box-shadow:0 4px 12px rgba(204,0,0,.15);transform:translateY(-1px)}
+.pl-card-inner{flex:1;min-width:0}
+.pl-title{font-size:12.5px;font-weight:600;color:var(--red);line-height:1.4}
+.pl-type{font-family:'Noto Sans Devanagari',sans-serif;font-size:10px;color:var(--muted)}
+.pl-arrow{font-size:14px;color:var(--muted);flex-shrink:0}
+
+/* ── ADMIN ELEMENTS ── */
+body:not(.admin-mode) .adm{display:none!important}
+.adm-add-cat,.adm-add-granth,.adm-add-pl{
+  display:flex;align-items:center;gap:6px;margin-top:8px;flex-wrap:wrap
+}
+.adm-inp{
+  border:1.5px solid var(--border);border-radius:6px;padding:6px 10px;
+  font-family:'Noto Serif Devanagari',serif;font-size:12px;
+  background:var(--card);color:var(--fg);flex:1;min-width:120px
+}
+.adm-inp:focus{outline:2px solid var(--red-mid);border-color:transparent}
+.btn-add,.btn-del,.btn-save{
+  border:none;border-radius:5px;padding:5px 11px;
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;
+  font-weight:600;cursor:pointer;white-space:nowrap
+}
+.btn-add{background:var(--green);color:#fff}
+.btn-del{background:#cc2200;color:#fff}
+.btn-save{background:var(--red);color:var(--gold)}
+.btn-add:hover{background:#28a000}
+.btn-del:hover{background:#ff3300}
+.adm-row{display:flex;align-items:center;gap:6px;width:100%}
+.adm-tab-add{display:flex;align-items:center;gap:6px;padding:8px 16px;background:var(--admin-bg)}
+
+/* ── MODAL ── */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,.5);
+  display:flex;align-items:center;justify-content:center;z-index:1000;
+  padding:20px
+}
+.modal-overlay[hidden]{display:none!important}
+.modal{
+  background:var(--card);border-radius:12px;padding:24px;
+  max-width:560px;width:100%;max-height:80vh;overflow-y:auto;
+  box-shadow:0 8px 32px rgba(0,0,0,.3)
+}
+.modal h3{color:var(--red);margin:0 0 16px;font-size:15px}
+.modal textarea{
+  width:100%;height:200px;border:1.5px solid var(--border);border-radius:6px;
+  padding:10px;font-family:monospace;font-size:12px;
+  background:var(--bg);color:var(--fg);resize:vertical
+}
+.modal-btns{display:flex;gap:8px;margin-top:12px;justify-content:flex-end}
+.btn-close{background:var(--muted);color:#fff;border:none;border-radius:5px;
+  padding:7px 16px;cursor:pointer;font-size:12px}
+
+/* ── FOOTER ── */
+.vp-footer{
+  background:#5a0000;color:var(--gold);text-align:center;
+  padding:16px 20px;border-top:4px solid var(--gold);
+  font-family:'Noto Sans Devanagari',sans-serif;font-size:11px;margin-top:20px
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="vp-header">
+  <div class="vp-top">
+    <div class="vp-seal">🕉</div>
+    <div class="vp-text">
+      <div class="vp-eyebrow">◆ SHRIVALLABHACHARYA VIDYAPEETH, HALOL</div>
+      <h1 class="vp-title">श्रीवल्लभाचार्य विद्यापीठ</h1>
+      <div class="vp-sub">हालोल, जिला पंचमहाल, गुजरात · वैष्णव विद्यालय</div>
+    </div>
+  </div>
+  <div class="vp-tagline">
+    <strong>॥ नित्य पुष्टिस्वाध्याय ॥</strong>
+    पुष्टिमार्गियों के लिए संस्कृत, शास्त्र तथा सम्प्रदाय के अध्ययन का स्थायी केन्द्र ·
+    वक्ता-अनुसार प्लेलिस्ट निर्देशिका
+  </div>
+</header>
+
+<!-- ADMIN BAR -->
+<div class="admin-bar">
+  <label>
+    <input type="checkbox" id="adminToggle" onchange="setAdminMode(this.checked)">
+    ⚙ सम्पादन मोड (Admin)
+  </label>
+  <span class="admin-hint">सक्रिय होने पर जोड़ें / हटाएँ / बदलें</span>
+  <button class="btn-export" onclick="showExport()">📋 डेटा निर्यात करें</button>
+</div>
+
+<!-- ADMIN: Add Vakta -->
+<div class="adm adm-tab-add">
+  <input class="adm-inp" id="newVaktaName" placeholder="नया वक्ता का नाम" style="max-width:220px">
+  <input class="adm-inp" id="newVaktaDesc" placeholder="परिचय (वैकल्पिक)" style="max-width:280px">
+  <button class="btn-add" onclick="addVakta()">+ वक्ता जोड़ें</button>
+</div>
+
+<!-- TAB BAR -->
+<div class="tab-bar" id="tabBar"></div>
+
+<!-- TAB PANELS -->
+<div id="tabPanels"></div>
+
+<!-- EXPORT MODAL -->
+<div class="modal-overlay" id="exportModal" hidden>
+  <div class="modal">
+    <h3>📋 अपडेटेड डेटा — HTML में पेस्ट करें</h3>
+    <p style="font-size:11px;color:var(--muted);margin-bottom:8px">
+      नीचे का कोड कॉपी करें और इस HTML फ़ाइल में <code>const DATA =</code> वाली लाइन से बदल दें।
+    </p>
+    <textarea id="exportText" readonly></textarea>
+    <div class="modal-btns">
+      <button class="btn-save" onclick="copyExport()">कॉपी करें</button>
+      <button class="btn-close" onclick="document.getElementById('exportModal').hidden=true">बंद करें</button>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="vp-footer">
+  ॥ श्रीवल्लभाचार्य विद्यापीठ, हालोल ॥ · वक्ता-अनुसार प्लेलिस्ट निर्देशिका ·
+  एफसीसी स्वाध्याय YouTube संग्रह
+</footer>
+
+<script>
+// ═══════════════════════════════════════════════════════════
+//  DATA — edit this object to update playlists
+// ═══════════════════════════════════════════════════════════
+const DATA = {
+  "vaktas": [
+    {
+      "id": "sharad",
+      "name": "पूज्य श्रीशरदकुमारजी",
+      "desc": "श्रीवल्लभाचार्य विद्यापीठ में एफसीसी के माध्यम से अध्यापित — YouTube रिकॉर्डिंग",
+      "icon": "📿",
+      "categories": [
+        {
+          "id": "subodh-hi",
+          "name": "श्रीसुबोधिनी स्वाध्याय — हिन्दी",
+          "icon": "📖",
+          "granths": [
+            {
+              "id": "subodh-hi-sk1",
+              "name": "प्रथम स्कन्ध",
+              "playlists": [
+                {"title":"हिनाधिकार प्रकरण — अध्याय १–३","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqlAJ7lxyCWqUIXocIWlyig","type":"playlist"},
+                {"title":"मध्यमाधिकार प्रकरण — अध्याय ४–६","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XrhbYrQ4n2Q8Ao9QAsnKUfD","type":"playlist"},
+                {"title":"उत्तमाधिकार प्रकरण — अध्याय ७–१९","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XpMzri0VPNKHr9eCrQUBsG9","type":"playlist"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "subodh-gu",
+          "name": "श्रीसुबोधिनी स्वाध्याय — ગુજરાતી",
+          "icon": "📗",
+          "granths": [
+            {
+              "id": "subodh-gu-sk1",
+              "name": "प्रथम स्कन्ध",
+              "playlists": [
+                {"title":"हिनाधिकार प्रकरण — अध्याय १–३","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XoW3DGT2b3UXQqNw67yJ9KW","type":"playlist"},
+                {"title":"मध्यमाधिकार प्रकरण — अध्याय ४–६","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqtTyfMq9E-kjqzOivzF0-E","type":"playlist"},
+                {"title":"उत्तमाधिकार प्रकरण — अध्याय ७–१९","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XrcLVyWR3v6jzQYH326P1Gf","type":"playlist"}
+              ]
+            },
+            {
+              "id": "subodh-gu-sk2",
+              "name": "द्वितीय स्कन्ध",
+              "playlists": [
+                {"title":"अध्याय १","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqeEL8C3v893G0GjGIoLhFG","type":"playlist"},
+                {"title":"अध्याय २","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XoixzVjuuOZjsC8HI-apGgZ","type":"playlist"},
+                {"title":"अध्याय ३","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xq_RrNicJNy5w1CieSnaRpK","type":"playlist"},
+                {"title":"अध्याय ४","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xp30mK9zkL9FH0ekpq9xQxC","type":"playlist"},
+                {"title":"अध्याय ५","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqAWokXLnQwMCXwCh6ne15A","type":"playlist"},
+                {"title":"अध्याय ६","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xr6muiktJh377_jbJRnPeHe","type":"playlist"},
+                {"title":"अध्याय ७","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XoAJOJJ0zIRflfynBktSjd7","type":"playlist"},
+                {"title":"अध्याय ८","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XrCOqYn4Hzj8LcuCaKCUMki","type":"playlist"},
+                {"title":"अध्याय ९","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XoA0Wq_SeVrIm4Q3YQkDgrS","type":"playlist"},
+                {"title":"अध्याय १०","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xr10HMQBP8nIVXmQ1_LzjYZ","type":"playlist"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "bhagadvarta",
+          "name": "भगवद्वार्ता",
+          "icon": "📕",
+          "granths": [
+            {
+              "id": "bhagadvarta-main",
+              "name": "भगवद्वार्ता — षोडशग्रन्थ",
+              "playlists": [
+                {"title":"संन्यासनिर्णय","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqjKBdrn2QFcCGFo8qVa9vD","type":"playlist"},
+                {"title":"पञ्चपद्यानि","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqWd8NAeYZv3FWXzlWllIRa","type":"playlist"},
+                {"title":"जलभेद","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XpiQqajw_fqYsdLQJSRusnn","type":"playlist"},
+                {"title":"विवेकधैर्याश्रय","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XplKcfUQZump1iNdpcUAe0B","type":"playlist"},
+                {"title":"अंतःकरणप्रबोध","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XpcY_4U5Q4GkuwSxgbaCqZ2","type":"playlist"},
+                {"title":"नवरत्न","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xr6KIi3-OkeRnSwApLN2lSe","type":"playlist"},
+                {"title":"पुष्टिप्रवाहमर्यादाभेद","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xq1uhOm8l6lVmdKQuIVzwuc","type":"playlist"},
+                {"title":"सिद्धान्तमुक्तावली","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xq3ntXW5fgIGuaNZ1UXibjh","type":"playlist"},
+                {"title":"कृष्णाश्रय","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqGcdMCe1SqHu0mzf27zSre","type":"playlist"},
+                {"title":"सिद्धांतरहस्य","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xo2FsUwkIyEjZfs-Rs-I3vE","type":"playlist"},
+                {"title":"निरोधलक्षणम्","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XpVAJ3FVaV7fVUzpMERpEsB","type":"playlist"},
+                {"title":"सेवाफल","url":"https://youtu.be/Dm3AplzVejw","type":"video"},
+                {"title":"षोडशग्रन्थ — विवेकधैर्याश्रय","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xqa4H5e_Hkpeo01gvhTEQlg","type":"playlist"},
+                {"title":"षोडशग्रन्थ — चतुःश्लोकी","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xpc2yRHckd32BU9s7efH5AH","type":"playlist"},
+                {"title":"षोडशग्रन्थ — भक्तिवर्धिनी","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XqUCMELOiKUVHMrvYvF19Ia","type":"playlist"}
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "id": "maitri",
+      "name": "सुश्रीमैत्री बेटीजी",
+      "desc": "श्रीवल्लभाचार्य विद्यापीठ में एफसीसी के माध्यम से अध्यापित (सितम्बर २०२३ से) — YouTube रिकॉर्डिंग",
+      "icon": "🌸",
+      "categories": [
+        {
+          "id": "shiksha",
+          "name": "शिक्षापत्र अवगाहन",
+          "icon": "📜",
+          "granths": [
+            {
+              "id": "shiksha-main",
+              "name": "शिक्षापत्र",
+              "playlists": [
+                {"title":"शिक्षापत्र — भाग १","url":"https://youtube.com/playlist?list=PLvK-SHf5i_Xo1AmCPAe2lPiT5NnOHPRzL","type":"playlist"},
+                {"title":"शिक्षापत्र — भाग २","url":"https://youtube.com/playlist?list=PLvK-SHf5i_Xq5ckaRejON6Mq9lJ44SE0q","type":"playlist"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "hariray",
+          "name": "श्रीहरिराय-वाङ्गंमुक्तावली",
+          "icon": "📘",
+          "granths": [
+            {
+              "id": "hariray-main",
+              "name": "श्रीहरिराय-वाङ्गंमुक्तावली",
+              "playlists": [
+                {"title":"भाग १","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xr5a-qDFZZIDMnQ4QgHs5MQ","type":"playlist"},
+                {"title":"भाग २","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XrFLjSBpcWgZEQfgl4YFyKr","type":"playlist"},
+                {"title":"भाग ३","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XrS_YHOovO5aojROlSDkYSL","type":"playlist"}
+              ]
+            }
+          ]
+        },
+        {
+          "id": "maitri-other",
+          "name": "अन्य ग्रन्थ",
+          "icon": "📚",
+          "granths": [
+            {
+              "id": "brahmasutra",
+              "name": "ब्रह्मसूत्राणुभाष्य",
+              "playlists": [
+                {"title":"ब्रह्मसूत्राणुभाष्य (सितम्बर २०२३ से)","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xr8fVXGoeZPIuSf8Ba_VZTx","type":"playlist"}
+              ]
+            },
+            {
+              "id": "balkrishna",
+              "name": "श्रीबालकृष्ण ग्रंथावली",
+              "playlists": [
+                {"title":"श्रीबालकृष्ण ग्रंथावली","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_XpjhZbD7JFdCkincPmadqAH","type":"playlist"}
+              ]
+            },
+            {
+              "id": "seva-kaumudi-m",
+              "name": "सेवाकौमुदी",
+              "playlists": [
+                {"title":"सेवाकौमुदी","url":"https://www.youtube.com/playlist?list=PLvK-SHf5i_Xrpz-HkH4lC4dvN7OQq70ZY","type":"playlist"}
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ]
+};
+// ═══════════════════════════════════════════════════════════
+//  END DATA
+// ═══════════════════════════════════════════════════════════
+
+// ── State ──
+let adminMode = false;
+let activeTab = 0;
+let collapsedCats = {};
+
+function uid(){ return Math.random().toString(36).slice(2,8); }
+
+// ── Render ──
+function render(){
+  renderTabs();
+  renderPanels();
+}
+
+function renderTabs(){
+  const bar = document.getElementById('tabBar');
+  bar.innerHTML = DATA.vaktas.map((v,i)=>`
+    <button class="tab-btn${i===activeTab?' active':''}" onclick="switchTab(${i})">${v.icon} ${v.name}</button>
+  `).join('');
+  if(adminMode){
+    bar.innerHTML += `<button class="tab-btn tab-add adm" title="वक्ता जोड़ें" onclick="addVakta()">＋</button>`;
+  }
+}
+
+function renderPanels(){
+  const container = document.getElementById('tabPanels');
+  container.innerHTML = DATA.vaktas.map((v,vi)=>`
+    <div class="tab-panel${vi===activeTab?' active':''}" id="panel-${vi}">
+      <div class="vakta-info">
+        <div class="vakta-avatar">${v.icon}</div>
+        <div style="flex:1;min-width:0">
+          <div class="vakta-name">${v.name}</div>
+          <div class="vakta-desc">${v.desc||''}</div>
+        </div>
+        <button class="vakta-edit-btn adm" onclick="editVakta(${vi})">✏ बदलें</button>
+        <button class="vakta-edit-btn adm" style="color:#cc2200;border-color:#cc2200" onclick="delVakta(${vi})">🗑 हटाएँ</button>
+      </div>
+
+      ${v.categories.map((c,ci)=>renderCategory(v,vi,c,ci)).join('')}
+
+      <!-- Add Category -->
+      <div class="adm adm-add-cat" style="margin-top:10px">
+        <input class="adm-inp" id="newCat-${vi}" placeholder="नई श्रेणी का नाम">
+        <input class="adm-inp" id="newCatIcon-${vi}" placeholder="आइकन (जैसे 📖)" style="max-width:80px">
+        <button class="btn-add" onclick="addCategory(${vi})">+ श्रेणी जोड़ें</button>
+      </div>
+    </div>
+  `).join('');
+}
+
+function renderCategory(v,vi,c,ci){
+  const key = `${vi}-${ci}`;
+  const collapsed = collapsedCats[key];
+  const totalPl = c.granths.reduce((n,g)=>n+g.playlists.length,0);
+  return `
+    <div class="cat-section">
+      <div class="cat-head" onclick="toggleCat('${key}')">
+        <span class="cat-icon">${c.icon||'📂'}</span>
+        <span class="cat-name-text">${c.name}</span>
+        <span class="cat-count">${c.granths.length} ग्रन्थ · ${totalPl} प्लेलिस्ट</span>
+        <span class="adm" onclick="event.stopPropagation();editCategory(${vi},${ci})" style="font-size:12px;margin-left:6px;cursor:pointer">✏</span>
+        <span class="adm" onclick="event.stopPropagation();delCategory(${vi},${ci})" style="font-size:12px;color:#ffaaaa;margin-left:4px;cursor:pointer">🗑</span>
+        <span class="cat-toggle">${collapsed?'▶':'▼'}</span>
+      </div>
+      ${collapsed?'':`
+      <div class="cat-body">
+        ${c.granths.map((g,gi)=>renderGranth(vi,ci,g,gi)).join('')}
+        <!-- Add Granth -->
+        <div class="adm adm-add-granth" style="margin-top:10px;padding-top:8px;border-top:1px dashed var(--border)">
+          <input class="adm-inp" id="newGranth-${vi}-${ci}" placeholder="नया ग्रन्थ / उपखंड">
+          <button class="btn-add" onclick="addGranth(${vi},${ci})">+ ग्रन्थ जोड़ें</button>
+        </div>
+      </div>`}
+    </div>`;
+}
+
+function renderGranth(vi,ci,g,gi){
+  return `
+    <div class="granth-block">
+      <div class="granth-head">
+        <span class="granth-name-text">${g.name}</span>
+        <span class="granth-pill">${g.playlists.length} प्लेलिस्ट</span>
+        <button class="btn-del adm" style="font-size:10px;padding:3px 8px" onclick="delGranth(${vi},${ci},${gi})">🗑</button>
+        <button class="btn-save adm" style="font-size:10px;padding:3px 8px" onclick="editGranthName(${vi},${ci},${gi})">✏</button>
+      </div>
+      <div class="pl-grid">
+        ${g.playlists.map((p,pi)=>renderPlaylist(vi,ci,gi,p,pi)).join('')}
+        <!-- Add Playlist card -->
+        <div class="adm" style="display:flex;flex-direction:column;gap:5px;background:var(--admin-bg);border:1.5px dashed var(--border);border-radius:8px;padding:9px 12px">
+          <input class="adm-inp" id="newPlTitle-${vi}-${ci}-${gi}" placeholder="प्लेलिस्ट शीर्षक">
+          <input class="adm-inp" id="newPlUrl-${vi}-${ci}-${gi}" placeholder="YouTube URL">
+          <button class="btn-add" onclick="addPlaylist(${vi},${ci},${gi})">+ जोड़ें</button>
+        </div>
+      </div>
+    </div>`;
+}
+
+function renderPlaylist(vi,ci,gi,p,pi){
+  const isVideo = p.type==='video';
+  return `
+    <a class="pl-card" href="${p.url}" target="_blank" rel="noopener">
+      <div class="pl-card-inner">
+        <div class="pl-title">${p.title}</div>
+        <div class="pl-type">${isVideo?'▶ वीडियो':'▶ प्लेलिस्ट'}</div>
+      </div>
+      <span class="adm" onclick="event.preventDefault();delPlaylist(${vi},${ci},${gi},${pi})" title="हटाएँ" style="color:#cc2200;font-size:16px;cursor:pointer">✕</span>
+      <span class="pl-arrow" style="${adminMode?'display:none':''}">→</span>
+    </a>`;
+}
+
+// ── Interactions ──
+function switchTab(i){ activeTab=i; render(); }
+function toggleCat(key){ collapsedCats[key]=!collapsedCats[key]; renderPanels(); }
+function setAdminMode(on){ adminMode=on; document.body.classList.toggle('admin-mode',on); render(); }
+
+// ── Add / Delete ──
+function addVakta(){
+  const name = document.getElementById('newVaktaName')?.value.trim();
+  const desc = document.getElementById('newVaktaDesc')?.value.trim();
+  if(!name) return alert('वक्ता का नाम लिखें');
+  DATA.vaktas.push({id:uid(),name,desc:desc||'',icon:'🎤',categories:[]});
+  activeTab = DATA.vaktas.length-1;
+  render();
+  document.getElementById('newVaktaName').value='';
+  document.getElementById('newVaktaDesc').value='';
+}
+function delVakta(vi){
+  if(!confirm(`"${DATA.vaktas[vi].name}" हटाएँ?`)) return;
+  DATA.vaktas.splice(vi,1);
+  if(activeTab>=DATA.vaktas.length) activeTab=DATA.vaktas.length-1;
+  render();
+}
+function editVakta(vi){
+  const v=DATA.vaktas[vi];
+  const name=prompt('वक्ता का नाम:',v.name); if(!name) return;
+  const desc=prompt('परिचय:',v.desc||'');
+  v.name=name; v.desc=desc||''; render();
+}
+
+function addCategory(vi){
+  const name=document.getElementById(`newCat-${vi}`)?.value.trim();
+  const icon=document.getElementById(`newCatIcon-${vi}`)?.value.trim()||'📂';
+  if(!name) return alert('श्रेणी का नाम लिखें');
+  DATA.vaktas[vi].categories.push({id:uid(),name,icon,granths:[]});
+  render();
+}
+function delCategory(vi,ci){
+  const c=DATA.vaktas[vi].categories[ci];
+  if(!confirm(`"${c.name}" श्रेणी हटाएँ?`)) return;
+  DATA.vaktas[vi].categories.splice(ci,1); renderPanels();
+}
+function editCategory(vi,ci){
+  const c=DATA.vaktas[vi].categories[ci];
+  const name=prompt('श्रेणी का नाम:',c.name); if(!name) return;
+  const icon=prompt('आइकन:',c.icon||'📂')||'📂';
+  c.name=name; c.icon=icon; renderPanels();
+}
+
+function addGranth(vi,ci){
+  const name=document.getElementById(`newGranth-${vi}-${ci}`)?.value.trim();
+  if(!name) return alert('ग्रन्थ का नाम लिखें');
+  DATA.vaktas[vi].categories[ci].granths.push({id:uid(),name,playlists:[]});
+  renderPanels();
+}
+function delGranth(vi,ci,gi){
+  const g=DATA.vaktas[vi].categories[ci].granths[gi];
+  if(!confirm(`"${g.name}" हटाएँ?`)) return;
+  DATA.vaktas[vi].categories[ci].granths.splice(gi,1); renderPanels();
+}
+function editGranthName(vi,ci,gi){
+  const g=DATA.vaktas[vi].categories[ci].granths[gi];
+  const name=prompt('ग्रन्थ का नाम:',g.name); if(!name) return;
+  g.name=name; renderPanels();
+}
+
+function addPlaylist(vi,ci,gi){
+  const title=document.getElementById(`newPlTitle-${vi}-${ci}-${gi}`)?.value.trim();
+  const url=document.getElementById(`newPlUrl-${vi}-${ci}-${gi}`)?.value.trim();
+  if(!title||!url) return alert('शीर्षक और URL दोनों लिखें');
+  const type=url.includes('playlist')?'playlist':'video';
+  DATA.vaktas[vi].categories[ci].granths[gi].playlists.push({title,url,type});
+  renderPanels();
+}
+function delPlaylist(vi,ci,gi,pi){
+  const p=DATA.vaktas[vi].categories[ci].granths[gi].playlists[pi];
+  if(!confirm(`"${p.title}" हटाएँ?`)) return;
+  DATA.vaktas[vi].categories[ci].granths[gi].playlists.splice(pi,1); renderPanels();
+}
+
+// ── Export ──
+function showExport(){
+  const json = JSON.stringify(DATA, null, 2);
+  const code = `const DATA = ${json};`;
+  document.getElementById('exportText').value = code;
+  document.getElementById('exportModal').hidden = false;
+}
+function copyExport(){
+  const ta = document.getElementById('exportText');
+  navigator.clipboard.writeText(ta.value).then(()=>{
+    alert('कॉपी हो गया! अब HTML फ़ाइल में पेस्ट करें।');
+  }).catch(()=>{
+    ta.select(); document.execCommand('copy');
+    alert('कॉपी हो गया!');
+  });
+}
+
+// ── Init ──
+render();
+</script>
+</body>
+</html>
