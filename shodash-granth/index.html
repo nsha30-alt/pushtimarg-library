@@ -24,7 +24,56 @@
   .card-title{font-size:1.05em;font-weight:bold;color:var(--dark-red);line-height:1.4;}
   .card-arrow{float:right;color:var(--orange);font-size:1.2em;}
   footer{background:var(--dark-red);color:var(--white);text-align:center;padding:20px;border-top:6px solid var(--yellow);margin-top:10px;}
-  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}</style>
+  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
+/* section-index:css:start */
+.slx{max-width:860px;margin:0 auto;padding:0 14px 40px}
+.slx-tools{position:sticky;top:56px;z-index:40;background:var(--cream,#FFF8E7);
+  padding:12px 0 10px;border-bottom:1px solid rgba(139,0,0,.15)}
+.slx-search{display:flex;align-items:center;gap:9px;background:#fff;
+  border:2px solid var(--dark-red,#8B0000);border-radius:999px;padding:7px 16px}
+.slx-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;
+  font-family:inherit;font-size:1rem;color:#2C1A00;padding:5px 0}
+.slx-search input::placeholder{color:#a08a6a}
+.slx-clear{border:0;background:none;cursor:pointer;font-size:1.1rem;color:#8B0000;
+  padding:0 4px;visibility:hidden}
+.slx-clear.on{visibility:visible}
+.slx-row2{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
+.slx-chip{border:1.5px solid rgba(139,0,0,.35);background:#fff;color:#8B0000;
+  border-radius:999px;padding:4px 12px;font:600 .85rem/1.3 inherit;cursor:pointer;
+  font-variant-numeric:tabular-nums}
+.slx-chip:hover{background:#FFF0D0}
+.slx-sort{margin-left:auto;display:flex;gap:0;border:1.5px solid rgba(139,0,0,.35);
+  border-radius:999px;overflow:hidden}
+.slx-sort button{border:0;background:#fff;color:#8B0000;cursor:pointer;
+  font:600 .85rem/1 inherit;padding:7px 14px}
+.slx-sort button[aria-pressed="true"]{background:var(--dark-red,#8B0000);color:#FFD700}
+.slx-count{font-size:.85rem;color:#7a5c38;margin:12px 2px 6px}
+.slx-group{margin-top:18px}
+.slx-ghead{position:sticky;top:var(--slx-ghead-top,116px);z-index:30;
+  background:linear-gradient(180deg,#FFD75E,#F0C832);
+  border:1.5px solid rgba(139,0,0,.3);border-radius:8px;
+  padding:8px 14px;font:700 1.02rem/1.3 inherit;color:#3D0D00;
+  display:flex;align-items:center;gap:10px}
+.slx-ghead .n{margin-left:auto;font-size:.78rem;font-weight:600;color:#7a2a12;
+  background:rgba(255,255,255,.6);border-radius:999px;padding:2px 10px}
+.slx-item{display:flex;align-items:center;gap:12px;background:#fff;
+  border:1px solid rgba(139,0,0,.16);border-left:4px solid var(--orange,#FF6600);
+  border-radius:7px;padding:10px 14px;margin-top:7px;text-decoration:none;
+  color:#2C1A00;transition:transform .12s,box-shadow .12s}
+.slx-item:hover{transform:translateX(3px);box-shadow:0 3px 10px rgba(139,0,0,.16)}
+.slx-ref{flex:1;min-width:0;font-weight:600;font-size:.98rem}
+.slx-date{flex:0 0 auto;font-size:.82rem;color:#7a5c38;font-variant-numeric:tabular-nums;
+  white-space:nowrap}
+.slx-empty{text-align:center;color:#8B0000;padding:34px 10px;font-size:1rem}
+@media(max-width:560px){
+  .slx-tools{top:52px}.slx-ghead{font-size:.96rem}
+  .slx-item{padding:9px 11px;gap:8px}.slx-ref{font-size:.92rem}
+  .slx-date{font-size:.76rem}.slx-sort{margin-left:0;width:100%}
+  .slx-sort button{flex:1}
+}
+@media(prefers-reduced-motion:reduce){.slx-item{transition:none}}
+/* section-index:css:end */
+</style>
 </head>
 <body>
 <div class="banner-area">
@@ -35,97 +84,145 @@
   <div class="subtitle">षोडशग्रन्थ — नित्य पुष्टिस्वाध्याय</div>
 </div>
 <a class="back-link" href="../index.html">🏠 मुख्य पृष्ठ</a>
-<div class="section-bar">📚 सूची (17)</div>
-<div class="session-list">
-    <a class="session-card" href="2026-10-05_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-10-05</div>
-      <div class="card-title">षोडशग्रन्थ_सिद्धांत मुक्तावली_श्लोक_४-६</div>
-    </a>
-    <a class="session-card" href="2026-10-03_retry.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-10-03</div>
-      <div class="card-title">षोडशग्रन्थ_सिद्धांतमुक्तावली_श्लोक_४</div>
-    </a>
-    <a class="session-card" href="2026-10-03_session.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-10-02</div>
-      <div class="card-title">षोडशग्रन्थ_सिद्धान्तमुक्तावली_श्लोक_३</div>
-    </a>
-    <a class="session-card" href="2026-10-01_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-10-01</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१-१५</div>
-    </a>
-    <a class="session-card" href="2026-09-29_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-29</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_૮-૧૧</div>
-    </a>
-    <a class="session-card" href="2026-09-28_session.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-28</div>
-      <div class="card-title">षोडशग्रन्थ_सिद्धान्तमुक्तावली_श्लोक_१</div>
-    </a>
-    <a class="session-card" href="2026-09-26_session.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-26</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध</div>
-    </a>
-    <a class="session-card" href="2026-09-24_retry.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-24</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१८</div>
-    </a>
-    <a class="session-card" href="2026-09-23_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-23</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१७-१९</div>
-    </a>
-    <a class="session-card" href="2026-09-21_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-21</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१४-१६</div>
-    </a>
-    <a class="session-card" href="2026-09-21_-_1.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-21</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_૧-૧૨</div>
-    </a>
-    <a class="session-card" href="2026-09-19_-_1.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-19</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१२-१३</div>
-    </a>
-    <a class="session-card" href="2026-09-18_-_2.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-18</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_८-११</div>
-    </a>
-    <a class="session-card" href="2026-09-17_-_1.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-17</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_४-७</div>
-    </a>
-    <a class="session-card" href="2026-09-18_-_1.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-17</div>
-      <div class="card-title">षोडशग्रन्थ_विज्ञप्ति_श्लोक_१०-१२</div>
-    </a>
-    <a class="session-card" href="2026-09-16_-.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-16</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध_श्लोक_१-२</div>
-    </a>
-    <a class="session-card" href="2026-09-15_session.html">
-      <span class="card-arrow">→</span>
-      <div class="card-date">📅 2026-09-15</div>
-      <div class="card-title">षोडशग्रन्थ_बालबोध</div>
-    </a>
+<!-- section-index:start --><div class="slx">
+  <div class="slx-tools">
+    <div class="slx-search">
+      <span aria-hidden="true">🔍</span>
+      <input id="slx-q" type="search" placeholder="खोजें — प्रकरण, श्लोक अथवा दिनांक"
+             aria-label="सत्र खोजें">
+      <button id="slx-clear" class="slx-clear" type="button" aria-label="खोज हटाएँ">✕</button>
+    </div>
+    <div class="slx-row2">
+      <div id="slx-chips"><button class="slx-chip" data-k="x">सिद्धान्तमुक्तावली</button><button class="slx-chip" data-k="x">बालबोध</button><button class="slx-chip" data-k="x">विज्ञप्ति</button></div>
+      <div class="slx-sort">
+        <button data-o="granth" aria-pressed="true">ग्रन्थ-क्रम</button>
+        <button data-o="date" aria-pressed="false">नवीनतम</button>
+      </div>
+    </div>
+  </div>
+  <div id="slx-count" class="slx-count"></div>
+  <div id="slx-list"></div>
 </div>
+<!-- section-index:end -->
+
 <footer>
   <p>॥ श्रीकृष्णाय नमः ॥</p>
   <p>श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</p>
 </footer>
+
+<script>
+(function(){
+  var DATA = [{"h": "2026-10-05_-.html", "d": "2026-10-05", "t": "षोडशग्रन्थ_सिद्धांत मुक्तावली_श्लोक_४-६", "g": "सिद्धान्तमुक्तावली", "k": null, "r": "श्लोक ४-६"}, {"h": "2026-10-03_retry.html", "d": "2026-10-03", "t": "षोडशग्रन्थ_सिद्धांतमुक्तावली_श्लोक_४", "g": "सिद्धान्तमुक्तावली", "k": null, "r": "श्लोक ४"}, {"h": "2026-10-03_session.html", "d": "2026-10-02", "t": "षोडशग्रन्थ_सिद्धान्तमुक्तावली_श्लोक_३", "g": "सिद्धान्तमुक्तावली", "k": null, "r": "श्लोक ३"}, {"h": "2026-10-01_-.html", "d": "2026-10-01", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१-१५", "g": "बालबोध", "k": null, "r": "श्लोक १-१५"}, {"h": "2026-09-29_-.html", "d": "2026-09-29", "t": "षोडशग्रन्थ_बालबोध_श्लोक_૮-૧૧", "g": "बालबोध", "k": null, "r": "श्लोक ८-११"}, {"h": "2026-09-28_session.html", "d": "2026-09-28", "t": "षोडशग्रन्थ_सिद्धान्तमुक्तावली_श्लोक_१", "g": "सिद्धान्तमुक्तावली", "k": null, "r": "श्लोक १"}, {"h": "2026-09-26_session.html", "d": "2026-09-26", "t": "षोडशग्रन्थ_बालबोध", "g": "बालबोध", "k": null, "r": "सम्पूर्ण"}, {"h": "2026-09-24_retry.html", "d": "2026-09-24", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१८", "g": "बालबोध", "k": null, "r": "श्लोक १८"}, {"h": "2026-09-23_-.html", "d": "2026-09-23", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१७-१९", "g": "बालबोध", "k": null, "r": "श्लोक १७-१९"}, {"h": "2026-09-21_-.html", "d": "2026-09-21", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१४-१६", "g": "बालबोध", "k": null, "r": "श्लोक १४-१६"}, {"h": "2026-09-21_-_1.html", "d": "2026-09-21", "t": "षोडशग्रन्थ_बालबोध_श्लोक_૧-૧૨", "g": "बालबोध", "k": null, "r": "श्लोक १-१२"}, {"h": "2026-09-19_-_1.html", "d": "2026-09-19", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१२-१३", "g": "बालबोध", "k": null, "r": "श्लोक १२-१३"}, {"h": "2026-09-18_-_2.html", "d": "2026-09-18", "t": "षोडशग्रन्थ_बालबोध_श्लोक_८-११", "g": "बालबोध", "k": null, "r": "श्लोक ८-११"}, {"h": "2026-09-17_-_1.html", "d": "2026-09-17", "t": "षोडशग्रन्थ_बालबोध_श्लोक_४-७", "g": "बालबोध", "k": null, "r": "श्लोक ४-७"}, {"h": "2026-09-18_-_1.html", "d": "2026-09-17", "t": "षोडशग्रन्थ_विज्ञप्ति_श्लोक_१०-१२", "g": "विज्ञप्ति", "k": null, "r": "श्लोक १०-१२"}, {"h": "2026-09-16_-.html", "d": "2026-09-16", "t": "षोडशग्रन्थ_बालबोध_श्लोक_१-२", "g": "बालबोध", "k": null, "r": "श्लोक १-२"}, {"h": "2026-09-15_session.html", "d": "2026-09-15", "t": "षोडशग्रन्थ_बालबोध", "g": "बालबोध", "k": null, "r": "सम्पूर्ण"}];
+  var list = document.getElementById('slx-list');
+  var countEl = document.getElementById('slx-count');
+  var chipWrap = document.getElementById('slx-chips');
+  var input = document.getElementById('slx-q');
+  var clear = document.getElementById('slx-clear');
+  var order = 'granth';
+
+  function groups(items){
+    var by = {}, seq = [];
+    items.forEach(function(it){
+      if(!by[it.g]){ by[it.g] = {name: it.g, key: it.k, rows: []}; seq.push(by[it.g]); }
+      by[it.g].rows.push(it);
+    });
+    return seq;
+  }
+
+  function render(){
+    var q = input.value.trim().toLowerCase();
+    var items = DATA.filter(function(it){
+      return !q || (it.t + ' ' + it.d + ' ' + it.g).toLowerCase().indexOf(q) !== -1;
+    });
+    countEl.textContent = items.length + ' / ' + DATA.length + ' सत्र';
+    clear.className = 'slx-clear' + (q ? ' on' : '');
+    list.innerHTML = '';
+
+    if(!items.length){
+      list.innerHTML = '<div class="slx-empty">कोई सत्र नहीं मिला</div>';
+      return;
+    }
+
+    if(order === 'date'){
+      items = items.slice().sort(function(a,b){ return a.d < b.d ? 1 : a.d > b.d ? -1 : 0; });
+      items.forEach(function(it){ list.appendChild(row(it, true)); });
+      return;
+    }
+
+    var seq = groups(items.slice().sort(function(a,b){
+      if(a.k !== b.k) return (a.k === null) - (b.k === null) || a.k - b.k;
+      return a.d < b.d ? -1 : 1;
+    }));
+    seq.forEach(function(g){
+      var box = document.createElement('div');
+      box.className = 'slx-group';
+      var h = document.createElement('div');
+      h.className = 'slx-ghead';
+      h.id = 'g' + (g.key === null ? 'x' : g.key);
+      h.innerHTML = '<span>' + g.name + '</span><span class="n">' + g.rows.length + ' सत्र</span>';
+      box.appendChild(h);
+      g.rows.forEach(function(it){ box.appendChild(row(it, false)); });
+      list.appendChild(box);
+    });
+  }
+
+  function row(it, showGroup){
+    var a = document.createElement('a');
+    a.className = 'slx-item';
+    a.href = it.h;
+    a.innerHTML = '<span class="slx-ref">' + (showGroup ? it.g + ' · ' : '') + it.r +
+                  '</span><span class="slx-date">' + it.d + '</span>';
+    return a;
+  }
+
+  input.addEventListener('input', render);
+  clear.addEventListener('click', function(){ input.value = ''; input.focus(); render(); });
+  chipWrap.addEventListener('click', function(e){
+    var b = e.target.closest('.slx-chip'); if(!b) return;
+    if(order !== 'granth'){ order = 'granth'; syncSort(); render(); }
+    var el = document.getElementById('g' + b.dataset.k);
+    if(!el) return;
+    // Not scrollIntoView: that puts the heading flush with the top of the window,
+    // where the sticky search bar covers it.
+    // The heading's own CSS 'top' is exactly where it comes to rest when stuck —
+    // just below the toolbar — so landing it there needs no guessed padding.
+    // A fixed guess was one group out on sections whose header is a different height.
+    // stickyTop() is where this heading comes to rest, just under the toolbar,
+    // so landing it there needs no guessed padding.
+    var pad = stickyTop();
+    // offsetTop, not getBoundingClientRect: the headings are sticky, so once one is
+    // stuck its viewport rect reports the stuck position rather than where it lives.
+    var y = 0, n = el;
+    while(n){ y += n.offsetTop; n = n.offsetParent; }
+    window.scrollTo(0, Math.max(0, y - pad));
+  });
+  // The toolbar wraps onto two rows of jump chips on a phone, so its height is not
+  // something CSS can hard-code: measure it and let the group headings stick below it.
+  // With a fixed value the headings parked behind the toolbar and every jump chip
+  // appeared to land one group early.
+  function stickyTop(){
+    var tools = document.querySelector('.slx-tools');
+    if(!tools) return 116;
+    var own = parseFloat(getComputedStyle(tools).top);
+    return (isFinite(own) ? own : 0) + tools.offsetHeight;
+  }
+  function syncStickyTop(){
+    document.documentElement.style.setProperty('--slx-ghead-top', stickyTop() + 'px');
+  }
+  window.addEventListener('resize', syncStickyTop);
+
+  function syncSort(){
+    document.querySelectorAll('.slx-sort button').forEach(function(b){
+      b.setAttribute('aria-pressed', String(b.dataset.o === order));
+    });
+    chipWrap.style.display = order === 'granth' ? '' : 'none';
+  }
+  document.querySelectorAll('.slx-sort button').forEach(function(b){
+    b.addEventListener('click', function(){ order = b.dataset.o; syncSort(); render(); });
+  });
+  syncSort(); render(); syncStickyTop();
+})();
+</script>
+
 </body>
 </html>
