@@ -24,56 +24,7 @@
   .card-title{font-size:1.05em;font-weight:bold;color:var(--dark-red);line-height:1.4;}
   .card-arrow{float:right;color:var(--orange);font-size:1.2em;}
   footer{background:var(--dark-red);color:var(--white);text-align:center;padding:20px;border-top:6px solid var(--yellow);margin-top:10px;}
-  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
-/* section-index:css:start */
-.slx{max-width:860px;margin:0 auto;padding:0 14px 40px}
-.slx-tools{position:sticky;top:56px;z-index:40;background:var(--cream,#FFF8E7);
-  padding:12px 0 10px;border-bottom:1px solid rgba(139,0,0,.15)}
-.slx-search{display:flex;align-items:center;gap:9px;background:#fff;
-  border:2px solid var(--dark-red,#8B0000);border-radius:999px;padding:7px 16px}
-.slx-search input{flex:1;min-width:0;border:0;outline:0;background:transparent;
-  font-family:inherit;font-size:1rem;color:#2C1A00;padding:5px 0}
-.slx-search input::placeholder{color:#a08a6a}
-.slx-clear{border:0;background:none;cursor:pointer;font-size:1.1rem;color:#8B0000;
-  padding:0 4px;visibility:hidden}
-.slx-clear.on{visibility:visible}
-.slx-row2{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:10px}
-.slx-chip{border:1.5px solid rgba(139,0,0,.35);background:#fff;color:#8B0000;
-  border-radius:999px;padding:4px 12px;font:600 .85rem/1.3 inherit;cursor:pointer;
-  font-variant-numeric:tabular-nums}
-.slx-chip:hover{background:#FFF0D0}
-.slx-sort{margin-left:auto;display:flex;gap:0;border:1.5px solid rgba(139,0,0,.35);
-  border-radius:999px;overflow:hidden}
-.slx-sort button{border:0;background:#fff;color:#8B0000;cursor:pointer;
-  font:600 .85rem/1 inherit;padding:7px 14px}
-.slx-sort button[aria-pressed="true"]{background:var(--dark-red,#8B0000);color:#FFD700}
-.slx-count{font-size:.85rem;color:#7a5c38;margin:12px 2px 6px}
-.slx-group{margin-top:18px}
-.slx-ghead{position:sticky;top:var(--slx-ghead-top,116px);z-index:30;
-  background:linear-gradient(180deg,#FFD75E,#F0C832);
-  border:1.5px solid rgba(139,0,0,.3);border-radius:8px;
-  padding:8px 14px;font:700 1.02rem/1.3 inherit;color:#3D0D00;
-  display:flex;align-items:center;gap:10px}
-.slx-ghead .n{margin-left:auto;font-size:.78rem;font-weight:600;color:#7a2a12;
-  background:rgba(255,255,255,.6);border-radius:999px;padding:2px 10px}
-.slx-item{display:flex;align-items:center;gap:12px;background:#fff;
-  border:1px solid rgba(139,0,0,.16);border-left:4px solid var(--orange,#FF6600);
-  border-radius:7px;padding:10px 14px;margin-top:7px;text-decoration:none;
-  color:#2C1A00;transition:transform .12s,box-shadow .12s}
-.slx-item:hover{transform:translateX(3px);box-shadow:0 3px 10px rgba(139,0,0,.16)}
-.slx-ref{flex:1;min-width:0;font-weight:600;font-size:.98rem}
-.slx-date{flex:0 0 auto;font-size:.82rem;color:#7a5c38;font-variant-numeric:tabular-nums;
-  white-space:nowrap}
-.slx-empty{text-align:center;color:#8B0000;padding:34px 10px;font-size:1rem}
-@media(max-width:560px){
-  .slx-tools{top:52px}.slx-ghead{font-size:.96rem}
-  .slx-item{padding:9px 11px;gap:8px}.slx-ref{font-size:.92rem}
-  .slx-date{font-size:.76rem}.slx-sort{margin-left:0;width:100%}
-  .slx-sort button{flex:1}
-}
-@media(prefers-reduced-motion:reduce){.slx-item{transition:none}}
-/* section-index:css:end */
-</style>
+  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}</style>
 </head>
 <body>
 <div class="banner-area">
@@ -84,145 +35,252 @@
   <div class="subtitle">श्री हरिरायजी कृत शिक्षापत्र — नित्य पुष्टिस्वाध्याय</div>
 </div>
 <a class="back-link" href="../index.html">🏠 मुख्य पृष्ठ</a>
-<!-- section-index:start --><div class="slx">
-  <div class="slx-tools">
-    <div class="slx-search">
-      <span aria-hidden="true">🔍</span>
-      <input id="slx-q" type="search" placeholder="खोजें — प्रकरण, श्लोक अथवा दिनांक"
-             aria-label="सत्र खोजें">
-      <button id="slx-clear" class="slx-clear" type="button" aria-label="खोज हटाएँ">✕</button>
-    </div>
-    <div class="slx-row2">
-      <div id="slx-chips"><button class="slx-chip" data-k="1">शिक्षापत्र १</button><button class="slx-chip" data-k="6">शिक्षापत्र ६</button><button class="slx-chip" data-k="9">शिक्षापत्र ९</button><button class="slx-chip" data-k="11">शिक्षापत्र ११</button><button class="slx-chip" data-k="18">शिक्षापत्र १८</button><button class="slx-chip" data-k="19">शिक्षापत्र १९</button><button class="slx-chip" data-k="20">शिक्षापत्र २०</button><button class="slx-chip" data-k="21">शिक्षापत्र २१</button><button class="slx-chip" data-k="22">शिक्षापत्र २२</button><button class="slx-chip" data-k="23">शिक्षापत्र २३</button><button class="slx-chip" data-k="24">शिक्षापत्र २४</button><button class="slx-chip" data-k="25">शिक्षापत्र २५</button><button class="slx-chip" data-k="26">शिक्षापत्र २६</button><button class="slx-chip" data-k="27">शिक्षापत्र २७</button><button class="slx-chip" data-k="28">शिक्षापत्र २८</button><button class="slx-chip" data-k="29">शिक्षापत्र २९</button><button class="slx-chip" data-k="30">शिक्षापत्र ३०</button><button class="slx-chip" data-k="x">शिक्षापत्र</button></div>
-      <div class="slx-sort">
-        <button data-o="granth" aria-pressed="true">ग्रन्थ-क्रम</button>
-        <button data-o="date" aria-pressed="false">नवीनतम</button>
-      </div>
-    </div>
-  </div>
-  <div id="slx-count" class="slx-count"></div>
-  <div id="slx-list"></div>
+<div class="section-bar">📚 सूची (48)</div>
+<div class="session-list">
+    <a class="session-card" href="2026-10-02_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-10-02</div>
+      <div class="card-title">शिक्षापत्र ३०</div>
+    </a>
+    <a class="session-card" href="2026-10-04_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-10-01</div>
+      <div class="card-title">शिक्षापत्र</div>
+    </a>
+    <a class="session-card" href="2026-09-23_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-24</div>
+      <div class="card-title">शिक्षापत्र २९_श्लोक ३-६</div>
+    </a>
+    <a class="session-card" href="2026-09-21_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-21</div>
+      <div class="card-title">शिक्षापत्र २९_श्लोक १</div>
+    </a>
+    <a class="session-card" href="2026-09-18_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-18</div>
+      <div class="card-title">शिक्षापत्र २८</div>
+    </a>
+    <a class="session-card" href="2026-09-16_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-16</div>
+      <div class="card-title">शिक्षापत्र २८_श्लोक ६-८</div>
+    </a>
+    <a class="session-card" href="2026-09-15_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-09-15</div>
+      <div class="card-title">शिक्षापत्र २८_श्लोक २-९</div>
+    </a>
+    <a class="session-card" href="2026-08-22_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-21</div>
+      <div class="card-title">शिक्षापत्र २७_श्लोक १६-१८</div>
+    </a>
+    <a class="session-card" href="2026-08-20_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-20</div>
+      <div class="card-title">शिक्षापत्र २७_श्लोक ११-१३</div>
+    </a>
+    <a class="session-card" href="2026-08-20_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-19</div>
+      <div class="card-title">शिक्षापत्र ९</div>
+    </a>
+    <a class="session-card" href="2026-08-20_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-19</div>
+      <div class="card-title">शिक्षापत्र</div>
+    </a>
+    <a class="session-card" href="2026-08-18_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-18</div>
+      <div class="card-title">शिक्षापत्र ६_श्लोक ६</div>
+    </a>
+    <a class="session-card" href="2026-08-17_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-17</div>
+      <div class="card-title">शिक्षापत्र २७_श्लोक ३-४</div>
+    </a>
+    <a class="session-card" href="2026-08-14_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-14</div>
+      <div class="card-title">शिक्षापत्र २७_श्लोक ११</div>
+    </a>
+    <a class="session-card" href="2026-08-12_-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-12</div>
+      <div class="card-title">शिक्षापत्र २६_श्लोक १-२</div>
+    </a>
+    <a class="session-card" href="2026-08-12_-_2.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-12</div>
+      <div class="card-title">शिक्षापत्र २६_श्लोक १-८</div>
+    </a>
+    <a class="session-card" href="2026-08-11_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-11</div>
+      <div class="card-title">शिक्षापत्र २५</div>
+    </a>
+    <a class="session-card" href="2026-08-12_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-11</div>
+      <div class="card-title">शिक्षापत्र २५_श्लोक ८-१४</div>
+    </a>
+    <a class="session-card" href="2026-08-13_retry_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-11</div>
+      <div class="card-title">शिक्षापत्र २५_श्लोक ८-१४</div>
+    </a>
+    <a class="session-card" href="2026-08-14_retry_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-11</div>
+      <div class="card-title">शिक्षापत्र २५_श्लोक ८-१४</div>
+    </a>
+    <a class="session-card" href="2026-08-11_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-08-10</div>
+      <div class="card-title">शिक्षापत्र २५_श्लोक १-७</div>
+    </a>
+    <a class="session-card" href="2026-07-30_-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-30</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक २६-३१</div>
+    </a>
+    <a class="session-card" href="2026-07-31_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-30</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक २६-२</div>
+    </a>
+    <a class="session-card" href="2026-07-29_-_2.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-29</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १९-२४</div>
+    </a>
+    <a class="session-card" href="2026-07-28_-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-28</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १६-१७</div>
+    </a>
+    <a class="session-card" href="2026-07-29_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-28</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १६-१७</div>
+    </a>
+    <a class="session-card" href="2026-07-30_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-28</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १६-१७</div>
+    </a>
+    <a class="session-card" href="2026-07-28_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-27</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक ९-१४</div>
+    </a>
+    <a class="session-card" href="2026-07-29_-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-27</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक ९-१४</div>
+    </a>
+    <a class="session-card" href="2026-07-16_retry_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-16</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १-११</div>
+    </a>
+    <a class="session-card" href="2026-07-16_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-15</div>
+      <div class="card-title">शिक्षापत्र २४_श्लोक १-३</div>
+    </a>
+    <a class="session-card" href="2026-07-14_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-14</div>
+      <div class="card-title">शिक्षापत्र २३_श्लोक १५-१६</div>
+    </a>
+    <a class="session-card" href="2026-07-13_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-13</div>
+      <div class="card-title">शिक्षापत्र ११</div>
+    </a>
+    <a class="session-card" href="2026-07-09_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-09</div>
+      <div class="card-title">शिक्षापत्र २३_श्लोक १०-१४</div>
+    </a>
+    <a class="session-card" href="2026-07-09_-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-09</div>
+      <div class="card-title">शिक्षापत्र २३_श्लोक ५-७</div>
+    </a>
+    <a class="session-card" href="2026-07-27_retry_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-08</div>
+      <div class="card-title">शिक्षापत्र २३_श्लोक १०-१४</div>
+    </a>
+    <a class="session-card" href="2026-07-07_-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-07</div>
+      <div class="card-title">शिक्षापत्र २३_श्लोक ५-७</div>
+    </a>
+    <a class="session-card" href="2026-07-01_retry.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-07-01</div>
+      <div class="card-title">शिक्षापत्र २२</div>
+    </a>
+    <a class="session-card" href="2026-06-25_Conferentie-opname_Ref_2519.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-25</div>
+      <div class="card-title">शिक्षापत्र २१_श्लोक १-३</div>
+    </a>
+    <a class="session-card" href="2026-06-22_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-23</div>
+      <div class="card-title">शिक्षापत्र ९</div>
+    </a>
+    <a class="session-card" href="2026-06-19_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-19</div>
+      <div class="card-title">शिक्षापत्र २० — सत्संग, नामसंकीर्तन, अष्टाक्षर मंत्र एवं ब्रह्मसम्बन्ध का महत्व</div>
+    </a>
+    <a class="session-card" href="2026-06-15_19.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-17</div>
+      <div class="card-title">शिक्षापत्र 19 — कलिकाल में कुसंग से सत्पुरुषों की बुद्धि का नाश और सत्संग की दुर्लभता</div>
+    </a>
+    <a class="session-card" href="2026-06-16_session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 2026-06-16</div>
+      <div class="card-title">शिक्षापत्र अवगाहन (10:30 PM सत्र)</div>
+    </a>
+    <a class="session-card" href="TEST_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">शिक्षापत्र 19 — सत्संग का महात्म्य एवं भगवदीय स्वरूप</div>
+    </a>
+    <a class="session-card" href="-.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">शिक्षापत्र १_श्लोक १-५</div>
+    </a>
+    <a class="session-card" href="-_1.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">शिक्षापत्र २०_श्लोक १३-१९</div>
+    </a>
+    <a class="session-card" href="session.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">शिक्षापत्र १८ और १९ — परम तत्व ज्ञान एवं कलिकाल में शरण का महत्व</div>
+    </a>
+    <a class="session-card" href="-_2.html">
+      <span class="card-arrow">→</span>
+      <div class="card-date">📅 </div>
+      <div class="card-title">शिक्षापत्र २१_श्लोक ६-९</div>
+    </a>
 </div>
-<!-- section-index:end -->
-
 <footer>
   <p>॥ श्रीकृष्णाय नमः ॥</p>
   <p>श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</p>
 </footer>
-
-<script>
-(function(){
-  var DATA = [{"h": "2026-10-02_session.html", "d": "2026-10-02", "t": "शिक्षापत्र ३०", "g": "शिक्षापत्र ३०", "k": 30, "r": "सम्पूर्ण"}, {"h": "2026-10-04_retry.html", "d": "2026-10-01", "t": "शिक्षापत्र", "g": "शिक्षापत्र", "k": null, "r": "शिक्षापत्र"}, {"h": "2026-09-23_-.html", "d": "2026-09-24", "t": "शिक्षापत्र २९_श्लोक ३-६", "g": "शिक्षापत्र २९", "k": 29, "r": "श्लोक ३-६"}, {"h": "2026-09-21_retry.html", "d": "2026-09-21", "t": "शिक्षापत्र २९_श्लोक १", "g": "शिक्षापत्र २९", "k": 29, "r": "श्लोक १"}, {"h": "2026-09-18_session.html", "d": "2026-09-18", "t": "शिक्षापत्र २८", "g": "शिक्षापत्र २८", "k": 28, "r": "सम्पूर्ण"}, {"h": "2026-09-16_-.html", "d": "2026-09-16", "t": "शिक्षापत्र २८_श्लोक ६-८", "g": "शिक्षापत्र २८", "k": 28, "r": "श्लोक ६-८"}, {"h": "2026-09-15_-.html", "d": "2026-09-15", "t": "शिक्षापत्र २८_श्लोक २-९", "g": "शिक्षापत्र २८", "k": 28, "r": "श्लोक २-९"}, {"h": "2026-08-22_-.html", "d": "2026-08-21", "t": "शिक्षापत्र २७_श्लोक १६-१८", "g": "शिक्षापत्र २७", "k": 27, "r": "श्लोक १६-१८"}, {"h": "2026-08-20_-.html", "d": "2026-08-20", "t": "शिक्षापत्र २७_श्लोक ११-१३", "g": "शिक्षापत्र २७", "k": 27, "r": "श्लोक ११-१३"}, {"h": "2026-08-20_retry.html", "d": "2026-08-19", "t": "शिक्षापत्र ९", "g": "शिक्षापत्र ९", "k": 9, "r": "सम्पूर्ण"}, {"h": "2026-08-20_session.html", "d": "2026-08-19", "t": "शिक्षापत्र", "g": "शिक्षापत्र", "k": null, "r": "शिक्षापत्र"}, {"h": "2026-08-18_session.html", "d": "2026-08-18", "t": "शिक्षापत्र ६_श्लोक ६", "g": "शिक्षापत्र ६", "k": 6, "r": "श्लोक ६"}, {"h": "2026-08-17_-.html", "d": "2026-08-17", "t": "शिक्षापत्र २७_श्लोक ३-४", "g": "शिक्षापत्र २७", "k": 27, "r": "श्लोक ३-४"}, {"h": "2026-08-14_session.html", "d": "2026-08-14", "t": "शिक्षापत्र २७_श्लोक ११", "g": "शिक्षापत्र २७", "k": 27, "r": "श्लोक ११"}, {"h": "2026-08-12_-_1.html", "d": "2026-08-12", "t": "शिक्षापत्र २६_श्लोक १-२", "g": "शिक्षापत्र २६", "k": 26, "r": "श्लोक १-२"}, {"h": "2026-08-12_-_2.html", "d": "2026-08-12", "t": "शिक्षापत्र २६_श्लोक १-८", "g": "शिक्षापत्र २६", "k": 26, "r": "श्लोक १-८"}, {"h": "2026-08-11_session.html", "d": "2026-08-11", "t": "शिक्षापत्र २५", "g": "शिक्षापत्र २५", "k": 25, "r": "सम्पूर्ण"}, {"h": "2026-08-12_-.html", "d": "2026-08-11", "t": "शिक्षापत्र २५_श्लोक ८-१४", "g": "शिक्षापत्र २५", "k": 25, "r": "श्लोक ८-१४"}, {"h": "2026-08-13_retry_-.html", "d": "2026-08-11", "t": "शिक्षापत्र २५_श्लोक ८-१४", "g": "शिक्षापत्र २५", "k": 25, "r": "श्लोक ८-१४"}, {"h": "2026-08-14_retry_-.html", "d": "2026-08-11", "t": "शिक्षापत्र २५_श्लोक ८-१४", "g": "शिक्षापत्र २५", "k": 25, "r": "श्लोक ८-१४"}, {"h": "2026-08-11_-.html", "d": "2026-08-10", "t": "शिक्षापत्र २५_श्लोक १-७", "g": "शिक्षापत्र २५", "k": 25, "r": "श्लोक १-७"}, {"h": "2026-07-30_-_1.html", "d": "2026-07-30", "t": "शिक्षापत्र २४_श्लोक २६-३१", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक २६-३१"}, {"h": "2026-07-31_-.html", "d": "2026-07-30", "t": "शिक्षापत्र २४_श्लोक २६-२", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक २६-२"}, {"h": "2026-07-29_-_2.html", "d": "2026-07-29", "t": "शिक्षापत्र २४_श्लोक १९-२४", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १९-२४"}, {"h": "2026-07-28_-_1.html", "d": "2026-07-28", "t": "शिक्षापत्र २४_श्लोक १६-१७", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १६-१७"}, {"h": "2026-07-29_-.html", "d": "2026-07-28", "t": "शिक्षापत्र २४_श्लोक १६-१७", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १६-१७"}, {"h": "2026-07-30_-.html", "d": "2026-07-28", "t": "शिक्षापत्र २४_श्लोक १६-१७", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १६-१७"}, {"h": "2026-07-28_-.html", "d": "2026-07-27", "t": "शिक्षापत्र २४_श्लोक ९-१४", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक ९-१४"}, {"h": "2026-07-29_-_1.html", "d": "2026-07-27", "t": "शिक्षापत्र २४_श्लोक ९-१४", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक ९-१४"}, {"h": "2026-07-16_retry_-.html", "d": "2026-07-16", "t": "शिक्षापत्र २४_श्लोक १-११", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १-११"}, {"h": "2026-07-16_-.html", "d": "2026-07-15", "t": "शिक्षापत्र २४_श्लोक १-३", "g": "शिक्षापत्र २४", "k": 24, "r": "श्लोक १-३"}, {"h": "2026-07-14_-.html", "d": "2026-07-14", "t": "शिक्षापत्र २३_श्लोक १५-१६", "g": "शिक्षापत्र २३", "k": 23, "r": "श्लोक १५-१६"}, {"h": "2026-07-13_session.html", "d": "2026-07-13", "t": "शिक्षापत्र ११", "g": "शिक्षापत्र ११", "k": 11, "r": "सम्पूर्ण"}, {"h": "2026-07-09_-.html", "d": "2026-07-09", "t": "शिक्षापत्र २३_श्लोक १०-१४", "g": "शिक्षापत्र २३", "k": 23, "r": "श्लोक १०-१४"}, {"h": "2026-07-09_-_1.html", "d": "2026-07-09", "t": "शिक्षापत्र २३_श्लोक ५-७", "g": "शिक्षापत्र २३", "k": 23, "r": "श्लोक ५-७"}, {"h": "2026-07-27_retry_-.html", "d": "2026-07-08", "t": "शिक्षापत्र २३_श्लोक १०-१४", "g": "शिक्षापत्र २३", "k": 23, "r": "श्लोक १०-१४"}, {"h": "2026-07-07_-.html", "d": "2026-07-07", "t": "शिक्षापत्र २३_श्लोक ५-७", "g": "शिक्षापत्र २३", "k": 23, "r": "श्लोक ५-७"}, {"h": "2026-07-01_retry.html", "d": "2026-07-01", "t": "शिक्षापत्र २२", "g": "शिक्षापत्र २२", "k": 22, "r": "सम्पूर्ण"}, {"h": "2026-06-25_Conferentie-opname_Ref_2519.html", "d": "2026-06-25", "t": "शिक्षापत्र २१_श्लोक १-३", "g": "शिक्षापत्र २१", "k": 21, "r": "श्लोक १-३"}, {"h": "2026-06-22_session.html", "d": "2026-06-23", "t": "शिक्षापत्र ९", "g": "शिक्षापत्र ९", "k": 9, "r": "सम्पूर्ण"}, {"h": "2026-06-19_session.html", "d": "2026-06-19", "t": "शिक्षापत्र २० — सत्संग, नामसंकीर्तन, अष्टाक्षर मंत्र एवं ब्रह्मसम्बन्ध का महत्व", "g": "शिक्षापत्र २०", "k": 20, "r": "सम्पूर्ण"}, {"h": "TEST_1.html", "d": "", "t": "शिक्षापत्र 19 — सत्संग का महात्म्य एवं भगवदीय स्वरूप", "g": "शिक्षापत्र १९", "k": 19, "r": "सम्पूर्ण"}, {"h": "-.html", "d": "", "t": "शिक्षापत्र १_श्लोक १-५", "g": "शिक्षापत्र १", "k": 1, "r": "श्लोक १-५"}, {"h": "-_1.html", "d": "", "t": "शिक्षापत्र २०_श्लोक १३-१९", "g": "शिक्षापत्र २०", "k": 20, "r": "श्लोक १३-१९"}, {"h": "session.html", "d": "", "t": "शिक्षापत्र १८ और १९ — परम तत्व ज्ञान एवं कलिकाल में शरण का महत्व", "g": "शिक्षापत्र १८", "k": 18, "r": "सम्पूर्ण"}, {"h": "-_2.html", "d": "", "t": "शिक्षापत्र २१_श्लोक ६-९", "g": "शिक्षापत्र २१", "k": 21, "r": "श्लोक ६-९"}];
-  var list = document.getElementById('slx-list');
-  var countEl = document.getElementById('slx-count');
-  var chipWrap = document.getElementById('slx-chips');
-  var input = document.getElementById('slx-q');
-  var clear = document.getElementById('slx-clear');
-  var order = 'granth';
-
-  function groups(items){
-    var by = {}, seq = [];
-    items.forEach(function(it){
-      if(!by[it.g]){ by[it.g] = {name: it.g, key: it.k, rows: []}; seq.push(by[it.g]); }
-      by[it.g].rows.push(it);
-    });
-    return seq;
-  }
-
-  function render(){
-    var q = input.value.trim().toLowerCase();
-    var items = DATA.filter(function(it){
-      return !q || (it.t + ' ' + it.d + ' ' + it.g).toLowerCase().indexOf(q) !== -1;
-    });
-    countEl.textContent = items.length + ' / ' + DATA.length + ' सत्र';
-    clear.className = 'slx-clear' + (q ? ' on' : '');
-    list.innerHTML = '';
-
-    if(!items.length){
-      list.innerHTML = '<div class="slx-empty">कोई सत्र नहीं मिला</div>';
-      return;
-    }
-
-    if(order === 'date'){
-      items = items.slice().sort(function(a,b){ return a.d < b.d ? 1 : a.d > b.d ? -1 : 0; });
-      items.forEach(function(it){ list.appendChild(row(it, true)); });
-      return;
-    }
-
-    var seq = groups(items.slice().sort(function(a,b){
-      if(a.k !== b.k) return (a.k === null) - (b.k === null) || a.k - b.k;
-      return a.d < b.d ? -1 : 1;
-    }));
-    seq.forEach(function(g){
-      var box = document.createElement('div');
-      box.className = 'slx-group';
-      var h = document.createElement('div');
-      h.className = 'slx-ghead';
-      h.id = 'g' + (g.key === null ? 'x' : g.key);
-      h.innerHTML = '<span>' + g.name + '</span><span class="n">' + g.rows.length + ' सत्र</span>';
-      box.appendChild(h);
-      g.rows.forEach(function(it){ box.appendChild(row(it, false)); });
-      list.appendChild(box);
-    });
-  }
-
-  function row(it, showGroup){
-    var a = document.createElement('a');
-    a.className = 'slx-item';
-    a.href = it.h;
-    a.innerHTML = '<span class="slx-ref">' + (showGroup ? it.g + ' · ' : '') + it.r +
-                  '</span><span class="slx-date">' + it.d + '</span>';
-    return a;
-  }
-
-  input.addEventListener('input', render);
-  clear.addEventListener('click', function(){ input.value = ''; input.focus(); render(); });
-  chipWrap.addEventListener('click', function(e){
-    var b = e.target.closest('.slx-chip'); if(!b) return;
-    if(order !== 'granth'){ order = 'granth'; syncSort(); render(); }
-    var el = document.getElementById('g' + b.dataset.k);
-    if(!el) return;
-    // Not scrollIntoView: that puts the heading flush with the top of the window,
-    // where the sticky search bar covers it.
-    // The heading's own CSS 'top' is exactly where it comes to rest when stuck —
-    // just below the toolbar — so landing it there needs no guessed padding.
-    // A fixed guess was one group out on sections whose header is a different height.
-    // stickyTop() is where this heading comes to rest, just under the toolbar,
-    // so landing it there needs no guessed padding.
-    var pad = stickyTop();
-    // offsetTop, not getBoundingClientRect: the headings are sticky, so once one is
-    // stuck its viewport rect reports the stuck position rather than where it lives.
-    var y = 0, n = el;
-    while(n){ y += n.offsetTop; n = n.offsetParent; }
-    window.scrollTo(0, Math.max(0, y - pad));
-  });
-  // The toolbar wraps onto two rows of jump chips on a phone, so its height is not
-  // something CSS can hard-code: measure it and let the group headings stick below it.
-  // With a fixed value the headings parked behind the toolbar and every jump chip
-  // appeared to land one group early.
-  function stickyTop(){
-    var tools = document.querySelector('.slx-tools');
-    if(!tools) return 116;
-    var own = parseFloat(getComputedStyle(tools).top);
-    return (isFinite(own) ? own : 0) + tools.offsetHeight;
-  }
-  function syncStickyTop(){
-    document.documentElement.style.setProperty('--slx-ghead-top', stickyTop() + 'px');
-  }
-  window.addEventListener('resize', syncStickyTop);
-
-  function syncSort(){
-    document.querySelectorAll('.slx-sort button').forEach(function(b){
-      b.setAttribute('aria-pressed', String(b.dataset.o === order));
-    });
-    chipWrap.style.display = order === 'granth' ? '' : 'none';
-  }
-  document.querySelectorAll('.slx-sort button').forEach(function(b){
-    b.addEventListener('click', function(){ order = b.dataset.o; syncSort(); render(); });
-  });
-  syncSort(); render(); syncStickyTop();
-})();
-</script>
-
 </body>
 </html>
