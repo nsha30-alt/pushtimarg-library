@@ -416,9 +416,14 @@ def build(folder: str, preview: bool = False) -> None:
                       + len(s) - len(body)) + len('</div>')
     s = s[:start] + ui + s[end:]
 
-    s = re.sub(r'/\* section-index:css:start \*/.*?/\* section-index:css:end \*/', '', s, flags=re.S)
+    # Swallow the blank lines around the old block as well. Leaving them behind added
+    # one newline on every run, so a rebuild of an already-grouped page still produced a
+    # one-line diff — which made the workflow commit on every upload instead of stopping
+    # at "nothing to do".
+    s = re.sub(r'\n*/\* section-index:css:start \*/.*?/\* section-index:css:end \*/\n*',
+               '\n', s, flags=re.S)
     s = s[:s.index('</style>')] + CSS + s[s.index('</style>'):]
-    s = re.sub(r'<script>\n\(function\(\)\{\n  var DATA.*?</script>', '', s, flags=re.S)
+    s = re.sub(r'\n*<script>\n\(function\(\)\{\n  var DATA.*?</script>\n*', '\n', s, flags=re.S)
     s = s.replace('</body>', JS.replace('__DATA__', json.dumps(data, ensure_ascii=False)) + '\n</body>')
 
     # Each run strips a block and splices a new one, which otherwise leaves a few

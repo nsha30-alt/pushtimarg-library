@@ -19,6 +19,14 @@ on:
       - 'tools/build-section-index.py'
   workflow_dispatch:
 
+# An upload sends one commit per section, so eight runs used to start within seconds of
+# each other, and all but the first failed to push against a branch that had already
+# moved — a failure email every time, for work that was not actually wrong. Only the
+# newest run matters, since it regenerates every section anyway.
+concurrency:
+  group: group-section-listings
+  cancel-in-progress: true
+
 jobs:
   group:
     runs-on: ubuntu-latest
@@ -26,27 +34,50 @@ jobs:
       contents: write
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0          # a shallow clone cannot rebase onto new upstream commits
 
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
-      - name: Re-apply grouping
+      - name: Re-apply grouping and push
         run: |
-          for f in shikshapatra subodhini-gujarati subodhini-hindi brahmasutra \
-                   shodash-granth prameya-ratna bhagavad-varta adhyayan-satr; do
-            [ -f "$f/index.html" ] || continue
-            python3 tools/build-section-index.py "$f"
-          done
-
-      - name: Commit if anything changed
-        run: |
-          if [ -z "$(git status --porcelain -- '*/index.html')" ]; then
-            echo "Already grouped — nothing to do."
-            exit 0
-          fi
+          set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add -- '*/index.html'
-          git commit -m "Re-apply section grouping after an index upload"
-          git push
+
+          SECTIONS="shikshapatra subodhini-gujarati subodhini-hindi brahmasutra \
+                    shodash-granth prameya-ratna bhagavad-varta adhyayan-satr"
+
+          # Regenerate against the newest commit each time: if another upload lands while
+          # this is running, the push is refused, so take their work and redo ours on top
+          # rather than reporting a failure.
+          for attempt in 1 2 3; do
+            git pull --rebase --autostash origin main
+
+            for f in $SECTIONS; do
+              [ -f "$f/index.html" ] || continue
+              python3 tools/build-section-index.py "$f"
+            done
+
+            if [ -z "$(git status --porcelain -- '*/index.html')" ]; then
+              echo "Already grouped — nothing to do."
+              exit 0
+            fi
+
+            git add -- '*/index.html'
+            git commit -m "Re-apply section grouping after an index upload"
+
+            if git push; then
+              echo "Pushed on attempt $attempt."
+              exit 0
+            fi
+
+            echo "Push rejected — the branch moved. Retrying on top of it."
+            git reset --hard HEAD~1
+            sleep $(( attempt * 5 ))
+          done
+
+          echo "Could not push after 3 attempts; the next upload will trigger this again."
+          exit 0
