@@ -1,0 +1,794 @@
+<!DOCTYPE html>
+<html lang="gu" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>શ્રી સુબોધિનીજી — સૃષ્ટિ પ્રકરણ</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Gujarati:wght@400;600;700;900&family=Noto+Sans+Gujarati:wght@400;500;700&family=Noto+Serif+Devanagari:wght@400;700&display=swap">
+<style>
+:root {
+  --cream:#f7eed5; --gold:#c8860a; --dark-gold:#8b5e06;
+  --red:#6b1010; --deep:#3a0808;
+  --text:#2a1200; --soft:#6b4510;
+  --card:rgba(107,16,16,.08); --border:rgba(200,134,10,.35);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%;overflow:hidden;font-family:'Noto Serif Gujarati',serif;background:var(--deep)}
+
+/* ══ VIEWPORT SLIDE ══ */
+.deck{position:relative;width:100vw;height:100vh;overflow:hidden}
+.slide{
+  position:absolute;inset:0;
+  background:var(--cream);
+  opacity:0;pointer-events:none;
+  transition:opacity .55s ease,transform .55s ease;
+  transform:translateX(60px);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+}
+.slide.active{opacity:1;pointer-events:all;transform:translateX(0)}
+.slide.exit{opacity:0;transform:translateX(-60px)}
+
+/* ══ SLIDE INNER ══ */
+.si{
+  flex:1;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  padding:1.2rem 2.2rem;gap:.7rem;
+  position:relative;z-index:2;
+  overflow:hidden;
+}
+
+/* ══ DECORATIVE BORDER ══ */
+.deco-border{
+  position:absolute;inset:10px;
+  border:1.5px solid var(--border);
+  border-radius:4px;pointer-events:none;z-index:1;
+}
+.deco-border::before{
+  content:'';position:absolute;inset:4px;
+  border:1px solid rgba(200,134,10,.18);
+  border-radius:2px;
+}
+
+/* ══ CORNER ORNAMENTS ══ */
+.corner{position:absolute;width:52px;height:52px;z-index:3;opacity:.55}
+.corner.tl{top:14px;left:14px}
+.corner.tr{top:14px;right:14px;transform:scaleX(-1)}
+.corner.bl{bottom:14px;left:14px;transform:scaleY(-1)}
+.corner.br{bottom:14px;right:14px;transform:scale(-1,-1)}
+
+/* ══ SECTION TAG ══ */
+.tag{
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:.67rem;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--gold);border:1px solid var(--border);
+  border-radius:2rem;padding:.22rem .85rem;
+}
+
+/* ══ SANSKRIT SHLOKA ══ */
+.shloka{
+  font-family:'Noto Serif Devanagari',serif;
+  font-size:clamp(.95rem,2.2vw,1.35rem);
+  color:var(--red);line-height:1.8;text-align:center;
+  background:rgba(107,16,16,.06);border-left:3px solid var(--gold);
+  border-right:3px solid var(--gold);
+  padding:.7rem 1.4rem;border-radius:4px;
+  max-width:820px;width:100%;
+}
+
+/* ══ BIG QUOTE ══ */
+.bigq{
+  font-size:clamp(1.1rem,3vw,1.75rem);font-weight:700;
+  color:var(--red);text-align:center;line-height:1.55;
+  max-width:820px;
+}
+
+/* ══ GUJARATI BODY ══ */
+.guj{
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.88rem,1.8vw,1.1rem);
+  color:var(--text);text-align:center;line-height:1.9;
+  max-width:780px;
+}
+.guj.lg{font-size:clamp(1rem,2.4vw,1.4rem);font-weight:600}
+
+/* ══ HIGHLIGHT BOX ══ */
+.hbox{
+  background:rgba(200,134,10,.12);border:1.5px solid var(--border);
+  border-radius:8px;padding:.65rem 1.2rem;
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.88rem,1.8vw,1.05rem);
+  color:var(--text);text-align:center;line-height:1.8;max-width:700px;
+}
+
+/* ══ FLOW CHART ══ */
+.flow{display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap}
+.fbox{
+  background:var(--cream);border:2px solid var(--gold);border-radius:8px;
+  padding:.55rem 1.1rem;text-align:center;
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.8rem,1.6vw,1rem);color:var(--text);
+  box-shadow:0 2px 10px rgba(200,134,10,.15);
+}
+.fbox .ft{font-weight:700;color:var(--red);font-size:1.1em;display:block}
+.fbox .fs{font-size:.8em;color:var(--soft);display:block;margin-top:.1rem}
+.farr{color:var(--gold);font-size:1.3rem;flex-shrink:0}
+
+/* ══ 2-COL GRID ══ */
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;width:100%;max-width:780px}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.6rem;width:100%;max-width:820px}
+.cell{
+  background:rgba(107,16,16,.06);border:1px solid var(--border);border-radius:8px;
+  padding:.6rem .9rem;text-align:center;
+  font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,1.5vw,.95rem);
+  color:var(--text);line-height:1.65;
+}
+.cell .cl{font-weight:700;color:var(--red);font-size:.95em;display:block;margin-bottom:.2rem}
+.cell .cv{color:var(--soft)}
+.cell.hl{background:rgba(200,134,10,.13);border-color:var(--gold)}
+
+/* ══ BULLET LIST ══ */
+.bullets{max-width:720px;width:100%}
+.bitem{
+  display:flex;gap:.75rem;align-items:flex-start;
+  padding:.5rem 0;border-bottom:1px solid rgba(200,134,10,.18);
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.85rem,1.7vw,1.05rem);color:var(--text);line-height:1.7;
+}
+.bitem:last-child{border-bottom:none}
+.bmark{color:var(--gold);font-size:1.3rem;flex-shrink:0;line-height:1.4}
+
+/* ══ TABLE ══ */
+.ctbl{width:100%;max-width:780px;border-collapse:collapse;
+  font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,1.5vw,.95rem)}
+.ctbl th{background:rgba(107,16,16,.1);color:var(--red);padding:.45rem .8rem;
+  border:1px solid var(--border);text-align:center;font-weight:700}
+.ctbl td{padding:.4rem .8rem;border:1px solid rgba(200,134,10,.22);
+  background:rgba(255,255,255,.45);color:var(--text);text-align:center;line-height:1.5}
+.ctbl td:first-child{color:var(--soft);font-size:.85em;font-weight:600}
+
+/* ══ HALF-HALF LAYOUT ══ */
+.half{display:grid;grid-template-columns:1fr 2px 1fr;gap:0;width:100%;max-width:820px;align-items:stretch}
+.half-div{background:linear-gradient(to bottom,transparent,var(--gold),transparent);opacity:.45;margin:.5rem 0}
+.half-l,.half-r{padding:.5rem 1.2rem;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:.5rem}
+.half-tag{font-family:'Noto Sans Gujarati',sans-serif;font-size:.72rem;letter-spacing:.12em;
+  text-transform:uppercase;color:var(--gold);margin-bottom:.15rem}
+.half-big{font-size:clamp(1.2rem,3vw,1.9rem);font-weight:900;color:var(--red)}
+.half-sub{font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.78rem,1.4vw,.9rem);
+  color:var(--soft);text-align:center;line-height:1.6}
+
+/* ══ SIDE BAR LABEL ══ */
+.sidebar-wrap{display:grid;grid-template-columns:auto 1fr;gap:1.2rem;align-items:start;width:100%;max-width:820px}
+.sbar{writing-mode:vertical-rl;transform:rotate(180deg);
+  background:var(--red);color:#f5eed8;
+  font-family:'Noto Sans Gujarati',sans-serif;font-size:.78rem;font-weight:700;
+  letter-spacing:.18em;text-transform:uppercase;padding:.8rem .4rem;border-radius:6px;
+  align-self:stretch;display:flex;align-items:center;justify-content:center}
+.sidebar-content{display:flex;flex-direction:column;gap:.6rem}
+
+/* ══ TIMELINE STEP ══ */
+.timeline{width:100%;max-width:700px;display:flex;flex-direction:column;gap:0}
+.tstep{display:grid;grid-template-columns:48px 1fr;gap:.75rem;padding:.55rem 0;position:relative}
+.tstep:not(:last-child)::after{content:'';position:absolute;left:23px;top:38px;
+  width:2px;height:calc(100% - 12px);background:linear-gradient(to bottom,var(--gold),rgba(200,134,10,.2))}
+.tnum{width:42px;height:42px;border-radius:50%;background:var(--red);color:#f5eed8;
+  display:flex;align-items:center;justify-content:center;font-weight:700;font-size:.95rem;
+  border:2px solid var(--gold);flex-shrink:0;z-index:1;position:relative}
+.ttext{font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.85rem,1.6vw,1rem);color:var(--text);line-height:1.7;padding-top:.5rem}
+
+/* ══ COVER ══ */
+.cover-bg{
+  background:radial-gradient(ellipse at 50% 40%,rgba(107,16,16,.06) 0%,rgba(200,134,10,.04) 60%,transparent 80%);
+}
+.cover-title{
+  font-size:clamp(2rem,6vw,3.8rem);font-weight:900;color:var(--red);
+  text-align:center;line-height:1.15;letter-spacing:-.01em;
+}
+.cover-sub{
+  font-family:'Noto Sans Gujarati',sans-serif;font-size:clamp(.95rem,2vw,1.3rem);
+  color:var(--gold);text-align:center;letter-spacing:.04em;
+}
+.cover-rule{width:200px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:.5rem auto}
+.cover-attr{font-family:'Noto Sans Gujarati',sans-serif;font-size:.78rem;color:var(--soft);letter-spacing:.1em}
+
+/* ══ FINALE ══ */
+.finale-card{
+  background:rgba(107,16,16,.07);border:2px solid var(--border);
+  border-radius:12px;padding:1rem 1.8rem;max-width:680px;
+  font-family:'Noto Sans Gujarati',sans-serif;
+  font-size:clamp(.88rem,1.7vw,1.05rem);color:var(--text);
+  text-align:center;line-height:1.9;
+}
+
+/* ══ NAV ══ */
+.nav{
+  position:fixed;bottom:1.2rem;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:.55rem;z-index:100;
+}
+.dot{width:8px;height:8px;border-radius:50%;background:rgba(107,16,16,.25);
+  border:1.5px solid rgba(200,134,10,.4);cursor:pointer;transition:all .25s}
+.dot.active{background:var(--red);border-color:var(--gold);width:22px;border-radius:5px}
+.nbtn{
+  background:rgba(107,16,16,.08);border:1.5px solid var(--border);
+  color:var(--red);border-radius:50%;width:36px;height:36px;
+  cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;
+  transition:all .2s;outline:none;
+}
+.nbtn:hover{background:var(--red);color:var(--cream)}
+.slide-num{
+  font-family:'Noto Sans Gujarati',sans-serif;font-size:.68rem;
+  color:var(--soft);letter-spacing:.08em;min-width:52px;text-align:center;
+}
+
+/* ══ SLIDE TITLE ══ */
+.stitle{
+  font-size:clamp(.95rem,2.5vw,1.5rem);font-weight:700;
+  color:var(--red);text-align:center;line-height:1.3;max-width:720px;
+}
+.stitle.en{font-family:'Noto Sans Gujarati',sans-serif;letter-spacing:.02em;color:var(--soft);font-size:clamp(.75rem,1.4vw,.9rem);font-weight:400;margin-top:-.2rem}
+
+/* ══ SVG LOTUS ══ */
+.lotus-bg{position:absolute;opacity:.06;z-index:0;pointer-events:none}
+
+/* ══ SCALE SVG ══ */
+.scale-wrap{display:flex;justify-content:center;align-items:flex-end;gap:1.5rem;margin:.3rem 0}
+.scale-pan{display:flex;flex-direction:column;align-items:center;gap:.3rem}
+.pan-label{font-family:'Noto Sans Gujarati',sans-serif;font-size:.9rem;font-weight:700;color:var(--red)}
+.pan-box{background:rgba(107,16,16,.08);border:2px solid var(--gold);border-radius:8px;
+  padding:.5rem 1.4rem;font-family:'Noto Sans Gujarati',sans-serif;font-size:.85rem;color:var(--text)}
+
+@media(max-width:600px){
+  .si{padding:.8rem 1rem}
+  .grid2{grid-template-columns:1fr}
+  .grid3{grid-template-columns:1fr 1fr}
+  .half{grid-template-columns:1fr}
+  .half-div{display:none}
+  .sidebar-wrap{grid-template-columns:1fr}
+  .sbar{writing-mode:horizontal-tb;transform:none;padding:.4rem .8rem;border-radius:4px;align-self:auto}
+}
+</style>
+</head>
+<body>
+<div class="deck" id="deck">
+
+<!-- ══ SVG CORNER ══ -->
+<svg style="display:none">
+  <defs>
+    <symbol id="corn" viewBox="0 0 52 52">
+      <path d="M2 2 Q2 26 26 26" stroke="#c8860a" stroke-width="1.5" fill="none" opacity=".5"/>
+      <path d="M2 2 Q26 2 26 26" stroke="#c8860a" stroke-width="1.5" fill="none" opacity=".5"/>
+      <circle cx="2" cy="2" r="2.5" fill="#c8860a" opacity=".4"/>
+      <circle cx="26" cy="26" r="1.8" fill="#c8860a" opacity=".3"/>
+      <path d="M8 8 Q8 20 20 20" stroke="#c8860a" stroke-width=".8" fill="none" opacity=".3"/>
+    </symbol>
+    <symbol id="lotus" viewBox="0 0 120 90">
+      <ellipse cx="60" cy="70" rx="18" ry="8" fill="none" stroke="#c8860a" stroke-width="1.2" opacity=".6"/>
+      <path d="M60 70 Q40 50 42 30 Q60 20 60 20 Q60 20 78 30 Q80 50 60 70Z" fill="none" stroke="#c8860a" stroke-width="1.2" opacity=".6"/>
+      <path d="M60 70 Q30 55 25 35 Q38 18 42 30" fill="none" stroke="#c8860a" stroke-width="1" opacity=".5"/>
+      <path d="M60 70 Q90 55 95 35 Q82 18 78 30" fill="none" stroke="#c8860a" stroke-width="1" opacity=".5"/>
+      <path d="M60 70 Q18 60 12 40 Q22 15 30 25" fill="none" stroke="#c8860a" stroke-width=".9" opacity=".35"/>
+      <path d="M60 70 Q102 60 108 40 Q98 15 90 25" fill="none" stroke="#c8860a" stroke-width=".9" opacity=".35"/>
+      <line x1="60" y1="20" x2="60" y2="70" stroke="#c8860a" stroke-width=".8" opacity=".4"/>
+    </symbol>
+    <symbol id="swan" viewBox="0 0 60 50">
+      <path d="M10 35 Q20 10 35 18 Q50 26 52 20 Q55 15 48 12 Q40 10 42 18" fill="none" stroke="#c8860a" stroke-width="1.2" opacity=".5"/>
+      <ellipse cx="12" cy="36" rx="10" ry="6" fill="none" stroke="#c8860a" stroke-width="1" opacity=".4"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ══════════ SLIDE 0: COVER ══════════ -->
+<div class="slide active cover-bg" id="s0">
+  <svg class="lotus-bg" style="width:340px;height:260px;top:50%;left:50%;transform:translate(-50%,-50%)">
+    <use href="#lotus" width="340" height="260"/>
+  </svg>
+  <svg class="corner tl"><use href="#corn"/></svg>
+  <svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg>
+  <svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <svg width="80" height="62" style="opacity:.7"><use href="#lotus" width="80" height="62"/></svg>
+    <div class="cover-title">શ્રી સુબોધિનીજી</div>
+    <div class="cover-title" style="font-size:clamp(1.5rem,4vw,2.5rem);color:var(--gold)">સૃષ્ટિ પ્રકરણ</div>
+    <div class="cover-rule"></div>
+    <div class="cover-sub">બ્રહ્માજી દ્વારા સૃષ્ટિ સર્જન અને ભગવદ્ કૃપા</div>
+    <div style="height:.4rem"></div>
+    <div class="cover-attr">|| શ્રીમહાપ્રભુજી-કૃત ભાષ્ય આધારિત ||</div>
+    <div style="display:flex;gap:1.5rem;margin-top:.6rem;opacity:.45">
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 1: VERSE 1 SHLOKA ══════════ -->
+<div class="slide" id="s1">
+  <svg class="lotus-bg" style="width:200px;height:150px;right:-30px;top:20px;opacity:.05"><use href="#lotus" width="200" height="150"/></svg>
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE CREATOR AND THE GRACE · શ્લોક ૧</div>
+    <div class="shloka">
+      જગતો ભૂતસર્ગસ્તુ બ્રહ્મા સોડત્ર નિરૂપિતઃ ।।<br>
+      ભગવત્કૃપયા યુક્તસ્તાદૃશોડસ્ય નિદાનતા ।।
+    </div>
+    <div class="guj lg" style="max-width:740px">
+      જગતના મહાભૂતોની સૃષ્ટિ તો બ્રહ્મા છે.<br>
+      ભગવાનની કૃપાવાળાનું તેમનું અહિં નિરૂપણ કર્યું.<br>
+      <span style="color:var(--gold)">તેવા (રૂપ)થી આ કારણરૂપ (થાય છે).</span>
+    </div>
+    <div style="display:flex;gap:1.5rem;margin-top:.4rem;opacity:.3">
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 2: GRACE → KNOWLEDGE → CREATION FLOW ══════════ -->
+<div class="slide" id="s2">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">COMMENTARY · FROM GRACE TO CREATION</div>
+    <div class="stitle">કૃપા — જ્ઞાન — મહાભૂત</div>
+    <div class="stitle en">The Chain: Grace transforms into Knowledge, Knowledge into Creation</div>
+    <div class="flow" style="margin:.4rem 0">
+      <div class="fbox">
+        <span class="ft">કૃપા</span>
+        <span class="fs">ભગવાનની પ્રસન્નતા</span>
+      </div>
+      <div class="farr">⟶</div>
+      <div class="fbox" style="border-color:var(--red)">
+        <span class="ft">જ્ઞાન</span>
+        <span class="fs">આધારવાળું જ્ઞાન</span>
+      </div>
+      <div class="farr">⟶</div>
+      <div class="fbox" style="border-color:var(--dark-gold);background:rgba(200,134,10,.1)">
+        <span class="ft">મહાભૂત</span>
+        <span class="fs">બ્રહ્મા</span>
+      </div>
+    </div>
+    <div class="hbox">
+      કૃપા જ્ઞાનમાં પરિણમી. તેથી જ્ઞાનને મહાભૂત કહેલ.<br>
+      <strong style="color:var(--red)">જ્ઞાન એકલું મહાભૂત થઈ શકતું નથી, પણ આધારવાળું જ્ઞાન થઈ શકે.</strong><br>
+      તેથી ભગવાનની કૃપાવાળા <strong style="color:var(--gold)">બ્રહ્માને</strong> જ મહાભૂત કહ્યા.
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 3: VERSE 2 ══════════ -->
+<div class="slide" id="s3">
+  <svg class="lotus-bg" style="width:260px;height:200px;left:-40px;bottom:-20px;opacity:.06"><use href="#lotus" width="260" height="200"/></svg>
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE TEN MATRAS AND TIME · શ્લોક ૨</div>
+    <div class="half">
+      <div class="half-l">
+        <div class="half-tag">VERSE 2 — SHLOKA</div>
+        <div class="shloka" style="font-size:clamp(.9rem,2vw,1.2rem)">
+          માત્રાણિ સર્વરૂપાણિ<br>
+          દશ સૃજ્યાન્યતોડત્ર વૈ ।।<br>
+          દશમે વિનિરૂપ્યન્તે<br>
+          માત્રાત્વં ચાપિ કાલતઃ ।।
+        </div>
+      </div>
+      <div class="half-div"></div>
+      <div class="half-r">
+        <div class="half-tag">THE TEN MATRAS &amp; TIME</div>
+        <div class="guj" style="text-align:left">
+          તેથી અહિં <strong style="color:var(--red)">દશમા (અઘ્યાય)</strong>માં ખરેખર<br>
+          રચાવાની સર્વ રૂપવાળી <strong style="color:var(--gold)">દશ માત્રાઓ</strong>નું<br>
+          નિરૂપણ કરવામાં આવે છે.
+        </div>
+        <div class="hbox" style="font-size:clamp(.85rem,1.6vw,1rem);padding:.55rem 1rem">
+          <strong style="color:var(--red)">અને માત્રાપણું પણ કાળથી થાય છે.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 4: BHOGYA vs BHOKTA ══════════ -->
+<div class="slide" id="s4">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE FUNCTION OF TIME</div>
+    <div class="stitle">ભોગ્ય vs ભોક્તા</div>
+    <div class="shloka" style="font-size:clamp(.85rem,1.8vw,1.1rem)">
+      કાલેનૈવ ગૃહીતાસ્તે ભોગ્યાઃ ભોક્તાડન્યથા તુ સઃ ।।
+    </div>
+    <!-- SVG Scale visual -->
+    <div class="scale-wrap">
+      <div class="scale-pan">
+        <div class="pan-label" style="font-size:1.1rem">ભોગ્ય</div>
+        <div class="pan-box">કાળ-ગ્રહિત</div>
+        <svg width="16" height="40"><line x1="8" y1="0" x2="8" y2="38" stroke="var(--gold)" stroke-width="1.5"/></svg>
+      </div>
+      <svg width="80" height="70" style="align-self:flex-start;margin-top:8px">
+        <line x1="40" y1="10" x2="40" y2="55" stroke="var(--red)" stroke-width="2"/>
+        <line x1="15" y1="10" x2="65" y2="10" stroke="var(--gold)" stroke-width="2.5"/>
+        <circle cx="40" cy="10" r="4" fill="var(--gold)"/>
+        <line x1="15" y1="10" x2="20" y2="28" stroke="var(--gold)" stroke-width="1.5"/>
+        <line x1="65" y1="10" x2="60" y2="22" stroke="var(--gold)" stroke-width="1.5"/>
+        <text x="40" y="66" text-anchor="middle" font-size="9" fill="var(--soft)" font-family="sans-serif">કાળ</text>
+      </svg>
+      <div class="scale-pan">
+        <div class="pan-label" style="font-size:1.1rem">ભોક્તા</div>
+        <div class="pan-box">કાળ-અગ્રહિત</div>
+        <svg width="16" height="40"><line x1="8" y1="0" x2="8" y2="38" stroke="var(--gold)" stroke-width="1.5"/></svg>
+      </div>
+    </div>
+    <div class="bullets">
+      <div class="bitem"><span class="bmark">◆</span><span>કાળે ગ્રહણ કરેલા જ તેઓ <strong>ભોગ્ય</strong> થાય છે. તેમ ન હોય તો તો ભોક્તા છે.</span></div>
+      <div class="bitem"><span class="bmark">◆</span><span>રચવાના પદાર્થો કાળે ગ્રહણ કરવાથી <strong>હદવાળા</strong> જ થાય છે અને તેથી ભોગ કરવા <strong>યોગ્ય</strong> થાય છે.</span></div>
+      <div class="bitem"><span class="bmark">◆</span><span>કાળે ગ્રહણ ન કરેલ હોય તો તે પદાર્થો <strong>બ્રહ્મથી જૂદા ન</strong> હોવાથી ભોક્તા જ રહે છે.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 5: VIDURA'S INQUIRY ══════════ -->
+<div class="slide" id="s5">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">VIDURA'S INQUIRY · THE STUDENT</div>
+    <div class="sidebar-wrap">
+      <div class="sbar">THE STUDENT</div>
+      <div class="sidebar-content">
+        <div class="shloka" style="font-size:clamp(.85rem,1.7vw,1.05rem)">
+          વિદુર ઉવાચ ।।<br>
+          અન્તર્હિતે ભગવતિ બ્રહ્મા લોકપિતામહઃ ।।<br>
+          પ્રજાઃ સસર્જ કતિધા દૈહિકીર્માનસીર્વિભઃ ।।
+        </div>
+        <div class="guj lg">
+          ભગવાન્ <strong style="color:var(--red)">અંતર્ધાન</strong> થયા, ત્યાર પછી<br>
+          લોકોના પિતામહ સમર્થ <strong style="color:var(--gold)">બ્રહ્મા</strong>એ<br>
+          કેટલાક પ્રકારની <strong>દૈહિક</strong> અને <strong>માનસી</strong> સૃષ્ટિ રચી?
+        </div>
+        <div style="display:flex;gap:1rem;margin-top:.3rem;opacity:.3">
+          <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+          <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 6: THE DOUBT ══════════ -->
+<div class="slide" id="s6">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE DOUBT · CREATION IN ABSENCE</div>
+    <div class="stitle">ધર્મી ભગવાન્ અંતર્ધાન — તો સૃષ્ટિ કેવી?</div>
+    <!-- Big floral ? in SVG -->
+    <svg width="64" height="80" style="opacity:.35;margin:.2rem 0">
+      <text x="32" y="68" text-anchor="middle" font-size="72" fill="var(--gold)" font-family="serif">?</text>
+    </svg>
+    <div class="timeline">
+      <div class="tstep">
+        <div class="tnum">૧</div>
+        <div class="ttext">ધર્મી ભગવાન્ અંતર્ધાન થયા, ત્યારે તેમના <strong>ધર્મો (ગુણો)</strong> પણ અવશ્ય અંતર્હિત થયા.</div>
+      </div>
+      <div class="tstep">
+        <div class="tnum">૨</div>
+        <div class="ttext">તેથી <strong>બ્રહ્મા</strong> જગત્ કેવી રીતે રચી શકે — એવા (પ્રયોજનથી) <strong>પ્રશ્ન</strong> (કરેલો છે).</div>
+      </div>
+      <div class="tstep">
+        <div class="tnum">૩</div>
+        <div class="ttext"><strong>લોકોના પિતામહ</strong> એટલે (લોકોને) ઉત્પન્ન કરનારના પણ ઉત્પન્ન કરનારા — તેમણે કરેલાં <strong>કાર્યનાં દર્શન</strong>થી તે પ્રપંચ ઉત્પન્ન થઈ જ ગયો, <strong>એવો સંદેહ</strong> છે.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 7: INSTRUMENTS OF CREATION ══════════ -->
+<div class="slide" id="s7">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE INSTRUMENTS OF CREATION</div>
+    <div class="stitle">ઉત્પન્ન કરવાના બે સાધન</div>
+    <div class="grid2" style="max-width:700px;gap:1rem;margin:.4rem 0">
+      <div class="cell hl" style="padding:1rem">
+        <!-- body SVG -->
+        <svg width="48" height="54" style="margin:0 auto .4rem;display:block">
+          <rect x="14" y="18" width="20" height="28" rx="4" fill="none" stroke="var(--red)" stroke-width="2"/>
+          <circle cx="24" cy="12" r="7" fill="none" stroke="var(--red)" stroke-width="2"/>
+          <line x1="14" y1="26" x2="2" y2="36" stroke="var(--red)" stroke-width="2"/>
+          <line x1="34" y1="26" x2="46" y2="36" stroke="var(--red)" stroke-width="2"/>
+          <line x1="18" y1="46" x2="16" y2="60" stroke="var(--red)" stroke-width="2"/>
+          <line x1="30" y1="46" x2="32" y2="60" stroke="var(--red)" stroke-width="2"/>
+        </svg>
+        <span class="cl">(૧) દેહ</span>
+        <span class="cv">દૈહિક સૃષ્ટિ</span>
+      </div>
+      <div class="cell hl" style="padding:1rem">
+        <!-- mind/lotus SVG -->
+        <svg width="48" height="48" style="margin:0 auto .4rem;display:block">
+          <use href="#lotus" width="48" height="37" y="6"/>
+        </svg>
+        <span class="cl">(૨) મન</span>
+        <span class="cv">માનસી સૃષ્ટિ</span>
+      </div>
+    </div>
+    <div class="hbox">
+      ઉત્પન્ન કરવાના <strong style="color:var(--red)">બે સાધન</strong> છે — <strong>(૧) દેહ</strong> અને <strong>(૨) મન.</strong><br>
+      <span style="color:var(--soft)">વાણીનો તો વૈદિક સૃષ્ટિમાં પ્રવેશ થાય છે. તેથી બે જ સાઘનો છે.</span><br>
+      <strong style="color:var(--gold)">(બ્રહ્મા) સર્વ પ્રકારથી રચવા સમર્થ છે.</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 8: REQUEST FOR CLARITY ══════════ -->
+<div class="slide" id="s8">
+  <svg class="lotus-bg" style="width:280px;height:210px;right:-50px;bottom:-30px;opacity:.07"><use href="#lotus" width="280" height="210"/></svg>
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">A REQUEST FOR CLARITY · VIDURA</div>
+    <div class="shloka" style="font-size:clamp(.85rem,1.7vw,1.05rem)">
+      ये च मे भगवन्पृष्टास्त्वय्यर्था बहुवित्तम ।।<br>
+      तान् वदस्वानुपूर्व्येण च्छिन्धि नः सर्वसंशयान् ।।
+    </div>
+    <div class="guj lg">
+      <strong style="color:var(--red)">હે ઘણું જ જાણનાર!</strong> મેં જે અર્થો આપને પૂછેલા છે<br>
+      તેમનો <strong style="color:var(--gold)">અનુક્રમે ઉત્તર</strong> આપો,<br>
+      (અને) <strong>અમારા સર્વ સશંયો</strong> છેડો.
+    </div>
+    <div class="hbox">
+      પોતાની બુદ્ધિથી (ઉત્તર) ગ્રહણ થાય તે માટે<br>
+      <strong style="color:var(--red)">તેમને અનુક્રમે કહેવાની પ્રાર્થના (કરેલી છે).</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 9: THE TEACHER - MAITREYA ══════════ -->
+<div class="slide" id="s9">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE JOY OF THE TEACHER · MAITREYA</div>
+    <div class="sidebar-wrap">
+      <div class="sbar">THE TEACHER</div>
+      <div class="sidebar-content">
+        <div class="stitle" style="text-align:left">મૈત્રેય (કૌષારવિ)</div>
+        <div class="guj lg" style="text-align:left">
+          હે ભાર્ગવ! તે સંચમીએ એ રીતે <strong style="color:var(--gold)">પ્રેરેલા</strong> મુનિ<br>
+          <strong style="color:var(--red)">કૌષારવિ</strong>એ <strong>પ્રસન્ન</strong> થઈ<br>
+          તે પ્રશ્નોના અને <strong>પોતના હૃદયમાં રહેલા</strong> પ્રશ્નોના<br>
+          (ઉત્તર) <strong style="color:var(--gold)">કહ્યા.</strong>
+        </div>
+        <div class="hbox" style="text-align:left">
+          <strong style="color:var(--red)">પહેલા પૂછેલા પ્રશ્નો</strong> તો ભૂલાયા વિનાના<br>
+          <strong style="color:var(--gold)">તેના હૃદયમાં જ રહેલા હતા.</strong>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 10: BRAHMA'S PENANCE ══════════ -->
+<div class="slide" id="s10">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">BRAHMA'S PENANCE · ૧૦૦ DIVINE YEARS</div>
+    <!-- Brahma SVG -->
+    <svg width="90" height="90" style="opacity:.55;margin:.2rem 0">
+      <circle cx="45" cy="22" r="14" fill="none" stroke="var(--red)" stroke-width="2"/>
+      <circle cx="45" cy="22" r="7" fill="var(--gold)" opacity=".3"/>
+      <!-- 4 heads suggestion -->
+      <circle cx="32" cy="14" r="7" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity=".5"/>
+      <circle cx="58" cy="14" r="7" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity=".5"/>
+      <!-- body -->
+      <rect x="32" y="36" width="26" height="32" rx="6" fill="none" stroke="var(--red)" stroke-width="1.8"/>
+      <!-- lotus seat -->
+      <ellipse cx="45" cy="74" rx="22" ry="9" fill="none" stroke="var(--gold)" stroke-width="1.5" opacity=".6"/>
+      <!-- rays -->
+      <line x1="45" y1="4" x2="45" y2="0" stroke="var(--gold)" stroke-width="1.2" opacity=".4"/>
+      <line x1="62" y1="8" x2="66" y2="4" stroke="var(--gold)" stroke-width="1.2" opacity=".4"/>
+      <line x1="28" y1="8" x2="24" y2="4" stroke="var(--gold)" stroke-width="1.2" opacity=".4"/>
+    </svg>
+    <div class="bigq">
+      બ્રહ્માએ પણ ભગવાનમાં <strong style="color:var(--gold)">અંત:કરણ</strong> રાખીને<br>
+      <strong style="color:var(--red)">જન્મરહિત</strong> ભગવાને જે કહેલ તે પ્રમાણે<br>
+      <strong>દેવોના એકસો વર્ષ</strong> સુધી <strong style="color:var(--gold)">તપ</strong> કર્યું.
+    </div>
+    <div class="hbox">
+      <strong>જેમ ભગવાનની આજ્ઞા થઈ હતી તેમ કર્યું.</strong>
+    </div>
+    <div style="display:flex;gap:1.5rem;margin-top:.3rem;opacity:.3">
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 11: DURATION - KRITA YUGA SANDHYA ══════════ -->
+<div class="slide" id="s11">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">THE DURATION · ONE HUNDRED DIVINE YEARS</div>
+    <div class="stitle">કૃતયુગની સઘ્ય — ચોથો ભાગ</div>
+    <!-- Timeline bar -->
+    <div style="width:100%;max-width:680px;background:rgba(107,16,16,.08);border-radius:8px;overflow:hidden;border:1px solid var(--border);margin:.3rem 0">
+      <div style="display:grid;grid-template-columns:3fr 1fr">
+        <div style="padding:.55rem 1rem;font-family:'Noto Sans Gujarati',sans-serif;font-size:.9rem;color:var(--text);border-right:1px solid var(--border)">
+          <strong style="color:var(--soft)">←</strong> &nbsp; કૃતયુગની સઘ્ય
+        </div>
+        <div style="padding:.55rem 1rem;background:rgba(107,16,16,.12);font-family:'Noto Sans Gujarati',sans-serif;font-size:.9rem;font-weight:700;color:var(--red);text-align:center">
+          ⟶ ચોથો ભાગ
+        </div>
+      </div>
+    </div>
+    <div class="timeline" style="margin-top:.2rem">
+      <div class="tstep">
+        <div class="tnum">૧</div>
+        <div class="ttext">'<strong>દેવોના એકસો વર્ષ સુધી</strong>' શબ્દોથી (એમ સૂચવેલું છે કે) <strong>કૃતયુગની સઘ્યા</strong>ના અંશનો <strong style="color:var(--gold)">ચોથો ભાગ</strong> જણાવ્યો.</div>
+      </div>
+      <div class="tstep">
+        <div class="tnum">૨</div>
+        <div class="ttext"><strong>ચોથો (ભાગ) પહેલાં</strong> તપ (કરવા)માં અને (ભગવાનને) <strong>શોઘવામાં</strong> ગએલો.</div>
+      </div>
+      <div class="tstep">
+        <div class="tnum">૩</div>
+        <div class="ttext"><strong style="color:var(--gold)">ચોથા ભાગમાં</strong> તો <strong>બઘા પદાર્થો</strong> <strong style="color:var(--red)">બનાવવાનું</strong> થશે.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 12: INTERNAL REALIZATION ══════════ -->
+<div class="slide" id="s12">
+  <svg class="lotus-bg" style="width:300px;height:230px;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.07"><use href="#lotus" width="300" height="230"/></svg>
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">INTERNAL REALIZATION PRECEDES CREATION</div>
+    <!-- Heart → World flow -->
+    <svg width="200" height="80" style="margin:.2rem auto;opacity:.7">
+      <!-- heart -->
+      <path d="M40 50 Q40 28 56 28 Q72 28 72 44 Q72 28 88 28 Q104 28 104 50 Q104 66 72 78 Q40 66 40 50Z"
+        fill="none" stroke="var(--red)" stroke-width="2"/>
+      <use href="#lotus" x="55" y="36" width="34" height="26"/>
+      <!-- arrow -->
+      <line x1="108" y1="50" x2="128" y2="50" stroke="var(--gold)" stroke-width="2"/>
+      <polygon points="128,44 140,50 128,56" fill="var(--gold)"/>
+      <!-- world circle -->
+      <circle cx="165" cy="50" r="22" fill="none" stroke="var(--red)" stroke-width="2"/>
+      <ellipse cx="165" cy="50" rx="10" ry="22" fill="none" stroke="var(--gold)" stroke-width="1.2" opacity=".6"/>
+      <line x1="143" y1="50" x2="187" y2="50" stroke="var(--gold)" stroke-width="1" opacity=".5"/>
+    </svg>
+    <div class="bigq" style="font-size:clamp(1rem,2.5vw,1.55rem)">
+      <strong style="color:var(--red)">તેવી સ્થિતિનું અંદર તિરોઘાન</strong> ન થાય,<br>
+      તો <strong style="color:var(--gold)">બહાર જગત્ રચવાનું</strong> સંભવે નહિ.
+    </div>
+    <div class="guj" style="color:var(--soft)">
+      માત્ર તપ ભગવદીય ઘર્મ નથી,
+    </div>
+    <div class="hbox">
+      <strong style="color:var(--red)">'ભગવાનમાં અંત:કરણ રાખીને'</strong><br>
+      તપ કરવાનું <strong style="color:var(--gold)">ભગવાને કહેલું.</strong>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ SLIDE 13: KEY CONCEPTS OVERVIEW ══════════ -->
+<div class="slide" id="s13">
+  <svg class="corner tl"><use href="#corn"/></svg><svg class="corner tr"><use href="#corn"/></svg>
+  <svg class="corner bl"><use href="#corn"/></svg><svg class="corner br"><use href="#corn"/></svg>
+  <div class="deco-border"></div>
+  <div class="si">
+    <div class="tag">SIDDHANT SARA · સૃષ્ટિ પ્રકરણ</div>
+    <div class="stitle">મુખ્ય સિદ્ધાન્ત-સંગ્રહ</div>
+    <div class="grid3" style="margin:.3rem 0">
+      <div class="cell hl">
+        <span class="cl">ભગવત્કૃપા</span>
+        <span class="cv">સૃષ્ટિ-સામર્થ્યની મૂળ</span>
+      </div>
+      <div class="cell">
+        <span class="cl">કૃપા → જ્ઞાન → મહાભૂત</span>
+        <span class="cv">ત્રણ-ચેઇન</span>
+      </div>
+      <div class="cell hl">
+        <span class="cl">કાળ</span>
+        <span class="cv">ભોગ્ય/ભોક્તા-નિર્ણायক</span>
+      </div>
+      <div class="cell">
+        <span class="cl">બ્રહ્મા</span>
+        <span class="cv">દૈહિક + માનસી સૃષ્ટિ</span>
+      </div>
+      <div class="cell hl">
+        <span class="cl">અંત:કરણ</span>
+        <span class="cv">ભગવાનમાં — તપ-સ્erty</span>
+      </div>
+      <div class="cell">
+        <span class="cl">૧૦૦ દૈવ-વર્ષ</span>
+        <span class="cv">કૃત-સઘ્ysaa ⅟₄ ભાગ</span>
+      </div>
+    </div>
+    <div class="flow">
+      <div class="fbox"><span class="ft">ભગવત્કૃપા</span></div>
+      <div class="farr">↓</div>
+      <div class="fbox"><span class="ft">બ્રહ્મા-સ્વીકૃતિ</span></div>
+      <div class="farr">↓</div>
+      <div class="fbox"><span class="ft">ભગવત્-આજ્ઞા</span></div>
+      <div class="farr">↓</div>
+      <div class="fbox" style="border-color:var(--dark-gold);background:rgba(200,134,10,.12)"><span class="ft">સૃષ્ટિ-રચના</span></div>
+    </div>
+    <div style="display:flex;gap:1.5rem;margin-top:.4rem;opacity:.3">
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+      <svg width="44" height="37"><use href="#swan" width="44" height="37"/></svg>
+    </div>
+  </div>
+</div>
+
+<!-- ══ NAV ══ -->
+<nav class="nav" id="nav">
+  <button class="nbtn" id="prev" onclick="go(-1)">‹</button>
+  <span class="slide-num" id="snum">1 / 14</span>
+  <button class="nbtn" id="next" onclick="go(1)">›</button>
+</nav>
+<div id="dots" style="position:fixed;bottom:3.4rem;left:50%;transform:translateX(-50%);display:flex;gap:.4rem;z-index:100"></div>
+
+<script>
+const TOTAL=14;
+let cur=0;
+const slides=Array.from(document.querySelectorAll('.slide'));
+const dotsEl=document.getElementById('dots');
+const snumEl=document.getElementById('snum');
+
+// Build dots
+slides.forEach((_,i)=>{
+  const d=document.createElement('div');
+  d.className='dot'+(i===0?' active':'');
+  d.onclick=()=>show(i);
+  dotsEl.appendChild(d);
+});
+
+function show(n){
+  slides[cur].classList.remove('active');
+  slides[cur].classList.add('exit');
+  setTimeout(()=>slides[cur].classList.remove('exit'),600);
+  cur=((n%TOTAL)+TOTAL)%TOTAL;
+  slides[cur].classList.add('active');
+  dotsEl.querySelectorAll('.dot').forEach((d,i)=>d.classList.toggle('active',i===cur));
+  snumEl.textContent=(cur+1)+' / '+TOTAL;
+}
+function go(d){show(cur+d)}
+
+// Keyboard
+document.addEventListener('keydown',e=>{
+  if(e.key==='ArrowRight'||e.key==='ArrowDown')go(1);
+  if(e.key==='ArrowLeft'||e.key==='ArrowUp')go(-1);
+});
+
+// Touch
+let tx=0;
+document.addEventListener('touchstart',e=>tx=e.touches[0].clientX,{passive:true});
+document.addEventListener('touchend',e=>{
+  const dx=e.changedTouches[0].clientX-tx;
+  if(Math.abs(dx)>50)go(dx<0?1:-1);
+},{passive:true});
+</script>
+</div>
+</body>
+</html>
