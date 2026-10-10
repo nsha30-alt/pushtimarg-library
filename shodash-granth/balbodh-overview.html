@@ -56,9 +56,9 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 /* ── TYPE ── */
 .badge {
   display:inline-flex; align-items:center;
-  font-size:.7rem; letter-spacing:.14em; text-transform:uppercase;
+  font-size:.82rem; letter-spacing:.14em; text-transform:uppercase;
   color:var(--yellow); border:1px solid rgba(245,197,24,.5);
-  padding:.2rem .9rem; border-radius:100px;
+  padding:.25rem 1rem; border-radius:100px;
   background:rgba(245,197,24,.1);
 }
 .shloka {
@@ -87,11 +87,11 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
   border-radius:7px; padding:.55rem .7rem; text-align:center;
 }
 .cell .lbl {
-  font-size:.62rem; letter-spacing:.1em; text-transform:uppercase;
+  font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
   color:rgba(245,197,24,.7); margin-bottom:.25rem; display:block;
 }
-.cell .val { font-size:.82rem; color:var(--body); line-height:1.5; }
-.cell .ico { font-size:1.15rem; display:block; margin-bottom:.2rem; }
+.cell .val { font-size:1rem; color:var(--body); line-height:1.5; }
+.cell .ico { font-size:1.3rem; display:block; margin-bottom:.2rem; }
 .cell.hl { border-color:rgba(245,197,24,.7); background:rgba(120,30,0,.5); }
 .cell.hl .val { color:var(--yellow); font-weight:600; }
 
@@ -101,33 +101,33 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 .span4 { grid-column:span 4; }
 
 /* ── FLOW ── */
-.flow { display:flex; align-items:center; gap:.3rem; justify-content:center; flex-wrap:wrap; }
-.fstep { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:.35rem .65rem; font-size:.78rem; color:var(--body); white-space:nowrap; }
-.farr { color:rgba(245,197,24,.6); font-size:.85rem; flex-shrink:0; }
+.flow { display:flex; align-items:center; gap:.4rem; justify-content:center; flex-wrap:wrap; }
+.fstep { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:.45rem .85rem; font-size:.95rem; color:var(--body); white-space:nowrap; }
+.farr { color:rgba(245,197,24,.6); font-size:1rem; flex-shrink:0; }
 
 /* ── COMPARE TABLE ── */
-.ctable { width:100%; border-collapse:collapse; font-size:.8rem; }
-.ctable th { background:rgba(245,197,24,.18); color:var(--yellow); padding:.38rem .65rem; border:1px solid rgba(245,197,24,.3); }
-.ctable td { color:var(--body); padding:.32rem .65rem; border:1px solid rgba(255,255,255,.1); background:rgba(0,0,0,.2); line-height:1.45; }
-.ctable td:first-child { color:var(--soft); font-size:.75rem; text-transform:uppercase; letter-spacing:.05em; }
+.ctable { width:100%; border-collapse:collapse; font-size:.96rem; }
+.ctable th { background:rgba(245,197,24,.18); color:var(--yellow); padding:.45rem .75rem; border:1px solid rgba(245,197,24,.3); }
+.ctable td { color:var(--body); padding:.4rem .75rem; border:1px solid rgba(255,255,255,.1); background:rgba(0,0,0,.2); line-height:1.5; }
+.ctable td:first-child { color:var(--soft); font-size:.88rem; text-transform:uppercase; letter-spacing:.05em; }
 
 /* ── BHAVARTH DESC ── */
 .desc {
   width:100%; background:rgba(255,255,255,.05);
   border-left:3px solid rgba(245,197,24,.5);
   border-radius:0 6px 6px 0;
-  padding:.55rem 1rem; font-size:.84rem; color:var(--body);
-  line-height:1.75; text-align:left; margin-top:.15rem;
+  padding:.65rem 1.1rem; font-size:1rem; color:var(--body);
+  line-height:1.8; text-align:left; margin-top:.15rem;
 }
-.desc-lbl { color:var(--yellow); font-weight:700; font-size:.78rem;
+.desc-lbl { color:var(--yellow); font-weight:700; font-size:.9rem;
   letter-spacing:.06em; text-transform:uppercase; display:block; margin-bottom:.2rem; }
 
 /* ── SIDHANT BOX ── */
 .sidh {
   width:100%; background:rgba(212,160,23,.12);
   border:1px solid rgba(212,160,23,.5); border-radius:7px;
-  padding:.55rem 1rem; font-size:.83rem; color:var(--yellow);
-  line-height:1.6; text-align:left;
+  padding:.65rem 1.1rem; font-size:1rem; color:var(--yellow);
+  line-height:1.65; text-align:left;
 }
 .sidh::before { content:'⚑ सिद्धान्त-सार: '; font-weight:700; }
 
@@ -141,7 +141,7 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 @keyframes pulse { 50% { opacity:.25; } }
 
 /* ── SECTION SLIDE ── */
-.sec-body { font-size:clamp(.88rem,1.85vw,1rem); color:var(--body); max-width:58ch; line-height:1.95; text-wrap:pretty; text-align:center; }
+.sec-body { font-size:clamp(1rem,2vw,1.2rem); color:var(--body); max-width:58ch; line-height:1.95; text-wrap:pretty; text-align:center; }
 
 /* ── FINALE ── */
 .flist { list-style:none; display:flex; flex-direction:column; gap:.55rem; width:100%; max-width:600px; text-align:left; }
@@ -169,10 +169,12 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 @media (max-width:480px) {
   .slide { padding:1.2rem .9rem 4.5rem; }
   #dots { display:none; }
-  .shloka { font-size:.92rem; padding:.8rem; }
-  .slide-title { font-size:1.25rem; }
+  .shloka { font-size:1rem; padding:.8rem; }
+  .slide-title { font-size:1.3rem; }
   .c4 { grid-template-columns:1fr 1fr; }
-  .ctable { font-size:.72rem; }
+  .ctable { font-size:.88rem; }
+  .cell .val { font-size:.95rem; }
+  .desc,.sidh { font-size:.95rem; }
 }
 @media (prefers-reduced-motion:reduce) {
   #mandala svg,.cover-start { animation:none; }
