@@ -3,206 +3,173 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>॥ श्रीकृष्णाय नमः ॥ — षोडशग्रन्थ_बालबोध_श्लोक_११-१२</title>
+<title>॥ श्रीकृष्णाय नमः ॥ — षोडशग्रन्थ — सिद्धान्तमुक्तावली श्लोक ११-१२</title>
 <style>
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap');
-  :root{--red:#CC0000;--orange:#FF6600;--yellow:#FFD700;--white:#FFFFFF;--cream:#FFF8E7;--dark-red:#8B0000;}
+  @import url('https://fonts.googleapis.com/css2?family=Tiro+Devanagari+Hindi:ital@0;1&family=Noto+Serif+Devanagari:wght@400;600;700&family=Noto+Sans+Devanagari:wght@400;500;700&display=swap');
+  :root{--red:#c0141a;--dark-red:#8b0000;--orange:#e06010;--gold:#d4a017;--yellow:#f5c518;
+        --cream:#fff9f0;--white:#ffffff;--light-bg:#fff3e0;--section-bg:#fff8f0;
+        --border:#e06010;--text:#2a0a00;--muted:#7a4000;}
   *{margin:0;padding:0;box-sizing:border-box;}
-  body{font-family:'Noto Serif Devanagari',serif;background:var(--cream);color:#2C1A00;line-height:1.85;}
-  .banner-area{width:100%;min-height:160px;background:linear-gradient(180deg,var(--dark-red) 0%,var(--red) 50%,var(--orange) 100%);display:flex;align-items:center;justify-content:center;border-bottom:6px solid var(--yellow);}
-  .banner-placeholder{text-align:center;color:var(--yellow);font-size:2em;font-weight:bold;padding:40px;text-shadow:2px 2px 4px rgba(0,0,0,.5);}
-  .ai-disclaimer{background:#fffbe6;border:2px solid var(--orange);border-radius:8px;padding:10px 18px;margin:14px auto;max-width:1100px;font-size:.82em;color:#7a4a00;line-height:1.6;}
-  .main-header{background:linear-gradient(135deg,var(--orange),var(--red));color:var(--white);padding:28px 36px;text-align:center;border-bottom:4px solid var(--yellow);}
-  .main-header h1{font-size:2em;color:var(--yellow);text-shadow:2px 2px 6px rgba(0,0,0,.6);margin-bottom:8px;}
-  .main-header .subtitle{font-size:1.05em;opacity:.9;}
-  .meta{text-align:center;padding:10px;font-size:.85em;color:#7a4a00;background:#fff3dc;border-bottom:2px solid var(--orange);}
-  .video-section{margin:28px auto;max-width:1100px;padding:0 18px;}
-  .video-title-bar{background:linear-gradient(90deg,var(--red),var(--orange));color:var(--white);padding:14px 22px;border-radius:12px 12px 0 0;font-size:1.2em;font-weight:bold;display:flex;align-items:center;gap:12px;}
-  .yt-icon{background:var(--white);color:var(--red);border-radius:6px;padding:3px 9px;font-weight:bold;font-size:.82em;flex-shrink:0;}
-  .full-video-link{margin-left:auto;background:var(--yellow);color:var(--dark-red);text-decoration:none;font-size:.78em;font-weight:bold;padding:4px 12px;border-radius:16px;white-space:nowrap;}
-  .full-video-link:hover{background:var(--white);}
-  .chapter-card{background:var(--white);border:2px solid var(--orange);border-top:none;border-radius:0 0 12px 12px;margin-bottom:28px;}
-  .chapter-entry{padding:18px 22px;border-bottom:1px solid #FFE4B5;transition:background .2s;}
-  .chapter-entry:hover{background:#FFF3E0;}
-  .chapter-entry:last-child{border-bottom:none;}
-  .chapter-header{display:flex;align-items:flex-start;gap:14px;margin-bottom:10px;flex-wrap:wrap;}
-  .chapter-number{background:var(--red);color:var(--yellow);border-radius:50%;width:40px;height:40px;display:flex;align-items:center;justify-content:center;font-weight:bold;font-size:.9em;flex-shrink:0;border:2px solid var(--yellow);}
-  .chapter-info{flex:1;min-width:0;}
-  .chapter-name{font-size:1.05em;font-weight:bold;color:var(--dark-red);margin-bottom:6px;}
-  .timestamp-link{display:inline-flex;align-items:center;gap:5px;background:var(--red);color:var(--white)!important;text-decoration:none;padding:4px 13px;border-radius:18px;font-size:.82em;border:2px solid var(--yellow);font-weight:bold;transition:all .2s;}
-  .timestamp-link::before{content:"▶ ";}
-  .timestamp-link:hover{background:var(--orange);transform:scale(1.03);}
-  .chapter-desc{color:#3D2000;line-height:1.95;font-size:.94em;padding-left:54px;margin-top:8px;}
-  .chapter-desc .host{color:#00558B;font-weight:bold;}
-  .chapter-desc .question{color:#7700AA;font-weight:bold;}
-  .chapter-desc .answer{color:#1A6600;font-weight:bold;}
-  .chapter-desc .participant{color:#CC6600;font-weight:bold;}
-  .chapter-topic{display:block;font-weight:bold;color:var(--dark-red);font-size:1em;margin-bottom:4px;border-left:3px solid var(--orange);padding-left:8px;}
-  .chapter-desc .field-label{font-size:.78em;color:#996633;text-transform:uppercase;letter-spacing:.03em;margin-top:12px;}
-  .chapter-desc .field-label:first-child{margin-top:0;}
-  .chapter-desc .field-value{margin-top:2px;}
-  .chapter-desc .field-value.quote{border-left:3px solid #e0c080;padding-left:10px;font-style:italic;color:#5a4020;}
-  .chapter-desc .field-value p{margin:0 0 6px;}
-  .chapter-desc .vivechan-list{margin:4px 0 0 20px;padding:0;}
-  .chapter-desc .vivechan-list li{margin:6px 0;}
-  .intro-box{margin:20px auto;max-width:1100px;padding:0 18px;}
-  .intro-box .inner{background:#fff3dc;border:2px solid var(--orange);border-radius:10px;padding:18px 24px;font-size:.95em;line-height:1.9;color:#2C1A00;}
-  .detailed-section{margin:28px auto;max-width:1100px;padding:0 18px;}
-  .detailed-section .inner{background:#fff;border:2px solid #e0c080;border-radius:10px;padding:22px 26px;font-size:.93em;line-height:1.95;color:#2C1A00;}
-  .sec-heading{color:var(--dark-red);font-size:1.15em;margin:18px 0 8px;border-bottom:2px solid var(--orange);padding-bottom:4px;}
-  .ts-heading{color:#CC5500;font-size:1.05em;margin:16px 0 4px;}
-  .ts-link{color:#CC5500!important;text-decoration:none;font-weight:bold;border-bottom:2px dotted #FF6600;padding-bottom:1px;}
-  .ts-link:hover{color:var(--dark-red)!important;border-bottom-color:var(--dark-red);}
-  .sec-rule{border:none;border-top:2px dashed #e0b060;margin:18px 0;}
-  .detailed-section ul{margin:6px 0 10px 22px;}
-  .detailed-section li{margin:4px 0;}
-  .detailed-section p{margin:4px 0;}
-  footer{background:var(--dark-red);color:var(--white);text-align:center;padding:22px;border-top:6px solid var(--yellow);margin-top:10px;}
-  footer p{color:var(--yellow);font-size:.95em;margin:5px 0;}
-  footer .small{font-size:.78em;color:#FFAA00;}
-  @media(max-width:600px){.main-header h1{font-size:1.4em;}.chapter-desc{padding-left:0;margin-top:10px;}.video-title-bar{font-size:1em;}}
+  body{font-family:'Tiro Devanagari Hindi','Noto Serif Devanagari',serif;background:var(--cream);color:var(--text);line-height:1.9;}
+  .banner-wrapper{background:linear-gradient(180deg,var(--dark-red),var(--red) 55%,var(--orange));border-bottom:6px solid var(--gold);}
+  .banner-inner{max-width:960px;margin:0 auto;padding:22px 28px;text-align:center;color:var(--yellow);}
+  .banner-institution{font-size:1.9em;font-weight:700;letter-spacing:.04em;text-shadow:2px 2px 5px rgba(0,0,0,.5);margin-bottom:6px;}
+  .banner-address{font-size:.82em;color:#ffe8b0;margin-bottom:4px;}
+  .banner-website{font-size:.8em;color:#ffd780;margin-bottom:14px;font-style:italic;}
+  .banner-subtitle-row{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+  .banner-box{background:rgba(255,255,255,.13);border:1px solid rgba(255,220,80,.45);border-radius:8px;padding:8px 18px;font-size:.82em;color:#fff8e0;max-width:340px;line-height:1.55;}
+  .banner-box strong{display:block;color:var(--yellow);font-size:.95em;margin-bottom:3px;}
+  .title-block{max-width:900px;margin:28px auto 0;padding:22px 28px;text-align:center;}
+  .main-title{font-size:1.85em;font-weight:700;color:var(--dark-red);margin-bottom:8px;line-height:1.35;}
+  .subtitle-line{font-size:.98em;color:var(--muted);margin-bottom:14px;}
+  .doc-desc{font-size:.9em;color:#4a2000;line-height:1.85;margin-bottom:10px;text-align:left;}
+  .notice{font-size:.82em;background:#fff3cd;border-left:4px solid var(--gold);padding:8px 14px;border-radius:0 6px 6px 0;color:#6a4000;margin-top:8px;text-align:left;}
+  .usage-box{max-width:900px;margin:16px auto;padding:18px 24px;background:var(--section-bg);border:1.5px solid var(--border);border-radius:10px;}
+  .usage-box h3{font-size:1em;color:var(--dark-red);margin-bottom:10px;}
+  .usage-box ul{padding-left:22px;}
+  .usage-box li{font-size:.86em;color:var(--text);margin-bottom:5px;line-height:1.6;}
+  .toc-section{max-width:900px;margin:24px auto;background:var(--white);border:2px solid var(--border);border-radius:12px;overflow:hidden;}
+  .toc-section h2{background:linear-gradient(90deg,var(--dark-red),var(--red));color:var(--yellow);padding:13px 22px;font-size:1.05em;}
+  .toc-list{list-style:none;padding:0;margin:0;}
+  .toc-list li{border-bottom:1px solid #ffe4b0;}
+  .toc-list li:last-child{border-bottom:none;}
+  .toc-list a{display:flex;align-items:center;gap:10px;padding:10px 18px;text-decoration:none;color:var(--text);font-size:.88em;transition:background .15s;}
+  .toc-list a:hover{background:var(--light-bg);}
+  .toc-num{background:var(--red);color:var(--yellow);font-size:.72em;font-weight:700;padding:2px 8px;border-radius:12px;white-space:nowrap;flex-shrink:0;}
+  .part-section{max-width:900px;margin:28px auto;background:var(--white);border:2px solid var(--border);border-radius:12px;overflow:hidden;}
+  .part-header{display:flex;align-items:center;justify-content:space-between;gap:14px;padding:14px 20px;background:linear-gradient(90deg,var(--dark-red),var(--red) 70%,var(--orange));flex-wrap:wrap;}
+  .part-header h2{font-size:1.02em;color:var(--yellow);font-weight:700;line-height:1.4;}
+  .full-video-btn{background:var(--yellow);color:var(--dark-red);text-decoration:none;font-size:.78em;font-weight:700;padding:5px 13px;border-radius:16px;white-space:nowrap;flex-shrink:0;transition:background .2s;}
+  .full-video-btn:hover{background:#fff;}
+  .part-body{padding:18px 22px;}
+  .part-intro-text{font-size:.9em;color:var(--muted);margin-bottom:16px;font-style:italic;border-left:3px solid var(--gold);padding-left:12px;}
+  .topic{margin-bottom:22px;border:1px solid #ffe0b0;border-radius:8px;overflow:hidden;}
+  .topic-header{display:flex;align-items:center;gap:10px;padding:10px 14px;background:linear-gradient(90deg,var(--light-bg),#fff8f5);border-bottom:1px solid #ffe0b0;}
+  .topic-marker{color:var(--orange);font-size:1.1em;flex-shrink:0;}
+  .topic-header h3{flex:1;font-size:.95em;color:var(--dark-red);font-weight:700;}
+  .topic-ts{background:var(--orange);color:#fff;font-size:.72em;font-weight:700;padding:2px 9px;border-radius:10px;flex-shrink:0;}
+  .topic p{padding:8px 14px 2px;font-size:.88em;line-height:1.85;color:var(--text);}
+  .topic p:last-of-type{padding-bottom:8px;}
+  .sub-heading{font-weight:700;color:var(--orange);margin-right:4px;}
+  .jump-link{display:inline-block;margin:6px 14px 12px;background:var(--red);color:#fff;text-decoration:none;font-size:.8em;padding:4px 14px;border-radius:14px;border:1.5px solid var(--gold);transition:background .2s;}
+  .jump-link:hover{background:var(--orange);}
+  .pratibhagi{display:inline;background:#e8f4e8;color:#1a5c00;border-left:3px solid #4a9900;
+    padding:1px 6px;border-radius:3px;font-style:italic;font-size:.94em;}
+  .vakta-final{display:inline;background:#fff0e0;color:#7a2800;border-left:3px solid var(--orange);
+    padding:1px 6px;border-radius:3px;font-weight:600;font-size:.94em;}
+  .part-summary-box{background:linear-gradient(135deg,#fff8e7,#fff3d0);border:2px solid var(--gold);border-radius:8px;padding:14px 18px;margin-top:20px;font-size:.9em;color:var(--text);line-height:1.85;}
+  .back-top{display:inline-block;margin:12px 0 4px;font-size:.82em;color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--muted);}
+  .back-top:hover{color:var(--red);}
+  footer{background:var(--dark-red);color:var(--white);text-align:center;padding:22px;border-top:6px solid var(--gold);margin-top:20px;}
+  footer p{color:var(--yellow);font-size:.9em;margin:4px 0;}
+  footer .small{font-size:.76em;color:#FFAA00;}
+  @media(max-width:600px){.banner-institution{font-size:1.3em;}.main-title{font-size:1.3em;}.banner-subtitle-row{flex-direction:column;}.part-header{flex-direction:column;align-items:flex-start;}}
 </style>
 </head>
 <body>
-<div class="banner-area">
-  <div class="banner-placeholder">॥ श्रीकृष्णाय नमः ॥<br><span style="font-size:.45em;color:#FFCC00;">षोडशग्रन्थ_बालबोध_श्लोक_११-१२</span></div>
-</div>
-<div class="main-header">
-  <h1>॥ षोडशग्रन्थ_बालबोध_श्लोक_११-१२ ॥</h1>
-  <div class="subtitle">श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</div>
-</div>
-<div class="meta">📅 09 October 2026</div>
-<div class="ai-disclaimer">⚠ ⚠ यह विवरण AI द्वारा स्वतः निर्मित है। किसी भी असंगति की स्थिति में कृपया सम्बन्धित वीडियो देखें। This description is AI-generated. Please refer to the linked video for any discrepancy.</div>
 
-<div class="intro-box"><div class="inner"><h2 class="sec-heading">परिचय एवं सन्दर्भ</h2>
-<p>यह सत्र `सिद्धार्थ मुक्तावली` ग्रंथ के ग्यारहवें और बारहवें श्लोकों पर केंद्रित है। वक्ता ने पूर्व सत्र में हुए नौवें और दसवें श्लोकों के विचारों का आवर्तन कराया, जिसमें गंगा जी के दृष्टांत के माध्यम से जगत, अक्षर ब्रह्म और श्रीकृष्ण के अभेद स्वरूप का विवेचन किया गया था। इस सत्र में लोकिक और परमानंद की कामनाओं के भेद, `अनिषिद्ध और इच्छा अनुसार व्यवहार` के प्रकार, तथा जीवात्मा के `क्षुद्रतिक धर्म` और `ब्रह्म धर्म` पर गहन चर्चा हुई। महाप्रभुजी के `ब्रह्म रूपम जगत ज्ञातव्यम ब्रह्म जगतोति रिचते` तथा `ब्रह्मवादेन कृष्ण बुद्धि विधता` सिद्धांतों के महत्व को स्पष्ट किया गया।</p></div></div>
-
-<div class="video-section">
-  <div class="video-title-bar">
-    <span class="yt-icon">YouTube</span>
-    षोडशग्रन्थ_बालबोध_श्लोक_११-१२
-    <a class="full-video-link" href="https://www.youtube.com/watch?v=M-t6pxmxyts" target="_blank">📹 पूरा वीडियो</a>
-  </div>
-  <div class="chapter-card">
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">१</div>
-        <div class="chapter-info">
-          <div class="chapter-name">नौवें और दसवें श्लोक का आवर्तन</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=8" target="_blank">००:०८ – ०९:३० — नौवें और दसवें श्लोक का आवर्तन</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">नौवें और दसवें श्लोक का आवर्तन</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक ९-१०</div>
-<div class="field-label">प्रतिभागी वाचन</div><div class="field-value quote"><ul class="vivechan-list"><li><strong>गंगा जी के स्वरूप का वर्णन:</strong> वक्ता ने नौवें और दसवें श्लोक में गंगा जी के आध्यात्मिक, आदिभौतिक और आदिदैविक स्वरूप का विस्तृत वर्णन देखा था। इसके बाद ब्रह्म के आदिभौतिक, आध्यात्मिक और आदिदैविक स्वरूप का वर्णन देखा। जगत के त्रिगुणात्मक नियामक ब्रह्मा, विष्णु और महेश हैं।</li><li><strong>अभेद बुद्धि का महत्व:</strong> गंगा जी के दृष्टांत से जगत, अक्षर ब्रह्म और श्रीकृष्ण में अभेद बुद्धि बताई गई थी। जल रूप गंगा में तीर्थ की भावना बिना स्नान करने से फल नहीं मिलता। लोकिक स्नेह को ब्रह्म उपासना समझने पर भी फल नहीं मिलता।</li><li><strong>साक्षात्कार और श्रद्धा का फल:</strong> जिनको आदिदैविक स्वरूप के दर्शन हुए हैं, उन्हें जल रूप में भी वही अनुभव होता है, जैसे भीष्म पितामह को गंगा जी में देवी का दर्शन होता था। श्रद्धावानों का व्यवहार और भगवद्भाव की स्फूर्ति से फल मिलता है। प्रेम से देखने पर साक्षात्कार होता है, और ज्ञान से तीर्थ उपासना का फल मिलता है। लौकिक जगत की उपासना से अक्षर ब्रह्म की उपासना जैसा फल नहीं मिलता।</li><li><strong>अनिषिद्ध और इच्छा अनुसार व्यवहार:</strong> `अनिषिद्ध और इच्छा अनुसार व्यवहार` पर चर्चा हुई थी, जिसमें शास्त्रीय नियम की सीमा में रहने या इच्छा अनुसार व्यवहार करने का प्रश्न था। गंगा जी के तीन रूप आदिभौतिक (इंद्रिय से ग्राह्य), आध्यात्मिक (शास्त्रीय ज्ञान से ग्राह्य) और आदिदैविक (प्रेम से साक्षात्कार) हैं। आदिदैविक स्वरूप के दर्शन होने पर भौतिक स्वरूप में भी आदिविक स्वरूप के ही दर्शन होते हैं और निषिद्ध व्यवहार नहीं करते।</li><li><strong>गोवर्धन पर्वत का उदाहरण:</strong> गोवर्धन पर्वत का उदाहरण दिया गया कि ठाकुरजी द्वारा साक्षात्कार कराने के बाद ही उसे प्रभु का स्वरूप देखा जाने लगा। मनोरथ मर्यादा में ही होने चाहिए, लोभ लालच से स्वच्छंदता नहीं आनी चाहिए, अन्यथा दत्तापार का दोष लगेगा।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">२</div>
-        <div class="chapter-info">
-          <div class="chapter-name">पूर्व श्लोकों से संबंधित प्रश्नोत्तर</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=570" target="_blank">०९:३० – १३:३७ — पूर्व श्लोकों से संबंधित प्रश्नोत्तर</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">पूर्व श्लोकों से संबंधित प्रश्नोत्तर</span>
-<div class="field-label">पाठ</div><div class="field-value">कोई विशिष्ट श्लोक नहीं, पूर्व चर्चा पर आधारित।</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>प्रश्न:</strong> प्रतिभागी ने पूछा कि `भगवत स्वरूप तथा गुरु प्रभूति` में `प्रभूति` का अर्थ क्या है?</li><li><strong>उत्तर:</strong> वक्ता ने `प्रभूति` का अर्थ `एक्स्ट्रा` या `वगैरह` बताया।</li><li><strong>प्रश्न:</strong> प्रतिभागी ने पूछा कि `अक्ष ब्रह्म में ज्ञानीन के मोक्ष अधिक भगवत भाव पानी को ज्ञान होय है ये फल हो है` का `फल` आगे के वाक्य `जगत में प्राणी मात्र में भगवत भाव की स्फूर्ति` से संबंधित है क्या।</li><li><strong>उत्तर:</strong> वक्ता ने बताया कि `भगवत की स्फूर्ति होने` का मतलब है कि यह सब भगवत् रूप है, भगवान ही इन सब रूपों में प्रकट हुए हैं।</li><li><strong>प्रश्न:</strong> प्रतिभागी ने `वे जल में श्रद्धा सहित स्नान आदि व्यवहार करे हैं और तीर्थ करी के जल में अन्य सु अधिकता को ज्ञान रूप फल क्रम सु होए है` इस पंक्ति में `फल क्रम सु होए` का अर्थ पूछा।</li><li><strong>उत्तर:</strong> वक्ता ने समझाया कि जिसको गंगा का दर्शन हो गया है, उसको तो सर्वत्र गंगा ही दिखेगी। जिसको गंगा का दर्शन नहीं हुआ है, पर यह जल उसी गंगा का अवतरण है ऐसा शास्त्र कहते हैं और बड़े भक्तों की ऐसी अनुभूति भी है, तो भले ही हमें खुद को गंगा देवी का दर्शन न हुआ हो, परंतु शास्त्रीय ज्ञान और महापुरुषों की अनुभूति के कारण हमारी दृष्टि नदी रूपा गंगा में श्रद्धा पूर्ण हो जाती है। जब वहां जाएंगे तो भले ही गंगा देवी का दर्शन न हुआ हो, पर महात्म ज्ञान के कारण वहां जो भी व्यवहार करेंगे वह श्रद्धा सहित करेंगे और अन्य तीर्थों से भी अधिक हमको वहां उसका ज्ञान होगा।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">३</div>
-        <div class="chapter-info">
-          <div class="chapter-name">११वें और १२वें श्लोक की उत्थानिका तथा पाठ</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=817" target="_blank">१३:३७ – २३:१८ — ११वें और १२वें श्लोक की उत्थानिका तथा पाठ</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">११वें और १२वें श्लोक की उत्थानिका तथा पाठ</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक ११-१२ की उत्थानिका, श्लोक ११, श्लोक १२।</div>
-<div class="field-label">प्रतिभागी वाचन</div><div class="field-value quote"><ul class="vivechan-list"><li><strong>उत्थानिका:</strong> उत्थानिका में बताया गया कि गंगा जी के दृष्टांत से यह सिद्ध हुआ कि जल रूप और तीर्थ रूप के नियामक देवी रूप गंगा जी हैं। परंतु भक्तों को स्वतः फल देने का पनो नहीं है। वैसे ही श्रीकृष्ण का भी है। यह पंक्ति प्रतिभागी को स्पष्ट नहीं हुई। प्रतिभागी ने समझा कि श्रीकृष्ण अक्षर ब्रह्म अथवा जगत के आध्यात्मिक स्वरूप हैं। अगर वे जगत और अक्षर ब्रह्म की आध्यात्मिक स्वरूप की उपासना करने पर फल प्रदान करते हैं, तो उनकी सेवा का उपदेश क्यों करें? इसी शंका के समाधान में यह ११वां और १२वां श्लोक आ रहा है।</li><li><strong>श्लोक ११:</strong> `कामचारस्तु लोकस्मिन ब्रह्मा न्यथा परमानंद रूप कृष्ण स्वात्मनी निश्चयः`। इसका अर्थ है कि लोक में भोग तो ब्रह्मा आदि से होते हैं, परंतु और किसी प्रकार से नहीं। आत्मा के विषय में तो परमानंद कृष्ण में निश्चित होता है।</li><li><strong>श्लोक १२:</strong> `अतस्तु ब्रह्म वादेन कृष्ण बुद्धि विधताम आत्मनी ब्रह्म रूप ही छिद्रा वमनी चेतना यासु ही ब्रह्मवादसु`। इसका अर्थ है कि श्रीकृष्ण में बुद्धि स्थापित करो, क्योंकि आत्मा में ब्रह्म रूप में आकाश में जैसे छेद चेतना है।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">४</div>
-        <div class="chapter-info">
-          <div class="chapter-name">उत्थानिका और श्लोकों का स्पष्टीकरण</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=1398" target="_blank">२३:१८ – २८:१३ — उत्थानिका और श्लोकों का स्पष्टीकरण</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">उत्थानिका और श्लोकों का स्पष्टीकरण</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक ११-१२ की उत्थानिका।</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>उत्थानिका का तात्पर्य:</strong> वक्ता ने उत्थानिका का तात्पर्य समझाया कि गंगा के त्रिविध रूप के निरूपण में यह बात कही गई कि आध्यात्मिक स्वरूप (तीर्थ रूप) का उपासन करने पर गंगा शास्त्रानुसार फल देती हैं। तो गंगा का कार्य केवल इतना ही रहता है कि शास्त्र के अनुसार उपासना करने वाले को उसकी इच्छानुसार फल दे। स्वतंत्र रूप से देवी रूपा गंगा की महत्ता इसमें समझ में नहीं आती। इसी तरह जगत के त्रिगुणात्मक नियामक ब्रह्मा, विष्णु, शिव भी अपने भक्तों को मनोकामनाएं पूर्ण करते हैं। तो इस स्थिति में कृष्ण का भजन करने के लिए कहने पर कृष्ण की उपयोगिता कहां रहती है, क्योंकि भोग ब्रह्मा, मोक्ष विष्णु से मिल जाता है। भोग मोक्ष के अलावा और क्या बचा जिसके लिए कृष्ण की भक्ति करनी चाहिए?</li><li><strong>कृष्ण सेवा का महत्व:</strong> गंगा जी भी शास्त्र के अनुसार ही फल देती हैं। शिव विष्णु भी शास्त्र के अनुसार उपासना करने पर फल देते हैं। तो यही बात कृष्ण के लिए भी रही कि वे अपने आप तो कुछ फल दे नहीं सकते, तो फिर हम उनके पीछे क्यों जाएं, शास्त्र को ही क्यों न पकड़ें? तब फिर इनकी सेवा का उपदेश क्यों करो हो? `कृष्ण सेवा सदाकार्या` इस सिद्धांत का क्या मतलब है? इसकी उपयोगिता क्या है?</li><li><strong>कामनाओं का भेद:</strong> वक्ता ने कामना का भेद बताते हुए समाधान किया कि लोक संबंधी फल की कामना है तो ब्रह्मा आदि देव प्रदान कर देंगे। पर यदि परमानंद की अभिलाषा है तब तो फिर कृष्ण का ही भजन करोगे तो परमानंद मिल सकता है। क्योंकि परमानंद तो लोक और परलोक से अतीत विषय है।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">५</div>
-        <div class="chapter-info">
-          <div class="chapter-name">क्षुद्रता और ब्रह्म धर्म का विवेचन</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=1693" target="_blank">२८:१३ – ३२:२० — क्षुद्रता और ब्रह्म धर्म का विवेचन</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">क्षुद्रता और ब्रह्म धर्म का विवेचन</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक १२ की व्याख्या।</div>
-<div class="field-label">प्रतिभागी वाचन</div><div class="field-value quote">प्रतिभागी ने क्षुद्रतिक धर्म और ब्रह्म धर्म को स्पष्ट करने का प्रयास किया कि ब्रह्म धर्म सिर्फ कर्तव्य निभाना नहीं है, वस्तुओं को वास्तविक रूप से या भगवतीय दृष्टि से समझना ब्रह्म धर्म है।</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>क्षुद्रता का स्वरूप:</strong> वक्ता ने क्षुद्रतिक धर्म और ब्रह्म धर्म को स्पष्ट किया। जीव ब्रह्म का अंश है, परंतु वह परिच्छिन्न, आनंद रहित, अविद्या ग्रस्त, जन्म मरणशील, सांसारिक सुख दुखों को भोगने वाला, अहंता ममतात्मक संसार में लिप्त है। यह सब जीव की क्षुद्रता है। ब्रह्म तो ऐसा नहीं है। ब्रह्म धर्म सच्चिदानंद होना है और वह भी तीनों अपरिच्छिन्न होना है।</li><li><strong>सत, चित और आनंद का भेद:</strong> हमारे भीतर सत और चित दोनों हैं पर वह भी परिच्छिन्न (सीमित) हैं, जबकि ब्रह्म का सत अपरिच्छिन्न है। आनंद तो हमारे भीतर है ही नहीं। हमारा मूल स्वरूप अगर ब्रह्म ही जीव स्वरूप में हुआ है तो जीव भी सच्चिदानंद है, परंतु हमें हमारी सच्चिदानंदात्मकता अनुभव में कहां आती है? हमारी अनुभूति तो ऐसी है कि हम शूद्र हैं।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">६</div>
-        <div class="chapter-info">
-          <div class="chapter-name">सेव्य स्वरूप पर चर्चा</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=1980" target="_blank">३३:०० – ४५:०३ — सेव्य स्वरूप पर चर्चा</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">सेव्य स्वरूप पर चर्चा</span>
-<div class="field-label">पाठ</div><div class="field-value">कोई विशिष्ट श्लोक नहीं, पूर्व चर्चा पर आधारित।</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>प्रश्न:</strong> प्रतिभागी ने प्रश्न उठाया कि क्या श्लोक ९ से ११ तक में सेव्य स्वरूप (श्रीकृष्ण) की ही बात हो रही है।</li><li><strong>प्रतिभागी उत्तर:</strong> प्रतिभागी ने कहा कि जल रूप गंगा में ही आदिदैविक स्वरूप का दर्शन करते हैं, वैसे ही हम साकार रूप जगत के पदार्थ से बने हैं, पर साकार रूप जो ब्रह्म हैं, वे हमारे सेव्य प्रभु हैं। हम उन्हें परब्रह्म मानते हुए उनकी सेवा करते हैं।</li><li><strong>वक्ता का स्पष्टीकरण:</strong> वक्ता ने स्पष्ट किया कि `कृष्ण सेवा सदाकार्या` से सिद्धांत मुक्तावली का प्रारंभ हुआ था, जिसमें मानसी सेवा को फलरूप माना गया है। फिर `ब्रह्म बोधम` की बात आई तो अक्षर और अक्षर का आदि भौतिक रूप जगत समझाने के लिए गंगा का उदाहरण दिया। यथा जलम तथा सर्वम, यथाशक्त तथा यथा देवी तथा कृष्ण। तीनों को तीन की तरह समझा दिया कि यहां कृष्ण, अक्षर और जगत ये आदिदैविक, आध्यात्मिक और आदिभौतिक रूप हैं। हम जगत या अक्षर की सेवा नहीं करते, हम तो कृष्ण की सेवा करते हैं।</li><li><strong>अभेद बुद्धि का महत्व:</strong> जो गंगा के जल रूप को देवी से पृथक समझता है, उसे न तो तीर्थ का फल मिलेगा न गंगा की भक्ति का फल। वह लौकिक है। इसी तरह तीर्थ रूप, आध्यात्मिक रूप, को यह सोचना कि गंगा एक ऐसा डिब्बा है जिसमें शक्ति भरी हुई है, अलग वस्तु है और जल अलग, तो उसे भी फल नहीं मिलेगा। यह जल ही तीर्थ है, यह जल और तीर्थ ही देवी है, ऐसी जिसकी अभेद बुद्धि होगी, उसकी बात गंगा के कान तक पहुंचेगी। जो उपास्य या भजनीय होता है वह तो अधिदेव होता है। भले ही भगवान अक्षर के द्वारा सर्व जगत रूप हो गए हों, परंतु अक्षर या जगत की उपासना वो कृष्ण उपासना नहीं कहलाती है। भजनीय तो अधिदेव ही होता है। वह अधिदेव हमें जिस रूप में उपलब्ध हुआ है, उसमें यदि हम अभेद बुद्धि कर पाते हैं तो वह अधिदेव उसको स्वीकारेगा। अगर अभेद बुद्धि नहीं कर पाते तो भजन स्वीकार नहीं करेगा।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">७</div>
-        <div class="chapter-info">
-          <div class="chapter-name">ब्रह्म रूपम जगत ज्ञातव्यम पर वक्ता का विवेचन</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=2760" target="_blank">४६:०० – ४८:५१ — ब्रह्म रूपम जगत ज्ञातव्यम पर वक्ता का विवेचन</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">ब्रह्म रूपम जगत ज्ञातव्यम पर वक्ता का विवेचन</span>
-<div class="field-label">पाठ</div><div class="field-value">कोई विशिष्ट श्लोक नहीं, पूर्व चर्चा पर आधारित।</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>प्रपंच विस्मृति का महत्व:</strong> वक्ता ने कहा कि जगत भले ही भगवान का रूप हो, आदि भौतिक रूप हो, पर हमें उसे उस हद तक भुला देना चाहिए कि हमें कृष्ण के अलावा जगत का भी स्मरण न रह जाए, तब पक्की भक्ति कही जाएगी, तब फल की अवस्था सिद्ध होगी।</li><li><strong>जगत का वास्तविक स्वरूप:</strong> जगत का उपयोग हमारे लिए केवल इतना ही है कि यहां ब्रह्म का यह विस्तार है, उसमें ऐसे ऐसे सब नाम रूप को धारण किया है। परंतु ब्रह्म जो है, वह तो जगत से ऊपर है। महाप्रभुजी इसको शब्दों में कहते हैं कि `ब्रह्म रूपम जगत ज्ञातव्यम ब्रह्म जगतोति रिचते`। यह जगत ब्रह्म रूप है, ऐसा केवल समझना है। ब्रह्म केवल जगत ही नहीं है, जगत तो उसके `एकांश स्थितो जगत` ऐसा है। ब्रह्म के एक रोम में कृष्ण के अनंत कोटि ब्रह्मांड हैं, ऐसा उसका महात्म है।</li><li><strong>मायावादियों का खंडन:</strong> दयाराम भाई ने गाया है `दुष्ट जीव ने कहे छे ब्रह्म रे ब्रह्म जीव लेखे रे`। यह हम ब्रह्मास्मि करने वाले मायावादियों को गाली है कि अरे दुष्ट जीव को तुम ब्रह्म कहते हो? जीव को ब्रह्म कहने का मतलब यह हुआ कि ब्रह्म जीव बराबर है। तो जब जीव का भी ठिकाना नहीं है कि वह ब्रह्म तुल्य हो सके, तो अचेतन जड़ जो जगत है, उसकी तो बात ही क्या कर दी, उसकी तो कोई तुलना हो ही नहीं सकती है। महाप्रभु इस अभिप्राय से कहते हैं कि `ब्रह्म रूपम जगत ज्ञातव्यम ब्रह्म जगत तिरचते न तत्र आसक्ति करणी`। इसलिए जगत में आसक्ति नहीं करनी चाहिए, केवल यह ब्रह्म के महात्म को समझने के लिए हमें यह करना है।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">८</div>
-        <div class="chapter-info">
-          <div class="chapter-name">जीवात्मा के ब्रह्म रूप पर विवेचन</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=2931" target="_blank">४८:५१ – ५१:०६ — जीवात्मा के ब्रह्म रूप पर विवेचन</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">जीवात्मा के ब्रह्म रूप पर विवेचन</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक १२ का दूसरा भाग (`आत्मनी ब्रह्म रूप ही छिद्राम चेतना`)</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>जीवात्मा का बद्ध स्वरूप:</strong> वक्ता ने कहा कि १२वें श्लोक में `आत्मनी ब्रह्म रूपेम चेतना` यह वचन जीवात्मा का स्वरूप और उसकी बद्ध अवस्था का निरूपण करता है। कि वह आत्मा ब्रह्म रूप ही है, जिस प्रकार जगत ब्रह्म रूप है उसी तरह आत्मा भी ब्रह्म रूप है, यानी सच्चिदानंद स्वरूप है।</li><li><strong>अविद्या का प्रभाव:</strong> परंतु आसमान में हम आंख के सामने छलनी रख दें तो आसमान में छलनी जैसा छिद्र दिखता है, पर हम जानते हैं कि आकाश तो अछिद्र होता है। उसी तरह से भगवान की जो शक्ति है `अविद्या`, उसके प्रभाव से जीवात्मा की बुद्धि ऐसी मुक्त हो जाती है कि वह अपने सच्चिदानंद स्वरूप को नहीं जान पाता है और अपने आप को जन्म मरणशील, पाप पुण्य करने वाला, अहंता ममतात्मक संसार में लिप्त ऐसा शूद्र अपने आप को समझने लगता है। यह अविद्या के कारण ऐसा होता है।</li></ul></div></div>
-    </div>
-    <div class="chapter-entry">
-      <div class="chapter-header">
-        <div class="chapter-number">९</div>
-        <div class="chapter-info">
-          <div class="chapter-name">ब्रह्मवाद और कृष्ण बुद्धि की स्थापना का महत्व</div>
-          <a class="timestamp-link" href="https://youtu.be/M-t6pxmxyts?t=3066" target="_blank">५१:०६ – ५५:२८ — ब्रह्मवाद और कृष्ण बुद्धि की स्थापना का महत्व</a>
-        </div>
-      </div>
-      <div class="chapter-desc"><span class="chapter-topic">ब्रह्मवाद और कृष्ण बुद्धि की स्थापना का महत्व</span>
-<div class="field-label">पाठ</div><div class="field-value">श्लोक १२ (`अतस्तु ब्रह्मवादेन कृष्ण बुद्धि विधताम`)</div>
-<div class="field-label">वक्ता विवेचन</div><div class="field-value"><ul class="vivechan-list"><li><strong>ब्रह्मवाद की आवश्यकता:</strong> वक्ता ने कहा कि `अतस्तु ब्रह्मवादेन कृष्ण बुद्धि विधता`। इसलिए इसको यहां महाप्रभुजी ने समझाया कि `ब्रह्मवाद` इसलिए समझना आवश्यक है जिससे कि ये देवों में जो कक्षाएं हैं, उनके भेद को समझ सकें। और आपकी अगर कामना सर्वोच्च कक्षा की है, तब फिर आप अवर कक्षा के जो देव हैं, उनमें उलझना नहीं है। इसलिए `ब्रह्मवादेन कृष्ण बुद्धि विधता`। यह विषय यहां संपन्न हुआ।</li><li><strong>देवों की कक्षा का ज्ञान:</strong> यह तीन देव के जो तीनों रूप हैं (आदिभौतिक, आध्यात्मिक, आदिदैविक) उनका ज्ञान और उनके साक्षात्कार के उन पक्ष के साक्षात्कार की विधि और उन रूपों में जिनकी रुचि या उनकी कक्षा भी उसी प्रकार की है, ये तीन बातें यहां पर समझाई गईं।</li></ul></div></div>
+<div class="banner-wrapper">
+  <div class="banner-inner">
+    <div class="banner-institution">श्रीवल्लभाचार्य विद्यापीठ</div>
+    <div class="banner-address">२६, श्रीवल्लभाचार्य नगर, रेखड़ हॉस्पिटल के पीछे, हालोल, ३८९ ३४०, जिला पंचमहाल, गुजरात</div>
+    <div class="banner-website">www.vallabhacharyavidhyapeeth.org</div>
+    <div class="banner-subtitle-row">
+      <div class="banner-box"><strong>ग्रंथ</strong>सिद्धान्तमुक्तावली</div>
+      <div class="banner-box"><strong>सत्र</strong>आश्विन २०८३ · अक्टूबर २०२६</div>
     </div>
   </div>
 </div>
 
+<div class="title-block">
+  <div class="main-title">षोडशग्रन्थ — सिद्धान्तमुक्तावली श्लोक ११-१२</div>
+  <div class="subtitle-line">गोस्वामी श्रीशरदकुमारजी · श्रीवल्लभाचार्य विद्यापीठ, हालोल · आश्विन २०८३ · अक्टूबर २०२६</div>
+  <p class="doc-desc">यह दस्तावेज़ सिद्धान्तमुक्तावली पर हुए अध्ययन सत्र का विस्तृत सारांश प्रस्तुत करता है।
+प्रत्येक वीडियो को लगभग 15-मिनट के खण्डों में विभाजित किया गया है।</p>
+  <p class="notice">सूचना: यह सारांश AI-सहायता से वीडियो के स्वतः-उत्पन्न ट्रांसक्रिप्ट के आधार पर तैयार किया गया है।
+किसी भी त्रुटि के लिए मूल वीडियो देखें।</p>
+</div>
 
+<div class="usage-box">
+  <h3>📍 दस्तावेज़ का उपयोग:</h3>
+  <ul>
+    <li><strong>▶ सीधे इस समय पर जाएँ</strong> — YouTube वीडियो उस स्थान से चालू होगा।</li>
+    <li><strong>↑ अनुक्रमणिका पर जाएँ</strong> — प्रत्येक भाग के अन्त में वापस जाएँ।</li>
+  </ul>
+</div>
+
+<div class="toc-section" id="toc">
+  <h2>📋 अनुक्रमणिका</h2>
+  <ul class="toc-list">
+    <li><a href="#part1"><span class="toc-num">भाग १</span>NA-षोडशग्रन्थ_ सिद्धान्तमुक्तावली _श्लोक_११-१२ (55:28)</a></li>
+  </ul>
+</div>
+
+
+<div class="part-section" id="part1">
+  <div class="part-header">
+    <h2>भाग १ : NA-षोडशग्रन्थ_ सिद्धान्तमुक्तावली _श्लोक_११-१२</h2>
+    <a href="https://www.youtube.com/watch?v=M-t6pxmxyts" target="_blank" class="full-video-btn">📹 पूरा वीडियो</a>
+  </div>
+  <div class="part-body">
+    <p class="part-intro-text">अवधि: 55:28 · ४ खण्ड (प्रत्येक ~15 मिनट)</p>
+    
+  <div class="topic">
+    <div class="topic-header">
+      <span class="topic-marker">■</span>
+      <h3>मंगलाचरण एवं उपक्रम</h3>
+      <span class="topic-ts">0०:0२</span>
+    </div>
+    <p><span class="sub-heading">श्लोक ११–१२ · सिद्धान्तमुक्तावली:</span><span class="pratibhagi">प्रतिभागी: जी दंडवत प्रणाम जी, अह पिछले अध्याय में नौवें और 10वें श्लोक में देखा था कि गंगा जी के आध्यात्मिक आदि भौतिक और आदिदैविक स्वरूप का विस्तृत वर्णन देखा...</span> इस भाग में श्लोक ११-१२ के अंतर्गत गंगा जी और जगत के त्रिविध स्वरूप (आदिभौतिक, आध्यात्मिक, आदिदैविक) तथा उनमें अभेद बुद्धि एवं उपासना के फलों का पुनरावर्तन और विचार प्रस्तुत किया गया है। वक्ता और प्रतिभागी के बीच इन श्लोकों के विभिन्न पक्षों पर संवाद हुआ है।</p>
+<p><span class="sub-heading">मुख्य विषय:</span>गंगा जी के दृष्टांत के माध्यम से जगत, अक्षर ब्रह्म और श्री कृष्ण में अभेद बुद्धि तथा उनकी त्रिविध उपासना के भिन्न-भिन्न फलों का निरूपण किया गया है। वक्ता ने समझाया कि केवल सामान्य भाव से स्नान या लौकिक स्नेह को ब्रह्म उपासना मानने से अभीष्ट फल की प्राप्ति नहीं होती, बल्कि भगवद्भाव और श्रद्धा से ही यथार्थ फल मिलता है।</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>वक्ता ने समझाया: गंगा जी के आध्यात्मिक, आदिभौतिक और आदिदैविक स्वरूप का विस्तार से वर्णन करते हुए ब्रह्म के भी त्रिविध स्वरूपों को स्पष्ट किया गया है। जगत त्रिगुणात्मक है और इसके नियामक ब्रह्मा, विष्णु तथा महेश हैं। गंगा जी के जल, तीर्थ रूप और देवी रूप के दृष्टांत से जगत, अक्षर ब्रह्म और श्री कृष्ण में अभेद बुद्धि समझाई गई है। यदि कोई व्यक्ति बिना तीर्थ की भावना के सामान्य पानी की तरह गंगा जी में स्नान करे, तो उसे तीर्थ स्नान का फल प्राप्त नहीं होता; तीर्थ रूप दर्शन करने वाले को ही उसका उचित फल मिलता है। इसी प्रकार, लौकिक पदार्थों में स्नेह रखकर उसे ब्रह्म उपासना मान लेने से ब्रह्म उपासना का वास्तविक फल नहीं मिल सकता। भीष्म पितामह का उदाहरण देते हुए बताया कि वे गंगा जी को देवी रूप (आदिदैविक स्वरूप) में देखते थे और उन्हें माता के स्नेह का वैसा ही साक्षात्कार होता था। जो भक्त जड़-चेतन और संपूर्ण जगत में प्रभु के ही दर्शन करता है, उसकी भावना के अनुसार ही उसे फल की प्राप्ति होती है। गंगा जी को केवल तीर्थ रूप से जानने वाले को ज्ञान रूप फल क्रमशः प्राप्त होता है, और जो भगवान के दर्शन नहीं कर पाते वे श्रद्धापूर्वक सेवा करते हैं। <span class="pratibhagi">प्रतिभागी: और फिर प्रश्न हुआ था कि अनिषिद्ध और इच्छा अनुसार व्यवहार ऐसा यहां पे बताया था तो उसको किस किस तरह समझे?</span> वक्ता ने शास्त्रीय नियमों की सीमा और इच्छा अनुसार व्यवहार के संबंध में चल रहे विविध मतभेदों और विचारों का उल्लेख किया। अन्त में, गंगा जी के आदिभौतिक, आध्यात्मिक और आदिदैविक तीनों रूपों की साधना और उनके स्वरूपों को भौतिक इंद्रियों तथा शास्त्रीय ज्ञान द्वारा समझने की प्रक्रिया पर चर्चा को आगे बढ़ाया गया।</p>
+<p><span class="sub-heading">सिद्धान्त-सार:</span>गंगा जी और जगत के आदिभौतिक, आध्यात्मिक तथा आदिदैविक स्वरूपों में भेद न मानते हुए भगवद्भाव और श्रद्धापूर्वक की गई उपासना ही यथार्थ फल प्रदान करती है। केवल लौकिक स्नेह या बिना भावना के किया गया आचरण ब्रह्म उपासना नहीं कहलाता है।</p>
+    <a href="https://youtu.be/M-t6pxmxyts?t=2" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+  </div>
+  <div class="topic">
+    <div class="topic-header">
+      <span class="topic-marker">■</span>
+      <h3>श्लोक-विवेचन</h3>
+      <span class="topic-ts">१५:0४</span>
+    </div>
+    <p><span class="sub-heading">सिद्धान्तमुक्तावली · श्लोक ११-१२:</span><span class="pratibhagi">प्रतिभागी: कामचारस्तु लोकस्मिन ब्रह्मा न्यथा परमानंद रूप कृष्ण स्वात्मनी निश्चयः... अतस्तु ब्रह्म वादेन कृष्ण बुद्धि विधताम आत्मनी ब्रह्म रूप ही छिद्रा वमनी चेतना यासु ही ब्रह्मवादसु...</span> इस श्लोक में लोकिक भोग और ब्रह्मवाद के अंतर्गत श्री कृष्ण में बुद्धि स्थापित करने का निरूपण किया गया है, जहाँ आत्मा में ब्रह्म रूपता को आकाश के छिद्र के दृष्टांत से समझाया गया है।</p>
+<p><span class="sub-heading">मुख्य विषय:</span>वक्ता ने स्पष्ट किया है कि लौकिक मनोरथों और भोगों की पूर्ति ब्रह्मादि देवताओं से ही होती है, किंतु भक्तों के लिए परमानंद रूप श्री कृष्ण ही समस्त कामनाओं की पूर्ति और कामाचार के केंद्र हैं। आत्मा में ब्रह्मभाव होने पर भी औपाधिक भिन्नता की बुद्धि ही जीव के बंधन का कारण बनती है, जिसे तत्त्वज्ञान और दृढ़ सिद्धांत से दूर करना आवश्यक है।</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>वक्ता ने समझाया: सात्विक आदि तीनों प्रकार के लोकों में भक्तों के लौकिक मनोरथों की पूर्ति ब्रह्मादि तीनों देवताओं द्वारा ही होती है, और अन्य किसी प्रकार से संभव नहीं है। अपने आत्मा के लिए नित्य निर्विधिक आनंद रूप श्री कृष्ण में ही सकल मनोरथों की पूर्ति का समूह होता है। वक्ता ने आगे बताया कि श्री कृष्ण में अंतःकरण लगाने पर सभी वस्तुएं ब्रह्मात्मक प्रतीत होती हैं, और यही भाव उपासक को रखना चाहिए। जैसे आकाश में चलनी (छ छन्नी) आ जाने से उसमें छिद्र न होने पर भी छन्नी के कारण छिद्र दिखाई देते हैं, वैसे ही ब्रह्म रूप आत्मा में भी औपाधिक और विविध प्रकार की अन्यथा बुद्धि के कारण भिन्नता दिखलाई पड़ती है, जिससे जीव को बंधन होता है। महाप्रभु जी ने बालबोध में भी बताया है कि भोग और मोक्ष की इच्छा रखने वालों को ब्रह्मादि देवताओं से फल की प्राप्ति होती है, क्योंकि जैसी जिसकी इच्छा होती है, वैसा ही फल मिलता है। इसके विपरीत, भक्तों के लिए तो परमानंद रूप श्री कृष्ण में ही समस्त कामनाओं का निश्चय कामाचार होता है, यानी उनकी सभी कामनाओं में से प्रभु-संबंधी कामनाओं की ही इच्छा के अनुसार पूर्ति होती है और उन्हें आनंद की अनुभूति होती है। जब भक्त को भगवान से अत्यंत स्नेह हो जाता है, तब उसे यह स्फुरणा होने लगती है कि भगवान ही हमारी आत्मा रूप हैं, जिससे प्रभु से प्रार्थना करने में कोई संकोच या शंका नहीं रहती। <span class="vakta-final">वक्ता का निर्णय: आकाश में चलनी के दृष्टांत की तरह, ब्रह्म रूप आत्मा में दोषयुक्त और भिन्नता वाली बुद्धि औपाधिक होती है, जिसे त्याग कर सब ब्रह्म रूप हैं ऐसे सिद्धांत से परब्रह्म श्री कृष्ण में ही बुद्धि लगानी चाहिए।</span></p>
+<p><span class="sub-heading">सिद्धान्त-सार:</span>लौकिक भोगों की प्राप्ति ब्रह्मादि देवताओं के अधीन है, किंतु भक्तों का सर्वस्व और परमानंद श्री कृष्ण ही हैं। औपाधिक बुद्धि के कारण आत्मा में भिन्नता प्रतीत होती है, जिसे ब्रह्मभाव के दृढ़ सिद्धांत द्वारा निवृत्त करके श्री कृष्ण में ही अपनी बुद्धि लगानी चाहिए।</p>
+    <a href="https://youtu.be/M-t6pxmxyts?t=904" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+  </div>
+  <div class="topic">
+    <div class="topic-header">
+      <span class="topic-marker">■</span>
+      <h3>तत्त्व-निरूपण</h3>
+      <span class="topic-ts">३०:0५</span>
+    </div>
+    <p><span class="sub-heading">सिद्धान्तमुक्तावली · श्लोक 11-12:</span>सिद्धांतमुक्तावली के इन श्लोक के संदर्भ में जीव के स्वरूप, ब्रह्म के धर्म तथा सेव्य स्वरूप के निरूपण पर चर्चा की गई है। वक्ता और प्रतिभागियों के बीच इस बात पर संवाद हुआ कि श्लोक में वर्णित स्वरूप जीव का है या दिव्य प्रभु (सेव्य) का।</p>
+<p><span class="sub-heading">मुख्य विषय:</span>संसार में लिप्त जीव का सत, चित्त और आनंद परिच्छिन्न (सीमित) होता है, जबकि ब्रह्म का सच्चिदानंद स्वरूप अपरिच्छिन्न है। जीव अपनी क्षुद्रता का अनुभव तभी कर पाता है जब उसे किसी श्रेष्ठता या ब्रह्मात्मकता का थोड़ा ज्ञान होता है। चर्चा में यह भी विचार किया गया कि श्लोक 9 से 11 तक का निरूपण जीव के सिद्ध स्वरूप का है या आराध्य प्रभु के आधिभौतिक, आधिदैविक और आध्यात्मिक स्वरूप का।</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>वक्ता ने समझाया: जीव का सत, चित्त और आनंद देश, काल और स्वरूप से परिच्छिन्न होने के कारण शूद्र और सीमित है, जबकि ब्रह्म का सच्चिदानंद स्वरूप अपरिच्छिन्न और असीमित है। <span class="pratibhagi">प्रतिभागी: अजय सुंदर ने प्रश्न उठाया कि नौवें से ग्यारहवें श्लोक में जो निरूपण हुआ है, क्या वह हमारे दिव्य (सेव्य) स्वरूप का वर्णन है, जिसकी हम सेवा करते हैं?</span> <span class="pratibhagi">प्रतिभागी: अन्य प्रतिभागियों (जैसे दीदी और शोभना) ने गंगा जी के उदाहरण से आधिभौतिक, आध्यात्मिक और आधिदैविक स्वरूपों की व्याख्या करते हुए यह माना कि यह ठाकुर जी के ही स्वरूप का वर्णन है।</span> इस पर वक्ता ने स्पष्ट किया कि महाप्रभु जी ने प्रारंभ में ही 'कृष्ण सेवा सदा करनी' और मानसी सेवा की बात कही है, तथा आगे के श्लोकों में जगत रूप और अक्षर रूप सेव्य प्रभु का ही विचार चल रहा है। <span class="vakta-final">वक्ता का निर्णय: श्लोक 9 से 11 तक में सेव्य स्वरूप (ठाकुर जी) के विभिन्न रूपों का ही निरूपण चल रहा है, जिसे प्रतिभागियों ने सही समझा है।</span></p>
+<p><span class="sub-heading">सिद्धान्त-सार:</span>जीव का स्वरूप देश-काल से परिच्छिन्न और क्षुद्र होने के कारण सीमित है, जबकि परब्रह्म का सच्चिदानंद स्वरूप सर्वथा अपरिच्छिन्न है। सिद्धांतमुक्तावली के इन श्लोकों में सेव्य प्रभु के आधिभौतिक, आध्यात्मिक और आधिदैविक स्वरूपों का ही निरूपण किया गया है।</p>
+    <a href="https://youtu.be/M-t6pxmxyts?t=1805" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+  </div>
+  <div class="topic">
+    <div class="topic-header">
+      <span class="topic-marker">■</span>
+      <h3>उदाहरण एवं प्रमाण</h3>
+      <span class="topic-ts">४५:0७</span>
+    </div>
+    <p><span class="sub-heading">सिद्धान्तमुक्तावली · श्लोक ११-१२:</span>इस अंश में श्री कृष्ण के स्वरूप, जगत की आधिभौतिक स्थिति और 'निरोध' (प्रपंच विस्मृति पूर्वक भगवत आसक्ति) के सिद्धांत पर विचार किया गया है। वक्ता ने स्पष्ट किया है कि जगत भले ही ब्रह्म का विस्तार हो, किंतु भक्त को कृष्ण के अतिरिक्त संसार का स्मरण तक नहीं रहना चाहिए।</p>
+<p><span class="sub-heading">मुख्य विषय:</span>महाप्रभु के अनुसार ब्रह्म जगत का रूप होते हुए भी उससे परे (अतिरिक्त) है, और ब्रह्म के एक रोम में अनंत कोटि ब्रह्मांड समाहित हैं। मर्यादा तथा प्रवाही जीव अपनी पात्रता के अनुसार ब्रह्मा, विष्णु और शिव तक ही गति कर पाते हैं, जबकि परमानंद रूप परमब्रह्म श्रीकृष्ण की प्राप्ति केवल गुणातीत अवस्था वाले उच्च कोटि के जीवों के लिए है।</p>
+<p><span class="sub-heading">विस्तृत विवेचन:</span>वक्ता ने समझाया: जगत को ब्रह्म रूप मानना केवल उसके महात्म्य को समझने के लिए है, न कि उसमें निरंतर आसक्ति बनाए रखने के लिए, क्योंकि वास्तविक भक्ति का फल 'निरोध' यानी प्रपंच की विस्मृति है। वक्ता ने दयाराम भाई के पदों का संदर्भ देते हुए मायावादियों पर तीखा प्रहार किया जो अचेतन जीव और जड़ जगत को ब्रह्म के समान मान लेते हैं। महाप्रभु के मत से ब्रह्म रूपम जगत ज्ञातव्यम और ब्रह्म जगतोति रिचते – अर्थात ब्रह्म संपूर्ण जगत से बहुत ऊपर है और जगत उसका मात्र एक एकांश है। ग्यारहवें और बारहवें श्लोक में जीवात्मा की बद्ध अवस्था और उसकी सीमाओं का निरूपण किया गया है। लोक दृष्टि रखने वाले मर्यादा और प्रवाही जीवों की गति केवल ब्रह्मा, विष्णु और शिव तक ही सीमित होती है, क्योंकि वे त्रिगुणात्मक जगत के नियामक हैं। साधारण कामनाओं वाले लोग इन्हीं त्रिदेवों से भोग और मोक्ष प्राप्त कर संतुष्ट हो जाते हैं, किंतु जिनकी कामनाएं इन त्रिगुणात्मक देवों से पूर्ण नहीं होतीं, उनके लिए एकमात्र परमब्रह्म श्रीकृष्ण ही शरण हैं। क्षुद्र देवी-देवताओं की यहाँ कोई चर्चा नहीं है, केवल ईश्वर कोटि के त्रिगुणावतारों का ही उल्लेख किया गया है जो मानक या स्तर विशेष के अनुसार कार्य करते हैं। <span class="vakta-final">वक्ता का निर्णय: जो जीव सामान्य भोग-मोक्ष से परे परमानंद रूप फल की अभिलाषा रखते हैं, उनके लिए ब्रह्मा-विष्णु-शिव अपर्याप्त हैं, अतः उन्हें केवल और केवल श्री कृष्ण का ही भजन करना चाहिए।</span></p>
+<p><span class="sub-heading">सिद्धान्त-सार:</span>जगत ब्रह्म का विस्तार होने पर भी साधक को उसमें आसक्ति न रखकर केवल श्रीकृष्ण में ही अनन्य भाव रखना चाहिए, क्योंकि सामान्य त्रिदेव केवल त्रिगुणात्मक फल देते हैं जबकि परमब्रह्म श्रीकृष्ण ही परमानंद रूप मोक्ष फल प्रदान करने में समर्थ हैं।</p>
+    <a href="https://youtu.be/M-t6pxmxyts?t=2707" target="_blank" class="jump-link">▶ सीधे इस समय पर जाएँ</a>
+  </div>
+    <div class="part-summary-box"><strong>📝 भाग-सार:</strong> इस भाग में NA-षोडशग्रन्थ_ सिद्धान्तमुक्तावली _श्लोक_११-१२ पर ४ खण्डों में विस्तृत विवेचन हुआ।</div>
+    <a href="#toc" class="back-top">↑ अनुक्रमणिका पर जाएँ</a>
+  </div>
+</div>
 
 <footer>
   <p>॥ श्रीकृष्णाय नमः ॥</p>
-  <p>श्रीवल्लभाचार्य विद्यापीठ, हालोल — नित्य पुष्टिस्वाध्याय</p>
-  <p class="small">यह दस्तावेज़ स्वाध्याय हेतु निर्मित है। सर्वाधिकार सुरक्षित।</p>
-  <p class="small">⚠ AI-generated description — refer to video for any discrepancy: <a href="https://www.youtube.com/watch?v=M-t6pxmxyts" style="color:#FFCC00;">https://www.youtube.com/watch?v=M-t6pxmxyts</a></p>
+  <p>सिद्धान्तमुक्तावली · श्रीवल्लभाचार्य विद्यापीठ, हालोल</p>
+  <p class="small">यह संकलन स्वाध्याय हेतु निर्मित है। सर्वाधिकार सुरक्षित।</p>
 </footer>
 </body>
 </html>
