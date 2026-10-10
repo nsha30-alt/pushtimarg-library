@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="hi" dir="ltr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>बालबोध: — श्लोक-प्रवाह</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+Devanagari:wght@400;600;700;900&family=Noto+Sans+Devanagari:wght@300;400;500;600&display=swap">
+<style>
+/* ─── DESIGN TOKENS ───────────────────────────────────────────────────────
+   Layout : full-viewport slide deck, centered content column
+   Palette: deep indigo-black · burnished gold · saffron-crimson
+   Type   : Noto Serif Devanagari (display/shlokas) + Noto Sans Devanagari
+   ──────────────────────────────────────────────────────────────────────── */
+:root {
+  --bg:         #0d0906;
+  --surface:    #1a1008;
+  --border:     #2e1e08;
+  --gold:       #c49a2b;
+  --gold-hi:    #e8c158;
+  --gold-lo:    #6e521a;
+  --saffron:    #c05010;
+  --crimson:    #7a1818;
+  --text:       #f0e0c0;
+  --text-soft:  #c8a870;
+  --muted:      #7a5e38;
+  color-scheme: dark;
+}
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { height: 100%; overflow: hidden; background: var(--bg); color: var(--text); }
+body {
+  font-family: 'Noto Sans Devanagari', 'Mangal', sans-serif;
+  line-height: 1.7;
+}
+
+/* ─── PROGRESS ─── */
+#progress {
+  position: fixed; top: 0; left: 0; z-index: 200;
+  height: 2px;
+  background: linear-gradient(90deg, var(--saffron), var(--gold-hi));
+  transition: width 0.55s ease;
+  pointer-events: none;
+}
+
+/* ─── MANDALA BACKGROUND ─── */
+#mandala {
+  position: fixed; inset: 0; z-index: 0;
+  display: flex; align-items: center; justify-content: center;
+  pointer-events: none; opacity: 0.05;
+}
+#mandala svg {
+  width: min(90vmin, 700px); height: min(90vmin, 700px);
+  animation: spin 180s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* ─── DECK ─── */
+#deck { position: relative; width: 100%; height: 100%; z-index: 1; }
+
+.slide {
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 3rem 1.5rem 5rem;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.6s ease;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+.slide-inner {
+  width: 100%; max-width: 720px;
+  display: flex; flex-direction: column;
+  align-items: center; gap: 1.1rem;
+  text-align: center;
+  padding-block: 0.5rem;
+}
+
+/* ─── TYPE ─── */
+.tag {
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 500;
+}
+.badge {
+  display: inline-flex; align-items: center;
+  font-size: 0.75rem; letter-spacing: 0.1em;
+  color: var(--gold);
+  border: 1px solid var(--gold-lo);
+  padding: 0.22rem 0.9rem;
+  border-radius: 100px;
+  background: rgba(196,154,43,0.08);
+}
+.shloka {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(1.05rem, 2.6vw, 1.4rem);
+  font-weight: 700;
+  color: var(--gold-hi);
+  line-height: 1.85;
+  text-shadow: 0 0 40px rgba(232,193,88,0.2);
+  padding: 1.2rem 1.4rem;
+  border-top: 1px solid var(--gold-lo);
+  border-bottom: 1px solid var(--gold-lo);
+  border-radius: 3px;
+  background: rgba(196,154,43,0.04);
+  width: 100%;
+  white-space: pre-line;
+}
+.slide-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(1.5rem, 4.5vw, 2.1rem);
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+.slide-body {
+  font-size: clamp(0.9rem, 2vw, 1.02rem);
+  color: var(--text-soft);
+  max-width: 58ch;
+  line-height: 1.95;
+  text-wrap: pretty;
+}
+.concept {
+  font-size: 0.83rem;
+  padding: 0.32rem 1.1rem;
+  background: rgba(196,154,43,0.1);
+  border: 1px solid var(--gold-lo);
+  border-radius: 100px;
+  color: var(--gold);
+  letter-spacing: 0.03em;
+}
+.rule {
+  width: 120px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-lo), transparent);
+}
+
+/* ─── COVER ─── */
+.cover-om {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(3rem, 12vmin, 5.5rem);
+  font-weight: 900;
+  color: var(--gold);
+  text-shadow: 0 0 80px rgba(196,154,43,0.5), 0 0 160px rgba(196,154,43,0.2);
+  line-height: 1;
+  animation: glow 3s ease-in-out infinite alternate;
+}
+@keyframes glow {
+  from { text-shadow: 0 0 60px rgba(196,154,43,0.4); }
+  to   { text-shadow: 0 0 100px rgba(196,154,43,0.7), 0 0 200px rgba(196,154,43,0.3); }
+}
+.cover-title {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(2.2rem, 7vw, 3.8rem);
+  font-weight: 900;
+  color: var(--text);
+  letter-spacing: 0.02em;
+  line-height: 1.2;
+}
+.cover-sub {
+  font-size: 0.82rem;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold-lo);
+}
+.cover-meta {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.9;
+}
+.cover-start {
+  margin-top: 0.5rem;
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold-lo);
+  animation: pulse 2s ease-in-out infinite;
+}
+@keyframes pulse { 50% { opacity: 0.3; } }
+
+/* ─── FINALE ─── */
+.finale-list {
+  list-style: none;
+  display: flex; flex-direction: column; gap: 0.7rem;
+  width: 100%; max-width: 580px; text-align: left;
+}
+.finale-list li {
+  display: flex; gap: 0.8rem; align-items: flex-start;
+  font-size: 0.94rem; color: var(--text-soft); line-height: 1.65;
+}
+.finale-list li::before {
+  content: '॰';
+  color: var(--gold); font-size: 1.1rem; flex-shrink: 0; margin-top: 1px;
+}
+.finale-closing {
+  font-family: 'Noto Serif Devanagari', serif;
+  font-size: clamp(1.1rem, 3vw, 1.4rem);
+  font-weight: 700;
+  color: var(--gold-hi);
+  text-shadow: 0 0 30px rgba(232,193,88,0.3);
+}
+
+/* ─── NAV ─── */
+#nav {
+  position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: center; gap: 1.25rem;
+  padding: 0.75rem 1rem;
+  padding-bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, rgba(13,9,6,0.97) 0%, transparent 100%);
+}
+.nav-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--gold-lo);
+  width: 2.4rem; height: 2.4rem;
+  border-radius: 50%;
+  cursor: pointer; font-size: 1rem;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.2s, color 0.2s;
+  -webkit-tap-highlight-color: transparent;
+}
+.nav-btn:hover:not(:disabled) { border-color: var(--gold); color: var(--gold); }
+.nav-btn:disabled { opacity: 0.2; cursor: default; }
+#counter {
+  font-size: 0.75rem; color: var(--muted);
+  letter-spacing: 0.1em; min-width: 4.5rem; text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+/* ─── DOTS ─── */
+#dots {
+  position: fixed; right: 1.1rem; top: 50%; transform: translateY(-50%);
+  display: flex; flex-direction: column; gap: 6px; z-index: 100;
+}
+.dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  background: var(--border);
+  cursor: pointer;
+  transition: background 0.3s, transform 0.3s;
+}
+.dot.on { background: var(--gold); transform: scale(1.6); }
+
+/* ─── KEY HINT ─── */
+#hint {
+  position: fixed; top: 1.2rem; left: 50%; transform: translateX(-50%);
+  font-size: 0.66rem; letter-spacing: 0.12em; color: var(--muted);
+  z-index: 100; white-space: nowrap; pointer-events: none;
+  animation: fadeOut 5s ease forwards;
+}
+@keyframes fadeOut { 0%,60% { opacity: 0.7; } 100% { opacity: 0; } }
+
+@media (max-width: 480px) {
+  .slide { padding: 1.5rem 1rem 5rem; }
+  #dots { display: none; }
+  .shloka { font-size: 0.98rem; padding: 1rem; }
+  .slide-title { font-size: 1.4rem; }
+}
+@media (prefers-reduced-motion: reduce) {
+  #mandala svg { animation: none; }
+  .cover-om { animation: none; }
+  .cover-start { animation: none; }
+  .slide { transition: opacity 0.15s; }
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div id="mandala">
+  <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#c49a2b" stroke-width="0.5">
+    <!-- Outer ring petals -->
+    <circle cx="200" cy="200" r="190" stroke-width="0.4"/>
+    <circle cx="200" cy="200" r="175"/>
+    <circle cx="200" cy="200" r="155" stroke-dasharray="4 6"/>
+    <!-- 16 outer petals -->
+    <g id="op">
+      <ellipse cx="200" cy="25" rx="8" ry="22"/>
+    </g>
+    <use href="#op" transform="rotate(22.5,200,200)"/>
+    <use href="#op" transform="rotate(45,200,200)"/>
+    <use href="#op" transform="rotate(67.5,200,200)"/>
+    <use href="#op" transform="rotate(90,200,200)"/>
+    <use href="#op" transform="rotate(112.5,200,200)"/>
+    <use href="#op" transform="rotate(135,200,200)"/>
+    <use href="#op" transform="rotate(157.5,200,200)"/>
+    <use href="#op" transform="rotate(180,200,200)"/>
+    <use href="#op" transform="rotate(202.5,200,200)"/>
+    <use href="#op" transform="rotate(225,200,200)"/>
+    <use href="#op" transform="rotate(247.5,200,200)"/>
+    <use href="#op" transform="rotate(270,200,200)"/>
+    <use href="#op" transform="rotate(292.5,200,200)"/>
+    <use href="#op" transform="rotate(315,200,200)"/>
+    <use href="#op" transform="rotate(337.5,200,200)"/>
+    <!-- Middle ring -->
+    <circle cx="200" cy="200" r="120"/>
+    <circle cx="200" cy="200" r="100" stroke-dasharray="8 4"/>
+    <!-- 8 middle petals -->
+    <g id="mp">
+      <ellipse cx="200" cy="95" rx="10" ry="28"/>
+    </g>
+    <use href="#mp" transform="rotate(45,200,200)"/>
+    <use href="#mp" transform="rotate(90,200,200)"/>
+    <use href="#mp" transform="rotate(135,200,200)"/>
+    <use href="#mp" transform="rotate(180,200,200)"/>
+    <use href="#mp" transform="rotate(225,200,200)"/>
+    <use href="#mp" transform="rotate(270,200,200)"/>
+    <use href="#mp" transform="rotate(315,200,200)"/>
+    <!-- Inner lotus -->
+    <circle cx="200" cy="200" r="70"/>
+    <circle cx="200" cy="200" r="52"/>
+    <g id="ip">
+      <ellipse cx="200" cy="148" rx="9" ry="20"/>
+    </g>
+    <use href="#ip" transform="rotate(45,200,200)"/>
+    <use href="#ip" transform="rotate(90,200,200)"/>
+    <use href="#ip" transform="rotate(135,200,200)"/>
+    <use href="#ip" transform="rotate(180,200,200)"/>
+    <use href="#ip" transform="rotate(225,200,200)"/>
+    <use href="#ip" transform="rotate(270,200,200)"/>
+    <use href="#ip" transform="rotate(315,200,200)"/>
+    <!-- Center -->
+    <circle cx="200" cy="200" r="28" stroke-width="0.6"/>
+    <circle cx="200" cy="200" r="18"/>
+    <circle cx="200" cy="200" r="8" stroke-width="1"/>
+    <!-- Spokes -->
+    <line x1="200" y1="172" x2="200" y2="155"/>
+    <line x1="200" y1="228" x2="200" y2="245"/>
+    <line x1="172" y1="200" x2="155" y2="200"/>
+    <line x1="228" y1="200" x2="245" y2="200"/>
+    <line x1="180" y1="180" x2="169" y2="169"/>
+    <line x1="220" y1="220" x2="231" y2="231"/>
+    <line x1="220" y1="180" x2="231" y2="169"/>
+    <line x1="180" y1="220" x2="169" y2="231"/>
+  </svg>
+</div>
+
+<div id="deck"></div>
+
+<div id="nav">
+  <button class="nav-btn" id="prev" aria-label="पिछला">&#8592;</button>
+  <div id="counter">1 / 17</div>
+  <button class="nav-btn" id="next" aria-label="अगला">&#8594;</button>
+</div>
+
+<div id="dots"></div>
+<div id="hint">← → कुंजी या बटन से आगे बढ़ें</div>
+
+<script>
+const SLIDES = [
+  // 0 — Cover
+  { t: 'cover' },
+  // 1 — Intro
+  {
+    t: 'section',
+    tag: 'परिचय',
+    title: 'बालबोध: ग्रन्थ का प्रयोजन',
+    body: 'जो जीव अपने हित-अहित को नहीं जानते — जिन्हें पुष्टिमार्ग और अन्य आध्यात्मिक मार्गों के भेद को समझने में कठिनाई थी — उन्हें बोध देने के लिए श्रीमहाप्रभुजी ने यह ग्रन्थ रचा।\n\nवि. सं. १५५० में पुष्करराज में रचित · अम्बाला के नारायणदास कायस्थ के लिए। षोडशग्रन्थों की एकसूत्रता है: पुरुषोत्तम सेवनम् — श्रीकृष्ण की सेवा।',
+    concept: 'षोडशग्रन्थों की एकसूत्रता: पुरुषोत्तम सेवनम्',
+  },
+  // 2 — Shloka 1
+  {
+    t: 'shloka',
+    num: 'श्लोक १',
+    shloka: 'नत्वा हरिं सदानन्दं सर्व-सिद्धान्त-सङ्ग्रहम्।\nबाल-प्रबोधनार्थाय वदामि सुविनिश्चितम्॥',
+    title: 'मङ्गलाचरण',
+    body: 'भक्तों के दुःख-पाप हरने वाले सदानन्द श्रीकृष्ण को नमन करके — जो समस्त सिद्धान्तों के संग्रह हैं — बालकों को सुबोध हो ऐसा सुनिश्चित सत्य कहता हूँ।',
+    concept: 'सर्व-सिद्धान्त-सङ्ग्रह = भगवान् श्रीकृष्ण',
+  },
+  // 3 — Shloka 2
+  {
+    t: 'shloka',
+    num: 'श्लोक २',
+    shloka: 'धर्मार्थ-काम-मोक्षाख्याश् चत्वारोऽर्था मनीषिणाम्।\nजीवेश्वर-विचारेण द्विधा ते हि विचारिता:॥',
+    title: 'चतुर्विध पुरुषार्थ',
+    body: 'धर्म, अर्थ, काम और मोक्ष — ये चार पुरुषार्थ बुद्धिमानों के लिए हैं। जीव और ईश्वर — दोनों के विचार से ये दो प्रकार के हैं।',
+    concept: 'जीव-विचारित vs ईश्वर-विचारित',
+  },
+  // 4 — Shloka 3
+  {
+    t: 'shloka',
+    num: 'श्लोक ३',
+    shloka: 'अलौकिकास्तु वेदोक्ता: साध्य-साधन-संयुता:।\nलौकिका ऋषिभि: प्रोक्तास् तथैवेश्वरशिक्षया॥',
+    title: 'अलौकिक और लौकिक',
+    body: 'अलौकिक पुरुषार्थ वेद में स्थित हैं — साध्य और साधन सहित। लौकिक पुरुषार्थों का निरूपण ऋषियों ने ईश्वर की शिक्षा के अनुसार किया।',
+    concept: 'अलौकिक = वेदाधिष्ठित · लौकिक = ऋषिप्रोक्त',
+  },
+  // 5 — Shloka 4
+  {
+    t: 'shloka',
+    num: 'श्लोक ४',
+    shloka: 'धर्मशास्त्राणि नीतिश्च कामशास्त्राणि क्रमात्।\nत्रिवर्ग-साधकानीति न तन्निर्णय उच्यते॥',
+    title: 'त्रिवर्ग के साधन-शास्त्र',
+    body: 'धर्मशास्त्र, नीतिशास्त्र और कामशास्त्र — ये तीनों क्रमशः त्रिवर्ग (धर्म-अर्थ-काम) के साधक हैं। कलिकाल में इनकी सिद्धि अत्यन्त कठिन है।',
+    concept: 'त्रिवर्ग = धर्म + अर्थ + काम',
+  },
+  // 6 — Shloka 5-6
+  {
+    t: 'shloka',
+    num: 'श्लोक ५–६',
+    shloka: 'मोक्षे चत्वारि शास्त्राणि लौकिके परत: स्वत:॥\nद्विधा द्वे-द्वे स्वतस् तत्र सांख्य-योगौ प्रकीर्तितौ।',
+    title: 'मोक्ष के चार मार्ग',
+    body: 'मोक्ष में चार शास्त्र हैं — दो स्वतः (जीवाधीन) और दो परतः (ईश्वराधीन)। स्वतः मोक्ष में सांख्य और योग — दोनों प्रसिद्ध हैं।',
+    concept: 'स्वतः मोक्ष = सांख्य + योग',
+  },
+  // 7 — Shloka 7
+  {
+    t: 'shloka',
+    num: 'श्लोक ७',
+    shloka: 'अहन्ता-ममतानाशे सर्वथा निरहङ्कृतौ।\nयदा जीव: स्वरूपस्थ: स: कृतार्थो निगद्यते॥',
+    title: 'कृतार्थता का स्वरूप',
+    body: 'अहन्ता और ममता के नाश से — सर्वथा अहंकार-शून्य होने पर — जब जीव अपने स्वरूप में स्थित हो जाए, तब वह कृतार्थ कहलाता है।',
+    concept: 'अहन्ता-ममता-नाश → स्वरूपस्थ → कृतार्थता',
+  },
+  // 8 — Shloka 8-9
+  {
+    t: 'shloka',
+    num: 'श्लोक ८–९',
+    shloka: 'तदर्थं प्रक्रिया काचित् पुराणेऽपि निरूपिता।\nऋषिभिर् बहुधा प्रोक्ता फलम् एकम् अबाह्यत:॥',
+    title: 'सांख्य और योगमार्ग',
+    body: 'पुराणों में भी इसकी प्रक्रिया निरूपित है। सांख्य में बाह्य त्याग और योग में मनसा त्याग — दोनों का फल एक है। योग सिद्ध होने पर कृतार्थता।',
+    concept: 'सांख्य = बाह्य त्याग · योग = मनसा त्याग',
+  },
+  // 9 — Shloka 10-11
+  {
+    t: 'shloka',
+    num: 'श्लोक १०–११',
+    shloka: 'पराश्रयेण मोक्षस्तु द्विधा सोऽपि निरूप्यते।\nअत: शिवश्च विष्णुश्च जगतो हितकारकौ॥',
+    title: 'परतः मोक्ष — शिव और विष्णु',
+    body: 'परतः मोक्ष दो प्रकार का है। ब्रह्माजी मोक्षदाता नहीं — वे सृष्टि-पालन-कर्ता हैं। शिव और विष्णु — दोनों जगत के हितकारक हैं, वस्तु के स्थिति और संहार कार्य वाले।',
+    concept: 'ब्रह्मा ≠ मोक्षदाता · शिव-विष्णु = हितकारक',
+  },
+  // 10 — Shloka 12
+  {
+    t: 'shloka',
+    num: 'श्लोक १२',
+    shloka: 'ब्रह्मैव तादृशं यस्मात् सर्वात्मकतयोदितौ॥\nनिर्दोष-पूर्ण-गुणता तत्-तच्छास्त्रे तयो: कृता।',
+    title: 'ब्रह्म की सर्वात्मकता',
+    body: 'क्योंकि वे ब्रह्म ही हैं — इसीलिए दोनों शास्त्रों में उन्हें सर्वात्मक कहा गया है। शिवशास्त्र में शिव की और विष्णुशास्त्र में विष्णु की निर्दोष-पूर्ण-गुणता बताई गई है।',
+    concept: 'दोनों ब्रह्मस्वरूप · सर्वात्मकता',
+  },
+  // 11 — Shloka 13
+  {
+    t: 'shloka',
+    num: 'श्लोक १३',
+    shloka: 'भोग-मोक्ष-फले दातुं शक्तौ द्वावपि यद्यपि॥\nभोग: शिवेन मोक्षस्तु विष्णुनेति विनिश्चय:॥',
+    title: 'भोग और मोक्ष का विनिश्चय',
+    body: 'यद्यपि भोग और मोक्ष देने में दोनों समर्थ हैं, तथापि यह पक्का निश्चय है — शिव से भोग, विष्णु से मोक्ष। जैसे स्वामी अपनी सर्वाधिक प्रिय वस्तु किसी को नहीं देता।',
+    concept: 'शिव → भोग  ·  विष्णु → मोक्ष',
+  },
+  // 12 — Shloka 14-15
+  {
+    t: 'shloka',
+    num: 'श्लोक १४–१५',
+    shloka: 'लोकेऽपि यत् प्रभुर्भुंक्ते तन्न यच्छति कर्हिचित्॥\nनियतार्थ-प्रदानेन तदीयत्वं तदाश्रय:॥',
+    title: 'तदीयत्व और तदाश्रय',
+    body: 'लोक में भी जो वस्तु स्वामी स्वयं भोगता है, वह कभी दूसरे को नहीं देता। नियत अर्थ के प्रदान से — और जो भगवान का अत्यन्त प्रिय हो उसे — तदीयत्व (भगवदीयपन) और तदाश्रय मिलता है।',
+    concept: 'तदीयत्व = भगवदीयपन · तदाश्रय = भगवत्शरण',
+  },
+  // 13 — Shloka 16
+  {
+    t: 'shloka',
+    num: 'श्लोक १६',
+    shloka: 'जीवा: स्वभावतो दुष्टा दोषाभावाय सर्वदा॥\nश्रवणादि तत: प्रेम्णा सर्वं कार्यं हि सिद्ध्यति।',
+    title: 'जीव के दोष और श्रवणादि',
+    body: 'जीव स्वभाव से दोषयुक्त हैं। दोषों को दूर करने के लिए निरन्तर श्रवण आदि करते रहना चाहिए। प्रेम से समस्त कार्य अवश्य सिद्ध होते हैं।',
+    concept: 'श्रवण → कीर्तन → स्मरण → दोष-निवृत्ति → प्रेम',
+  },
+  // 14 — Shloka 17
+  {
+    t: 'shloka',
+    num: 'श्लोक १७',
+    shloka: 'मोक्षस्तु सुलभो विष्णोर् भोगश्च शिवतस् तथा।\nसमर्पणेन आत्मनो हि तदीयत्वं भवेद् ध्रुवम्॥',
+    title: 'आत्म-समर्पण का महत्व',
+    body: 'विष्णु से मोक्ष सुलभ है और शिव से भोग। आत्मा के समर्पण से निश्चित रूप से तदीयत्व — भगवदीयपन — सिद्ध होता है।',
+    concept: 'आत्म-समर्पण → तदीयत्व → मोक्ष',
+  },
+  // 15 — Shloka 18
+  {
+    t: 'shloka',
+    num: 'श्लोक १८',
+    shloka: 'अतदीयतया चापि केवलश् चेत् समाश्रित:।\nस्वधर्मम् अनुतिष्ठन् वै भार-द्वैगुण्यम् अन्यथा॥',
+    title: 'स्वधर्म और आश्रय',
+    body: 'यदि तदीयत्व सिद्ध न हो और केवल आश्रय मात्र हो — तदाश्रय और तदीयत्व की बुद्धि के बिना — तो स्वधर्म का पालन करते हुए भार दोगुना हो जाता है।',
+    concept: 'स्वधर्म + भगवदाश्रय-बुद्धि = पुष्टिमार्ग',
+  },
+  // 16 — Shloka 19 + Finale
+  {
+    t: 'finale',
+    num: 'श्लोक १९',
+    shloka: 'इत्येवं कथितं सर्वं नैतज्ज्ञाने भ्रम: पुन:॥\n॥ इति श्रीवल्लभाचार्यविरचितो बालबोध: सम्पूर्ण:॥',
+    title: 'बालबोध: का सार',
+    items: [
+      'पुरुषार्थ चार: धर्म · अर्थ · काम · मोक्ष',
+      'मोक्ष के दो मार्ग: स्वतः (सांख्य-योग) और परतः (शिव-विष्णु)',
+      'शिव से भोग, विष्णु से मोक्ष — यही पक्का निश्चय',
+      'जीव स्वभावतः दोषयुक्त — श्रवणादि से निवृत्ति होती है',
+      'आत्म-समर्पण से तदीयत्व और भगवत्कृपा',
+      'स्वधर्म + भगवदाश्रय-बुद्धि = पुष्टिमार्ग का द्वार',
+    ],
+    closing: '॥ श्रीकृष्णसेवा एव परम पुरुषार्थ: ॥',
+  },
+];
+
+const deck = document.getElementById('deck');
+const dotsEl = document.getElementById('dots');
+const prevBtn = document.getElementById('prev');
+const nextBtn = document.getElementById('next');
+const counter = document.getElementById('counter');
+const progress = document.getElementById('progress');
+const N = SLIDES.length;
+let cur = 0;
+
+function buildSlides() {
+  SLIDES.forEach((s, i) => {
+    const el = document.createElement('div');
+    el.className = 'slide' + (i === 0 ? ' active' : '');
+    el.dataset.i = i;
+
+    if (s.t === 'cover') {
+      el.innerHTML = `
+        <div class="slide-inner">
+          <div class="cover-om">॥</div>
+          <div class="cover-title">बालबोध:</div>
+          <div class="cover-sub">षोडशग्रन्थ · श्रीवल्लभाचार्यजी विरचित</div>
+          <div class="rule"></div>
+          <div class="cover-meta">
+            वि. सं. १५५०, पुष्करराज में रचित<br>
+            नारायणदास कायस्थ के लिए<br>
+            १९ श्लोकों में पुष्टिमार्ग का द्वार
+          </div>
+          <div class="cover-start">→ आगे बढ़ें</div>
+        </div>`;
+    } else if (s.t === 'section') {
+      el.innerHTML = `
+        <div class="slide-inner">
+          <div class="badge">${s.tag}</div>
+          <div class="slide-title">${s.title}</div>
+          <div class="rule"></div>
+          <div class="slide-body" style="white-space:pre-line">${s.body}</div>
+          <div class="concept">${s.concept}</div>
+        </div>`;
+    } else if (s.t === 'shloka') {
+      el.innerHTML = `
+        <div class="slide-inner">
+          <div class="badge">${s.num}</div>
+          <div class="shloka">${s.shloka}</div>
+          <div class="slide-title">${s.title}</div>
+          <div class="slide-body">${s.body}</div>
+          <div class="concept">${s.concept}</div>
+        </div>`;
+    } else if (s.t === 'finale') {
+      const items = s.items.map(x => `<li>${x}</li>`).join('');
+      el.innerHTML = `
+        <div class="slide-inner">
+          <div class="badge">${s.num}</div>
+          <div class="shloka">${s.shloka}</div>
+          <div class="slide-title">${s.title}</div>
+          <ul class="finale-list">${items}</ul>
+          <div class="rule"></div>
+          <div class="finale-closing">${s.closing}</div>
+        </div>`;
+    }
+
+    deck.appendChild(el);
+
+    const dot = document.createElement('div');
+    dot.className = 'dot' + (i === 0 ? ' on' : '');
+    dot.title = i + 1;
+    dot.onclick = () => goTo(i);
+    dotsEl.appendChild(dot);
+  });
+}
+
+const slides = () => deck.querySelectorAll('.slide');
+const dots = () => dotsEl.querySelectorAll('.dot');
+
+function goTo(n) {
+  if (n < 0 || n >= N) return;
+  slides()[cur].classList.remove('active');
+  dots()[cur].classList.remove('on');
+  cur = n;
+  slides()[cur].classList.add('active');
+  dots()[cur].classList.add('on');
+  prevBtn.disabled = cur === 0;
+  nextBtn.disabled = cur === N - 1;
+  counter.textContent = (cur + 1) + ' / ' + N;
+  progress.style.width = ((cur + 1) / N * 100) + '%';
+  // Reset scroll on the new slide
+  slides()[cur].scrollTop = 0;
+}
+
+prevBtn.onclick = () => goTo(cur - 1);
+nextBtn.onclick = () => goTo(cur + 1);
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') goTo(cur + 1);
+  if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   goTo(cur - 1);
+});
+
+// Touch swipe
+let tx = 0;
+deck.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+deck.addEventListener('touchend', e => {
+  const dx = e.changedTouches[0].clientX - tx;
+  if (Math.abs(dx) > 50) goTo(cur + (dx < 0 ? 1 : -1));
+}, { passive: true });
+
+buildSlides();
+goTo(0);
+</script>
+</body>
+</html>
