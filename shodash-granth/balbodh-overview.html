@@ -15,12 +15,12 @@
   color-scheme: light;
 }
 *, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
-html, body { height:100%; overflow:hidden; background:var(--cream); color:var(--body); }
+html, body { height:100%; overflow:hidden; background:#6a0a0a; color:var(--cream); }
 body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65; user-select:none; }
 
 #bg {
   position:fixed; inset:0; z-index:0;
-  background:linear-gradient(135deg, #fff0e0 0%, #ffe4cc 40%, #ffd5a0 100%);
+  background:linear-gradient(135deg, #6a0a0a 0%, #8b1515 40%, #a02020 100%);
 }
 #progress {
   position:fixed; top:0; left:0; z-index:200; height:3px;
@@ -96,7 +96,7 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
   font-size:.78rem; letter-spacing:.1em; text-transform:uppercase;
   color:var(--orange); margin-bottom:.25rem; display:block;
 }
-.cell .val { font-size:1rem; color:var(--dark-red); line-height:1.5; font-weight:600; }
+.cell .val { font-size:1rem; color:#3d0a00; line-height:1.5; font-weight:600; }
 .cell .ico { font-size:1.3rem; display:block; margin-bottom:.2rem; }
 .cell.hl { border-color:var(--orange); background:linear-gradient(145deg,#fff3e0,#ffe6cc); box-shadow:3px 3px 8px rgba(224,96,16,.2),-1px -1px 4px rgba(255,255,255,.9); }
 .cell.hl .val { color:var(--red); font-weight:700; }
@@ -108,7 +108,7 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 
 /* ── FLOW ── */
 .flow { display:flex; align-items:center; gap:.4rem; justify-content:center; flex-wrap:wrap; }
-.fstep { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:.45rem .85rem; font-size:.95rem; color:var(--body); white-space:nowrap; }
+.fstep { background:var(--card); border:1px solid var(--border); border-radius:6px; padding:.45rem .85rem; font-size:.95rem; color:#3d0a00; white-space:nowrap; }
 .farr { color:rgba(245,197,24,.6); font-size:1rem; flex-shrink:0; }
 
 /* ── COMPARE TABLE ── */
@@ -122,7 +122,7 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
   width:100%; background:rgba(255,255,255,.05);
   border-left:3px solid rgba(245,197,24,.5);
   border-radius:0 6px 6px 0;
-  padding:.65rem 1.1rem; font-size:1rem; color:var(--body);
+  padding:.65rem 1.1rem; font-size:1rem; color:var(--cream);
   line-height:1.8; text-align:left; margin-top:.15rem;
 }
 .desc-lbl { color:var(--yellow); font-weight:700; font-size:.9rem;
@@ -141,17 +141,17 @@ body { font-family:'Noto Sans Devanagari','Mangal',sans-serif; line-height:1.65;
 .cover-logo { width:86px; height:86px; border-radius:50%; border:3px solid var(--yellow); box-shadow:0 0 0 5px rgba(245,197,24,.2),0 4px 20px rgba(0,0,0,.5); object-fit:cover; }
 .cover-title { font-family:'Noto Serif Devanagari',serif; font-weight:900; font-size:clamp(2.1rem,6.5vw,3.6rem); color:var(--yellow); text-shadow:0 0 40px rgba(245,197,24,.4),2px 2px 6px rgba(0,0,0,.6); line-height:1.15; }
 .cover-sub { font-size:.79rem; letter-spacing:.17em; text-transform:uppercase; color:rgba(255,220,140,.75); }
-.cover-card { background:var(--card); border:1px solid var(--border); border-radius:9px; padding:.75rem 1.3rem; font-size:.86rem; color:var(--body); line-height:1.85; backdrop-filter:blur(4px); }
+.cover-card { background:var(--card); border:1px solid var(--border); border-radius:9px; padding:.75rem 1.3rem; font-size:.86rem; color:#3d0a00; line-height:1.85; backdrop-filter:blur(4px); }
 .cover-strip { font-size:.7rem; letter-spacing:.06em; color:rgba(255,220,140,.65); border-top:1px solid rgba(245,197,24,.2); padding-top:.45rem; width:100%; }
 .cover-start { font-size:.68rem; letter-spacing:.2em; text-transform:uppercase; color:rgba(245,197,24,.5); animation:pulse 2s ease-in-out infinite; }
 @keyframes pulse { 50% { opacity:.25; } }
 
 /* ── SECTION SLIDE ── */
-.sec-body { font-size:clamp(1rem,2vw,1.2rem); color:var(--body); max-width:58ch; line-height:1.95; text-wrap:pretty; text-align:center; }
+.sec-body { font-size:clamp(1rem,2vw,1.2rem); color:var(--cream); max-width:58ch; line-height:1.95; text-wrap:pretty; text-align:center; }
 
 /* ── FINALE ── */
 .flist { list-style:none; display:flex; flex-direction:column; gap:.55rem; width:100%; max-width:600px; text-align:left; }
-.flist li { display:flex; gap:.7rem; align-items:flex-start; font-size:.91rem; color:var(--body); line-height:1.6; background:var(--card); border-left:3px solid var(--gold); padding:.45rem .85rem; border-radius:0 6px 6px 0; }
+.flist li { display:flex; gap:.7rem; align-items:flex-start; font-size:.91rem; color:#3d0a00; line-height:1.6; background:var(--card); border-left:3px solid var(--gold); padding:.45rem .85rem; border-radius:0 6px 6px 0; }
 .flist li::before { content:'॰'; color:var(--yellow); font-size:1.05rem; flex-shrink:0; }
 .fclose { font-family:'Noto Serif Devanagari',serif; font-size:clamp(1rem,2.6vw,1.3rem); font-weight:700; color:var(--yellow); text-shadow:0 0 20px rgba(245,197,24,.35); }
 
